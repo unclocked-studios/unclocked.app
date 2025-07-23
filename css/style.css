@@ -1,28 +1,45 @@
-
-body {
-    font-family: system-ui, sans-serif;
+/* Ensure full height layout */
+html, body {
+    height: 100%;
     margin: 0;
     padding: 0;
+}
+
+/* Flex layout to push footer to bottom */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: system-ui, sans-serif;
     background: #f4f4f4;
 }
+
+/* Header styles */
 header {
     background: #000;
     color: #fff;
     padding: 1rem;
     text-align: center;
 }
+
+/* Navigation links */
 nav a {
     color: #fff;
     margin: 0 1rem;
     text-decoration: none;
 }
+
+/* Main content should grow to fill space */
 main {
+    flex: 1;
     padding: 2rem;
     background: #fff;
     margin: 1rem auto;
     max-width: 800px;
     border-radius: 8px;
 }
+
+/* Footer sticks to bottom */
 footer {
     text-align: center;
     padding: 1rem;
