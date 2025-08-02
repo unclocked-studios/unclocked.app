@@ -1,31 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Unclocked</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unclocked Studios</title>
+  <link rel="stylesheet" href="/css/style.css" />
 </head>
 
 <body>
-    <!-- start of header -->
-    <header>
-        <h1>Unclocked</h1>
-        <nav>
-            <a href="/twenty5">Twenty5 App</a>
-        </nav>
-    </header>
+  <header>
+    <div class="logo-container">
+      <div class="logo-wrapper">
+        <img src="/assets/unclocked-studios-logo.svg" alt="Unclocked Studios Logo">
+      </div>
+      <span class="logo-text">Unclocked Studios</span>
+    </div>
 
-    <!-- start of main -->
-    <main>
-        <h2>Welcome to Unclocked</h2>
-        <p>Apps built with purpose, for people who want to grow.</p>
-    </main>
+    <nav>
+      <ul>
+        <li><a href="/index.html">Home</a></li>
+        <li class="dropdown">Apps ▾
+          <div class="dropdown-content">
+            <a href="#twenty5">twenty5</a>
+          </div>
+        </li>
+        <li><a href="#about">About</a></li>
+        <li><a href="/twenty5/index.html">Support</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <!-- start of footer -->
-    <footer>
-      <p>&copy; 2025 Unclocked Studios. All rights reserved.</p>
-    </footer>
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Building the Future of iOS Experiences</h1>
+      <p>
+        Unclocked Studios crafts intuitive and elegant apps that empower users to improve their lives—starting with
+        health and fitness.
+      </p>
+      <div class="hero-buttons">
+        <a href="#apps" class="btn-primary">View Our Apps</a>
+        <a href="#about" class="btn-secondary">Learn More</a>
+      </div>
+    </div>
+    <!-- <div class="hero-image">
+      <img src="twenty5-mockup.png" alt="App Mockup" style="max-width: 300px; border-radius: 20px;">
+    </div> -->
+  </section>
 
+  <section class="section" id="about">
+    <h2>About Unclocked Studios</h2>
+    <p>
+      Founded in Pennsylvania, Unclocked Studios is an independent iOS development company with one simple goal:
+      to create meaningful, high-quality apps that users can truly own. In a world increasingly dominated by
+      subscriptions and paywalls, we believe in offering tools that provide long-term value without locking you
+      into monthly fees.
+    </p>
+    <p>
+      Unclocked Studios is currently a one-person effort — every feature you see is hand-crafted, coded, and
+      designed by a single developer passionate about building useful apps. This means updates may take time,
+      but it also means every decision is made with care and with users in mind.
+    </p>
+    <p>
+      We started with health and fitness through our flagship app, <strong>twenty5</strong>, but our mission goes
+      further —
+      to deliver intuitive, empowering apps for productivity, lifestyle, and beyond — all while helping normalize
+      user ownership again.
+    </p>
+  </section>
+
+
+
+  <section class="section" id="apps" style="background-color: var(--light-blue);">
+    <h2>Our Apps</h2>
+    <p>
+      <strong>twenty5</strong> — a powerful yet simple workout tracker built to help you take control of your fitness
+      journey.
+      Log your workouts, track progress over time, and stay motivated with tools designed to support your goals without
+      unnecessary complexity or subscriptions.
+    </p>
+
+    <img src="assets/twenty5-mockup.png" alt="twenty5 App Screenshot" , id="twenty5"
+      style="margin-top: 1rem; max-width: 175px; border-radius: 12px;">
+  </section>
+
+  <section class="section" id="future">
+    <h2>What’s Next?</h2>
+    <p>
+      We’re just getting started. Unclocked Studios plans to expand into new categories, delivering more tools and
+      experiences for iOS users everywhere. Click <a href="twenty5/upcoming/index.html"> here </a> to check out our
+      roadmap and upcoming features.
+    </p>
+  </section>
+
+  <!-- Contact Form Section -->
+
+  <section class="section" id="contact" style="background-color: var(--cream);">
+
+      <h2>Contact Us</h2>
+      <p>Have a question, found a bug, or want to suggest a feature? Send us an email directly.</p>
+      <p>
+        <a href="mailto:support@unclocked.app?subject=Support%20Request%20from%20Website&body=Hello,%0D%0A%0D%0AI'm%20reaching%20out%20about%20...%20(please%20describe%20your%20issue%20or%20feedback%20here)%0D%0A%0D%0AThank%20you!"
+          style="font-weight: bold; font-size: 1.1rem; color: var(--navy); text-decoration: underline;">
+          📧 Email Us at support@unclocked.app
+        </a>
+      </p>
+
+    <!-- <p>Have a question or feedback? Send us a message below.</p>
+    <form action="https://formspree.io/f/your-form-id" method="POST"
+      style="max-width: 500px; margin: 0 auto; text-align: left;">
+      <label for="name">Name</label><br>
+      <input type="text" id="name" name="name" required
+        style="width: 100%; padding: 8px; margin-bottom: 1rem; border-radius: 6px; border: 1px solid #ccc;">
+
+      <label for="email">Email</label><br>
+      <input type="email" id="email" name="email" required
+        style="width: 100%; padding: 8px; margin-bottom: 1rem; border-radius: 6px; border: 1px solid #ccc;">
+
+      <label for="message">Message</label><br>
+      <textarea id="message" name="message" rows="5" required
+        style="width: 100%; padding: 8px; margin-bottom: 1rem; border-radius: 6px; border: 1px solid #ccc;"></textarea>
+
+      <button type="submit"
+        style="background-color: var(--navy); color: white; padding: 10px 20px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">Send
+        Message</button>
+    </form> -->
+
+  </section>
+
+  <footer>
+    <p>© 2025 Unclocked Studios LLC. All rights reserved.</p>
+    <p>
+      <a href="/twenty5/privacy/index.html">Privacy Policy</a> |
+      <a href="#terms">Terms of Service</a>
+    </p>
+  </footer>
 </body>
 
 </html>
