@@ -1,25 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Twenty5 App</title>
-    <link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support - Unclocked Studios</title>
+  <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
-    <header>
-        <h1>Twenty5</h1>
-        <nav>
-            <a href="/">Home</a>
-            <a href="/twenty5/support">Support</a>
-            <a href="/twenty5/privacy">Privacy</a>
-        </nav>
-    </header>
-    <main>
-        <h2>Your Strength Companion</h2>
-        <p>Track your workouts, build custom programs, and make real progress with Twenty5.</p>
-    </main>
-    <footer>
-      <p>&copy; 2025 Unclocked Studios. All rights reserved.</p>
-    </footer>
+  <header>
+    <div class="logo-container">
+      <div class="logo-wrapper">
+        <img src="/assets/unclocked-studios-logo.svg" alt="Unclocked Studios Logo">
+      </div>
+      <span class="logo-text">Unclocked Studios</span>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="/index.html">Home</a></li>
+        <li class="dropdown"> <a href="#apps">Apps ▾</a>
+          <div class="dropdown-content">
+            <a href="/index.html#twenty5">twenty5</a>
+          </div>
+        </li>
+        <li><a href="/index.html#about">About</a></li>
+        <li><a href="/twenty5/index.html">Support</a></li>
+        <li><a href="/index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Support Hub</h1>
+    <p>Welcome to the Unclocked Studios Support Hub. Choose the app you need help with to access FAQs, troubleshooting tips, and contact options.</p>
+
+    <section class="support-list">
+      <div class="support-item" style="background-color: var(--light-blue); padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+        <h2>twenty5</h2>
+        <p>Our flagship workout tracker. Learn how to get started, troubleshoot issues, and contact support.</p>
+        <a href="/twenty5/support/index.html" style="color: var(--navy); font-weight: bold; text-decoration: underline;">Go to twenty5 Support →</a>
+      </div>
+
+      <!-- Placeholder for future apps -->
+      <div class="support-item" style="background-color: #f7f7f7; padding: 1rem; border-radius: 8px; margin: 1rem 0; opacity: 0.6;">
+        <h2>Future Apps</h2>
+        <p>Support resources for upcoming apps will appear here.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Unclocked Studios LLC. All rights reserved.</p>
+    <p>
+      <a href="/twenty5/privacy/index.html">Privacy Policy</a> |
+      <a href="#terms">Terms of Service</a>
+    </p>
+  </footer>
 </body>
 </html>
