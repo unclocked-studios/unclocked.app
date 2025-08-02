@@ -1,48 +1,303 @@
-/* Ensure full height layout */
-html, body {
-    height: 100%;
+:root {
+    --cream: #EAEAEA;
+    --navy: #133E87;
+    --blue: #608BC1;
+    --light-blue: #CBDCEB;
+}
+
+/* 
+    F5F5F5
+    ECECEC
+    EAEAEA
+*/
+body {
+    margin: 0;
+    font-family: 'Avenir Next', 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--cream);
+    color: var(--navy);
+    line-height: 1.6;
+}
+
+header {
+    background-color: var(--navy);
+    color: var(--cream);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header img {
+    height: 40px;
+}
+
+nav ul {
+    list-style: none;
     margin: 0;
     padding: 0;
-}
-
-/* Flex layout to push footer to bottom */
-body {
     display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    font-family: system-ui, sans-serif;
-    background: #f4f4f4;
+    gap: 1.5rem;
 }
 
-/* Header styles */
-header {
-    background: #000;
-    color: #fff;
-    padding: 1rem;
-    text-align: center;
-}
-
-/* Navigation links */
 nav a {
-    color: #fff;
-    margin: 0 1rem;
+    color: var(--cream);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease-in-out;
+}
+
+nav a:hover {
+    color: var(--blue);
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--light-blue);
+    min-width: 150px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 0.5rem 0;
+    top: 100%;
+    left: 0;
+}
+
+.dropdown-content a {
+    color: var(--navy);
+    padding: 0.5rem 1rem;
+    display: block;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4rem 2rem;
+    background-color: var(--cream);
+}
+
+.hero-text {
+    max-width: 500px;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--navy);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--blue);
+}
+
+.hero-buttons a {
+    display: inline-block;
+    margin-right: 1rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
     text-decoration: none;
 }
 
-/* Main content should grow to fill space */
-main {
-    flex: 1;
-    padding: 2rem;
-    background: #fff;
-    margin: 1rem auto;
-    max-width: 800px;
-    border-radius: 8px;
+.btn-primary {
+    background-color: var(--navy);
+    color: var(--cream);
 }
 
-/* Footer sticks to bottom */
-footer {
+.btn-primary:hover {
+    background-color: var(--blue);
+}
+
+.btn-secondary {
+    border: 2px solid var(--navy);
+    color: var(--navy);
+}
+
+.btn-secondary:hover {
+    background-color: var(--navy);
+    color: var(--cream);
+}
+
+.section {
+    padding: 3rem 2rem;
     text-align: center;
-    padding: 1rem;
-    background: #222;
-    color: #ccc;
+}
+
+.section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.section p {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+}
+
+footer {
+    background-color: var(--navy);
+    color: var(--cream);
+    text-align: center;
+    padding: 1.5rem 1rem;
+    margin-top: 2rem;
+}
+
+footer a {
+    color: var(--light-blue);
+    margin: 0 0.5rem;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.logo-wrapper {
+    background-color: var(--cream);
+    /* your background */
+    border-radius: 8px;
+    /* adjust for how round you want it */
+    padding: 4px;
+    /* spacing between logo and edges */
+    display: inline-block;
+    /* keeps the div only as big as needed */
+}
+
+.logo-wrapper img {
+    display: block;
+    width: 50px;
+    /* adjust logo size */
+    height: auto;
+}
+
+
+.logo-text {
+    font-size: 1.75rem;
+    /* adjust for size */
+    font-weight: 600;
+    color: var(--cream);
+    /* choose a good contrast color */
+    font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1; /* takes up remaining space */
+}
+
+
+
+/* ---------- UPCOMING FEATURES PAGE STYLING ---------- */
+
+/* Main wrapper for feature cards */
+.feature-card {
+  background-color: #fff;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  border-left: 5px solid var(--blue); /* matches your branding */
+}
+
+/* Headings for feature cards */
+.feature-card h2 {
+  margin-top: 0;
+  font-size: 1.3rem;
+  color: var(--navy);
+}
+
+/* Status tag styling (Planned, Coming Soon, etc.) */
+.status-tag {
+  display: inline-block;
+  font-size: 0.8rem;
+  padding: 3px 8px;
+  border-radius: 5px;
+  background-color: var(--light-blue);
+  color: var(--navy);
+  margin-left: 8px;
+  font-weight: 600;
+}
+
+/* OPTIONAL: Different colors for different statuses */
+.status-tag.in-development {
+  background-color: #FFCC80; /* warm amber/orange */
+  color: #5A3E00;
+}
+
+.status-tag.planned {
+  background-color: #E0E0E0;
+  color: #333;
+}
+
+.status-tag.coming-soon {
+  background-color: #AEDFF7;
+  color: #064663;
+}
+
+.status-tag.in-research {
+  background-color: #E6D1F2;
+  color: #3D1A5F;
+}
+
+/* Page container spacing */
+main.container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
+
+/* Optional: Add subtle spacing for H1 and intro text */
+main.container h1 {
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  color: var(--navy);
+}
+
+main.container p {
+  margin-bottom: 2rem;
+  color: var(--blue);
+}
+
+.hero {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.hero-text {
+  max-width: 700px;
+}
+
+
+@media (max-width: 800px) {
+    .logo-text {
+        display: none;
+    }
 }
