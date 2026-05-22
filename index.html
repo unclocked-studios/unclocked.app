@@ -20,13 +20,14 @@
     <nav>
       <ul>
         <li><a href="/">Home</a></li>
-        <li class="dropdown">Apps ▾
+        <li class="dropdown">Apps
           <div class="dropdown-content">
             <a href="#twenty5">twenty5</a>
+            <a href="#loopdeck">LoopDeck</a>
           </div>
         </li>
         <li><a href="#about">About</a></li>
-        <li><a href="/twenty5/">Support</a></li>
+        <li><a href="/twenty5/support/">Support</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -34,10 +35,9 @@
 
   <section class="hero">
     <div class="hero-text">
-      <h1>Building the Future of iOS Experiences</h1>
+      <h1>Practical Apps for Focused Workflows</h1>
       <p>
-        Unclocked Studios crafts intuitive and elegant apps that empower users to improve their lives—starting with
-        health and fitness.
+        Unclocked Studios crafts practical, polished apps for fitness, productivity, and focused everyday workflows.
       </p>
       <div class="hero-buttons">
         <a href="#apps" class="btn-primary">View Our Apps</a>
@@ -74,21 +74,49 @@
 
   <section class="section" id="apps" style="background-color: var(--light-blue);">
     <h2>Our Apps</h2>
-    <p>
-      <strong>twenty5</strong> — a powerful yet simple workout tracker built to help you take control of your fitness
-      journey.
-      Log your workouts, track progress over time, and stay motivated with tools designed to support your goals without
-      unnecessary complexity or subscriptions.
+    <p class="section-intro">
+      A small collection of tools built with an ownership-first mindset: clear purpose, useful features, and no
+      unnecessary complexity.
     </p>
 
-    <img src="assets/twenty5-mockup.png" alt="twenty5 App Screenshot" , id="twenty5"
-      style="margin-top: 1rem; max-width: 175px; border-radius: 12px;">
+    <div class="app-grid">
+      <article id="twenty5" class="app-card">
+        <span class="eyebrow">iOS fitness</span>
+        <h3>twenty5</h3>
+        <p>
+          A simple workout tracker built to help you log training, track progress, and stay consistent without
+          subscription clutter.
+        </p>
+        <img src="assets/twenty5-mockup.png" alt="twenty5 app screenshot">
+        <div class="app-actions">
+          <a href="/twenty5/support/" class="card-link">Support</a>
+          <a href="/twenty5/privacy/" class="card-link">Privacy</a>
+        </div>
+      </article>
+
+      <article id="loopdeck" class="app-card">
+        <span class="eyebrow">Chrome extension</span>
+        <h3>LoopDeck</h3>
+        <p>
+          A dashboard cycling tool for shared displays. Create screen profiles, add dashboard URLs, customize timers,
+          and use Smart Pause during interaction.
+        </p>
+        <div class="content-card">
+          <h2>Dashboard-ready</h2>
+          <p>Profiles, per-URL timers, fullscreen mode, auto-refresh, and privacy-first local storage.</p>
+        </div>
+        <div class="app-actions">
+          <a href="/loopdeck/" class="card-link">Support</a>
+          <a href="/loopdeck/privacy/" class="card-link">Privacy</a>
+        </div>
+      </article>
+    </div>
   </section>
 
   <section class="section" id="future">
     <h2>What’s Next?</h2>
     <p>
-      We’re just getting started. Unclocked Studios plans to expand into new categories, delivering more tools and
+      We're just getting started. Unclocked Studios plans to expand into new categories, delivering more tools and
       experiences for iOS users everywhere. Click <a href="twenty5/upcoming/"> here </a> to check out our
       roadmap and upcoming features.
     </p>
@@ -98,14 +126,14 @@
 
   <section class="section" id="contact" style="background-color: var(--cream);">
 
-      <h2>Contact Us</h2>
-      <p>Have a question, found a bug, or want to suggest a feature? Send us an email directly.</p>
-      <p>
-        <a href="mailto:support@unclocked.app?subject=Support%20Request%20from%20Website&body=Hello,%0D%0A%0D%0AI'm%20reaching%20out%20about%20...%20(please%20describe%20your%20issue%20or%20feedback%20here)%0D%0A%0D%0AThank%20you!"
-          style="font-weight: bold; font-size: 1.1rem; color: var(--navy); text-decoration: underline;">
-          📧 Email Us at support@unclocked.app
-        </a>
-      </p>
+    <h2>Contact Us</h2>
+    <p>Have a question, found a bug, or want to suggest a feature? Send us an email directly.</p>
+    <p>
+      <a href="mailto:support@unclocked.app?subject=Support%20Request%20from%20Website&body=Hello,%0D%0A%0D%0AI'm%20reaching%20out%20about%20...%20(please%20describe%20your%20issue%20or%20feedback%20here)%0D%0A%0D%0AThank%20you!"
+        style="font-weight: bold; font-size: 1.1rem; color: var(--navy); text-decoration: underline;">
+        Email Us at support@unclocked.app
+      </a>
+    </p>
 
     <!-- <p>Have a question or feedback? Send us a message below.</p>
     <form action="https://formspree.io/f/your-form-id" method="POST"
@@ -133,6 +161,7 @@
     <p>© 2025 Unclocked Studios LLC. All rights reserved.</p>
     <p>
       <a href="/twenty5/privacy/">Privacy Policy</a> |
+      <a href="/loopdeck/privacy/">LoopDeck Privacy Policy</a> |
       <a href="/twenty5/tos/">Terms of Service</a>
     </p>
   </footer>

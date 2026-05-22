@@ -18,9 +18,10 @@
     <nav>
       <ul>
         <li><a href="/">Home</a></li>
-        <li class="dropdown"> <a href="#apps">Apps ▾</a>
+        <li class="dropdown"> <a href="/#apps">Apps</a>
           <div class="dropdown-content">
             <a href="/#twenty5">twenty5</a>
+            <a href="/#loopdeck">LoopDeck</a>
           </div>
         </li>
         <li><a href="/#about">About</a></li>
@@ -31,20 +32,29 @@
   </header>
 
   <main class="container">
-    <h1>Support Hub</h1>
-    <p>Welcome to the Unclocked Studios Support Hub. Choose the app you need help with to access FAQs, troubleshooting tips, and contact options.</p>
+    <div class="page-header">
+      <span class="eyebrow">Support</span>
+      <h1>Unclocked Studios Support Hub</h1>
+      <p>Choose the app you need help with to access FAQs, troubleshooting tips, privacy details, and contact options.</p>
+    </div>
 
     <section class="support-list">
-      <div class="support-item" style="background-color: var(--light-blue); padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+      <div class="support-item">
         <h2>twenty5</h2>
         <p>Our flagship workout tracker. Learn how to get started, troubleshoot issues, and contact support.</p>
-        <a href="/twenty5/support/" style="color: var(--navy); font-weight: bold; text-decoration: underline;">Go to twenty5 Support →</a>
+        <div class="support-actions">
+          <a href="/twenty5/support/" class="card-link">twenty5 Support</a>
+          <a href="/twenty5/privacy/" class="card-link">Privacy</a>
+        </div>
       </div>
 
-      <!-- Placeholder for future apps -->
-      <div class="support-item" style="background-color: #f7f7f7; padding: 1rem; border-radius: 8px; margin: 1rem 0; opacity: 0.6;">
-        <h2>Future Apps</h2>
-        <p>Support resources for upcoming apps will appear here.</p>
+      <div class="support-item">
+        <h2>LoopDeck</h2>
+        <p>Chrome dashboard cycling support, privacy details, and common setup questions.</p>
+        <div class="support-actions">
+          <a href="/loopdeck/" class="card-link">LoopDeck Support</a>
+          <a href="/loopdeck/privacy/" class="card-link">Privacy</a>
+        </div>
       </div>
     </section>
   </main>
@@ -53,7 +63,8 @@
     <p>© 2025 Unclocked Studios LLC. All rights reserved.</p>
     <p>
       <a href="/twenty5/privacy/">Privacy Policy</a> |
-      <a href="#terms">Terms of Service</a>
+      <a href="/loopdeck/privacy/">LoopDeck Privacy Policy</a> |
+      <a href="/twenty5/tos/">Terms of Service</a>
     </p>
   </footer>
 </body>
