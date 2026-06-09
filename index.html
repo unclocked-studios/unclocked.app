@@ -4,7 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Unclocked Studios</title>
+  <meta name="description"
+    content="Unclocked Studios builds focused software for complex workflows, including LoopDeck and twenty5.">
+  <title>Unclocked Studios | Focused Software for Complex Workflows</title>
   <link rel="stylesheet" href="/css/style.css" />
 </head>
 
@@ -20,147 +22,140 @@
     <nav>
       <ul>
         <li><a href="/">Home</a></li>
-        <li class="dropdown">Apps
+        <li class="dropdown">Products
           <div class="dropdown-content">
-            <a href="#twenty5">twenty5</a>
             <a href="#loopdeck">LoopDeck</a>
+            <a href="#twenty5">twenty5</a>
           </div>
         </li>
+        <li><a href="#principles">Principles</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="/twenty5/support/">Support</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <section class="hero">
-    <div class="hero-text">
-      <h1>Practical Apps for Focused Workflows</h1>
-      <p>
-        Unclocked Studios crafts practical, polished apps for fitness, productivity, and focused everyday workflows.
-      </p>
-      <div class="hero-buttons">
-        <a href="#apps" class="btn-primary">View Our Apps</a>
-        <a href="#about" class="btn-secondary">Learn More</a>
+  <main>
+    <section class="hero">
+      <div class="hero-text">
+        <span class="eyebrow">Independent software studio</span>
+        <h1>Focused software for complex workflows.</h1>
+        <p>
+          Unclocked Studios builds calm, practical tools for productivity, fitness, automation, analytics, and the
+          workflows that do not fit neatly inside off-the-shelf software.
+        </p>
+        <div class="hero-buttons">
+          <a href="#apps" class="btn-primary">Explore Products</a>
+          <a href="#about" class="btn-secondary">About the Studio</a>
+        </div>
       </div>
-    </div>
-    <!-- <div class="hero-image">
-      <img src="twenty5-mockup.png" alt="App Mockup" style="max-width: 300px; border-radius: 20px;">
-    </div> -->
-  </section>
+    </section>
 
-  <section class="section" id="about">
-    <h2>About Unclocked Studios</h2>
-    <p>
-      Founded in Pennsylvania, Unclocked Studios is an independent iOS development company with one simple goal:
-      to create meaningful, high-quality apps that users can truly own. In a world increasingly dominated by
-      subscriptions and paywalls, we believe in offering tools that provide long-term value without locking you
-      into monthly fees.
-    </p>
-    <p>
-      Unclocked Studios is currently a one-person effort — every feature you see is hand-crafted, coded, and
-      designed by a single developer passionate about building useful apps. This means updates may take time,
-      but it also means every decision is made with care and with users in mind.
-    </p>
-    <p>
-      We started with health and fitness through our flagship app, <strong>twenty5</strong>, but our mission goes
-      further —
-      to deliver intuitive, empowering apps for productivity, lifestyle, and beyond — all while helping normalize
-      user ownership again.
-    </p>
-  </section>
+    <section class="section" id="about">
+      <span class="eyebrow">Studio</span>
+      <h2>Tools for people who manage systems.</h2>
+      <p>
+        Unclocked Studios is a founder-led software company building focused products across browser automation,
+        mobile fitness, data visualization, and custom workflow tooling.
+      </p>
+      <p>
+        Each product solves a different problem, but the design language is shared: dark-first interfaces, precise
+        controls, compact layouts, and a calm sense of control for users working through repeated tasks.
+      </p>
+    </section>
 
+    <section class="section surface-section" id="apps">
+      <span class="eyebrow">Products</span>
+      <h2>One studio, multiple focused tools.</h2>
+      <p class="section-intro">
+        Products keep their own personality while sharing the same Unclocked foundation: clear purpose, restrained
+        interface design, and practical value.
+      </p>
 
+      <div class="app-grid">
+        <article id="loopdeck" class="app-card product-accent-loopdeck">
+          <span class="eyebrow">Chrome extension</span>
+          <h3>LoopDeck</h3>
+          <p>
+            A dashboard cycling tool for shared displays. Create screen profiles, add dashboard URLs, customize timers,
+            and use Smart Pause during interaction.
+          </p>
+          <div class="content-card">
+            <h2>Dashboard-ready</h2>
+            <p>Profiles, per-URL timers, fullscreen mode, auto-refresh, and privacy-first local storage.</p>
+          </div>
+          <div class="app-actions">
+            <a href="/loopdeck/" class="card-link">Support</a>
+            <a href="/loopdeck/privacy/" class="card-link">Privacy</a>
+          </div>
+        </article>
 
-  <section class="section" id="apps" style="background-color: var(--light-blue);">
-    <h2>Our Apps</h2>
-    <p class="section-intro">
-      A small collection of tools built with an ownership-first mindset: clear purpose, useful features, and no
-      unnecessary complexity.
-    </p>
+        <article id="twenty5" class="app-card product-accent-twenty5">
+          <span class="eyebrow">iOS fitness</span>
+          <h3>twenty5</h3>
+          <p>
+            A simple workout tracker built to help you log training, track progress, and stay consistent without
+            subscription clutter.
+          </p>
+          <img src="/assets/twenty5-mockup.png" alt="twenty5 app screenshot">
+          <div class="app-actions">
+            <a href="/twenty5/support/" class="card-link">Support</a>
+            <a href="/twenty5/privacy/" class="card-link">Privacy</a>
+          </div>
+        </article>
 
-    <div class="app-grid">
-      <article id="twenty5" class="app-card">
-        <span class="eyebrow">iOS fitness</span>
-        <h3>twenty5</h3>
-        <p>
-          A simple workout tracker built to help you log training, track progress, and stay consistent without
-          subscription clutter.
-        </p>
-        <img src="assets/twenty5-mockup.png" alt="twenty5 app screenshot">
-        <div class="app-actions">
-          <a href="/twenty5/support/" class="card-link">Support</a>
-          <a href="/twenty5/privacy/" class="card-link">Privacy</a>
-        </div>
-      </article>
+      </div>
+    </section>
 
-      <article id="loopdeck" class="app-card">
-        <span class="eyebrow">Chrome extension</span>
-        <h3>LoopDeck</h3>
-        <p>
-          A dashboard cycling tool for shared displays. Create screen profiles, add dashboard URLs, customize timers,
-          and use Smart Pause during interaction.
-        </p>
+    <section class="section" id="principles">
+      <span class="eyebrow">Principles</span>
+      <h2>Designed for calm control.</h2>
+      <div class="principle-grid">
         <div class="content-card">
-          <h2>Dashboard-ready</h2>
-          <p>Profiles, per-URL timers, fullscreen mode, auto-refresh, and privacy-first local storage.</p>
+          <h2>Calm interfaces</h2>
+          <p>Dark-first surfaces, clear hierarchy, and restrained contrast help users stay oriented.</p>
         </div>
-        <div class="app-actions">
-          <a href="/loopdeck/" class="card-link">Support</a>
-          <a href="/loopdeck/privacy/" class="card-link">Privacy</a>
+        <div class="content-card">
+          <h2>Useful automation</h2>
+          <p>Automation should remove repeated friction while keeping the user in control.</p>
         </div>
-      </article>
-    </div>
-  </section>
+        <div class="content-card">
+          <h2>Dense but readable</h2>
+          <p>Professional tools can be compact without becoming cluttered or hard to scan.</p>
+        </div>
+      </div>
+    </section>
 
-  <section class="section" id="future">
-    <h2>What’s Next?</h2>
-    <p>
-      We're just getting started. Unclocked Studios plans to expand into new categories, delivering more tools and
-      experiences for iOS users everywhere. Click <a href="twenty5/upcoming/"> here </a> to check out our
-      roadmap and upcoming features.
-    </p>
-  </section>
+    <section class="section surface-section" id="future">
+      <span class="eyebrow">Next</span>
+      <h2>Building the workflow you wish existed.</h2>
+      <p>
+        The studio is expanding from standalone apps into workflow tools that connect real-world processes to cleaner,
+        more focused software interfaces.
+      </p>
+      <p>
+        For twenty5 roadmap updates, visit the <a class="text-link" href="/twenty5/upcoming/">upcoming features</a>
+        page.
+      </p>
+    </section>
 
-  <!-- Contact Form Section -->
-
-  <section class="section" id="contact" style="background-color: var(--cream);">
-
-    <h2>Contact Us</h2>
-    <p>Have a question, found a bug, or want to suggest a feature? Send us an email directly.</p>
-    <p>
-      <a href="mailto:support@unclocked.app?subject=Support%20Request%20from%20Website&body=Hello,%0D%0A%0D%0AI'm%20reaching%20out%20about%20...%20(please%20describe%20your%20issue%20or%20feedback%20here)%0D%0A%0D%0AThank%20you!"
-        style="font-weight: bold; font-size: 1.1rem; color: var(--navy); text-decoration: underline;">
-        Email Us at support@unclocked.app
-      </a>
-    </p>
-
-    <!-- <p>Have a question or feedback? Send us a message below.</p>
-    <form action="https://formspree.io/f/your-form-id" method="POST"
-      style="max-width: 500px; margin: 0 auto; text-align: left;">
-      <label for="name">Name</label><br>
-      <input type="text" id="name" name="name" required
-        style="width: 100%; padding: 8px; margin-bottom: 1rem; border-radius: 6px; border: 1px solid #ccc;">
-
-      <label for="email">Email</label><br>
-      <input type="email" id="email" name="email" required
-        style="width: 100%; padding: 8px; margin-bottom: 1rem; border-radius: 6px; border: 1px solid #ccc;">
-
-      <label for="message">Message</label><br>
-      <textarea id="message" name="message" rows="5" required
-        style="width: 100%; padding: 8px; margin-bottom: 1rem; border-radius: 6px; border: 1px solid #ccc;"></textarea>
-
-      <button type="submit"
-        style="background-color: var(--navy); color: white; padding: 10px 20px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">Send
-        Message</button>
-    </form> -->
-
-  </section>
+    <section class="section" id="contact">
+      <span class="eyebrow">Contact</span>
+      <h2>Have a question or project idea?</h2>
+      <p>For support, feedback, or custom software inquiries, email Unclocked Studios directly.</p>
+      <p>
+        <a class="text-link"
+          href="mailto:support@unclocked.app?subject=Support%20Request%20from%20Website&body=Hello,%0D%0A%0D%0AI'm%20reaching%20out%20about%20...%20(please%20describe%20your%20issue%20or%20feedback%20here)%0D%0A%0D%0AThank%20you!">
+          support@unclocked.app
+        </a>
+      </p>
+    </section>
+  </main>
 
   <footer>
-    <p>© 2025 Unclocked Studios LLC. All rights reserved.</p>
+    <p>© 2026 Unclocked Studios LLC. All rights reserved.</p>
     <p>
-      <a href="/twenty5/privacy/">Privacy Policy</a> |
+      <a href="/twenty5/privacy/">twenty5 Privacy Policy</a> |
       <a href="/loopdeck/privacy/">LoopDeck Privacy Policy</a> |
       <a href="/twenty5/tos/">Terms of Service</a>
     </p>
