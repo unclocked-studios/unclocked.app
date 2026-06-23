@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" data-us-density="standard">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Support resources and FAQs for Unclocked Warehouse 3D by Unclocked Studios.">
+  <title>Unclocked Warehouse 3D Support - Unclocked Studios</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body>
+  <header>
+    <a class="logo-container" href="/" aria-label="Unclocked Studios home">
+      <div class="logo-wrapper">
+        <img src="/assets/unclocked-logo-v2-128.png" alt="Unclocked Studios Logo">
+      </div>
+      <span class="logo-text">Unclocked Studios</span>
+    </a>
+
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li class="dropdown"><a href="/warehouse-heatmap/">Products</a>
+          <div class="dropdown-content">
+            <a href="/warehouse-heatmap/">Unclocked Warehouse 3D</a>
+            <a href="/products/loopdeck/">LoopDeck</a>
+            <a href="/products/twenty5/">twenty5</a>
+          </div>
+        </li>
+        <li><a href="/warehouse-heatmap/">Overview</a></li>
+        <li><a href="/warehouse-heatmap/privacy/">Privacy</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="page-header">
+      <span class="eyebrow">Power BI visual support</span>
+      <h1>Unclocked Warehouse 3D Support</h1>
+      <p>
+        Setup guidance, troubleshooting, and FAQs for the coordinate-based warehouse heatmap visual.
+      </p>
+    </div>
+
+    <section class="faq-section">
+      <h2>Contact Support</h2>
+      <p>
+        For setup questions, bug reports, or feature requests, email
+        <a href="mailto:support@unclocked.app?subject=Unclocked%20Warehouse%203D%20Support%20Request">support@unclocked.app</a>.
+      </p>
+      <p>
+        Please include your Power BI Desktop or Service version, approximate warehouse row count, visual version, a
+        description of the expected and actual behavior, and screenshots or a sanitized sample file when possible.
+      </p>
+    </section>
+
+    <section class="faq-section">
+      <h2>Quick Start</h2>
+      <ol>
+        <li>Add Unclocked Warehouse 3D to a Power BI report page.</li>
+        <li>Resize the visual to provide enough room for the warehouse and controls.</li>
+        <li>Add a unique location field to Location ID.</li>
+        <li>Add numeric X, Y, and Z coordinate fields.</li>
+        <li>Add the numeric measure you want to analyze to Heat Value.</li>
+        <li>Optionally add bin dimensions and up to three category-filter fields.</li>
+      </ol>
+    </section>
+
+    <section class="faq-section">
+      <h2>Frequently Asked Questions</h2>
+
+      <h3>Does the visual create coordinates automatically?</h3>
+      <p>
+        No. The Power BI model must provide X, Y, and Z coordinates for each location. Optional width, length, and
+        height fields can define individual bin dimensions.
+      </p>
+
+      <h3>What can I use as the Heat Value?</h3>
+      <p>
+        Any numeric Power BI measure that can be evaluated by warehouse location, such as quantity, value, picks,
+        capacity, dwell time, shortage quantity, or exception count.
+      </p>
+
+      <h3>Can I filter by aisle or level?</h3>
+      <p>
+        Yes. The visual includes three custom category-filter fields that can represent aisle, level, zone, building,
+        process, product family, or another categorical field.
+      </p>
+
+      <h3>Does it work with Power BI slicers?</h3>
+      <p>
+        Yes. The visual responds to the report filter context, including slicers and interactions configured by the
+        report author.
+      </p>
+
+      <h3>Is there a 2D view?</h3>
+      <p>
+        Yes. The 2D mode creates a flat bird's-eye plan. When multiple levels overlap, the highest visible level appears
+        on top. Filter to one level when level-specific analysis is required.
+      </p>
+
+      <h3>How many bins can it display?</h3>
+      <p>
+        The free plan renders up to 2,500 bins. The Professional plan removes that free-tier restriction, while the
+        report author controls the scene limit through the visual's Max displayed bins setting. Actual performance
+        depends on the report and device.
+      </p>
+
+      <h3>Can I use a warehouse floor plan?</h3>
+      <p>
+        Yes. A floor-plan image can be displayed beneath the bins when it is aligned with the same coordinate bounds
+        used by the warehouse data.
+      </p>
+    </section>
+
+    <section class="faq-section">
+      <h2>Troubleshooting</h2>
+      <h3>No bins appear</h3>
+      <p>
+        Confirm that Location ID and X/Y/Z coordinates are populated, coordinate columns contain valid numbers, report
+        filters are not hiding the layout, and Max displayed bins is high enough.
+      </p>
+
+      <h3>Bins overlap or appear in the wrong place</h3>
+      <p>
+        Confirm that coordinates and dimensions use the same measurement units, X/Y values identify the intended
+        starting corner, and stacked locations have distinct Z coordinates.
+      </p>
+
+      <h3>The model is slow to navigate</h3>
+      <p>
+        Switch to the Performance preset, turn off bin outlines and hover tooltips, lower Max displayed bins, or use
+        report filters to reduce the active layout.
+      </p>
+    </section>
+
+    <section class="faq-section">
+      <h2>Privacy</h2>
+      <p>
+        Review the <a href="/warehouse-heatmap/privacy/">Unclocked Warehouse 3D Privacy Policy</a> for data handling
+        details.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Unclocked Studios LLC. All rights reserved.</p>
+    <p>
+      <a href="/warehouse-heatmap/">Overview</a> |
+      <a href="/warehouse-heatmap/privacy/">Privacy Policy</a> |
+      <a href="/#contact">Contact</a>
+    </p>
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en" data-us-density="standard">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Visualize inventory, activity, capacity, and warehouse exceptions in an interactive coordinate-based 3D heatmap for Microsoft Power BI.">
+  <title>Unclocked Warehouse 3D | Power BI Warehouse Heatmap</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body>
+  <header>
+    <a class="logo-container" href="/" aria-label="Unclocked Studios home">
+      <div class="logo-wrapper">
+        <img src="/assets/unclocked-logo-v2-128.png" alt="Unclocked Studios Logo">
+      </div>
+      <span class="logo-text">Unclocked Studios</span>
+    </a>
+
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li class="dropdown"><a href="#overview">Products</a>
+          <div class="dropdown-content">
+            <a href="/warehouse-heatmap/">Unclocked Warehouse 3D</a>
+            <a href="/products/loopdeck/">LoopDeck</a>
+            <a href="/products/twenty5/">twenty5</a>
+          </div>
+        </li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="/warehouse-heatmap/support/">Support</a></li>
+        <li><a href="/warehouse-heatmap/privacy/">Privacy</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero hero-split" id="overview">
+      <div class="hero-text">
+        <span class="eyebrow">Microsoft Power BI custom visual</span>
+        <h1>Turn warehouse data into an interactive 3D heatmap.</h1>
+        <p>
+          Map inventory, activity, capacity, and operational exceptions to physical warehouse locations directly inside
+          Microsoft Power BI.
+        </p>
+        <div class="hero-buttons">
+          <a href="#availability" class="btn-primary">Publishing Soon</a>
+          <a href="/warehouse-heatmap/support/" class="btn-secondary">View Support</a>
+          <a href="/warehouse-heatmap/privacy/" class="btn-secondary">Privacy Policy</a>
+        </div>
+      </div>
+      <figure class="hero-media">
+        <img src="/assets/warehouse-3d/overview.png"
+          alt="Unclocked Warehouse 3D showing a warehouse model with green, yellow, orange, and red heatmap locations">
+      </figure>
+    </section>
+
+    <section class="section surface-section">
+      <span class="eyebrow">Why it exists</span>
+      <h2>Your warehouse metrics already tell a story. This visual shows where that story is happening.</h2>
+      <p>
+        Connect a Power BI measure to physical bin coordinates and explore patterns across aisles, levels, zones, and
+        neighboring locations. Search for a location, isolate operational categories, switch between 3D and 2D views,
+        and let report filters update the layout in context.
+      </p>
+      <div class="mini-kpis">
+        <div class="stat-card">
+          <strong>3D</strong>
+          <p>Coordinate-based warehouse rendering from X, Y, and Z fields.</p>
+        </div>
+        <div class="stat-card">
+          <strong>2D</strong>
+          <p>Flat bird's-eye plan view when operational overview matters most.</p>
+        </div>
+        <div class="stat-card">
+          <strong>3</strong>
+          <p>Custom category filters for aisle, bay, level, zone, process, or your own model.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <span class="eyebrow">Feature Highlights</span>
+      <h2>Explore large warehouse layouts without leaving Power BI.</h2>
+      <div class="feature-grid">
+        <article class="content-card">
+          <h2>Flexible heat mapping</h2>
+          <p>Color locations with any numeric Power BI measure, including inventory, picks, utilization, dwell time,
+            shortages, cost, or exceptions.</p>
+        </article>
+        <article class="content-card">
+          <h2>Search and focus</h2>
+          <p>Find a Location ID without manually navigating a large warehouse model and focus the camera on that
+            location.</p>
+        </article>
+        <article class="content-card">
+          <h2>Saved viewpoints</h2>
+          <p>Store reusable camera presets for important areas such as receiving, reserve storage, forward pick, or
+            shipping.</p>
+        </article>
+        <article class="content-card">
+          <h2>Power BI integration</h2>
+          <p>Use report filters, Power BI selection behavior, Location ID filtering, tooltips, and the standard context
+            menu.</p>
+        </article>
+        <article class="content-card">
+          <h2>Floor plan context</h2>
+          <p>Display a configurable floor plane or align a floor-plan image beneath warehouse locations.</p>
+        </article>
+        <article class="content-card">
+          <h2>Performance controls</h2>
+          <p>Use instanced rendering, progressive rendering, geometry caching, and presets for larger layouts.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section surface-section">
+      <span class="eyebrow">Focused Analysis</span>
+      <h2>Dim or hide non-matching locations to keep physical context under control.</h2>
+      <div class="media-grid">
+        <figure class="product-visual">
+          <img class="product-screenshot" src="/assets/warehouse-3d/filters-dim.png"
+            alt="Warehouse 3D showing selected warehouse locations while non-matching locations are dimmed">
+          <figcaption>
+            <strong>Dim mode</strong>
+            Preserve the physical warehouse context while emphasizing the selected aisle, bay, level, or category.
+          </figcaption>
+        </figure>
+        <figure class="product-visual">
+          <img class="product-screenshot" src="/assets/warehouse-3d/filters-hide.png"
+            alt="Warehouse 3D showing selected warehouse locations while non-matching locations are hidden">
+          <figcaption>
+            <strong>Hide mode</strong>
+            Remove non-matching locations when a focused operational view is more useful.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section">
+      <span class="eyebrow">How It Works</span>
+      <h2>Bring your warehouse coordinate table to Power BI.</h2>
+      <div class="workflow-grid">
+        <article class="workflow-step">
+          <h3>1. Provide one row per location</h3>
+          <p>Use stable Location IDs and numeric X, Y, and Z coordinates for each bin or physical location.</p>
+        </article>
+        <article class="workflow-step">
+          <h3>2. Add the measure to analyze</h3>
+          <p>Map inventory, picks, utilization, aging, capacity, quality holds, or another operational metric.</p>
+        </article>
+        <article class="workflow-step">
+          <h3>3. Explore in report context</h3>
+          <p>Use slicers, filters, search, category controls, and saved camera views to investigate patterns.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section surface-section" id="availability">
+      <span class="eyebrow">Availability</span>
+      <h2>Preparing for Microsoft AppSource.</h2>
+      <p>
+        Unclocked Warehouse 3D is nearing publication. The free experience is designed for focused layouts and
+        evaluation up to 2,500 rendered bins, while the Professional plan removes that free-tier restriction for larger
+        operational deployments.
+      </p>
+      <div class="app-summary">
+        <p>
+          Already have an AutoCAD warehouse drawing but no coordinate table? Unclocked Studios can help convert an
+          existing bin layout into Power BI-ready mapping data, including coordinates, dimensions, and facility bounds.
+        </p>
+        <p>
+          Questions before publication? Visit <a class="text-link" href="/warehouse-heatmap/support/">support</a> or
+          email <a class="text-link"
+            href="mailto:support@unclocked.app?subject=Unclocked%20Warehouse%203D">support@unclocked.app</a>.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Unclocked Studios LLC. All rights reserved.</p>
+    <p>
+      <a href="/warehouse-heatmap/support/">Support</a> |
+      <a href="/warehouse-heatmap/privacy/">Privacy Policy</a> |
+      <a href="/">Unclocked Studios</a>
+    </p>
+  </footer>
+</body>
+
+</html>
