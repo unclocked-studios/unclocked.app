@@ -237,6 +237,25 @@ nav a:hover,
   font-size: clamp(2.35rem, 4.6vw, 4rem);
 }
 
+.studio-hero {
+  position: relative;
+  width: min(1120px, calc(100% - 4rem));
+  margin: 0 auto;
+  padding-right: 0;
+  padding-left: 0;
+  border-bottom: 0;
+}
+
+.studio-hero::after {
+  position: absolute;
+  right: 50%;
+  bottom: -1px;
+  width: 100vw;
+  border-bottom: 1px solid rgba(58, 61, 92, 0.55);
+  content: "";
+  transform: translateX(50%);
+}
+
 .hero p {
   max-width: 680px;
   font-size: clamp(1.05rem, 2vw, 1.3rem);
@@ -763,6 +782,10 @@ footer a:hover {
 
   .hero-split .hero p {
     margin-left: auto;
+  }
+
+  .studio-hero {
+    width: min(100% - 2.5rem, 1120px);
   }
 
   .section {
