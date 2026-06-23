@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
-  <title id="title">Unclocked Studios</title>
-  <desc id="desc">An open geometric U mark representing an unlocked path.</desc>
-  <rect x="4" y="4" width="120" height="120" rx="24" fill="#17182A" stroke="#3A3D5C" stroke-width="2"/>
-  <path d="M28 27h19v36c0 5 2 9 5 12l12 12v25L40 88c-8-8-12-18-12-29V27Z" fill="#7657FF"/>
-  <path d="M100 27H81v36c0 5-2 9-5 12L64 87v25l24-24c8-8 12-18 12-29V27Z" fill="#2DD4BF"/>
-</svg>
