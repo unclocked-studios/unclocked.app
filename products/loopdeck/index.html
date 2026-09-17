@@ -5,61 +5,70 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
-    content="LoopDeck is a Chrome extension for cycling dashboards on shared displays with screen profiles, timers, Smart Pause, and local-first storage.">
+    content="LoopDeck rotates dashboard tabs in Chrome with saved screen profiles, Quick Cycle, shared workspaces, and Display Manager for display computers.">
   <title>LoopDeck | Dashboard Cycling for Shared Displays</title>
   <link rel="icon" type="image/png" sizes="128x128" href="/assets/unclocked-logo-v2-128.png" />
   <link rel="apple-touch-icon" href="/assets/unclocked-logo-v2-128.png" />
-  <link rel="stylesheet" href="/css/style.css" />
+  <meta name="color-scheme" content="light dark">
+  <script src="/js/theme.js"></script>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/site.js" defer></script>
 </head>
 
 <body>
-  <header>
-    <a class="logo-container" href="/" aria-label="Unclocked Studios home">
-      <div class="logo-wrapper">
-        <img src="/assets/unclocked-logo-v2-128.png" alt="Unclocked Studios Logo">
-      </div>
-      <span class="logo-text">Unclocked Studios</span>
-    </a>
-
-    <nav aria-label="Main navigation">
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li class="dropdown"><a href="#overview">Products</a>
-          <div class="dropdown-content">
-            <a href="/warehouse-heatmap/">Unclocked Warehouse 3D</a>
-            <a href="/products/loopdeck/">LoopDeck</a>
-            <a href="/products/twenty5/">twenty5</a>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner wrap">
+      <a class="brand" href="/" aria-label="Unclocked Studios home">
+        <img src="/assets/unclocked-logo-v2-128.png" alt="" width="34" height="34" decoding="async">
+        <span class="brand-name">Unclocked Studios</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" hidden>Menu <span aria-hidden="true">☰</span></button>
+      <nav class="site-nav" id="site-navigation" aria-label="Main navigation">
+        <a class="nav-mapping" href="/warehouse-heatmap/mapping/">Warehouse Mapping <span aria-hidden="true">↗</span></a>
+        <details class="products-dropdown">
+          <summary aria-controls="product-menu">Products <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="m3 4.5 3 3 3-3"/></svg></summary>
+          <div class="product-menu" id="product-menu">
+            <a href="/warehouse-heatmap/">Unclocked Warehouse 3D<span>Warehouse analytics in Power BI</span></a>
+            <a href="/products/loopdeck/">LoopDeck<span>Dashboard rotation for shared displays</span></a>
+            <a href="/products/twenty5/">twenty5<span>Workout tracking for iOS</span></a>
           </div>
-        </li>
-        <li><a href="/#approach">Approach</a></li>
-        <li><a href="/#contact">Contact</a></li>
-      </ul>
-    </nav>
+        </details>
+        <a href="/#contact">Contact</a>
+        <div class="appearance-control" hidden>
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="10" cy="10" r="6.5"/><path d="M10 3.5a6.5 6.5 0 0 0 0 13z" fill="currentColor"/></svg>
+          <select id="appearance" aria-label="Appearance"><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option></select>
+        </div>
+      </nav>
+    </div>
   </header>
 
-  <main>
+  <main id="main-content">
     <section class="hero hero-split" id="overview">
       <div class="hero-text">
         <span class="eyebrow">Chrome extension</span>
         <h1>Dashboard cycling for shared displays.</h1>
         <p>
-          LoopDeck helps teams rotate dashboard URLs across screens with profiles, timers, fullscreen mode, auto-refresh,
-          and Smart Pause when someone interacts with a dashboard.
+          LoopDeck rotates dashboard tabs in Chrome so a shared screen can show the information your team needs.
+          Save a dashboard list with its own timings, or cycle through tabs you already have open.
         </p>
         <div class="hero-buttons">
           <a href="/loopdeck/" class="btn-primary">View Support</a>
           <a href="/loopdeck/privacy/" class="btn-secondary">Privacy Policy</a>
         </div>
       </div>
-      <figure class="hero-media">
-        <img src="/assets/loopdeck-dashboard-cycling.png"
-          alt="LoopDeck Chrome extension showing dashboard profiles, timers, and cycling controls">
+      <figure class="product-visual loopdeck-popup">
+        <a class="screenshot-link" href="/assets/loopdeck/screen-profile.png" target="_blank" rel="noopener" aria-label="Open the LoopDeck screen profile screenshot at full size (new tab)">
+          <img class="product-screenshot" src="/assets/loopdeck/screen-profile.png"
+            alt="LoopDeck screen profile with two dashboards, individual 30- and 45-second timers, refresh options, and Start Cycle controls" decoding="async" fetchpriority="high" width="860" height="1200">
+        </a>
+        <figcaption>A saved screen profile with a separate timer for each dashboard.</figcaption>
       </figure>
     </section>
 
     <section class="section surface-section">
       <span class="eyebrow">Designed for displays</span>
-      <h2>Keep dashboards moving without constant manual babysitting.</h2>
+      <h2>Set up the rotation around how your team uses the screen.</h2>
       <div class="feature-grid">
         <article class="content-card">
           <h2>Screen profiles</h2>
@@ -76,9 +85,46 @@
       </div>
     </section>
 
+    <section class="section loopdeck-demo" id="quick-cycle">
+      <div>
+        <span class="eyebrow">Quick Cycle</span>
+        <h2>Rotate the tabs you already have open.</h2>
+        <p>For a meeting or a temporary display, Quick Cycle uses the unpinned tabs in your current Chrome window. Choose an interval and start the rotation without creating a saved profile.</p>
+        <p>You can turn on auto-refresh and fullscreen from the same popup, then switch back to a screen profile when you need a saved dashboard list.</p>
+        <p class="fine-print">Select a screenshot to open it at full size in a new tab.</p>
+      </div>
+      <figure class="product-visual loopdeck-popup">
+        <a class="screenshot-link" href="/assets/loopdeck/quick-cycle.png" target="_blank" rel="noopener" aria-label="Open the LoopDeck Quick Cycle screenshot at full size (new tab)">
+          <img class="product-screenshot" src="/assets/loopdeck/quick-cycle.png" alt="Quick Cycle selected in the LoopDeck popup with a 30-second interval, auto-refresh, fullscreen, and playback controls" decoding="async" width="860" height="946" loading="lazy">
+        </a>
+        <figcaption>Quick Cycle controls for the tabs in the current window.</figcaption>
+      </figure>
+    </section>
+
+    <section class="section surface-section" id="display-manager">
+      <span class="eyebrow">Display Manager</span>
+      <h2>Share dashboard lists and manage your display computers.</h2>
+      <p class="section-intro">Create shared workspaces for different teams or rooms, then assign them to your displays. Update the dashboard list and playback settings from one place.</p>
+      <p class="fine-print">Display Manager requires a paid plan or active trial. Changes, commands, and status updates travel through Chrome Sync.</p>
+      <div class="loopdeck-manager-gallery">
+        <figure class="product-visual">
+          <a class="screenshot-link" href="/assets/loopdeck/shared-workspaces.png" target="_blank" rel="noopener" aria-label="Open the LoopDeck shared workspace screenshot at full size (new tab)">
+            <img class="product-screenshot" src="/assets/loopdeck/shared-workspaces.png" alt="LoopDeck workspace editor showing dashboard URLs, per-dashboard durations, ordering, reload and fullscreen settings, and Publish workspace" decoding="async" width="2432" height="1544" loading="lazy">
+          </a>
+          <figcaption><strong>Prepare a shared workspace</strong>Set the dashboard order, duration, refresh behavior, and fullscreen preference. You can start from a personal screen profile and publish a separate shared copy.</figcaption>
+        </figure>
+        <figure class="product-visual">
+          <a class="screenshot-link" href="/assets/loopdeck/display-manager.png" target="_blank" rel="noopener" aria-label="Open the LoopDeck display manager screenshot at full size (new tab)">
+            <img class="product-screenshot" src="/assets/loopdeck/display-manager.png" alt="LoopDeck display manager with example lobby, meeting room, and shipping displays, group assignments, playback controls, and reported status" decoding="async" width="2432" height="794" loading="lazy">
+          </a>
+          <figcaption><strong>Assign workspaces and control playback</strong>Choose a workspace by group or individual display. Pause or resume playback, request a refresh or workspace restart, and check each display's reported status. Example display data is shown.</figcaption>
+        </figure>
+      </div>
+    </section>
+
     <section class="section">
       <span class="eyebrow">Resources</span>
-      <h2>Support and privacy links stay where store listings expect them.</h2>
+      <h2>Help when you need it.</h2>
       <div class="resource-links">
         <a class="btn-secondary" href="/loopdeck/">LoopDeck Support</a>
         <a class="btn-secondary" href="/loopdeck/privacy/">LoopDeck Privacy Policy</a>
@@ -86,13 +132,18 @@
     </section>
   </main>
 
-  <footer>
-    <p>© 2026 Unclocked Studios LLC. All rights reserved.</p>
-    <p>
-      <a href="/loopdeck/">LoopDeck Support</a> |
-      <a href="/loopdeck/privacy/">LoopDeck Privacy Policy</a> |
-      <a href="/#contact">Contact</a>
-    </p>
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div><a class="brand" href="/"><img src="/assets/unclocked-logo-v2-128.png" alt="" width="34" height="34" decoding="async"><span class="brand-name">Unclocked Studios</span></a><p>Thoughtful tools. Practical possibilities.</p></div>
+        <div class="footer-links">
+          <div><strong>Explore</strong><a href="/warehouse-heatmap/">Warehouse 3D</a><a href="/products/loopdeck/">LoopDeck</a><a href="/products/twenty5/">twenty5</a></div>
+          <div><strong>Get in touch</strong><a href="/warehouse-heatmap/mapping/">Request warehouse mapping</a><a href="/warehouse-heatmap/support/">Warehouse 3D support</a><a href="/loopdeck/">LoopDeck support</a><a href="/twenty5/support/">twenty5 support</a><a href="mailto:support@unclocked.app">support@unclocked.app</a></div>
+          <div><strong>Policies</strong><a href="/warehouse-heatmap/privacy/">Warehouse 3D privacy</a><a href="/loopdeck/privacy/">LoopDeck privacy</a><a href="/twenty5/privacy/">twenty5 privacy</a><a href="/twenty5/tos/">twenty5 terms</a></div>
+        </div>
+      </div>
+      <div class="footer-bottom"><span>© 2026 Unclocked Studios LLC. All rights reserved.</span><a href="/#approach">Our approach</a></div>
+    </div>
   </footer>
 </body>
 
