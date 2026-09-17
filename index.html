@@ -1,163 +1,107 @@
 <!DOCTYPE html>
-<html lang="en" data-us-density="standard">
-
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description"
-    content="Unclocked Studios builds focused software for warehouse analytics, dashboard automation, fitness tracking, and practical workflow tools.">
-  <title>Unclocked Studios | Focused Software for Practical Workflows</title>
-  <link rel="icon" type="image/png" sizes="128x128" href="/assets/unclocked-logo-v2-128.png" />
-  <link rel="apple-touch-icon" href="/assets/unclocked-logo-v2-128.png" />
-  <link rel="stylesheet" href="/css/style.css" />
+  <meta name="description" content="Unclocked Studios is an independent workflow studio building software for warehouse analytics, shared displays, and personal workflows. Explore Warehouse 3D and request AutoCAD-to-CSV mapping.">
+  <title>Unclocked Studios | Independent Workflow Studio</title>
+  <link rel="canonical" href="https://unclocked.app/">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" type="image/png" sizes="128x128" href="/assets/unclocked-logo-v2-128.png">
+  <link rel="apple-touch-icon" href="/assets/unclocked-logo-v2-128.png">
+  <script src="/js/theme.js"></script>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/site.js" defer></script>
 </head>
-
 <body>
-  <header>
-    <a class="logo-container" href="/" aria-label="Unclocked Studios home">
-      <div class="logo-wrapper">
-        <img src="/assets/unclocked-logo-v2-128.png" alt="Unclocked Studios Logo">
-      </div>
-      <span class="logo-text">Unclocked Studios</span>
-    </a>
-
-    <nav aria-label="Main navigation">
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li class="dropdown" tabindex="0" aria-haspopup="true">Products
-          <div class="dropdown-content">
-            <a href="/warehouse-heatmap/">Unclocked Warehouse 3D</a>
-            <a href="/products/loopdeck/">LoopDeck</a>
-            <a href="/products/twenty5/">twenty5</a>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner wrap">
+      <a class="brand" href="/" aria-label="Unclocked Studios home">
+        <img src="/assets/unclocked-logo-v2-128.png" alt="" width="34" height="34" decoding="async">
+        <span class="brand-name">Unclocked Studios</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" hidden>Menu <span aria-hidden="true">☰</span></button>
+      <nav class="site-nav" id="site-navigation" aria-label="Main navigation">
+        <a class="nav-mapping" href="/warehouse-heatmap/mapping/">Warehouse Mapping <span aria-hidden="true">↗</span></a>
+        <details class="products-dropdown">
+          <summary aria-controls="product-menu">Products <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="m3 4.5 3 3 3-3"/></svg></summary>
+          <div class="product-menu" id="product-menu">
+            <a href="/warehouse-heatmap/">Unclocked Warehouse 3D<span>Warehouse analytics in Power BI</span></a>
+            <a href="/products/loopdeck/">LoopDeck<span>Dashboard rotation for shared displays</span></a>
+            <a href="/products/twenty5/">twenty5<span>Workout tracking for iOS</span></a>
           </div>
-        </li>
-        <li><a href="#approach">Approach</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+        </details>
+        <a href="/#contact">Contact</a>
+        <div class="appearance-control" hidden>
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="10" cy="10" r="6.5"/><path d="M10 3.5a6.5 6.5 0 0 0 0 13z" fill="currentColor"/></svg>
+          <select id="appearance" aria-label="Appearance"><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option></select>
+        </div>
+      </nav>
+    </div>
   </header>
-
-  <main>
+  <main id="main-content">
     <section class="hero hero-split studio-hero">
       <div class="hero-text">
-        <span class="eyebrow">Independent software studio</span>
-        <h1>Focused software for practical workflows.</h1>
-        <p>
-          Unclocked Studios builds tools for warehouse analytics, browser-based displays, fitness tracking, and custom
-          workflow problems that deserve clearer interfaces.
-        </p>
+        <span class="eyebrow">Unclocked Studios</span>
+        <h1>An independent workflow studio.</h1>
+        <p>We build and maintain software for different needs. Our work includes warehouse analytics in Power BI, dashboards for shared displays, and tools for personal workflows.</p>
         <div class="hero-buttons">
-          <a href="#products" class="btn-primary">View Products</a>
-          <a href="#contact" class="btn-secondary">Contact the Studio</a>
+          <a class="btn-primary" href="/warehouse-heatmap/mapping/">Request warehouse mapping <span class="arrow" aria-hidden="true">↗</span></a>
+          <a class="btn-secondary" href="/warehouse-heatmap/">Explore Warehouse 3D</a>
         </div>
+        <p class="hero-note">If you have an AutoCAD warehouse layout but no coordinate table, we can help map your locations into a CSV for Power BI.</p>
       </div>
-      <aside class="hero-panel">
-        <span class="eyebrow">Now preparing</span>
-        <h2>Unclocked Warehouse 3D</h2>
-        <p>
-          A Microsoft Power BI custom visual that maps warehouse measures to physical X/Y/Z locations in an interactive
-          3D heatmap.
-        </p>
-        <a href="/warehouse-heatmap/" class="card-link">Explore the visual</a>
+      <aside class="warehouse-feature" id="products" aria-labelledby="warehouse-feature-title">
+        <div class="warehouse-feature-heading">
+          <span class="eyebrow">Featured product · Microsoft Power BI</span>
+          <h2 id="warehouse-feature-title">Unclocked Warehouse 3D</h2>
+          <p>Explore inventory, activity, and operational exceptions by their physical location in your warehouse.</p>
+        </div>
+        <a class="warehouse-feature-image" href="/warehouse-heatmap/" aria-label="Explore Unclocked Warehouse 3D">
+          <img src="/assets/warehouse-3d/visual-only/warehouse-overview.png" width="1251" height="781" decoding="async" fetchpriority="high" alt="Updated Warehouse 3D visual showing color-coded warehouse racks, location search, and the heatmap legend">
+        </a>
+        <div class="warehouse-feature-links">
+          <a class="card-link" href="/warehouse-heatmap/">About the visual</a>
+          <a class="small-link" href="/warehouse-heatmap/support/">Setup and support</a>
+        </div>
       </aside>
     </section>
 
-    <section class="section surface-section" id="products">
-      <span class="eyebrow">Products</span>
-      <h2>Small product family. Shared design language.</h2>
-      <p class="section-intro">
-        Each product has its own landing page, support page, and privacy policy while sharing the same dark-first,
-        precise, operations-minded interface style.
-      </p>
-
-      <div class="app-grid">
-        <article class="app-card product-accent-warehouse">
-          <span class="eyebrow">Power BI visual</span>
-          <h3>Unclocked Warehouse 3D</h3>
-          <p>
-            Turn warehouse coordinates and operational measures into an interactive 3D heatmap with search, category
-            filters, saved camera views, and 2D plan mode.
-          </p>
-          <div class="app-actions">
-            <a href="/warehouse-heatmap/" class="card-link">Landing Page</a>
-            <a href="/warehouse-heatmap/support/" class="card-link">Support</a>
-            <a href="/warehouse-heatmap/privacy/" class="card-link">Privacy</a>
-          </div>
-        </article>
-
-        <article class="app-card product-accent-loopdeck">
-          <span class="eyebrow">Chrome extension</span>
-          <h3>LoopDeck</h3>
-          <p>
-            A dashboard cycling tool for shared displays. Create screen profiles, add dashboard URLs, customize timers,
-            and use Smart Pause during interaction.
-          </p>
-          <div class="app-actions">
-            <a href="/products/loopdeck/" class="card-link">Landing Page</a>
-            <a href="/loopdeck/" class="card-link">Support</a>
-            <a href="/loopdeck/privacy/" class="card-link">Privacy</a>
-          </div>
-        </article>
-
-        <article class="app-card product-accent-twenty5">
-          <span class="eyebrow">iOS fitness</span>
-          <h3>twenty5</h3>
-          <p>
-            A simple workout tracker built to help you log training, track progress, and stay consistent without
-            subscription clutter.
-          </p>
-          <div class="app-actions">
-            <a href="/products/twenty5/" class="card-link">Landing Page</a>
-            <a href="/twenty5/support/" class="card-link">Support</a>
-            <a href="/twenty5/privacy/" class="card-link">Privacy</a>
-          </div>
-        </article>
+    <section class="section workflow-section" id="approach">
+      <div class="mapping-service-intro">
+        <span class="eyebrow">Warehouse mapping service</span>
+        <h2>Converting your AutoCAD layout into a coordinate table.</h2>
+        <p>Warehouse 3D needs a location name and numeric X, Y, Z coordinates for each bin. If that information is still in your drawing, we can help prepare the CSV and work through the units, location labels, and rack levels with you.</p>
       </div>
+      <div class="workflow-grid">
+        <article class="workflow-step"><span class="step-number">01</span><h3>Describe your drawing</h3><p>Tell us the drawing format, approximate number of locations, and what you would like mapped. Estimates are enough to start the conversation.</p></article>
+        <article class="workflow-step"><span class="step-number">02</span><h3>Agree on the mapping details</h3><p>We discuss how to share the drawing and confirm location names, measurement units, and the height of each level before mapping begins.</p></article>
+        <article class="workflow-step"><span class="step-number">03</span><h3>Receive the coordinate table</h3><p>The agreed output is a CSV of location names and X, Y, Z coordinates that you can connect to your warehouse data in Power BI.</p></article>
+      </div>
+      <div class="button-row"><a class="btn-primary" href="/warehouse-heatmap/mapping/">Request warehouse mapping <span aria-hidden="true">↗</span></a><a class="card-link" href="/assets/warehouse-3d/warehouse_sample.csv" download>Download sample CSV</a></div>
+      <p class="fine-print">Try Warehouse 3D with our sample of 2,208 locations, including coordinates, bin dimensions, and heatmap values. <a href="/warehouse-heatmap/support/#sample-data">See how to load the sample in Power BI.</a></p>
     </section>
 
-    <section class="section" id="approach">
-      <span class="eyebrow">Approach</span>
-      <h2>Tools that make repeated work easier to see and act on.</h2>
-      <div class="principle-grid">
-        <div class="content-card">
-          <h2>Operational clarity</h2>
-          <p>Interfaces are designed to expose the next useful decision, not bury users in decorative complexity.</p>
-        </div>
-        <div class="content-card">
-          <h2>Practical integration</h2>
-          <p>Products meet users where their work already happens, from Power BI reports to Chrome dashboards.</p>
-        </div>
-        <div class="content-card">
-          <h2>Calm control</h2>
-          <p>Dark surfaces, compact controls, and restrained color keep dense workflows readable and grounded.</p>
-        </div>
+    <section class="section contact-section" id="contact">
+      <div class="contact-panel">
+        <div><span class="eyebrow">Contact</span><h2>Get in touch with the studio.</h2><p>For product support, questions about a mapping project, or another workflow you would like to discuss, email us directly.</p></div>
+        <a class="btn-secondary" href="mailto:support@unclocked.app">Email the studio <span aria-hidden="true">↗</span></a>
       </div>
-    </section>
-
-    <section class="section surface-section" id="contact">
-      <span class="eyebrow">Contact</span>
-      <h2>Questions, support, or a workflow idea?</h2>
-      <p>
-        Email Unclocked Studios for product support, feedback, or custom workflow inquiries.
-      </p>
-      <p>
-        <a class="text-link"
-          href="mailto:support@unclocked.app?subject=Support%20Request%20from%20Website&body=Hello,%0D%0A%0D%0AI'm%20reaching%20out%20about%20...%20(please%20describe%20your%20issue%20or%20feedback%20here)%0D%0A%0D%0AThank%20you!">
-          support@unclocked.app
-        </a>
-      </p>
     </section>
   </main>
-
-  <footer>
-    <p>© 2026 Unclocked Studios LLC. All rights reserved.</p>
-    <p>
-      <a href="/warehouse-heatmap/privacy/">Warehouse 3D Privacy Policy</a> |
-      <a href="/loopdeck/privacy/">LoopDeck Privacy Policy</a> |
-      <a href="/twenty5/privacy/">twenty5 Privacy Policy</a> |
-      <a href="/twenty5/tos/">Terms of Service</a>
-    </p>
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div><a class="brand" href="/"><img src="/assets/unclocked-logo-v2-128.png" alt="" width="34" height="34" decoding="async"><span class="brand-name">Unclocked Studios</span></a><p>Thoughtful tools. Practical possibilities.</p></div>
+        <div class="footer-links">
+          <div><strong>Explore</strong><a href="/warehouse-heatmap/">Warehouse 3D</a><a href="/products/loopdeck/">LoopDeck</a><a href="/products/twenty5/">twenty5</a></div>
+          <div><strong>Get in touch</strong><a href="/warehouse-heatmap/mapping/">Request warehouse mapping</a><a href="/warehouse-heatmap/support/">Warehouse 3D support</a><a href="/loopdeck/">LoopDeck support</a><a href="/twenty5/support/">twenty5 support</a><a href="mailto:support@unclocked.app">support@unclocked.app</a></div>
+          <div><strong>Policies</strong><a href="/warehouse-heatmap/privacy/">Warehouse 3D privacy</a><a href="/loopdeck/privacy/">LoopDeck privacy</a><a href="/twenty5/privacy/">twenty5 privacy</a><a href="/twenty5/tos/">twenty5 terms</a></div>
+        </div>
+      </div>
+      <div class="footer-bottom"><span>© 2026 Unclocked Studios LLC. All rights reserved.</span><a href="/#approach">Our approach</a></div>
+    </div>
   </footer>
 </body>
-
 </html>

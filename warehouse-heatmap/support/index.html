@@ -8,35 +8,41 @@
   <title>Unclocked Warehouse 3D Support - Unclocked Studios</title>
   <link rel="icon" type="image/png" sizes="128x128" href="/assets/unclocked-logo-v2-128.png" />
   <link rel="apple-touch-icon" href="/assets/unclocked-logo-v2-128.png" />
-  <link rel="stylesheet" href="/css/style.css" />
+  <meta name="color-scheme" content="light dark">
+  <script src="/js/theme.js"></script>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/site.js" defer></script>
 </head>
 
 <body>
-  <header>
-    <a class="logo-container" href="/" aria-label="Unclocked Studios home">
-      <div class="logo-wrapper">
-        <img src="/assets/unclocked-logo-v2-128.png" alt="Unclocked Studios Logo">
-      </div>
-      <span class="logo-text">Unclocked Studios</span>
-    </a>
-
-    <nav aria-label="Main navigation">
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li class="dropdown"><a href="/warehouse-heatmap/">Products</a>
-          <div class="dropdown-content">
-            <a href="/warehouse-heatmap/">Unclocked Warehouse 3D</a>
-            <a href="/products/loopdeck/">LoopDeck</a>
-            <a href="/products/twenty5/">twenty5</a>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner wrap">
+      <a class="brand" href="/" aria-label="Unclocked Studios home">
+        <img src="/assets/unclocked-logo-v2-128.png" alt="" width="34" height="34" decoding="async">
+        <span class="brand-name">Unclocked Studios</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" hidden>Menu <span aria-hidden="true">☰</span></button>
+      <nav class="site-nav" id="site-navigation" aria-label="Main navigation">
+        <a class="nav-mapping" href="/warehouse-heatmap/mapping/">Warehouse Mapping <span aria-hidden="true">↗</span></a>
+        <details class="products-dropdown">
+          <summary aria-controls="product-menu">Products <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="m3 4.5 3 3 3-3"/></svg></summary>
+          <div class="product-menu" id="product-menu">
+            <a href="/warehouse-heatmap/">Unclocked Warehouse 3D<span>Warehouse analytics in Power BI</span></a>
+            <a href="/products/loopdeck/">LoopDeck<span>Dashboard rotation for shared displays</span></a>
+            <a href="/products/twenty5/">twenty5<span>Workout tracking for iOS</span></a>
           </div>
-        </li>
-        <li><a href="/warehouse-heatmap/">Overview</a></li>
-        <li><a href="/warehouse-heatmap/privacy/">Privacy</a></li>
-      </ul>
-    </nav>
+        </details>
+        <a href="/#contact">Contact</a>
+        <div class="appearance-control" hidden>
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="10" cy="10" r="6.5"/><path d="M10 3.5a6.5 6.5 0 0 0 0 13z" fill="currentColor"/></svg>
+          <select id="appearance" aria-label="Appearance"><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option></select>
+        </div>
+      </nav>
+    </div>
   </header>
 
-  <main class="container">
+  <main id="main-content" class="container">
     <div class="page-header">
       <span class="eyebrow">Power BI visual support</span>
       <h1>Unclocked Warehouse 3D Support</h1>
@@ -44,6 +50,8 @@
         Setup guidance, troubleshooting, and FAQs for the coordinate-based warehouse heatmap visual.
       </p>
     </div>
+
+    <section class="faq-section"><span class="eyebrow">Need a coordinate table?</span><h2>Start with your warehouse drawing.</h2><p>Request a CSV of location names and X, Y, Z coordinates from your AutoCAD layout.</p><a class="btn-primary" href="/warehouse-heatmap/mapping/">Request warehouse mapping <span aria-hidden="true">↗</span></a></section>
 
     <section class="faq-section">
       <h2>Contact Support</h2>
@@ -67,6 +75,32 @@
         <li>Add the numeric measure you want to analyze to Heat Value.</li>
         <li>Optionally add bin dimensions and up to three category-filter fields.</li>
       </ol>
+    </section>
+
+    <section class="faq-section" id="sample-data">
+      <h2>Try the sample data</h2>
+      <p>The sample CSV has been tested with Unclocked Warehouse 3D and contains 2,208 locations. It includes coordinates, dimensions, categories, and heatmap values, so you can try the visual without preparing your own warehouse data first.</p>
+      <p><a class="btn-primary" href="/assets/warehouse-3d/warehouse_sample.csv" download>Download sample CSV</a></p>
+      <ol>
+        <li>In Power BI Desktop, choose <strong>Get data → Text/CSV</strong>, select <strong>warehouse_sample.csv</strong>, and load the table.</li>
+        <li>Add Unclocked Warehouse 3D to the report page and select the visual.</li>
+        <li>Assign the sample columns to the visual using the table below. Keep the coordinates, dimensions, and Value column numeric.</li>
+      </ol>
+      <table class="sample-fields">
+        <caption>Sample columns and where to use them in Warehouse 3D</caption>
+        <thead><tr><th scope="col">CSV column</th><th scope="col">Visual field</th></tr></thead>
+        <tbody>
+          <tr><td><code>Location</code></td><td>Location ID</td></tr>
+          <tr><td><code>PowerBI_X</code></td><td>X coordinate</td></tr>
+          <tr><td><code>PowerBI_Y</code></td><td>Y coordinate</td></tr>
+          <tr><td><code>PowerBI_Z</code></td><td>Z coordinate</td></tr>
+          <tr><td><code>Value</code></td><td>Heat Value</td></tr>
+          <tr><td><code>Length</code>, <code>Width</code>, <code>Height</code></td><td>Matching bin dimension fields (optional)</td></tr>
+          <tr><td><code>Aisle</code>, <code>Bay</code>, <code>Level</code>, <code>Location_Type</code></td><td>Choose up to three category-filter fields (optional)</td></tr>
+        </tbody>
+      </table>
+      <p>Use the included Value column for the heatmap, then try filtering by aisle or level and switching between 3D and 2D views.</p>
+      <p class="fine-print">For help importing the file, see Microsoft's <a href="https://learn.microsoft.com/en-us/power-bi/connect-data/desktop-data-sources">Power BI Desktop data-source guide</a>.</p>
     </section>
 
     <section class="faq-section">
@@ -146,13 +180,18 @@
     </section>
   </main>
 
-  <footer>
-    <p>© 2026 Unclocked Studios LLC. All rights reserved.</p>
-    <p>
-      <a href="/warehouse-heatmap/">Overview</a> |
-      <a href="/warehouse-heatmap/privacy/">Privacy Policy</a> |
-      <a href="/#contact">Contact</a>
-    </p>
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div><a class="brand" href="/"><img src="/assets/unclocked-logo-v2-128.png" alt="" width="34" height="34" decoding="async"><span class="brand-name">Unclocked Studios</span></a><p>Thoughtful tools. Practical possibilities.</p></div>
+        <div class="footer-links">
+          <div><strong>Explore</strong><a href="/warehouse-heatmap/">Warehouse 3D</a><a href="/products/loopdeck/">LoopDeck</a><a href="/products/twenty5/">twenty5</a></div>
+          <div><strong>Get in touch</strong><a href="/warehouse-heatmap/mapping/">Request warehouse mapping</a><a href="/warehouse-heatmap/support/">Warehouse 3D support</a><a href="/loopdeck/">LoopDeck support</a><a href="/twenty5/support/">twenty5 support</a><a href="mailto:support@unclocked.app">support@unclocked.app</a></div>
+          <div><strong>Policies</strong><a href="/warehouse-heatmap/privacy/">Warehouse 3D privacy</a><a href="/loopdeck/privacy/">LoopDeck privacy</a><a href="/twenty5/privacy/">twenty5 privacy</a><a href="/twenty5/tos/">twenty5 terms</a></div>
+        </div>
+      </div>
+      <div class="footer-bottom"><span>© 2026 Unclocked Studios LLC. All rights reserved.</span><a href="/#approach">Our approach</a></div>
+    </div>
   </footer>
 </body>
 

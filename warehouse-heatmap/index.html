@@ -9,36 +9,41 @@
   <title>Unclocked Warehouse 3D | Power BI Warehouse Heatmap</title>
   <link rel="icon" type="image/png" sizes="128x128" href="/assets/unclocked-logo-v2-128.png" />
   <link rel="apple-touch-icon" href="/assets/unclocked-logo-v2-128.png" />
-  <link rel="stylesheet" href="/css/style.css" />
+  <meta name="color-scheme" content="light dark">
+  <script src="/js/theme.js"></script>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/site.js" defer></script>
 </head>
 
 <body>
-  <header>
-    <a class="logo-container" href="/" aria-label="Unclocked Studios home">
-      <div class="logo-wrapper">
-        <img src="/assets/unclocked-logo-v2-128.png" alt="Unclocked Studios Logo">
-      </div>
-      <span class="logo-text">Unclocked Studios</span>
-    </a>
-
-    <nav aria-label="Main navigation">
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li class="dropdown"><a href="#overview">Products</a>
-          <div class="dropdown-content">
-            <a href="/warehouse-heatmap/">Unclocked Warehouse 3D</a>
-            <a href="/products/loopdeck/">LoopDeck</a>
-            <a href="/products/twenty5/">twenty5</a>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner wrap">
+      <a class="brand" href="/" aria-label="Unclocked Studios home">
+        <img src="/assets/unclocked-logo-v2-128.png" alt="" width="34" height="34" decoding="async">
+        <span class="brand-name">Unclocked Studios</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" hidden>Menu <span aria-hidden="true">☰</span></button>
+      <nav class="site-nav" id="site-navigation" aria-label="Main navigation">
+        <a class="nav-mapping" href="/warehouse-heatmap/mapping/">Warehouse Mapping <span aria-hidden="true">↗</span></a>
+        <details class="products-dropdown">
+          <summary aria-controls="product-menu">Products <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="m3 4.5 3 3 3-3"/></svg></summary>
+          <div class="product-menu" id="product-menu">
+            <a href="/warehouse-heatmap/">Unclocked Warehouse 3D<span>Warehouse analytics in Power BI</span></a>
+            <a href="/products/loopdeck/">LoopDeck<span>Dashboard rotation for shared displays</span></a>
+            <a href="/products/twenty5/">twenty5<span>Workout tracking for iOS</span></a>
           </div>
-        </li>
-        <li><a href="#features">Features</a></li>
-        <li><a href="/warehouse-heatmap/support/">Support</a></li>
-        <li><a href="/warehouse-heatmap/privacy/">Privacy</a></li>
-      </ul>
-    </nav>
+        </details>
+        <a href="/#contact">Contact</a>
+        <div class="appearance-control" hidden>
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="10" cy="10" r="6.5"/><path d="M10 3.5a6.5 6.5 0 0 0 0 13z" fill="currentColor"/></svg>
+          <select id="appearance" aria-label="Appearance"><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option></select>
+        </div>
+      </nav>
+    </div>
   </header>
 
-  <main>
+  <main id="main-content">
     <section class="hero hero-split" id="overview">
       <div class="hero-text">
         <span class="eyebrow">Microsoft Power BI custom visual</span>
@@ -48,14 +53,18 @@
           Microsoft Power BI.
         </p>
         <div class="hero-buttons">
-          <a href="#availability" class="btn-primary">Publishing Soon</a>
+          <a href="/warehouse-heatmap/mapping/" class="btn-primary">Request warehouse mapping <span aria-hidden="true">↗</span></a>
+          <a href="#availability" class="btn-secondary">Availability</a>
+          <a href="#sample-data" class="btn-secondary">Try the sample data</a>
           <a href="/warehouse-heatmap/support/" class="btn-secondary">View Support</a>
-          <a href="/warehouse-heatmap/privacy/" class="btn-secondary">Privacy Policy</a>
+
         </div>
       </div>
       <figure class="hero-media">
-        <img src="/assets/warehouse-3d/overview.png"
-          alt="Unclocked Warehouse 3D showing a warehouse model with green, yellow, orange, and red heatmap locations">
+        <a class="screenshot-link" href="/assets/warehouse-3d/visual-only/warehouse-overview.png" target="_blank" rel="noopener" aria-label="Open the warehouse overview screenshot at full size (new tab)">
+          <img src="/assets/warehouse-3d/visual-only/warehouse-overview.png"
+            alt="Warehouse 3D in light appearance showing the warehouse heatmap, location search, and color legend" decoding="async" fetchpriority="high" width="1251" height="781">
+        </a>
       </figure>
     </section>
 
@@ -81,6 +90,14 @@
           <p>Custom category filters for aisle, bay, level, zone, process, or your own model.</p>
         </div>
       </div>
+    </section>
+
+    <section class="section surface-section" id="sample-data">
+      <span class="eyebrow">Sample data</span>
+      <h2>Try Warehouse 3D with a complete sample layout.</h2>
+      <p>Once you have the visual installed, load this CSV into Power BI to explore a warehouse with 2,208 locations. It includes location names, coordinates, bin dimensions, category fields, and values for the heatmap, so you can try the visual before mapping your own warehouse.</p>
+      <div class="button-row"><a class="btn-primary" href="/assets/warehouse-3d/warehouse_sample.csv" download>Download sample CSV</a><a class="btn-secondary" href="/warehouse-heatmap/support/#sample-data">How to use the sample</a></div>
+      <p class="fine-print">warehouse_sample.csv · 104 KB · Tested with Unclocked Warehouse 3D</p>
     </section>
 
     <section class="section" id="features">
@@ -118,24 +135,49 @@
       </div>
     </section>
 
-    <section class="section surface-section">
-      <span class="eyebrow">Focused Analysis</span>
-      <h2>Dim or hide non-matching locations to keep physical context under control.</h2>
+    <section class="section surface-section" id="screenshots">
+      <span class="eyebrow">Inside the visual</span>
+      <h2>Explore the warehouse in 3D and in plan view.</h2>
+      <p class="section-intro">These screenshots preview the update currently in review, using the sample warehouse data. Select an image to open it at full size in a new tab.</p>
       <div class="media-grid">
         <figure class="product-visual">
-          <img class="product-screenshot" src="/assets/warehouse-3d/filters-dim.png"
-            alt="Warehouse 3D showing selected warehouse locations while non-matching locations are dimmed">
+          <a class="screenshot-link" href="/assets/warehouse-3d/visual-only/category-filters.png" target="_blank" rel="noopener" aria-label="Open the category filtering screenshot at full size (new tab)">
+            <img class="product-screenshot" src="/assets/warehouse-3d/visual-only/category-filters.png"
+              alt="Light appearance with aisle 1N selected in the menu and surrounding warehouse locations dimmed" decoding="async" width="1251" height="781" loading="lazy">
+          </a>
           <figcaption>
-            <strong>Dim mode</strong>
-            Preserve the physical warehouse context while emphasizing the selected aisle, bay, level, or category.
+            <strong>Filter while keeping the warehouse in view</strong>
+            Select an aisle, bay, or level and dim the surrounding locations to keep their physical context. Hide mode removes non-matching locations from view.
           </figcaption>
         </figure>
         <figure class="product-visual">
-          <img class="product-screenshot" src="/assets/warehouse-3d/filters-hide.png"
-            alt="Warehouse 3D showing selected warehouse locations while non-matching locations are hidden">
+          <a class="screenshot-link" href="/assets/warehouse-3d/visual-only/location-details.png" target="_blank" rel="noopener" aria-label="Open the location details screenshot at full size (new tab)">
+            <img class="product-screenshot" src="/assets/warehouse-3d/visual-only/location-details.png"
+              alt="Dark 3D warehouse view with a tooltip showing location 1G114D, its value, coordinates, and dimensions" decoding="async" width="1251" height="781" loading="lazy">
+          </a>
           <figcaption>
-            <strong>Hide mode</strong>
-            Remove non-matching locations when a focused operational view is more useful.
+            <strong>Inspect an individual location</strong>
+            Hover over a bin to see its location name, measure value, coordinates, and dimensions within the warehouse view.
+          </figcaption>
+        </figure>
+        <figure class="product-visual">
+          <a class="screenshot-link" href="/assets/warehouse-3d/visual-only/plan-view.png" target="_blank" rel="noopener" aria-label="Open the 2D plan view screenshot at full size (new tab)">
+            <img class="product-screenshot" src="/assets/warehouse-3d/visual-only/plan-view.png"
+              alt="Dark 2D plan view with level A selected, displaying warehouse aisles from above" decoding="async" width="1251" height="781" loading="lazy">
+          </a>
+          <figcaption>
+            <strong>Look across a single warehouse level</strong>
+            Switch to the 2D plan and filter by level to compare locations across aisles without stacked bins obscuring the layout.
+          </figcaption>
+        </figure>
+        <figure class="product-visual">
+          <a class="screenshot-link" href="/assets/warehouse-3d/visual-only/report-interactions.png" target="_blank" rel="noopener" aria-label="Open the level filter menu screenshot at full size (new tab)">
+            <img class="product-screenshot" src="/assets/warehouse-3d/visual-only/report-interactions.png"
+              alt="Dark warehouse view with a small group of active bins, dimmed surrounding racks, and the level filter menu open" decoding="async" width="1565" height="977" loading="lazy">
+          </a>
+          <figcaption>
+            <strong>Choose levels from the visual's menu</strong>
+            Open the level filter while keeping the warehouse and its color scale visible, with active locations highlighted in the layout.
           </figcaption>
         </figure>
       </div>
@@ -162,19 +204,23 @@
 
     <section class="section surface-section" id="availability">
       <span class="eyebrow">Availability</span>
-      <h2>Preparing for Microsoft AppSource.</h2>
+      <h2>Available on Microsoft AppSource.</h2>
       <p>
-        Unclocked Warehouse 3D is nearing publication. The free experience is designed for focused layouts and
+        The first version of Unclocked Warehouse 3D is published and available now. The latest update is currently
+        under review. We expect it to take at least another two weeks to go live, depending on the review process.
+      </p>
+      <p class="fine-print">Update status as of September 16, 2026. The screenshots on this page preview the update currently in review.</p>
+      <p>
+        The free experience is designed for focused layouts and
         evaluation up to 2,500 rendered bins, while the Professional plan removes that free-tier restriction for larger
         operational deployments.
       </p>
       <div class="app-summary">
         <p>
-          Already have an AutoCAD warehouse drawing but no coordinate table? Unclocked Studios can help convert an
-          existing bin layout into Power BI-ready mapping data, including coordinates, dimensions, and facility bounds.
+          Already have an AutoCAD warehouse drawing but no coordinate table? <a href="/warehouse-heatmap/mapping/">Request warehouse mapping</a> to discuss a CSV of location names and X, Y, Z coordinates. Additional requirements can be agreed during scoping.
         </p>
         <p>
-          Questions before publication? Visit <a class="text-link" href="/warehouse-heatmap/support/">support</a> or
+          Questions about the available version or the upcoming update? Visit <a class="text-link" href="/warehouse-heatmap/support/">support</a> or
           email <a class="text-link"
             href="mailto:support@unclocked.app?subject=Unclocked%20Warehouse%203D">support@unclocked.app</a>.
         </p>
@@ -182,13 +228,18 @@
     </section>
   </main>
 
-  <footer>
-    <p>© 2026 Unclocked Studios LLC. All rights reserved.</p>
-    <p>
-      <a href="/warehouse-heatmap/support/">Support</a> |
-      <a href="/warehouse-heatmap/privacy/">Privacy Policy</a> |
-      <a href="/">Unclocked Studios</a>
-    </p>
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div><a class="brand" href="/"><img src="/assets/unclocked-logo-v2-128.png" alt="" width="34" height="34" decoding="async"><span class="brand-name">Unclocked Studios</span></a><p>Thoughtful tools. Practical possibilities.</p></div>
+        <div class="footer-links">
+          <div><strong>Explore</strong><a href="/warehouse-heatmap/">Warehouse 3D</a><a href="/products/loopdeck/">LoopDeck</a><a href="/products/twenty5/">twenty5</a></div>
+          <div><strong>Get in touch</strong><a href="/warehouse-heatmap/mapping/">Request warehouse mapping</a><a href="/warehouse-heatmap/support/">Warehouse 3D support</a><a href="/loopdeck/">LoopDeck support</a><a href="/twenty5/support/">twenty5 support</a><a href="mailto:support@unclocked.app">support@unclocked.app</a></div>
+          <div><strong>Policies</strong><a href="/warehouse-heatmap/privacy/">Warehouse 3D privacy</a><a href="/loopdeck/privacy/">LoopDeck privacy</a><a href="/twenty5/privacy/">twenty5 privacy</a><a href="/twenty5/tos/">twenty5 terms</a></div>
+        </div>
+      </div>
+      <div class="footer-bottom"><span>© 2026 Unclocked Studios LLC. All rights reserved.</span><a href="/#approach">Our approach</a></div>
+    </div>
   </footer>
 </body>
 
