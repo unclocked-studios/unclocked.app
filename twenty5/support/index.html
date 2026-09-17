@@ -6,36 +6,40 @@
   <title>Support - twenty5 | Unclocked Studios</title>
   <link rel="icon" type="image/png" sizes="128x128" href="/assets/unclocked-logo-v2-128.png" />
   <link rel="apple-touch-icon" href="/assets/unclocked-logo-v2-128.png" />
-  <link rel="stylesheet" href="/css/style.css" />
+  <meta name="color-scheme" content="light dark">
+  <script src="/js/theme.js"></script>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/site.js" defer></script>
 </head>
 <body>
-  <header>
-    <div class="logo-container">
-      <div class="logo-wrapper">
-        <img src="/assets/unclocked-logo-v2-128.png" alt="Unclocked Studios Logo">
-      </div>
-      <span class="logo-text">Unclocked Studios</span>
-    </div>
-
-    <nav aria-label="Main navigation">
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li class="dropdown">
-          <a href="/">Products</a>
-          <div class="dropdown-content">
-            <a href="/warehouse-heatmap/">Unclocked Warehouse 3D</a>
-            <a href="/products/loopdeck/">LoopDeck</a>
-            <a href="/products/twenty5/">twenty5</a>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner wrap">
+      <a class="brand" href="/" aria-label="Unclocked Studios home">
+        <img src="/assets/unclocked-logo-v2-128.png" alt="" width="34" height="34" decoding="async">
+        <span class="brand-name">Unclocked Studios</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" hidden>Menu <span aria-hidden="true">☰</span></button>
+      <nav class="site-nav" id="site-navigation" aria-label="Main navigation">
+        <a class="nav-mapping" href="/warehouse-heatmap/mapping/">Warehouse Mapping <span aria-hidden="true">↗</span></a>
+        <details class="products-dropdown">
+          <summary aria-controls="product-menu">Products <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="m3 4.5 3 3 3-3"/></svg></summary>
+          <div class="product-menu" id="product-menu">
+            <a href="/warehouse-heatmap/">Unclocked Warehouse 3D<span>Warehouse analytics in Power BI</span></a>
+            <a href="/products/loopdeck/">LoopDeck<span>Dashboard rotation for shared displays</span></a>
+            <a href="/products/twenty5/">twenty5<span>Workout tracking for iOS</span></a>
           </div>
-        </li>
-        <li><a href="/#approach">Approach</a></li>
-        <li><a href="/twenty5/">Support Hub</a></li>
-        <li><a href="/#contact">Contact</a></li>
-      </ul>
-    </nav>
+        </details>
+        <a href="/#contact">Contact</a>
+        <div class="appearance-control" hidden>
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="10" cy="10" r="6.5"/><path d="M10 3.5a6.5 6.5 0 0 0 0 13z" fill="currentColor"/></svg>
+          <select id="appearance" aria-label="Appearance"><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option></select>
+        </div>
+      </nav>
+    </div>
   </header>
 
-  <main class="container">
+  <main id="main-content" class="container">
     <div class="page-header">
       <span class="eyebrow">iOS fitness</span>
       <h1>twenty5 Support</h1>
@@ -79,13 +83,18 @@
     <p style="margin-top: 3rem;"><a href="/twenty5/" class="text-link">Back to Support Hub</a></p>
   </main>
 
-  <footer>
-    <p>© 2026 Unclocked Studios LLC. All rights reserved.</p>
-    <p>
-      <a href="/twenty5/privacy/">Privacy Policy</a> |
-      <a href="/loopdeck/privacy/">LoopDeck Privacy Policy</a> |
-      <a href="/twenty5/tos/">Terms of Service</a>
-    </p>
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div><a class="brand" href="/"><img src="/assets/unclocked-logo-v2-128.png" alt="" width="34" height="34" decoding="async"><span class="brand-name">Unclocked Studios</span></a><p>Thoughtful tools. Practical possibilities.</p></div>
+        <div class="footer-links">
+          <div><strong>Explore</strong><a href="/warehouse-heatmap/">Warehouse 3D</a><a href="/products/loopdeck/">LoopDeck</a><a href="/products/twenty5/">twenty5</a></div>
+          <div><strong>Get in touch</strong><a href="/warehouse-heatmap/mapping/">Request warehouse mapping</a><a href="/warehouse-heatmap/support/">Warehouse 3D support</a><a href="/loopdeck/">LoopDeck support</a><a href="/twenty5/support/">twenty5 support</a><a href="mailto:support@unclocked.app">support@unclocked.app</a></div>
+          <div><strong>Policies</strong><a href="/warehouse-heatmap/privacy/">Warehouse 3D privacy</a><a href="/loopdeck/privacy/">LoopDeck privacy</a><a href="/twenty5/privacy/">twenty5 privacy</a><a href="/twenty5/tos/">twenty5 terms</a></div>
+        </div>
+      </div>
+      <div class="footer-bottom"><span>© 2026 Unclocked Studios LLC. All rights reserved.</span><a href="/#approach">Our approach</a></div>
+    </div>
   </footer>
 </body>
 </html>

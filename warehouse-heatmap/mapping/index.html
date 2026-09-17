@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Request warehouse mapping from your AutoCAD layout to a CSV of location names and X, Y, Z coordinates for Power BI. Prepare an email to discuss your project.">
+  <title>Warehouse Mapping | AutoCAD to Coordinate CSV | Unclocked Studios</title>
+  <link rel="canonical" href="https://unclocked.app/warehouse-heatmap/mapping/">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" type="image/png" sizes="128x128" href="/assets/unclocked-logo-v2-128.png">
+  <link rel="apple-touch-icon" href="/assets/unclocked-logo-v2-128.png">
+  <script src="/js/theme.js"></script>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/site.js" defer></script>
+  <script src="/js/mapping.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner wrap">
+      <a class="brand" href="/" aria-label="Unclocked Studios home">
+        <img src="/assets/unclocked-logo-v2-128.png" alt="" width="34" height="34" decoding="async">
+        <span class="brand-name">Unclocked Studios</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" hidden>Menu <span aria-hidden="true">☰</span></button>
+      <nav class="site-nav" id="site-navigation" aria-label="Main navigation">
+        <a class="nav-mapping" href="/warehouse-heatmap/mapping/">Warehouse Mapping <span aria-hidden="true">↗</span></a>
+        <details class="products-dropdown">
+          <summary aria-controls="product-menu">Products <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="m3 4.5 3 3 3-3"/></svg></summary>
+          <div class="product-menu" id="product-menu">
+            <a href="/warehouse-heatmap/">Unclocked Warehouse 3D<span>Warehouse analytics in Power BI</span></a>
+            <a href="/products/loopdeck/">LoopDeck<span>Dashboard rotation for shared displays</span></a>
+            <a href="/products/twenty5/">twenty5<span>Workout tracking for iOS</span></a>
+          </div>
+        </details>
+        <a href="/#contact">Contact</a>
+        <div class="appearance-control" hidden>
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="10" cy="10" r="6.5"/><path d="M10 3.5a6.5 6.5 0 0 0 0 13z" fill="currentColor"/></svg>
+          <select id="appearance" aria-label="Appearance"><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option></select>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap" id="main-content">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Studio</a><span aria-hidden="true">/</span><a href="/warehouse-heatmap/">Warehouse 3D</a><span aria-hidden="true">/</span><span aria-current="page">Warehouse mapping</span></nav>
+    <div class="mapping-heading"><span class="eyebrow">Warehouse mapping service</span><h1>Your AutoCAD layout.<br>Ready for your next insight.</h1><p>Get your warehouse layout mapped for Power BI. We turn location names and positions in your drawing into a usable X, Y, Z coordinate CSV.</p></div>
+    <div class="mapping-grid">
+      <div class="mapping-details">
+        <section class="deliverable">
+          <span class="eyebrow">What you receive</span><h2>A coordinate table for your warehouse.</h2>
+          <p>Each row connects a location name to its position in the warehouse. Units, coordinate origin, and level heights are confirmed when we scope your layout.</p>
+          <div class="output-preview">
+            <div class="output-label"><strong>warehouse_sample.csv</strong><span>2,208 LOCATIONS</span></div>
+            <table class="coordinate-table"><caption hidden>First three locations and their coordinates from the downloadable sample; additional columns are included in the file.</caption><thead><tr><th scope="col">Location</th><th scope="col">PowerBI_<wbr>X</th><th scope="col">PowerBI_<wbr>Y</th><th scope="col">PowerBI_<wbr>Z</th></tr></thead><tbody><tr><td>1A01A</td><td>1709</td><td>1296</td><td>48</td></tr><tr><td>1A01B</td><td>1709</td><td>1296</td><td>58</td></tr><tr><td>1A02A</td><td>1709</td><td>1283</td><td>48</td></tr></tbody></table>
+          </div>
+          <p>This sample has been tested with Warehouse 3D. Download it to try the visual in Power BI before preparing your own data. The file also includes bin dimensions, category fields, and heatmap values.</p>
+          <div class="button-row"><a class="card-link" href="/assets/warehouse-3d/warehouse_sample.csv" download>Download sample CSV</a><a class="small-link" href="/warehouse-heatmap/support/#sample-data">Sample setup guide</a></div>
+          <p class="fine-print">The preview shows three rows and the coordinate columns. Additional fields for your own mapping project can be discussed during scoping.</p>
+        </section>
+        <h2>A conversation, then a clear plan.</h2>
+        <ol class="process-list"><li><strong>Describe your warehouse</strong><p>Tell us what you have and what you need. Estimates are fine.</p></li><li><strong>Discuss the drawing and scope</strong><p>We’ll arrange how to share your drawing and confirm the location names, coordinates, and level information.</p></li><li><strong>Receive the mapped CSV</strong><p>Use the agreed coordinate output with your warehouse data in Power BI.</p></li></ol>
+        <p class="fine-print">This is a mapping service provided by the studio. Preparing a request does not automatically convert a drawing or commit you to a project.</p>
+      </div>
+      <section class="request-panel" aria-labelledby="request-title">
+        <span class="eyebrow">Start here</span><h2 id="request-title">Tell us about your layout.</h2><p>Prepare an email in a few simple steps. Only your name and project description are required.</p>
+        <noscript><p class="notice">The request builder needs JavaScript. You can email your name and a description of your layout directly to <a href="mailto:support@unclocked.app?subject=Warehouse%20mapping%20request">support@unclocked.app</a>.</p></noscript>
+        <form id="mapping-form" autocomplete="off">
+          <fieldset disabled><legend hidden>Warehouse mapping request details</legend>
+            <div class="form-grid">
+              <div class="field"><label for="request-name">Your name <span>(required)</span></label><input id="request-name" name="name" required placeholder="Your name" maxlength="160"></div>
+              <div class="field"><label for="request-company">Company <span>(optional)</span></label><input id="request-company" name="company" placeholder="Company or team" maxlength="200"></div>
+              <div class="field"><label for="request-format">Drawing format <span>(optional)</span></label><select id="request-format" name="format"><option value="">Not sure yet</option><option>DWG</option><option>DXF</option><option>Other — described below</option></select></div>
+              <div class="field"><label for="request-count">Approximate locations <span>(optional)</span></label><input id="request-count" name="count" placeholder="e.g. 2,500, or not sure" maxlength="100"></div>
+              <div class="field full"><label for="request-levels">Levels / height information <span>(optional)</span></label><input id="request-levels" name="levels" placeholder="e.g. 4 rack levels; heights available" maxlength="300"></div>
+              <div class="field full"><label for="request-description">About your project <span>(required)</span></label><textarea id="request-description" name="description" rows="4" required placeholder="What would you like mapped? Tell us about the layout, location labels, and any questions." aria-describedby="description-help"></textarea><small id="description-help">No drawing needed yet. We’ll discuss how to share it after you get in touch.</small></div>
+            </div>
+            <div class="form-actions"><button class="btn-primary" id="prepare-request" type="submit">Prepare request email</button><p>Your details stay in this page until you choose to open or copy the draft. Review and send the email yourself to submit the request.</p></div>
+          </fieldset>
+        </form>
+        <p class="request-status" id="request-status" role="status" aria-live="polite"></p>
+        <p class="notice" id="long-request-help" hidden>Your complete draft is too long for a reliable email link. Copy it below, then <a href="mailto:support@unclocked.app?subject=Warehouse%20mapping%20request">open an email</a> and paste it. No details will be truncated.</p>
+        <details class="draft-section" id="draft-details" open><summary>Your email draft &amp; copy options</summary><label for="request-preview">Complete request text</label><textarea id="request-preview" rows="8" readonly spellcheck="false"></textarea><div class="button-row"><button class="btn-secondary" type="button" id="copy-request">Copy request</button><a class="small-link" href="mailto:support@unclocked.app?subject=Warehouse%20mapping%20request">Open a blank email</a></div><p class="fine-print" id="manual-copy-help" hidden>Press Ctrl+C (Windows) or ⌘C (Mac), or use your device’s Copy command. Paste the draft into your email.</p></details>
+        <p class="fine-print" style="margin:20px 0 0">Prefer to write directly? <a href="mailto:support@unclocked.app?subject=Warehouse%20mapping%20request">support@unclocked.app</a></p>
+      </section>
+    </div>
+    <section class="mapping-faq"><span class="eyebrow">A few helpful details</span><h2>Before you get started.</h2>
+      <details><summary>What if my drawing doesn’t include every level?</summary><p>Tell us what information is available. Level heights and missing location information can be discussed before the mapping scope is agreed.</p></details>
+      <details><summary>Will this page convert my drawing automatically?</summary><p>No. This page helps you prepare a request for the studio. We review the drawing and requirements with you before mapping begins.</p></details>
+      <details><summary>Can I request dimensions or other fields?</summary><p>Include any additional requirements in your description. The core output is location names and X, Y, Z coordinates; other fields are discussed during scoping.</p></details>
+      <details><summary>How do I submit the request?</summary><p>Prepare the draft, then review and send it in your email app. If you use webmail, copy the request and email it to support@unclocked.app with the subject “Warehouse mapping request.” This website does not send the email or store your request.</p></details>
+      <details><summary>Already have coordinates and need help with the visual?</summary><p>Visit <a href="/warehouse-heatmap/support/">Warehouse 3D support</a> for setup guidance and troubleshooting.</p></details>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div><a class="brand" href="/"><img src="/assets/unclocked-logo-v2-128.png" alt="" width="34" height="34" decoding="async"><span class="brand-name">Unclocked Studios</span></a><p>Thoughtful tools. Practical possibilities.</p></div>
+        <div class="footer-links">
+          <div><strong>Explore</strong><a href="/warehouse-heatmap/">Warehouse 3D</a><a href="/products/loopdeck/">LoopDeck</a><a href="/products/twenty5/">twenty5</a></div>
+          <div><strong>Get in touch</strong><a href="/warehouse-heatmap/mapping/">Request warehouse mapping</a><a href="/warehouse-heatmap/support/">Warehouse 3D support</a><a href="/loopdeck/">LoopDeck support</a><a href="/twenty5/support/">twenty5 support</a><a href="mailto:support@unclocked.app">support@unclocked.app</a></div>
+          <div><strong>Policies</strong><a href="/warehouse-heatmap/privacy/">Warehouse 3D privacy</a><a href="/loopdeck/privacy/">LoopDeck privacy</a><a href="/twenty5/privacy/">twenty5 privacy</a><a href="/twenty5/tos/">twenty5 terms</a></div>
+        </div>
+      </div>
+      <div class="footer-bottom"><span>© 2026 Unclocked Studios LLC. All rights reserved.</span><a href="/#approach">Our approach</a></div>
+    </div>
+  </footer>
+</body>
+</html>
