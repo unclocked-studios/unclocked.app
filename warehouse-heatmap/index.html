@@ -5,8 +5,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
-    content="Visualize inventory, activity, capacity, and warehouse exceptions in an interactive coordinate-based 3D heatmap for Microsoft Power BI.">
-  <title>Unclocked Warehouse 3D | Power BI Warehouse Heatmap</title>
+    content="Explore inventory, picking activity, and warehouse exceptions in Power BI with Unclocked 3D Heatmap. Install free for up to 2,500 bins or try the sample report.">
+  <title>Unclocked 3D Heatmap | Warehouse Analytics for Power BI</title>
+  <link rel="canonical" href="https://unclocked.app/warehouse-heatmap/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Unclocked 3D Heatmap for Power BI">
+  <meta property="og:description" content="See where warehouse inventory and activity need attention. Install free or explore the sample report.">
+  <meta property="og:url" content="https://unclocked.app/warehouse-heatmap/">
+  <meta property="og:image" content="https://unclocked.app/assets/warehouse-3d/visual-only/warehouse-overview.png">
+  <meta property="og:image:alt" content="A warehouse heatmap with location search and a color legend in Power BI">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/png" sizes="128x128" href="/assets/unclocked-logo-v2-128.png" />
   <link rel="apple-touch-icon" href="/assets/unclocked-logo-v2-128.png" />
   <meta name="color-scheme" content="light dark">
@@ -29,7 +37,7 @@
         <details class="products-dropdown">
           <summary aria-controls="product-menu">Products <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="m3 4.5 3 3 3-3"/></svg></summary>
           <div class="product-menu" id="product-menu">
-            <a href="/warehouse-heatmap/">Unclocked Warehouse 3D<span>Warehouse analytics in Power BI</span></a>
+            <a href="/warehouse-heatmap/">Unclocked 3D Heatmap<span>Warehouse analytics in Power BI</span></a>
             <a href="/products/loopdeck/">LoopDeck<span>Dashboard rotation for shared displays</span></a>
             <a href="/products/twenty5/">twenty5<span>Workout tracking for iOS</span></a>
           </div>
@@ -44,60 +52,86 @@
   </header>
 
   <main id="main-content">
-    <section class="hero hero-split" id="overview">
+    <section class="hero hero-split warehouse-hero" id="overview">
       <div class="hero-text">
-        <span class="eyebrow">Microsoft Power BI custom visual</span>
-        <h1>Turn warehouse data into an interactive 3D heatmap.</h1>
-        <p>
-          Map inventory, activity, capacity, and operational exceptions to physical warehouse locations directly inside
-          Microsoft Power BI.
-        </p>
+        <span class="eyebrow">Unclocked 3D Heatmap for Power BI</span>
+        <h1>See where your warehouse needs attention.</h1>
+        <p>Explore inventory, picking activity, and operational exceptions by their physical location. Turn your warehouse coordinates and Power BI measures into interactive 3D heatmaps and 2D plan views.</p>
         <div class="hero-buttons">
-          <a href="/warehouse-heatmap/mapping/" class="btn-primary">Request warehouse mapping <span aria-hidden="true">↗</span></a>
-          <a href="#availability" class="btn-secondary">Availability</a>
-          <a href="#sample-data" class="btn-secondary">Try the sample data</a>
-          <a href="/warehouse-heatmap/support/" class="btn-secondary">View Support</a>
-
+          <a href="https://marketplace.microsoft.com/en-us/product/unclockedstudiosllc1780535695675.unclocked-3d-heatmap?ocid=unclocked_website&amp;utm_source=unclocked.app&amp;utm_medium=website&amp;utm_campaign=warehouse_heatmap&amp;utm_content=product_hero" class="btn-primary">Install free on Marketplace <span aria-hidden="true">↗</span></a>
+          <a href="https://customvisualspackages.powerbi.com/publishedpackages/warehouse3DHeatmap0624D00AD581492AB36197B949957FF8.1.1.0.3.pbix" class="btn-secondary">Download sample report</a>
         </div>
+        <p class="hero-note">Free for up to 2,500 rendered bins. <a href="#availability">Compare plans</a> for larger layouts.</p>
+        <p class="trust-line"><a href="https://marketplace.microsoft.com/en-us/product/unclockedstudiosllc1780535695675.unclocked-3d-heatmap">Certified by Power BI</a><span aria-hidden="true">·</span>Available on Microsoft Marketplace</p>
+        <p class="fine-print">Need coordinates first? <a href="/warehouse-heatmap/mapping/">Explore warehouse mapping</a>.</p>
       </div>
       <figure class="hero-media">
         <a class="screenshot-link" href="/assets/warehouse-3d/visual-only/warehouse-overview.png" target="_blank" rel="noopener" aria-label="Open the warehouse overview screenshot at full size (new tab)">
           <img src="/assets/warehouse-3d/visual-only/warehouse-overview.png"
-            alt="Warehouse 3D in light appearance showing the warehouse heatmap, location search, and color legend" decoding="async" fetchpriority="high" width="1251" height="781">
+            alt="3D Heatmap in light appearance showing the warehouse heatmap, location search, and color legend" decoding="async" fetchpriority="high" width="1251" height="781">
         </a>
       </figure>
     </section>
 
-    <section class="section surface-section">
-      <span class="eyebrow">Why it exists</span>
-      <h2>Your warehouse metrics already tell a story. This visual shows where that story is happening.</h2>
-      <p>
-        Connect a Power BI measure to physical bin coordinates and explore patterns across aisles, levels, zones, and
-        neighboring locations. Search for a location, isolate operational categories, switch between 3D and 2D views,
-        and let report filters update the layout in context.
-      </p>
-      <div class="mini-kpis">
-        <div class="stat-card">
-          <strong>3D</strong>
-          <p>Coordinate-based warehouse rendering from X, Y, and Z fields.</p>
-        </div>
-        <div class="stat-card">
-          <strong>2D</strong>
-          <p>Flat bird's-eye plan view when operational overview matters most.</p>
-        </div>
-        <div class="stat-card">
-          <strong>3</strong>
-          <p>Custom category filters for aisle, bay, level, zone, process, or your own model.</p>
-        </div>
+    <section class="section surface-section" id="use-cases">
+      <span class="eyebrow">Built for warehouse teams</span>
+      <h2>Put an operational question on the map.</h2>
+      <p class="section-intro">Bring the measures you already use in Power BI into the warehouse layout. Explore the pattern, narrow the view, and inspect the locations behind it.</p>
+      <div class="feature-grid">
+        <article class="content-card">
+          <h3>Where is aging stock concentrated?</h3>
+          <p>Color bins by your inventory-age measure, then focus on the aisles and locations that need investigation.</p>
+        </article>
+        <article class="content-card">
+          <h3>Where is picking activity highest?</h3>
+          <p>Map picks by location to see how activity is distributed across zones, racks, and levels.</p>
+        </article>
+        <article class="content-card">
+          <h3>Which locations need a closer look?</h3>
+          <p>Use utilization, shortages, or an exception measure to identify locations and inspect their details in report context.</p>
+        </article>
       </div>
     </section>
 
     <section class="section surface-section" id="sample-data">
-      <span class="eyebrow">Sample data</span>
-      <h2>Try Warehouse 3D with a complete sample layout.</h2>
-      <p>Once you have the visual installed, load this CSV into Power BI to explore a warehouse with 2,208 locations. It includes location names, coordinates, bin dimensions, category fields, and values for the heatmap, so you can try the visual before mapping your own warehouse.</p>
-      <div class="button-row"><a class="btn-primary" href="/assets/warehouse-3d/warehouse_sample.csv" download>Download sample CSV</a><a class="btn-secondary" href="/warehouse-heatmap/support/#sample-data">How to use the sample</a></div>
-      <p class="fine-print">warehouse_sample.csv · 104 KB · Tested with Unclocked Warehouse 3D</p>
+      <span class="eyebrow">Try it with sample data</span>
+      <h2>Explore a warehouse before connecting your own.</h2>
+      <p class="section-intro">Start with the sample Power BI report from the Marketplace listing. Prefer to build the view yourself? Our CSV includes 2,208 locations with coordinates, dimensions, categories, and heatmap values, within the free plan's bin limit.</p>
+      <div class="button-row">
+        <a class="btn-primary" href="https://customvisualspackages.powerbi.com/publishedpackages/warehouse3DHeatmap0624D00AD581492AB36197B949957FF8.1.1.0.3.pbix">Download sample report (.pbix)</a>
+        <a class="btn-secondary" href="/assets/warehouse-3d/warehouse_sample.csv" download>Download sample CSV</a>
+        <a class="card-link" href="/warehouse-heatmap/support/#sample-data">Sample setup guide</a>
+      </div>
+      <p class="fine-print">Open the report in Power BI Desktop. The CSV is 104 KB. Sample values illustrate the visual's controls and are not customer results.</p>
+    </section>
+
+    <section class="section surface-section" id="availability">
+      <span class="eyebrow">Plans and pricing</span>
+      <h2>Start free. Expand to your full warehouse.</h2>
+      <p class="section-intro">Install Unclocked 3D Heatmap from Microsoft Marketplace, also known as AppSource. Choose Warehouse Pro when your report needs to render more than 2,500 locations.</p>
+      <div class="plan-grid">
+        <article class="plan-card" aria-labelledby="free-plan-title">
+          <h3 id="free-plan-title">Free</h3>
+          <p class="plan-price">$0</p>
+          <p>For sample reports and layouts up to 2,500 rendered bins.</p>
+          <ul><li>Interactive 3D and 2D views</li><li>Heat mapping, search, and category filters</li><li>Power BI report interactions and saved views</li><li>Ongoing free use within the bin limit</li></ul>
+          <a class="btn-secondary" href="https://marketplace.microsoft.com/en-us/product/unclockedstudiosllc1780535695675.unclocked-3d-heatmap?ocid=unclocked_website&amp;utm_source=unclocked.app&amp;utm_medium=website&amp;utm_campaign=warehouse_heatmap&amp;utm_content=free_plan">Install free</a>
+        </article>
+        <article class="plan-card plan-card-pro" aria-labelledby="pro-plan-title">
+          <h3 id="pro-plan-title">Warehouse Pro</h3>
+          <p class="plan-price">$6 <span>USD / user / month</span></p>
+          <p>Or $60 USD per user per year. First month free.</p>
+          <ul><li>All features available in Free</li><li>Removes the 2,500-bin free rendering limit</li><li>For larger warehouse layouts</li><li>Purchased and managed through Microsoft</li></ul>
+          <a class="btn-primary" href="https://marketplace.microsoft.com/en-us/product/unclockedstudiosllc1780535695675.unclocked-3d-heatmap?tab=PlansAndPrice&amp;ocid=unclocked_website&amp;utm_source=unclocked.app&amp;utm_medium=website&amp;utm_campaign=warehouse_heatmap&amp;utm_content=pro_plan">View Warehouse Pro on Marketplace <span aria-hidden="true">↗</span></a>
+        </article>
+      </div>
+      <p class="fine-print">US listing prices checked October 2, 2026. Confirm current pricing, trial terms, and applicable taxes at Microsoft checkout. Display limits and device performance still apply. Power BI licenses are separate.</p>
+      <p><a href="/warehouse-heatmap/support/#licensing">How licenses and report sharing work</a></p>
+      <div class="app-summary">
+        <h3>Have a layout, but no coordinates?</h3>
+        <p>Our warehouse mapping service can help turn your AutoCAD drawing into a location-coordinate CSV. Mapping is scoped separately from the visual subscription.</p>
+        <div class="button-row"><a class="btn-secondary" href="/warehouse-heatmap/mapping/">Request warehouse mapping</a><a class="card-link" href="/warehouse-heatmap/support/">Get setup help</a></div>
+      </div>
     </section>
 
     <section class="section" id="features">
@@ -130,7 +164,7 @@
         </article>
         <article class="content-card">
           <h2>Performance controls</h2>
-          <p>Use instanced rendering, progressive rendering, geometry caching, and presets for larger layouts.</p>
+          <p>Adjust rendering presets and display limits to balance warehouse detail with navigation speed on your device.</p>
         </article>
       </div>
     </section>
@@ -138,7 +172,7 @@
     <section class="section surface-section" id="screenshots">
       <span class="eyebrow">Inside the visual</span>
       <h2>Explore the warehouse in 3D and in plan view.</h2>
-      <p class="section-intro">These screenshots preview the update currently in review, using the sample warehouse data. Select an image to open it at full size in a new tab.</p>
+      <p class="section-intro">Explore the visual using sample warehouse data. Select an image to open it at full size in a new tab.</p>
       <div class="media-grid">
         <figure class="product-visual">
           <a class="screenshot-link" href="/assets/warehouse-3d/visual-only/category-filters.png" target="_blank" rel="noopener" aria-label="Open the category filtering screenshot at full size (new tab)">
@@ -189,7 +223,7 @@
       <div class="workflow-grid">
         <article class="workflow-step">
           <h3>1. Provide one row per location</h3>
-          <p>Use stable Location IDs and numeric X, Y, and Z coordinates for each bin or physical location.</p>
+          <p>Provide a unique Location ID and numeric X and Y coordinates for each bin. Add optional Z coordinates to place locations at different heights.</p>
         </article>
         <article class="workflow-step">
           <h3>2. Add the measure to analyze</h3>
@@ -202,30 +236,6 @@
       </div>
     </section>
 
-    <section class="section surface-section" id="availability">
-      <span class="eyebrow">Availability</span>
-      <h2>Available on Microsoft AppSource.</h2>
-      <p>
-        The first version of Unclocked Warehouse 3D is published and available now. The latest update is currently
-        under review. We expect it to take at least another two weeks to go live, depending on the review process.
-      </p>
-      <p class="fine-print">Update status as of September 16, 2026. The screenshots on this page preview the update currently in review.</p>
-      <p>
-        The free experience is designed for focused layouts and
-        evaluation up to 2,500 rendered bins, while the Professional plan removes that free-tier restriction for larger
-        operational deployments.
-      </p>
-      <div class="app-summary">
-        <p>
-          Already have an AutoCAD warehouse drawing but no coordinate table? <a href="/warehouse-heatmap/mapping/">Request warehouse mapping</a> to discuss a CSV of location names and X, Y, Z coordinates. Additional requirements can be agreed during scoping.
-        </p>
-        <p>
-          Questions about the available version or the upcoming update? Visit <a class="text-link" href="/warehouse-heatmap/support/">support</a> or
-          email <a class="text-link"
-            href="mailto:support@unclocked.app?subject=Unclocked%20Warehouse%203D">support@unclocked.app</a>.
-        </p>
-      </div>
-    </section>
   </main>
 
   <footer class="site-footer">
@@ -233,9 +243,9 @@
       <div class="footer-top">
         <div><a class="brand" href="/"><img src="/assets/unclocked-logo-v2-128.png" alt="" width="34" height="34" decoding="async"><span class="brand-name">Unclocked Studios</span></a><p>Thoughtful tools. Practical possibilities.</p></div>
         <div class="footer-links">
-          <div><strong>Explore</strong><a href="/warehouse-heatmap/">Warehouse 3D</a><a href="/products/loopdeck/">LoopDeck</a><a href="/products/twenty5/">twenty5</a></div>
-          <div><strong>Get in touch</strong><a href="/warehouse-heatmap/mapping/">Request warehouse mapping</a><a href="/warehouse-heatmap/support/">Warehouse 3D support</a><a href="/loopdeck/">LoopDeck support</a><a href="/twenty5/support/">twenty5 support</a><a href="mailto:support@unclocked.app">support@unclocked.app</a></div>
-          <div><strong>Policies</strong><a href="/warehouse-heatmap/privacy/">Warehouse 3D privacy</a><a href="/loopdeck/privacy/">LoopDeck privacy</a><a href="/twenty5/privacy/">twenty5 privacy</a><a href="/twenty5/tos/">twenty5 terms</a></div>
+          <div><strong>Explore</strong><a href="/warehouse-heatmap/">3D Heatmap</a><a href="/products/loopdeck/">LoopDeck</a><a href="/products/twenty5/">twenty5</a></div>
+          <div><strong>Get in touch</strong><a href="/warehouse-heatmap/mapping/">Request warehouse mapping</a><a href="/warehouse-heatmap/support/">3D Heatmap support</a><a href="/loopdeck/">LoopDeck support</a><a href="/twenty5/support/">twenty5 support</a><a href="mailto:support@unclocked.app">support@unclocked.app</a></div>
+          <div><strong>Policies</strong><a href="/warehouse-heatmap/privacy/">3D Heatmap privacy</a><a href="/loopdeck/privacy/">LoopDeck privacy</a><a href="/twenty5/privacy/">twenty5 privacy</a><a href="/twenty5/tos/">twenty5 terms</a></div>
         </div>
       </div>
       <div class="footer-bottom"><span>© 2026 Unclocked Studios LLC. All rights reserved.</span><a href="/#approach">Our approach</a></div>

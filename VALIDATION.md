@@ -1,4 +1,18 @@
-# Redesign verification — September 16, 2026
+# Website verification
+
+## Marketplace marketing update — October 2, 2026
+
+- Started from clean `main` at `531b9ca4be0486dc709a34c97ae584865e3b11e3`; local review branch is `codex/warehouse-marketing-review`.
+- Matched the current Marketplace product name, removed the outdated September release-review notice, added direct installation and official sample-report links, and clarified warehouse use cases, Free versus Warehouse Pro, and license assignment.
+- Checked the live US Marketplace listing: version 1.1.0.3, Power BI certification, 2,500-bin free limit, and Warehouse Pro at $6 USD/user/month or $60 USD/user/year with the first month free. The page dates this price check and points to Microsoft checkout for current terms.
+- Verified the official sample `.pbix` download through the browser. Power BI Desktop was not run on this Mac; report behavior was not retested.
+- All 13 existing automated tests pass, including local links, fragment targets, sample data, form behavior, theme handling, contrast, and unchanged policy bodies. The whitespace diff check passes.
+- All 14 pages fit a 320px CSS viewport without horizontal overflow or broken loaded images. Visually reviewed the product hero and pricing on desktop in both themes, the product on a 390px phone viewport, and the homepage and support page on desktop. Mobile navigation and the pricing anchor work; no browser console errors were reported. Temporary viewport overrides were reset.
+- All 23 original asset files match their baseline Git bytes. Existing screenshots, sample CSVs, scripts, forms, tests, and domain configuration remain unchanged.
+- Marketplace links include source and placement parameters; no analytics scripts were added. README documents price and sample-link maintenance.
+- Preview remains at `http://127.0.0.1:4173/warehouse-heatmap/`. Changes are uncommitted and unpushed; neither the public website nor the Marketplace listing was published or modified.
+
+# Earlier verification — September 16, 2026
 
 ## Updated LoopDeck screenshots
 
