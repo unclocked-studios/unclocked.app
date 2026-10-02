@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Support resources and FAQs for Unclocked Warehouse 3D by Unclocked Studios.">
-  <title>Unclocked Warehouse 3D Support - Unclocked Studios</title>
+  <meta name="description" content="Support resources and FAQs for Unclocked 3D Heatmap by Unclocked Studios.">
+  <title>Unclocked 3D Heatmap Support - Unclocked Studios</title>
   <link rel="icon" type="image/png" sizes="128x128" href="/assets/unclocked-logo-v2-128.png" />
   <link rel="apple-touch-icon" href="/assets/unclocked-logo-v2-128.png" />
   <meta name="color-scheme" content="light dark">
@@ -28,7 +28,7 @@
         <details class="products-dropdown">
           <summary aria-controls="product-menu">Products <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="m3 4.5 3 3 3-3"/></svg></summary>
           <div class="product-menu" id="product-menu">
-            <a href="/warehouse-heatmap/">Unclocked Warehouse 3D<span>Warehouse analytics in Power BI</span></a>
+            <a href="/warehouse-heatmap/">Unclocked 3D Heatmap<span>Warehouse analytics in Power BI</span></a>
             <a href="/products/loopdeck/">LoopDeck<span>Dashboard rotation for shared displays</span></a>
             <a href="/products/twenty5/">twenty5<span>Workout tracking for iOS</span></a>
           </div>
@@ -45,13 +45,18 @@
   <main id="main-content" class="container">
     <div class="page-header">
       <span class="eyebrow">Power BI visual support</span>
-      <h1>Unclocked Warehouse 3D Support</h1>
+      <h1>Unclocked 3D Heatmap Support</h1>
       <p>
-        Setup guidance, troubleshooting, and FAQs for the coordinate-based warehouse heatmap visual.
+        Install the visual, try a sample report, and connect your warehouse data. Find it on Microsoft Marketplace as Unclocked 3D Heatmap.
       </p>
     </div>
 
-    <section class="faq-section"><span class="eyebrow">Need a coordinate table?</span><h2>Start with your warehouse drawing.</h2><p>Request a CSV of location names and X, Y, Z coordinates from your AutoCAD layout.</p><a class="btn-primary" href="/warehouse-heatmap/mapping/">Request warehouse mapping <span aria-hidden="true">↗</span></a></section>
+    <section class="faq-section">
+      <span class="eyebrow">Start here</span>
+      <h2>Install free or open the sample report.</h2>
+      <div class="button-row"><a class="btn-primary" href="https://marketplace.microsoft.com/en-us/product/unclockedstudiosllc1780535695675.unclocked-3d-heatmap?ocid=unclocked_website&amp;utm_source=unclocked.app&amp;utm_medium=website&amp;utm_campaign=warehouse_heatmap&amp;utm_content=support_start">Install free on Marketplace</a><a class="btn-secondary" href="https://customvisualspackages.powerbi.com/publishedpackages/warehouse3DHeatmap0624D00AD581492AB36197B949957FF8.1.1.0.3.pbix">Download sample report (.pbix)</a></div>
+      <p class="fine-print">Use Power BI Desktop to open the report. Looking for the CSV field assignments? <a href="#sample-data">Follow the sample setup guide</a>.</p>
+    </section>
 
     <section class="faq-section">
       <h2>Contact Support</h2>
@@ -68,10 +73,10 @@
     <section class="faq-section">
       <h2>Quick Start</h2>
       <ol>
-        <li>Add Unclocked Warehouse 3D to a Power BI report page.</li>
+        <li>In Power BI, open <strong>Get more visuals</strong>, search for <strong>Unclocked 3D Heatmap</strong>, and add it to your report.</li>
         <li>Resize the visual to provide enough room for the warehouse and controls.</li>
         <li>Add a unique location field to Location ID.</li>
-        <li>Add numeric X, Y, and Z coordinate fields.</li>
+        <li>Add numeric X and Y coordinate fields. Z is optional; add it to position bins at different heights.</li>
         <li>Add the numeric measure you want to analyze to Heat Value.</li>
         <li>Optionally add bin dimensions and up to three category-filter fields.</li>
       </ol>
@@ -79,21 +84,21 @@
 
     <section class="faq-section" id="sample-data">
       <h2>Try the sample data</h2>
-      <p>The sample CSV has been tested with Unclocked Warehouse 3D and contains 2,208 locations. It includes coordinates, dimensions, categories, and heatmap values, so you can try the visual without preparing your own warehouse data first.</p>
+      <p>The sample CSV has been tested with Unclocked 3D Heatmap and contains 2,208 locations. It includes coordinates, dimensions, categories, and heatmap values, so you can try the visual without preparing your own warehouse data first.</p>
       <p><a class="btn-primary" href="/assets/warehouse-3d/warehouse_sample.csv" download>Download sample CSV</a></p>
       <ol>
         <li>In Power BI Desktop, choose <strong>Get data → Text/CSV</strong>, select <strong>warehouse_sample.csv</strong>, and load the table.</li>
-        <li>Add Unclocked Warehouse 3D to the report page and select the visual.</li>
+        <li>Add Unclocked 3D Heatmap to the report page and select the visual.</li>
         <li>Assign the sample columns to the visual using the table below. Keep the coordinates, dimensions, and Value column numeric.</li>
       </ol>
       <table class="sample-fields">
-        <caption>Sample columns and where to use them in Warehouse 3D</caption>
+        <caption>Sample columns and where to use them in 3D Heatmap</caption>
         <thead><tr><th scope="col">CSV column</th><th scope="col">Visual field</th></tr></thead>
         <tbody>
           <tr><td><code>Location</code></td><td>Location ID</td></tr>
           <tr><td><code>PowerBI_X</code></td><td>X coordinate</td></tr>
           <tr><td><code>PowerBI_Y</code></td><td>Y coordinate</td></tr>
-          <tr><td><code>PowerBI_Z</code></td><td>Z coordinate</td></tr>
+          <tr><td><code>PowerBI_Z</code></td><td>Z coordinate (optional; included in the sample)</td></tr>
           <tr><td><code>Value</code></td><td>Heat Value</td></tr>
           <tr><td><code>Length</code>, <code>Width</code>, <code>Height</code></td><td>Matching bin dimension fields (optional)</td></tr>
           <tr><td><code>Aisle</code>, <code>Bay</code>, <code>Level</code>, <code>Location_Type</code></td><td>Choose up to three category-filter fields (optional)</td></tr>
@@ -108,8 +113,7 @@
 
       <h3>Does the visual create coordinates automatically?</h3>
       <p>
-        No. The Power BI model must provide X, Y, and Z coordinates for each location. Optional width, length, and
-        height fields can define individual bin dimensions.
+        No. Your Power BI model must provide X and Y coordinates for each location. Z coordinates are optional and position bins at different heights. Optional width, length, and height fields define bin dimensions. If you only have a drawing, <a href="/warehouse-heatmap/mapping/">request warehouse mapping</a>.
       </p>
 
       <h3>What can I use as the Heat Value?</h3>
@@ -138,7 +142,7 @@
 
       <h3>How many bins can it display?</h3>
       <p>
-        The free plan renders up to 2,500 bins. The Professional plan removes that free-tier restriction, while the
+        The free plan renders up to 2,500 bins. Warehouse Pro removes that free-tier restriction, while the
         report author controls the scene limit through the visual's Max displayed bins setting. Actual performance
         depends on the report and device.
       </p>
@@ -150,13 +154,30 @@
       </p>
     </section>
 
+    <section class="faq-section" id="licensing">
+      <h2>Plans, licenses, and sharing</h2>
+      <h3>Is Free the same as the Warehouse Pro trial?</h3>
+      <p>No. Free supports ongoing use with up to 2,500 rendered bins. Warehouse Pro removes that limit and has a first-month-free offer on Marketplace. Review the subscription and trial terms at checkout. <a href="/warehouse-heatmap/#availability">Compare the plans</a>.</p>
+      <h3>Does one Warehouse Pro license cover the whole team?</h3>
+      <p>Warehouse Pro is priced per user, not per report or warehouse. Each person who needs the paid rendering capacity should have an assigned visual license, including report viewers. Buying the visual for an author does not license everyone they share a report with.</p>
+      <h3>How do I assign a purchased license?</h3>
+      <p>The purchaser normally receives a license automatically. The purchaser or the appropriate administrator can assign other seats in the Microsoft 365 admin center under <strong>Billing → Licenses</strong>. Select the visual and assign the users who need it, then refresh the report or reopen Power BI Desktop. Allow time for Microsoft to recognize a new assignment.</p>
+      <p><a href="https://learn.microsoft.com/en-us/power-bi/developer/visuals/licensing-faq">Microsoft's visual purchasing and license-assignment guide</a></p>
+      <h3>Is this included with Power BI Pro or Premium?</h3>
+      <p>The visual subscription is separate from Power BI licensing. Your organization still needs the Power BI licenses or capacity required for its report-sharing setup. Warehouse Pro is the name of this visual's paid plan; it is not Power BI Pro.</p>
+      <h3>What about embedded reports or Report Server?</h3>
+      <p>Microsoft's visual license management is not supported in every environment. Review <a href="https://learn.microsoft.com/en-us/power-bi/developer/visuals/custom-visual-licenses#considerations-and-limitations">Microsoft's environment limitations</a> before planning an embedded or Report Server deployment, and contact support about your setup.</p>
+    </section>
+
     <section class="faq-section">
       <h2>Troubleshooting</h2>
       <h3>No bins appear</h3>
       <p>
-        Confirm that Location ID and X/Y/Z coordinates are populated, coordinate columns contain valid numbers, report
-        filters are not hiding the layout, and Max displayed bins is high enough.
+        Confirm that Location ID, X, Y, and Heat Value are populated. Check that coordinates and Heat Value are numeric, report filters are not hiding the layout, and Max displayed bins is high enough. If you use Z, check that it contains valid numbers too.
       </p>
+
+      <h3>I purchased Warehouse Pro but still see a limit</h3>
+      <p>Check that the visual license is assigned to the same work or school account used in Power BI. Refresh the report or reopen Desktop after assignment. Also check Max displayed bins: purchasing a license does not remove your report's configured display limit. <a href="#licensing">See license guidance</a>.</p>
 
       <h3>Bins overlap or appear in the wrong place</h3>
       <p>
@@ -174,7 +195,7 @@
     <section class="faq-section">
       <h2>Privacy</h2>
       <p>
-        Review the <a href="/warehouse-heatmap/privacy/">Unclocked Warehouse 3D Privacy Policy</a> for data handling
+        Review the <a href="/warehouse-heatmap/privacy/">visual privacy policy</a> for data handling
         details.
       </p>
     </section>
@@ -185,9 +206,9 @@
       <div class="footer-top">
         <div><a class="brand" href="/"><img src="/assets/unclocked-logo-v2-128.png" alt="" width="34" height="34" decoding="async"><span class="brand-name">Unclocked Studios</span></a><p>Thoughtful tools. Practical possibilities.</p></div>
         <div class="footer-links">
-          <div><strong>Explore</strong><a href="/warehouse-heatmap/">Warehouse 3D</a><a href="/products/loopdeck/">LoopDeck</a><a href="/products/twenty5/">twenty5</a></div>
-          <div><strong>Get in touch</strong><a href="/warehouse-heatmap/mapping/">Request warehouse mapping</a><a href="/warehouse-heatmap/support/">Warehouse 3D support</a><a href="/loopdeck/">LoopDeck support</a><a href="/twenty5/support/">twenty5 support</a><a href="mailto:support@unclocked.app">support@unclocked.app</a></div>
-          <div><strong>Policies</strong><a href="/warehouse-heatmap/privacy/">Warehouse 3D privacy</a><a href="/loopdeck/privacy/">LoopDeck privacy</a><a href="/twenty5/privacy/">twenty5 privacy</a><a href="/twenty5/tos/">twenty5 terms</a></div>
+          <div><strong>Explore</strong><a href="/warehouse-heatmap/">3D Heatmap</a><a href="/products/loopdeck/">LoopDeck</a><a href="/products/twenty5/">twenty5</a></div>
+          <div><strong>Get in touch</strong><a href="/warehouse-heatmap/mapping/">Request warehouse mapping</a><a href="/warehouse-heatmap/support/">3D Heatmap support</a><a href="/loopdeck/">LoopDeck support</a><a href="/twenty5/support/">twenty5 support</a><a href="mailto:support@unclocked.app">support@unclocked.app</a></div>
+          <div><strong>Policies</strong><a href="/warehouse-heatmap/privacy/">3D Heatmap privacy</a><a href="/loopdeck/privacy/">LoopDeck privacy</a><a href="/twenty5/privacy/">twenty5 privacy</a><a href="/twenty5/tos/">twenty5 terms</a></div>
         </div>
       </div>
       <div class="footer-bottom"><span>© 2026 Unclocked Studios LLC. All rights reserved.</span><a href="/#approach">Our approach</a></div>

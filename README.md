@@ -14,6 +14,19 @@ draft encoding and long-request behavior, clipboard fallback, and theme storage 
 Check the homepage, mapping page, product pages, and support/policy pages visually
 in both themes and at mobile widths before publishing.
 
+## Marketplace content
+
+The marketing name is **Unclocked 3D Heatmap**, matching the public listing. The
+existing `/warehouse-heatmap/` URLs and historical privacy-policy body are retained.
+The product page links directly to Marketplace and its published sample PBIX.
+Marketplace calls to action carry `ocid` and UTM parameters identifying their placement.
+There is no new analytics script or user tracking added to the website.
+
+The product page's USD prices reflect the US listing checked on October 2, 2026.
+Review its plan details and the versioned PBIX link when a Marketplace release changes.
+Support guidance links to Microsoft's visual licensing documentation. No visual
+package, subscription setting, screenshot, or sample CSV was changed in this update.
+
 ## Website behavior
 
 - Appearance defaults to the system. The selected appearance is the only value this
