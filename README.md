@@ -181,7 +181,7 @@ ratings are included, because search engines require ratings to be visible on th
 
 Chrome Web Store links carry `utm_source=unclocked.app`, `utm_medium=website`,
 `utm_campaign=<product>`, and `utm_content=<placement>`, so the Chrome Web Store dashboard
-credits installs from the website. Marketplace links carry similar `ocid` and UTM values.
+credits installs from the website. Marketplace links carry similar `ocid` and UTM values. App Store links use the App Store Connect campaign link (`pt=126117476`, `ct=unclocked-website`), so App Analytics → Acquisition → Campaigns shows website installs; a test requires the token on every App Store link.
 
 ## Assets
 
