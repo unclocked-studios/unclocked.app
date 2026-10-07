@@ -65,7 +65,8 @@ store listing or plan changes.
 | Frame64 (Chrome) | `/products/frame64/`, `/frame64/`, `/frame64/privacy/` | Chrome Web Store listing; `src/shared/plans.mjs` and `demo-limits.mjs` in the Frame64 project |
 | twenty5 (iOS) | `/products/twenty5/`, `/twenty5/support/`, `/twenty5/privacy/`, `/twenty5/tos/` | App Store listing |
 
-`/twenty5/` is the support hub for all products. `/twenty5/upcoming/` stays live because
+`/support/` is the support hub for all products. `/twenty5/` is twenty5's App Store Marketing
+URL and instantly redirects to `/products/twenty5/`. `/twenty5/upcoming/` stays live because
 the twenty5 app links to it; it is a noindexed "under construction" page.
 
 ### 3D Heatmap plans
