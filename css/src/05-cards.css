@@ -1,0 +1,79 @@
+/* ==========================================================================
+   Cards and panels
+   content-card  feature grid on product pages
+   support-item  one product in the support hub (and the 404 page)
+   faq-section   a block of questions on support pages
+   feature-card  a notice block on text pages
+   workflow-step numbered "how it works" step
+   app-summary   highlighted call-out with an accent edge
+   ========================================================================== */
+
+.support-item, .content-card, .faq-section, .feature-card, .request-panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.content-card, .support-item, .feature-card { padding: 24px; }
+.content-card h2, .support-item h2, .feature-card h2 { font-size: 19px; }
+.content-card p, .support-item p {
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+.support-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+.feature-card { margin-bottom: 18px; }
+
+.faq-section {
+  padding: 28px;
+  margin-top: 20px;
+}
+.faq-section h2 { font-size: 24px; }
+.faq-section h3 {
+  margin-top: 26px;
+  font-size: 18px;
+}
+
+/* Numbered steps (homepage mapping service, 3D Heatmap "How it works"). */
+.workflow-step { padding: 20px 26px 20px 0; }
+.workflow-step h3 { font-size: 18px; }
+.workflow-step p {
+  font-size: 14px;
+  max-width: 330px;
+}
+.step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+  color: var(--accent-text);
+  font: 12px ui-monospace, Consolas, monospace;
+  margin-bottom: 20px;
+}
+
+.app-summary {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: 12px;
+  padding: 24px;
+  margin-top: 24px;
+}
+.app-summary p:last-child { margin-bottom: 0; }
+
+@media (max-width: 680px) {
+  .workflow-step { padding: 18px 0; }
+  .workflow-step p { max-width: none; }
+  .faq-section { padding: 22px; }
+}

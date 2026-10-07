@@ -42,6 +42,35 @@ After editing either file, run `npm run build` to stamp them into every page; ea
 keeps its own indentation. New pages need a `<header class="site-header">` and
 `<footer class="site-footer">` block (copy any page), and the build fills them in.
 
+## Styles
+
+Edit the modules in `css/src/`, then run `npm run build`. The build joins them in filename
+order into `css/style.css`, the single stylesheet pages load. Do not edit `style.css`
+directly; the tests fail if it does not match the modules.
+
+| Module | Contents |
+| --- | --- |
+| `00-tokens.css` | Colors, radius, shadow, and width. Each color is written once as `light-dark(light, dark)`. |
+| `01-base.css` | Element defaults, typography, `.eyebrow`, `.fine-print` |
+| `02-header.css` | Skip link, header, navigation, Products menu, Appearance, mobile menu |
+| `03-layout.css` | Content width, sections, hero, grids, text-page column and header |
+| `04-buttons.css` | Buttons and link styles |
+| `05-cards.css` | Content, support, FAQ, and notice cards; workflow steps; call-outs |
+| `06-media.css` | Screenshots, popup screenshots, side-by-side demos, galleries, captions |
+| `07-tables.css` | CSV preview, reference tables, pricing tier table |
+| `08-pricing.css` | Plan grids and plan cards |
+| `09-forms.css` | Mapping request form, draft preview, notices |
+| `10-footer.css` | Footer |
+| `20-` to `23-page-*.css` | Rules for one page: home, 3D Heatmap, mapping, policy text |
+| `99-motion.css` | Reduced-motion preference |
+
+Each module keeps its own `@media` rules at the end. Breakpoints are 1100px, 900px (navigation
+collapses; also used in `js/site.js`), and 680px (single column). Later modules override
+earlier ones, so page modules come last.
+
+A test fails if a class in `css/src/` is not used by any page, partial, or script, so
+delete styles together with the markup that used them.
+
 ## Editor settings
 
 `.editorconfig` sets UTF-8, LF line endings, and two-space indentation, and

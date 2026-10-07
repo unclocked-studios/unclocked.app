@@ -1,0 +1,208 @@
+/* ==========================================================================
+   Site header: skip link, brand, main navigation, Products menu, Appearance
+   Markup lives in _partials/header.html; behavior in js/site.js.
+   Below 900px the navigation collapses behind the Menu button (the same
+   breakpoint is used in js/site.js).
+   ========================================================================== */
+
+/* Hidden above the viewport until focused with the keyboard. */
+.skip-link {
+  position: fixed;
+  top: -80px;
+  left: 16px;
+  z-index: 100;
+  background: var(--surface);
+  padding: 12px 20px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.skip-link:focus { top: 10px; }
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+}
+
+.header-inner {
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+/* Brand (logo and name), also used in the footer. */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  color: var(--text);
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.brand img {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+.brand-name {
+  font-size: 17px;
+  letter-spacing: -.04em;
+  font-weight: 700;
+}
+.site-header .brand img {
+  width: 28px;
+  height: 28px;
+}
+.site-header .brand-name { font-size: 16px; }
+
+/* Navigation links */
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+.site-nav > a,
+.products-dropdown > summary {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  text-decoration: none;
+  padding-block: 10px;
+}
+.site-nav > a:hover,
+.site-nav > a[aria-current="page"] { color: var(--accent-text); }
+.site-nav > a.nav-mapping { color: var(--accent-text); }
+
+/* Products menu: a native <details> disclosure. */
+.products-dropdown { position: relative; }
+.products-dropdown > summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  list-style: none;
+}
+.products-dropdown > summary::-webkit-details-marker { display: none; }
+.products-dropdown > summary svg {
+  width: 12px;
+  height: 12px;
+  transition: transform 160ms ease;
+}
+.products-dropdown[open] > summary { color: var(--accent-text); }
+.products-dropdown[open] > summary svg { transform: rotate(180deg); }
+
+.product-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: -18px;
+  width: 280px;
+  padding: 7px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 0 12px 32px #00000014;
+}
+.product-menu a {
+  display: block;
+  padding: 11px 12px;
+  border-radius: 7px;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+}
+.product-menu a:hover,
+.product-menu a:focus-visible { background: var(--soft); }
+.product-menu a span { /* One-line product description under each name. */
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 400;
+  margin-top: 2px;
+}
+
+/* Appearance (System / Light / Dark), revealed by js/site.js. */
+.appearance-control {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding-left: 20px;
+  border-left: 1px solid var(--line);
+  color: var(--muted);
+}
+.appearance-control svg {
+  width: 16px;
+  height: 16px;
+}
+.appearance-control select {
+  padding: 7px 22px 7px 7px;
+  border: 0;
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 12px;
+  min-height: 40px;
+}
+
+/* Mobile Menu button, revealed by js/site.js. */
+.menu-toggle {
+  border: 1px solid var(--line);
+  background: var(--soft);
+  color: var(--text);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 13px;
+  min-height: 44px;
+}
+
+@media (min-width: 901px) {
+  .menu-toggle { display: none; }
+}
+
+@media (max-width: 1100px) {
+  .site-nav { gap: 18px; }
+  .appearance-control { padding-left: 12px; }
+}
+
+/* Collapsed navigation: a scrollable panel below the header bar. */
+@media (max-width: 900px) {
+  .header-inner {
+    flex-wrap: wrap;
+    min-height: 60px;
+    gap: 0 16px;
+    padding-block: 8px;
+  }
+  .site-nav {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding-top: 16px;
+    max-height: calc(100vh - 64px);
+    max-height: calc(100dvh - 64px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+  .site-nav > * { flex-shrink: 0; }
+  .site-nav > a,
+  .products-dropdown > summary { padding: 12px; }
+  .product-menu {
+    position: static;
+    width: auto;
+    margin: 0 12px 10px;
+    box-shadow: none;
+    background: var(--page);
+  }
+  .appearance-control {
+    margin: 6px 12px;
+    padding: 6px 0;
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+  /* Without JavaScript the navigation stays visible; with it, it opens on demand. */
+  .navigation-ready .site-nav { display: none; }
+  .navigation-ready .site-nav.is-open { display: flex; }
+}
