@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" data-us-density="standard">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Frame64 | Image to Base64 Chrome Extension</title>
+  <meta name="description" content="Frame64 converts images to Base64, optimizes file size, compares quality, and exports code in Chrome. Images are processed locally in your browser.">
+  <link rel="canonical" href="https://unclocked.app/products/frame64/">
+  <link rel="icon" type="image/png" sizes="128x128" href="/assets/unclocked-logo-v2-128.png" />
+  <link rel="apple-touch-icon" href="/assets/unclocked-logo-v2-128.png" />
+  <meta name="color-scheme" content="light dark">
+  <script src="/js/theme.js"></script>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/site.js" defer></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner wrap">
+      <a class="brand" href="/" aria-label="Unclocked Studios home">
+        <img src="/assets/unclocked-logo-v2-128.png" alt="" width="34" height="34" decoding="async">
+        <span class="brand-name">Unclocked Studios</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" hidden>Menu <span aria-hidden="true">☰</span></button>
+      <nav class="site-nav" id="site-navigation" aria-label="Main navigation">
+        <a class="nav-mapping" href="/warehouse-heatmap/mapping/">Warehouse Mapping <span aria-hidden="true">↗</span></a>
+        <details class="products-dropdown">
+          <summary aria-controls="product-menu">Products <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="m3 4.5 3 3 3-3"/></svg></summary>
+          <div class="product-menu" id="product-menu">
+            <a href="/warehouse-heatmap/">Unclocked 3D Heatmap<span>Warehouse analytics in Power BI</span></a>
+            <a href="/products/loopdeck/">LoopDeck<span>Dashboard rotation for shared displays</span></a>
+            <a href="/products/twenty5/">twenty5<span>Workout tracking for iOS</span></a>
+            <a href="/products/frame64/">Frame64<span>Image to Base64 for Chrome</span></a>
+          </div>
+        </details>
+        <a href="/#contact">Contact</a>
+        <div class="appearance-control" hidden>
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="10" cy="10" r="6.5"/><path d="M10 3.5a6.5 6.5 0 0 0 0 13z" fill="currentColor"/></svg>
+          <select id="appearance" aria-label="Appearance"><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option></select>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="hero hero-split" id="overview">
+      <div class="hero-text">
+        <span class="eyebrow">Chrome extension</span>
+        <h1>Image to Base64, ready for the web.</h1>
+        <p>
+          Frame64 converts images to Base64 data URLs, optimizes file size, resizes, crops, and compares quality, all
+          in your browser. Your images are processed on your device and are not uploaded to a conversion server.
+        </p>
+        <div class="hero-buttons">
+          <a href="https://chromewebstore.google.com/detail/frame64-image-to-base64/dbjcogonfdplialknopfnngghfnnjjbg" class="btn-primary">Add to Chrome <span aria-hidden="true">↗</span></a>
+          <a href="#plans" class="btn-secondary">See plans and pricing</a>
+        </div>
+        <p class="hero-note">Start with the free version, or try everything free for 14 days. Available on the Chrome Web Store.</p>
+      </div>
+      <figure class="product-visual loopdeck-popup">
+        <a class="screenshot-link" href="/assets/frame64/popup.png" target="_blank" rel="noopener" aria-label="Open the Frame64 popup screenshot at full size (new tab)">
+          <img class="product-screenshot" src="/assets/frame64/popup.png"
+            alt="Frame64 popup with an alpine landscape converted to WebP, source and output sizes, Base64 output, and Copy Base64 and Download image buttons" decoding="async" fetchpriority="high" width="860" height="1846">
+        </a>
+        <figcaption>Convert, resize, and copy Base64 from one focused popup. Screenshot shows Frame64 Pro.</figcaption>
+      </figure>
+    </section>
+
+    <section class="section surface-section" id="features">
+      <span class="eyebrow">What it does</span>
+      <h2>Everything between a file and a data URL.</h2>
+      <div class="feature-grid">
+        <article class="content-card">
+          <h2>Convert and decode</h2>
+          <p>Drop, browse, or paste an image to get PNG, JPEG, or WebP output as Base64. Decode existing Base64 to preview and download the image.</p>
+        </article>
+        <article class="content-card">
+          <h2>Optimize file size</h2>
+          <p>Resize by width, height, or exact size, adjust quality, and aim for a target file size with JPEG or WebP.</p>
+        </article>
+        <article class="content-card">
+          <h2>Compare quality</h2>
+          <p>Compare the original and processed image with a draggable divider, synced zoom and pan, and live size numbers.</p>
+        </article>
+        <article class="content-card">
+          <h2>Export Studio</h2>
+          <p>Generate several sizes and formats from one source, and save your export settings as recipes you can reuse.</p>
+        </article>
+        <article class="content-card">
+          <h2>Ready-to-paste code</h2>
+          <p>Copy the result as a Data URL or raw Base64, or as HTML, CSS, JavaScript, or Markdown snippets.</p>
+        </article>
+        <article class="content-card">
+          <h2>Private by design</h2>
+          <p>Images are processed locally in your browser. PDF pages can be converted to images locally too.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="screenshots">
+      <span class="eyebrow">In use</span>
+      <h2>Compare, export, and copy.</h2>
+      <p class="section-intro">Select an image to open it at full size in a new tab. Screenshots show Frame64 Pro and a sample photograph.</p>
+      <div class="loopdeck-manager-gallery">
+        <figure class="product-visual">
+          <a class="screenshot-link" href="/assets/frame64/compare.png" target="_blank" rel="noopener" aria-label="Open the Frame64 comparison screenshot at full size (new tab)">
+            <img class="product-screenshot" src="/assets/frame64/compare.png" alt="Frame64 comparison view with a draggable divider between the original and a heavily compressed image, showing the file size reduction" decoding="async" width="1280" height="800" loading="lazy">
+          </a>
+          <figcaption><strong>See what compression costs</strong>Drag the divider to compare the original with the processed image while the file sizes update. The example is deliberately aggressive; results depend on your image and settings.</figcaption>
+        </figure>
+        <figure class="product-visual">
+          <a class="screenshot-link" href="/assets/frame64/export-studio.png" target="_blank" rel="noopener" aria-label="Open the Frame64 Export Studio screenshot at full size (new tab)">
+            <img class="product-screenshot" src="/assets/frame64/export-studio.png" alt="Frame64 Export Studio generating multiple image sizes and formats from one source image" decoding="async" width="1280" height="800" loading="lazy">
+          </a>
+          <figcaption><strong>Create every size from one source</strong>Generate multiple sizes and formats at once, and save the settings as a recipe for next time.</figcaption>
+        </figure>
+        <figure class="product-visual">
+          <a class="screenshot-link" href="/assets/frame64/code.png" target="_blank" rel="noopener" aria-label="Open the Frame64 code output screenshot at full size (new tab)">
+            <img class="product-screenshot" src="/assets/frame64/code.png" alt="Frame64 generated code output for an image as a Data URL, HTML, and CSS" decoding="async" width="1280" height="800" loading="lazy">
+          </a>
+          <figcaption><strong>Copy code, not just data</strong>Choose the output format you need and copy it straight into your project.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section surface-section" id="plans">
+      <span class="eyebrow">Plans and pricing</span>
+      <h2>Start free. Unlock the full toolkit when you need it.</h2>
+      <p class="section-intro">The free version covers single-image conversion without an account. Frame64 Pro adds batch, PDF, and reusable-recipe workflows. Start a 14-day trial of everything, or choose a plan.</p>
+      <div class="plan-grid plan-grid-wide">
+        <article class="plan-card" aria-labelledby="frame64-free-title">
+          <h3 id="frame64-free-title">Free</h3>
+          <p class="plan-price">$0</p>
+          <ul><li>One image at a time, up to 5 MB</li><li>Unlimited basic exports</li><li>No email needed</li></ul>
+        </article>
+        <article class="plan-card" aria-labelledby="frame64-trial-title">
+          <h3 id="frame64-trial-title">14-day trial</h3>
+          <p class="plan-price">$0 <span>for 14 days</span></p>
+          <ul><li>Every Pro feature</li><li>Starts when you confirm your email</li><li>Founder lifetime offer: $7.99 once, available during your trial</li></ul>
+        </article>
+        <article class="plan-card" aria-labelledby="frame64-monthly-title">
+          <h3 id="frame64-monthly-title">Monthly</h3>
+          <p class="plan-price">$0.99 <span>USD / month</span></p>
+          <ul><li>All Pro features</li><li>Renews monthly until cancelled</li></ul>
+        </article>
+        <article class="plan-card" aria-labelledby="frame64-yearly-title">
+          <h3 id="frame64-yearly-title">Yearly</h3>
+          <p class="plan-price">$9.99 <span>USD / year</span></p>
+          <ul><li>All Pro features</li><li>Renews yearly until cancelled</li></ul>
+        </article>
+        <article class="plan-card" aria-labelledby="frame64-lifetime-title">
+          <h3 id="frame64-lifetime-title">Lifetime</h3>
+          <p class="plan-price">$15.99 <span>USD, one time</span></p>
+          <ul><li>All Pro features</li><li>No recurring payment</li></ul>
+        </article>
+      </div>
+      <p class="fine-print">Prices are in US dollars as of October 6, 2026. Checkout and billing are handled by ExtensionPay and Stripe, and you can see the amount you will be billed before you pay. Install Frame64 from the <a href="https://chromewebstore.google.com/detail/frame64-image-to-base64/dbjcogonfdplialknopfnngghfnnjjbg">Chrome Web Store</a>.</p>
+    </section>
+
+    <section class="section">
+      <span class="eyebrow">Resources</span>
+      <h2>Help when you need it.</h2>
+      <div class="resource-links">
+        <a class="btn-secondary" href="/frame64/">Frame64 Support</a>
+        <a class="btn-secondary" href="/frame64/privacy/">Frame64 Privacy Policy</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div><a class="brand" href="/"><img src="/assets/unclocked-logo-v2-128.png" alt="" width="34" height="34" decoding="async"><span class="brand-name">Unclocked Studios</span></a><p>Thoughtful tools. Practical possibilities.</p></div>
+        <div class="footer-links">
+          <div><strong>Explore</strong><a href="/warehouse-heatmap/">3D Heatmap</a><a href="/products/loopdeck/">LoopDeck</a><a href="/products/twenty5/">twenty5</a><a href="/products/frame64/">Frame64</a></div>
+          <div><strong>Get in touch</strong><a href="/warehouse-heatmap/mapping/">Request warehouse mapping</a><a href="/warehouse-heatmap/support/">3D Heatmap support</a><a href="/loopdeck/">LoopDeck support</a><a href="/twenty5/support/">twenty5 support</a><a href="/frame64/">Frame64 support</a><a href="mailto:support@unclocked.app">support@unclocked.app</a></div>
+          <div><strong>Policies</strong><a href="/warehouse-heatmap/privacy/">3D Heatmap privacy</a><a href="/loopdeck/privacy/">LoopDeck privacy</a><a href="/twenty5/privacy/">twenty5 privacy</a><a href="/twenty5/tos/">twenty5 terms</a><a href="/frame64/privacy/">Frame64 privacy</a></div>
+        </div>
+      </div>
+      <div class="footer-bottom"><span>© 2026 Unclocked Studios LLC. All rights reserved.</span><a href="/#approach">Our approach</a></div>
+    </div>
+  </footer>
+</body>
+
+</html>
