@@ -1,0 +1,69 @@
+/* ==========================================================================
+   Buttons and links
+   ========================================================================== */
+
+.btn-primary, .btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 46px; /* Comfortable touch target. */
+  padding: 11px 19px;
+  border-radius: 9px;
+  border: 1px solid transparent;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-decoration: none;
+  transition: background 160ms ease, border-color 160ms ease;
+  cursor: pointer;
+}
+
+/* Main call to action: accent fill. White on --accent meets WCAG AA. */
+.btn-primary {
+  color: #fff;
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.btn-primary:hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
+
+.btn-secondary {
+  color: var(--text);
+  background: var(--surface);
+  border-color: var(--line);
+}
+.btn-secondary:hover {
+  background: var(--soft);
+  border-color: var(--muted);
+}
+
+/* The ↗ symbol inside buttons that leave the site. */
+.arrow {
+  font-size: 17px;
+  font-weight: 400;
+}
+
+/* Text link with a ↗ arrow, used for secondary actions. */
+.card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  min-height: 40px;
+}
+.card-link::after {
+  content: '\2197';
+  font-size: 16px;
+}
+
+.small-link {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.text-link { font-weight: 600; }

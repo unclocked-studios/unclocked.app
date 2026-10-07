@@ -8,8 +8,8 @@
   },
   "scripts": {
     "serve": "node scripts/serve.cjs",
-    "build": "node scripts/build-layout.cjs",
-    "check": "node scripts/build-layout.cjs --check",
+    "build": "node scripts/build-css.cjs && node scripts/build-layout.cjs",
+    "check": "node scripts/build-css.cjs --check && node scripts/build-layout.cjs --check",
     "test": "node --test \"tests/*.test.cjs\""
   }
 }

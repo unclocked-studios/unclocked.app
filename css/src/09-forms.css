@@ -1,0 +1,100 @@
+/* ==========================================================================
+   Forms (the warehouse mapping request builder)
+   ========================================================================== */
+
+fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  min-width: 0;
+}
+.field.full { grid-column: 1 / -1; }
+.field label {
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 600;
+}
+.field label span { /* "(required)" / "(optional)" */
+  color: var(--muted);
+  font-weight: 400;
+}
+.field small {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+input, textarea, .field select {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px 12px;
+  background: var(--page);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.5;
+}
+input, .field select { min-height: 44px; }
+textarea { resize: vertical; }
+input::placeholder, textarea::placeholder {
+  color: var(--muted);
+  opacity: 1;
+}
+
+.form-actions { margin-top: 22px; }
+.form-actions > button { width: 100%; }
+.form-actions p {
+  font-size: 11px;
+  margin: 12px 0 0;
+}
+
+/* Live status message (role="status"); collapses when empty. */
+.request-status {
+  font-size: 13px;
+  color: var(--accent-text);
+  margin: 16px 0;
+}
+.request-status:empty { margin: 0; }
+
+/* Collapsible preview of the email draft with copy controls. */
+.draft-section {
+  border-top: 1px solid var(--line);
+  margin-top: 24px;
+  padding-top: 20px;
+}
+.draft-section summary {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 0;
+}
+.draft-section label {
+  display: block;
+  font-size: 12px;
+  margin: 12px 0 8px;
+}
+.draft-section textarea { font: 12px/1.65 ui-monospace, Consolas, monospace; }
+.draft-section .button-row { margin-top: 12px; }
+
+.notice {
+  background: var(--selection);
+  color: var(--accent-text);
+  border-radius: 8px;
+  font-size: 12px;
+  padding: 12px 14px;
+}
+
+@media (max-width: 900px) {
+  .form-grid { grid-template-columns: 1fr; }
+}
