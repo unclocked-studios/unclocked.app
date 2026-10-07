@@ -177,3 +177,13 @@ test('product pages link to their store listings and publish plan prices', () =>
   for (const price of ['$9.99', '$4.99', '$49.99', '$8.99', '$89.99', '$17.99', '$179.99']) assert.ok(loopdeck.includes(price), 'LoopDeck price ' + price);
   assert.ok(read('products/twenty5/index.html').includes('https://apps.apple.com/us/app/twenty5/id6748280871'));
 });
+
+test('every page lists Frame64 in navigation and footer, and its pages exist', () => {
+  for (const file of pages) {
+    const html = fs.readFileSync(file, 'utf8');
+    const route = path.relative(root, file);
+    assert.ok(html.includes('href="/products/frame64/"'), route + ': missing Frame64 link');
+    assert.ok(html.includes('href="/frame64/privacy/"'), route + ': missing Frame64 privacy link');
+  }
+  assert.ok(read('frame64/privacy/index.html').includes('Last updated:'));
+});
