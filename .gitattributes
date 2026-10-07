@@ -1,0 +1,9 @@
+# Store and check out text files with LF line endings on every platform,
+# regardless of the local core.autocrlf setting.
+* text=auto eol=lf
+
+# Binary assets: never convert or diff as text.
+*.png  binary
+*.webp binary
+*.jpg  binary
+*.pbix binary

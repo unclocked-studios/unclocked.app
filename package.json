@@ -1,0 +1,15 @@
+{
+  "name": "unclocked-app",
+  "private": true,
+  "description": "Static website for Unclocked Studios, published at https://unclocked.app by GitHub Pages.",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "serve": "node scripts/serve.cjs",
+    "build": "node scripts/build-layout.cjs",
+    "check": "node scripts/build-layout.cjs --check",
+    "test": "node --test \"tests/*.test.cjs\""
+  }
+}

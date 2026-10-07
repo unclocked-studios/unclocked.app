@@ -1,0 +1,23 @@
+# Runs the site tests on every push and pull request. GitHub Pages still
+# publishes main on its own; a failing run shows a red mark on the commit.
+name: Test
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Shared header and footer are up to date
+        run: npm run check
+      - name: Site tests
+        run: npm test
