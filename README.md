@@ -172,6 +172,17 @@ four volume tiers. The flat-rate Warehouse Pro plan on the listing is being reti
 not shown on the website. Marketplace calls to action carry `ocid` and UTM parameters
 identifying their placement; the site has no analytics script.
 
+### Structured data and store-link tracking
+
+The homepage has `Organization` JSON-LD and each product page has `SoftwareApplication`
+JSON-LD at the end of `<head>`. They repeat each product's price range, so update them with
+the page; `tests/seo.test.cjs` checks that the highest price also appears on the page. No
+ratings are included, because search engines require ratings to be visible on the page.
+
+Chrome Web Store links carry `utm_source=unclocked.app`, `utm_medium=website`,
+`utm_campaign=<product>`, and `utm_content=<placement>`, so the Chrome Web Store dashboard
+credits installs from the website. Marketplace links carry similar `ocid` and UTM values.
+
 ## Assets
 
 ### 3D Heatmap

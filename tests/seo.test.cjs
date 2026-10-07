@@ -44,3 +44,19 @@ test('share images exist and declare their real dimensions', () => {
     assert.equal(html.match(/og:image:height" content="(\d+)"/)[1], String(png.readUInt32BE(20)), image[1] + ' height');
   }
 });
+
+test('structured data parses, matches the page, and only claims prices shown on the page', () => {
+  const blocks = html => [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(match => JSON.parse(match[1]));
+  const home = blocks(read('index.html'));
+  assert.equal(home[0]['@type'], 'Organization');
+  for (const file of ['warehouse-heatmap/index.html', 'products/loopdeck/index.html', 'products/frame64/index.html', 'products/twenty5/index.html']) {
+    const html = read(file);
+    const [app] = blocks(html);
+    assert.equal(app['@type'], 'SoftwareApplication', file);
+    assert.ok(html.includes(`<link rel="canonical" href="${app.url}">`), file + ': url matches canonical');
+    assert.ok(fs.existsSync(path.join(root, new URL(app.image).pathname)), file + ': image exists');
+    const offer = app.offers;
+    const prices = offer['@type'] === 'AggregateOffer' ? [offer.highPrice] : [];
+    for (const price of prices) assert.ok(html.includes('$' + price), `${file}: $${price} must appear on the page`);
+  }
+});
