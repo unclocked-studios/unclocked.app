@@ -187,3 +187,13 @@ test('every page lists Frame64 in navigation and footer, and its pages exist', (
   }
   assert.ok(read('frame64/privacy/index.html').includes('Last updated:'));
 });
+
+test('3D Heatmap uses the Professional plan name and the hosted sample report', () => {
+  for (const file of pages) {
+    const html = fs.readFileSync(file, 'utf8');
+    assert.ok(!html.includes('Warehouse Pro'), path.relative(root, file) + ': uses the retired Warehouse Pro plan name');
+    assert.ok(!html.includes('customvisualspackages.powerbi.com'), path.relative(root, file) + ': links the old Marketplace sample');
+  }
+  assert.ok(fs.statSync(path.join(root, 'assets/warehouse-3d/unclocked-sample-data.pbix')).size > 1e6);
+  for (const file of ['index.html', 'warehouse-heatmap/index.html', 'warehouse-heatmap/support/index.html']) assert.ok(read(file).includes('href="/assets/warehouse-3d/unclocked-sample-data.pbix" download'), file);
+});
