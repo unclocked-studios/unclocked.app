@@ -1,0 +1,20 @@
+# Editor defaults for this repository (supported natively by VS Code with the
+# EditorConfig extension, and by most other editors). https://editorconfig.org
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+indent_style = space
+indent_size = 2
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.md]
+# Markdown uses two trailing spaces for line breaks.
+trim_trailing_whitespace = false
+
+# Downloadable data files are kept byte-for-byte as supplied.
+[assets/**]
+insert_final_newline = unset
+trim_trailing_whitespace = unset
