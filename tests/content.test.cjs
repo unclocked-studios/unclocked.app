@@ -30,7 +30,7 @@ test('LoopDeck and twenty5 link to their store listings, and LoopDeck lists its 
   const loopdeck = read('products/loopdeck/index.html');
   assert.ok(loopdeck.includes('https://chromewebstore.google.com/detail/loopdeck-dashboard-tab-sw/ibiicjnbphicnpiadbofboldbfpfihld'));
   for (const price of ['$9.99', '$4.99', '$49.99', '$8.99', '$89.99', '$17.99', '$179.99']) assert.ok(loopdeck.includes(price), 'LoopDeck price ' + price);
-  assert.ok(read('products/twenty5/index.html').includes('https://apps.apple.com/us/app/twenty5/id6748280871'));
+  assert.ok(read('products/twenty5/index.html').includes('https://apps.apple.com/app/apple-store/id6748280871?pt=126117476&amp;ct=unclocked-website'));
 });
 
 test('the hosted 3D Heatmap sample report is linked as a download', () => {
@@ -65,7 +65,7 @@ test('the products overview and homepage row present every product', () => {
   for (const store of ['marketplace.microsoft.com/en-us/product/unclockedstudiosllc1780535695675.unclocked-3d-heatmap',
     'chromewebstore.google.com/detail/loopdeck-dashboard-tab-sw/ibiicjnbphicnpiadbofboldbfpfihld',
     'chromewebstore.google.com/detail/frame64-image-to-base64/dbjcogonfdplialknopfnngghfnnjjbg',
-    'apps.apple.com/us/app/twenty5/id6748280871']) assert.ok(overview.includes(store), 'products page store link: ' + store);
+    'apps.apple.com/app/apple-store/id6748280871?pt=126117476']) assert.ok(overview.includes(store), 'products page store link: ' + store);
   const home = read('index.html');
   const row = home.slice(home.indexOf('class="product-row"'), home.indexOf('</section>', home.indexOf('class="product-row"')));
   for (const href of productPages) assert.ok(row.includes(`href="${href}"`), 'homepage product row: ' + href);
@@ -76,5 +76,14 @@ test('LoopDeck, Frame64, and twenty5 product pages answer common questions befor
     const html = read(file);
     assert.ok((html.match(/<details><summary>/g) || []).length >= 4, file + ': at least four FAQs');
     assert.ok(html.indexOf('id="faq"') < html.indexOf('>Resources<'), file + ': FAQ comes before Resources');
+  }
+});
+
+test('every App Store link carries the App Store Connect campaign token', () => {
+  for (const file of pages) {
+    for (const [, href] of fs.readFileSync(file, 'utf8').matchAll(/href="(https:\/\/apps\.apple\.com\/[^"]+)"/g)) {
+      assert.match(href, /[?&]pt=126117476(&|$)/, relative(file) + ': ' + href);
+      assert.match(href, /[?&](amp;)?ct=unclocked-website/, relative(file) + ': ' + href);
+    }
   }
 });
