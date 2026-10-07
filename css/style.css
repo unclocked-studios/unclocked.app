@@ -576,6 +576,10 @@ main.container {
 
 .text-link { font-weight: 600; }
 
+/* Spacing before a page's final link or button (404 page, twenty5 support). */
+.closing-action { margin-top: 2rem; }
+.closing-link { margin-top: 3rem; }
+
 /* --- css/src/05-cards.css --- */
 /* ==========================================================================
    Cards and panels
@@ -1283,6 +1287,9 @@ input::placeholder, textarea::placeholder {
   font-size: 13px;
   margin-bottom: 24px;
 }
+
+/* "Prefer to write directly?" line below the request panel. */
+.request-panel > .direct-email { margin: 20px 0 0; }
 
 .mapping-faq {
   border-top: 1px solid var(--line);
