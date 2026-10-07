@@ -1,0 +1,52 @@
+/* ==========================================================================
+   Design tokens and themes
+   Each color is written once as light-dark(LIGHT, DARK). The active pair is
+   chosen by color-scheme: the system preference by default, or the visitor's
+   choice from the Appearance menu (js/theme.js sets data-appearance on <html>).
+   ========================================================================== */
+
+:root {
+  color-scheme: light dark;
+
+  /* Surfaces */
+  --page: light-dark(#f7f7f9, #15171d);
+  --surface: light-dark(#fff, #20232b);
+  --soft: light-dark(#f0f2f6, #2b303a);
+  --line: light-dark(#dde1e8, #414856);
+
+  /* Text */
+  --text: light-dark(#23232a, #f3f4f7);
+  --muted: light-dark(#586070, #b5becf);
+
+  /* Brand accent: --accent fills buttons; --accent-text is the readable text and link color. */
+  --accent: #c83256;
+  --accent-hover: #ae2849;
+  --accent-text: light-dark(#b32649, #ff91ac);
+  --selection: light-dark(#fbe9ee, #502738);
+
+  /* Shape and depth */
+  --shadow: 0 12px 40px light-dark(#23232a06, #00000012);
+  --radius: 16px;
+
+  /* Layout */
+  --width: 1184px;
+}
+
+:root[data-appearance="light"] { color-scheme: light; }
+:root[data-appearance="dark"] { color-scheme: dark; }
+
+/* Browsers without light-dark() (before 2024) always use the light palette. */
+@supports not (color: light-dark(#000, #fff)) {
+  :root {
+    color-scheme: light;
+    --page: #f7f7f9;
+    --surface: #fff;
+    --soft: #f0f2f6;
+    --line: #dde1e8;
+    --text: #23232a;
+    --muted: #586070;
+    --accent-text: #b32649;
+    --selection: #fbe9ee;
+    --shadow: 0 12px 40px #23232a06;
+  }
+}

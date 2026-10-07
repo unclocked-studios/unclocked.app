@@ -1,0 +1,58 @@
+/* ==========================================================================
+   Site footer (markup in _partials/footer.html)
+   ========================================================================== */
+
+.site-footer {
+  margin-top: 30px;
+  border-top: 1px solid var(--line);
+  background: var(--surface);
+  padding: 36px 0 24px;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+.footer-top p { /* Tagline under the brand. */
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+/* Link columns: Explore, Get in touch, Policies. */
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  align-items: flex-start;
+}
+.footer-links a {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+  text-decoration: none;
+  padding: 5px 0;
+}
+.footer-links strong {
+  font-size: 11px;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  border-top: 1px solid var(--line);
+  margin-top: 24px;
+  padding-top: 18px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+@media (max-width: 680px) {
+  .footer-links { gap: 22px; }
+}

@@ -1,7 +1,7 @@
 // Page structure: links resolve, markup basics hold, and the shared layout is in place.
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { fs, path, root, read, pages, relative } = require('./helpers.cjs');
+const { fs, path, root, read, walk, pages, relative } = require('./helpers.cjs');
 
 test('all local links, fragments, images, and scripts resolve', () => {
   for (const file of pages) {
@@ -36,6 +36,11 @@ test('every page uses the shared header and footer from _partials/', () => {
   assert.ok(pages.length >= 18 && pages.every(file => !file.includes('_partials')));
 });
 
+test('css/style.css is generated from the modules in css/src/', () => {
+  const { isCurrent } = require('../scripts/build-css.cjs');
+  assert.ok(isCurrent(), 'run npm run build');
+});
+
 test('the shared navigation and footer link every product, support page, and policy', () => {
   const header = read('_partials/header.html');
   const footer = read('_partials/footer.html');
@@ -46,4 +51,16 @@ test('the shared navigation and footer link every product, support page, and pol
     '/warehouse-heatmap/privacy/', '/loopdeck/privacy/', '/twenty5/privacy/', '/twenty5/tos/', '/frame64/privacy/']) {
     assert.ok(footer.includes(`href="${href}"`), 'footer: ' + href);
   }
+});
+
+test('every class in css/src/ is used by a page, partial, or script', () => {
+  const css = fs.readdirSync(path.join(root, 'css/src')).map(name => read('css/src/' + name)).join('\n')
+    .replace(/\/\*[\s\S]*?\*\//g, '') // ignore comments
+    .replace(/url\([^)]*\)|"[^"]*"|'[^']*'/g, ''); // ignore strings and URLs (e.g. ".95fr" is not a class)
+  const classes = new Set([...css.matchAll(/\.(-?[a-zA-Z_][\w-]*)/g)].map(match => match[1]));
+  const sources = [...pages, ...walk(path.join(root, '_partials')), ...walk(path.join(root, 'js'))]
+    .map(file => fs.readFileSync(file, 'utf8')).join('\n');
+  const used = name => new RegExp(`class="[^"]*\\b${name}\\b|['"]${name}['"]|\\.${name}\\b`).test(sources);
+  const unused = [...classes].filter(name => !used(name));
+  assert.deepEqual(unused, [], 'unused CSS classes; delete them or use them');
 });

@@ -1,0 +1,123 @@
+/* ==========================================================================
+   Homepage (index.html): studio hero, featured 3D Heatmap panel,
+   mapping service steps, and the contact panel
+   ========================================================================== */
+
+/* The studio hero uses tighter proportions than other heroes on wide screens.
+   Below 1100px it follows the standard hero sizes from 03-layout.css; those
+   values are repeated here because this file loads later. */
+.studio-hero {
+  padding-block: 56px;
+  grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
+  gap: 48px;
+}
+.studio-hero h1 {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  max-width: 520px;
+}
+.studio-hero .hero-note {
+  display: block;
+  max-width: 440px;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+/* Featured product panel beside the studio hero. */
+.warehouse-feature {
+  min-width: 0;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.warehouse-feature-heading { padding: 23px 24px 20px; }
+.warehouse-feature-heading .eyebrow { margin-bottom: 10px; }
+.warehouse-feature h2 {
+  font-size: 25px;
+  margin-bottom: 8px;
+}
+.warehouse-feature-heading p {
+  font-size: 13px;
+  margin: 0;
+}
+.warehouse-feature-image {
+  display: block;
+  margin: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.warehouse-feature-image img {
+  width: 100%;
+  height: auto;
+}
+.warehouse-feature-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 13px 24px;
+}
+
+/* Warehouse mapping service section. */
+.workflow-section { border-top: 1px solid var(--line); }
+.mapping-service-intro { max-width: 760px; }
+.mapping-service-intro h2 { margin-bottom: 20px; }
+.mapping-service-intro p { margin-bottom: 0; }
+
+/* Contact panel at the bottom of the page. */
+.contact-section { padding-top: 0; }
+.contact-panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 36px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+.contact-panel h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+.contact-panel p {
+  margin: 0;
+  font-size: 14px;
+}
+.contact-panel .eyebrow { margin-bottom: 12px; }
+
+@media (max-width: 1100px) {
+  .studio-hero { gap: 36px; }
+  .studio-hero h1 { font-size: 3.25rem; }
+}
+
+@media (max-width: 900px) {
+  .studio-hero {
+    padding-block: 44px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+  .studio-hero h1 { font-size: 2.7rem; }
+  .studio-hero .hero-text > p { max-width: 680px; }
+  .warehouse-feature-heading { padding: 20px; }
+}
+
+@media (max-width: 680px) {
+  .studio-hero { padding-block: 32px 36px; }
+  .studio-hero h1 { font-size: clamp(2.15rem, 8vw, 2.9rem); }
+  .studio-hero .hero-note {
+    margin-top: 16px;
+    font-size: 12px;
+  }
+  .warehouse-feature-heading .eyebrow { margin-bottom: 14px; } /* Matches other hero labels on phones. */
+  .warehouse-feature h2 { font-size: 23px; }
+  .warehouse-feature-links { padding-inline: 20px; }
+  .contact-panel {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 25px;
+  }
+  .contact-panel h2 { font-size: 24px; }
+}
