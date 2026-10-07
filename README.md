@@ -1,6 +1,7 @@
 # Unclocked Studios website
 
-Static HTML, CSS, and small browser scripts. No build or production dependencies.
+Static HTML, CSS, and small browser scripts. No production dependencies; the only
+build step is the optional layout script below, and its output is committed.
 
 ## Local preview
 
@@ -13,6 +14,18 @@ Run `node --test tests/site.test.cjs` for local links, assets, required request 
 draft encoding and long-request behavior, clipboard fallback, and theme storage fallback.
 Check the homepage, mapping page, product pages, and support/policy pages visually
 in both themes and at mobile widths before publishing.
+
+## Shared header and footer
+
+The site header and footer live in `_partials/header.html` and `_partials/footer.html`.
+After editing either file, run `node scripts/build-layout.cjs` to stamp them into every
+page; each page keeps its own indentation and line endings. New pages need a
+`<header class="site-header">` and `<footer class="site-footer">` block (copy any
+page), and the script fills them in.
+
+`node scripts/build-layout.cjs --check` lists pages that are out of date and exits 1.
+The test suite runs the same check, so a hand-edited header or footer fails the tests.
+GitHub Pages does not publish folders beginning with `_`, so the partials are not served.
 
 ## Marketplace content
 
@@ -36,7 +49,7 @@ package, subscription setting, screenshot, or sample CSV was changed in this upd
 - Email links over 1,800 characters use the full-copy flow instead of truncating text.
 - Existing product, policy, support URLs and homepage anchors are retained.
 - All pages contain their navigation and contact links in HTML, so they work without JavaScript.
-- Shared navigation/footer markup is repeated in static pages; update it consistently.
+- Shared navigation/footer markup is generated from `_partials/` (see above); do not edit it in pages directly.
 
 ## Warehouse 3D sample
 
