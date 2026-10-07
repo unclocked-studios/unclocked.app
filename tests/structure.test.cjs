@@ -64,3 +64,7 @@ test('every class in css/src/ is used by a page, partial, or script', () => {
   const unused = [...classes].filter(name => !used(name));
   assert.deepEqual(unused, [], 'unused CSS classes; delete them or use them');
 });
+
+test('pages use classes instead of inline style attributes', () => {
+  for (const file of pages) assert.ok(!/\sstyle="/.test(fs.readFileSync(file, 'utf8')), relative(file) + ': move inline styles into css/src/');
+});

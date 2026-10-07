@@ -109,6 +109,9 @@
   margin-bottom: 24px;
 }
 
+/* "Prefer to write directly?" line below the request panel. */
+.request-panel > .direct-email { margin: 20px 0 0; }
+
 .mapping-faq {
   border-top: 1px solid var(--line);
   margin-bottom: 60px;
