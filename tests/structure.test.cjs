@@ -44,10 +44,10 @@ test('css/style.css is generated from the modules in css/src/', () => {
 test('the shared navigation and footer link every product, support page, and policy', () => {
   const header = read('_partials/header.html');
   const footer = read('_partials/footer.html');
-  for (const href of ['/warehouse-heatmap/', '/products/loopdeck/', '/products/twenty5/', '/products/frame64/', '/warehouse-heatmap/mapping/']) {
+  for (const href of ['/products/', '/warehouse-heatmap/', '/products/loopdeck/', '/products/twenty5/', '/products/frame64/', '/warehouse-heatmap/mapping/']) {
     assert.ok(header.includes(`href="${href}"`), 'header: ' + href);
   }
-  for (const href of ['/support/', '/warehouse-heatmap/support/', '/loopdeck/', '/twenty5/support/', '/frame64/',
+  for (const href of ['/products/', '/support/', '/warehouse-heatmap/support/', '/loopdeck/', '/twenty5/support/', '/frame64/',
     '/warehouse-heatmap/privacy/', '/loopdeck/privacy/', '/twenty5/privacy/', '/twenty5/tos/', '/frame64/privacy/']) {
     assert.ok(footer.includes(`href="${href}"`), 'footer: ' + href);
   }
