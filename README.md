@@ -4,18 +4,33 @@ Static HTML, CSS, and small browser scripts, published by GitHub Pages from `mai
 at https://unclocked.app. No production dependencies; the only build step is the
 layout script below, and its output is committed.
 
-## Local preview
+## Commands
 
-With Node.js installed, run `node scripts/serve.cjs` and open http://127.0.0.1:4173/.
-The preview binds to localhost only. Set `PORT` to use another port.
+Requires Node.js 22 or later. There are no dependencies to install.
 
-## Checks
+| Command | What it does |
+| --- | --- |
+| `npm run serve` | Local preview at http://127.0.0.1:4173/ (localhost only; set `PORT` to change). |
+| `npm run build` | Stamps the shared header and footer from `_partials/` into every page. |
+| `npm run check` | Lists pages whose header or footer is out of date; exits 1 if any. |
+| `npm test` | Runs every test in `tests/`. |
 
-Run `node --test tests/site.test.cjs` before publishing. It covers local links, fragments,
-and assets; one `<h1>` and unique IDs per page; unique titles, descriptions, and canonical
-URLs that match `sitemap.xml`; share-image dimensions; store links and listed prices;
-retired product and plan names; the shared header and footer; the Jekyll exclude list;
-the mapping request builder; and theme storage fallbacks.
+GitHub Actions runs `npm run check` and `npm test` on every push and pull request
+(`.github/workflows/test.yml`). A failure shows a red mark on the commit; GitHub Pages
+still publishes `main`, so run the tests locally before pushing.
+
+## Tests
+
+Each file in `tests/` covers one topic, with shared helpers in `tests/helpers.cjs`:
+
+| File | Covers |
+| --- | --- |
+| `structure.test.cjs` | Links, fragments, and assets resolve; one `<h1>`, unique IDs, and a skip link per page; shared layout is current and links every product, support page, and policy. |
+| `seo.test.cjs` | Unique titles, descriptions, and canonicals matching `sitemap.xml`; `robots.txt`; share-image dimensions. |
+| `publishing.test.cjs` | Store-registered URLs keep working; the Jekyll exclude list and must-publish files. |
+| `content.test.cjs` | Retired names, policy dates, store links, listed prices, and sample data. Update expected prices here when a listing changes. |
+| `mapping.test.cjs` | The warehouse mapping request builder. |
+| `theme.test.cjs` | Appearance storage fallbacks and color contrast. |
 
 Also check the homepage, product pages, and support and policy pages visually in both
 themes and at a 320px width.
@@ -23,19 +38,21 @@ themes and at a 320px width.
 ## Shared header and footer
 
 The site header and footer live in `_partials/header.html` and `_partials/footer.html`.
-After editing either file, run `node scripts/build-layout.cjs` to stamp them into every
-page; each page keeps its own indentation and line endings. New pages need a
-`<header class="site-header">` and `<footer class="site-footer">` block (copy any
-page), and the script fills them in.
+After editing either file, run `npm run build` to stamp them into every page; each page
+keeps its own indentation. New pages need a `<header class="site-header">` and
+`<footer class="site-footer">` block (copy any page), and the build fills them in.
 
-`node scripts/build-layout.cjs --check` lists pages that are out of date and exits 1.
-The test suite runs the same check, so a hand-edited header or footer fails the tests.
+## Editor settings
+
+`.editorconfig` sets UTF-8, LF line endings, and two-space indentation, and
+`.gitattributes` stores text files with LF on every platform, so Windows checkouts do not
+produce line-ending warnings or whole-file diffs.
 
 ## Publishing
 
 GitHub Pages builds `main` with Jekyll. Pages have no front matter, so they are copied
-unchanged. Folders beginning with `_` are never published, and `_config.yml` excludes
-`README.md`, `VALIDATION.md`, `tests/`, and `scripts/` from the public site.
+unchanged. Folders beginning with `_` or `.` are never published, and `_config.yml` excludes
+`README.md`, `VALIDATION.md`, `package.json`, `tests/`, and `scripts/` from the public site.
 
 These root files must stay published:
 
@@ -45,11 +62,29 @@ These root files must stay published:
   indexable pages to the sitemap; the tests fail if it and the pages disagree.
 - `404.html`: served by GitHub Pages for missing URLs.
 
+## Store-registered URLs
+
+These addresses are entered in store listings. Never move, rename, or noindex them;
+`tests/publishing.test.cjs` fails if one goes missing. Update both lists if a listing changes.
+
+| Store | Field | URL |
+| --- | --- | --- |
+| App Store (twenty5) | Marketing | `/twenty5/` (redirects to `/products/twenty5/`) |
+| App Store (twenty5) | Support | `/twenty5/support/` |
+| App Store (twenty5) | Privacy | `/twenty5/privacy/` |
+| Chrome Web Store (LoopDeck) | Homepage | `/` |
+| Chrome Web Store (LoopDeck) | Support | `/loopdeck/` |
+| Chrome Web Store (LoopDeck) | Privacy | `/loopdeck/privacy/` |
+| Chrome Web Store (Frame64) | Support | `/frame64/` |
+| Chrome Web Store (Frame64) | Privacy | `/frame64/privacy/` |
+| Microsoft Marketplace (3D Heatmap) | Support | `/warehouse-heatmap/support/` |
+| Microsoft Marketplace (3D Heatmap) | Privacy | `/warehouse-heatmap/privacy/` |
+
 ## Adding a page
 
 Copy the closest existing page. Give it a unique `<title>`, a `<meta name="description">`,
 and `<link rel="canonical" href="https://unclocked.app/your/path/">`, then add the URL to
-`sitemap.xml` and run the layout script and tests. Pages that should not appear in search,
+`sitemap.xml`, then run `npm run build` and `npm test`. Pages that should not appear in search,
 such as `/twenty5/upcoming/`, use `<meta name="robots" content="noindex">`, no canonical,
 and stay out of the sitemap.
 
