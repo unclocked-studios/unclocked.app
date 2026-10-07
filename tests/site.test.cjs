@@ -170,3 +170,10 @@ test('theme palettes and primary action provide readable text contrast', () => {
   const ratio = (a, b) => { const x = luminance(a), y = luminance(b); return (Math.max(x, y) + .05) / (Math.min(x, y) + .05); };
   for (const [text, background] of [['23232a', 'f7f7f9'], ['586070', 'f0f2f6'], ['b32649', 'fbe9ee'], ['f3f4f7', '20232b'], ['b5becf', '2b303a'], ['ff91ac', '502738'], ['ffffff', 'c83256']]) assert.ok(ratio(text, background) >= 4.5, `${text} on ${background}`);
 });
+
+test('product pages link to their store listings and publish plan prices', () => {
+  const loopdeck = read('products/loopdeck/index.html');
+  assert.ok(loopdeck.includes('https://chromewebstore.google.com/detail/loopdeck-dashboard-tab-sw/ibiicjnbphicnpiadbofboldbfpfihld'));
+  for (const price of ['$9.99', '$4.99', '$49.99', '$8.99', '$89.99', '$17.99', '$179.99']) assert.ok(loopdeck.includes(price), 'LoopDeck price ' + price);
+  assert.ok(read('products/twenty5/index.html').includes('https://apps.apple.com/us/app/twenty5/id6748280871'));
+});
