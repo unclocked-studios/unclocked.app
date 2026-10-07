@@ -197,3 +197,40 @@ test('3D Heatmap uses the Professional plan name and the hosted sample report', 
   assert.ok(fs.statSync(path.join(root, 'assets/warehouse-3d/unclocked-sample-data.pbix')).size > 1e6);
   for (const file of ['index.html', 'warehouse-heatmap/index.html', 'warehouse-heatmap/support/index.html']) assert.ok(read(file).includes('href="/assets/warehouse-3d/unclocked-sample-data.pbix" download'), file);
 });
+
+test('indexable pages have unique titles, descriptions, and self-canonicals that match the sitemap', () => {
+  const sitemap = read('sitemap.xml');
+  const listed = [...sitemap.matchAll(/<loc>https:\/\/unclocked\.app([^<]*)<\/loc>/g)].map(match => match[1]).sort();
+  const indexable = [];
+  const titles = new Set();
+  for (const file of pages) {
+    const html = fs.readFileSync(file, 'utf8');
+    const relative = path.relative(root, file).replaceAll('\\', '/');
+    if (/<meta name="robots" content="noindex">/.test(html)) {
+      assert.ok(!/rel="canonical"/.test(html), relative + ': noindex pages should not declare a canonical');
+      continue;
+    }
+    const route = '/' + relative.replace(/index\.html$/, '');
+    indexable.push(route);
+    const title = html.match(/<title>([^<]+)<\/title>/)[1];
+    assert.ok(!titles.has(title), relative + ': duplicate title ' + title);
+    titles.add(title);
+    assert.match(html, /<meta name="description"\s+content="[^"]{50,}">/, relative + ': description');
+    assert.ok(html.includes(`<link rel="canonical" href="https://unclocked.app${route}">`), relative + ': canonical');
+  }
+  assert.deepEqual(listed, indexable.sort());
+  assert.match(read('robots.txt'), /^Sitemap: https:\/\/unclocked\.app\/sitemap\.xml$/m);
+  assert.match(read('404.html'), /<meta name="robots" content="noindex">/);
+});
+
+test('share images exist and declare their real dimensions', () => {
+  for (const file of pages) {
+    const html = fs.readFileSync(file, 'utf8');
+    const image = html.match(/<meta property="og:image" content="https:\/\/unclocked\.app([^"]+)">/);
+    if (!image) continue;
+    const png = fs.readFileSync(path.join(root, image[1]));
+    assert.equal(png.toString('ascii', 1, 4), 'PNG', image[1]);
+    assert.equal(html.match(/og:image:width" content="(\d+)"/)[1], String(png.readUInt32BE(16)), image[1] + ' width');
+    assert.equal(html.match(/og:image:height" content="(\d+)"/)[1], String(png.readUInt32BE(20)), image[1] + ' height');
+  }
+});
