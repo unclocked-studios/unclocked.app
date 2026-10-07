@@ -240,3 +240,18 @@ test('every page uses the shared header and footer from _partials/', () => {
   assert.deepEqual(run({ check: true }), [], 'run node scripts/build-layout.cjs');
   assert.ok(pages.length >= 18 && pages.every(file => !file.includes('_partials')));
 });
+
+test('Jekyll keeps repository-only files off the site and publishes verification files', () => {
+  const excluded = [...read('_config.yml').matchAll(/^\s+-\s+(\S+)\s*$/gm)].map(match => match[1]);
+  for (const name of ['README.md', 'VALIDATION.md', 'tests', 'scripts']) assert.ok(excluded.includes(name), 'exclude ' + name);
+  for (const name of ['BingSiteAuth.xml', 'CNAME', 'robots.txt', 'sitemap.xml', '404.html', 'assets']) {
+    assert.ok(!excluded.includes(name), 'must stay published: ' + name);
+    assert.ok(fs.existsSync(path.join(root, name)), 'missing ' + name);
+  }
+});
+
+test('3D Heatmap lists every Professional tier and the 100,000-bin limit', () => {
+  const html = read('warehouse-heatmap/index.html');
+  for (const price of ['$6', '$60', '$5', '$50', '$4', '$40', '$3', '$30']) assert.ok(html.includes(`<td>${price}</td>`), 'tier price ' + price);
+  assert.match(html, /up to 100,000/);
+});

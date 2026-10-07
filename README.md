@@ -1,7 +1,8 @@
 # Unclocked Studios website
 
-Static HTML, CSS, and small browser scripts. No production dependencies; the only
-build step is the optional layout script below, and its output is committed.
+Static HTML, CSS, and small browser scripts, published by GitHub Pages from `main`
+at https://unclocked.app. No production dependencies; the only build step is the
+layout script below, and its output is committed.
 
 ## Local preview
 
@@ -10,10 +11,14 @@ The preview binds to localhost only. Set `PORT` to use another port.
 
 ## Checks
 
-Run `node --test tests/site.test.cjs` for local links, assets, required request fields,
-draft encoding and long-request behavior, clipboard fallback, and theme storage fallback.
-Check the homepage, mapping page, product pages, and support/policy pages visually
-in both themes and at mobile widths before publishing.
+Run `node --test tests/site.test.cjs` before publishing. It covers local links, fragments,
+and assets; one `<h1>` and unique IDs per page; unique titles, descriptions, and canonical
+URLs that match `sitemap.xml`; share-image dimensions; store links and listed prices;
+retired product and plan names; the shared header and footer; the Jekyll exclude list;
+the mapping request builder; and theme storage fallbacks.
+
+Also check the homepage, product pages, and support and policy pages visually in both
+themes and at a 320px width.
 
 ## Shared header and footer
 
@@ -25,20 +30,95 @@ page), and the script fills them in.
 
 `node scripts/build-layout.cjs --check` lists pages that are out of date and exits 1.
 The test suite runs the same check, so a hand-edited header or footer fails the tests.
-GitHub Pages does not publish folders beginning with `_`, so the partials are not served.
 
-## Marketplace content
+## Publishing
 
-The marketing name is **Unclocked 3D Heatmap**, matching the public listing. The
-existing `/warehouse-heatmap/` URLs and historical privacy-policy body are retained.
-The product page links directly to Marketplace and its published sample PBIX.
-Marketplace calls to action carry `ocid` and UTM parameters identifying their placement.
-There is no new analytics script or user tracking added to the website.
+GitHub Pages builds `main` with Jekyll. Pages have no front matter, so they are copied
+unchanged. Folders beginning with `_` are never published, and `_config.yml` excludes
+`README.md`, `VALIDATION.md`, `tests/`, and `scripts/` from the public site.
 
-The product page's USD prices reflect the US listing checked on October 2, 2026.
-Review its plan details and the versioned PBIX link when a Marketplace release changes.
-Support guidance links to Microsoft's visual licensing documentation. No visual
-package, subscription setting, screenshot, or sample CSV was changed in this update.
+These root files must stay published:
+
+- `CNAME`: the custom domain.
+- `BingSiteAuth.xml`: Bing Webmaster Tools verification. Removing it can un-verify the site.
+- `sitemap.xml` and `robots.txt`: submitted to Google Search Console and Bing. Add new
+  indexable pages to the sitemap; the tests fail if it and the pages disagree.
+- `404.html`: served by GitHub Pages for missing URLs.
+
+## Adding a page
+
+Copy the closest existing page. Give it a unique `<title>`, a `<meta name="description">`,
+and `<link rel="canonical" href="https://unclocked.app/your/path/">`, then add the URL to
+`sitemap.xml` and run the layout script and tests. Pages that should not appear in search,
+such as `/twenty5/upcoming/`, use `<meta name="robots" content="noindex">`, no canonical,
+and stay out of the sitemap.
+
+## Products and where facts come from
+
+Prices and plan details are shown with the date they were checked. Recheck them when a
+store listing or plan changes.
+
+| Product | Website pages | Source of truth |
+| --- | --- | --- |
+| Unclocked 3D Heatmap (Power BI) | `/warehouse-heatmap/` and its `support/`, `privacy/`, `mapping/` | Microsoft Marketplace listing (Overview and Plans + Pricing tabs) |
+| LoopDeck (Chrome) | `/products/loopdeck/`, `/loopdeck/`, `/loopdeck/privacy/` | Chrome Web Store listing; `Tab Cycler/docs/plans-and-trial.md` for prices |
+| Frame64 (Chrome) | `/products/frame64/`, `/frame64/`, `/frame64/privacy/` | Chrome Web Store listing; `src/shared/plans.mjs` and `demo-limits.mjs` in the Frame64 project |
+| twenty5 (iOS) | `/products/twenty5/`, `/twenty5/support/`, `/twenty5/privacy/`, `/twenty5/tos/` | App Store listing |
+
+`/twenty5/` is the support hub for all products. `/twenty5/upcoming/` stays live because
+the twenty5 app links to it; it is a noindexed "under construction" page.
+
+### 3D Heatmap plans
+
+Free renders up to 2,500 bins. Professional is licensed per user through Microsoft
+Marketplace, raises the limit to the report's Max displayed bins (up to 100,000), and has
+four volume tiers. The flat-rate Warehouse Pro plan on the listing is being retired and is
+not shown on the website. Marketplace calls to action carry `ocid` and UTM parameters
+identifying their placement; the site has no analytics script.
+
+## Assets
+
+### 3D Heatmap
+
+- `assets/warehouse-3d/2026-10/`: crops of the October 4, 2026 Power BI captures from the
+  visual's `marketing/captures-2026-10-04/` folder, using the AppSource layout's crop
+  rectangles at 50% scale (the captures are at 2× scale). Interface, data, and colors are
+  not retouched. Pages display the `.webp` copies; the `.png` files are the full-size links.
+  `overview-full.png` is the whole visual, including its legend, menu, and Professional
+  label. `share-overview.png` is the AppSource overview image, used for link previews.
+- `assets/warehouse-3d/unclocked-sample-data.pbix`: the seven-page, 5,000-location sample
+  report with visual 1.1.0.5 embedded. Replace it when a new sample is published.
+- `assets/warehouse-3d/warehouse_sample.csv`: the 2,208-location CSV sample, preserved
+  byte for byte. `sample-coordinates.csv` is an identical copy at an older URL; keep both
+  in sync. The support page's `#sample-data` section explains the field assignments.
+- `assets/warehouse-3d/visual-only/` and the PNGs directly in `assets/warehouse-3d/` are the
+  September 2026 screenshots. They are no longer used by pages but stay at their URLs.
+
+### LoopDeck
+
+- `screen-profile.png`, `quick-cycle.png`, `shared-workspaces.png`, and `display-manager.png`
+  are unmodified raw captures from `Tab Cycler/promotional-v2/` (`raw-popup`, `raw-quick-cycle`,
+  `raw-workspace`, `raw-displays`). Display examples use demo data.
+- `share.png` is the `01-dashboard-cycling.png` listing image, used for link previews.
+
+### Frame64
+
+From `Frame64/versions/frame64-1.2.0/promotional-v2/`: `popup.png` (`raw-popup.png`),
+`compare.png`, `export-studio.png`, and `code.png` (listing images 02 to 04), and `share.png`
+(listing image 01). Pages display `.webp` copies. Screenshots show Frame64 Pro with an
+Unsplash sample photo; the source folder's README records the photo credit and license.
+
+### twenty5
+
+`twenty5-mockup.png` (displayed as `.webp`) is the current App Store marketing image. The
+app's original source files are not available, so new imagery should come from the App
+Store listing or the upcoming version.
+
+### Converting images
+
+Large screenshots are served as WebP at quality 88, for example with ImageMagick:
+`magick input.png -quality 88 -define webp:method=6 output.webp`. Keep the PNG for
+full-size links and Open Graph images.
 
 ## Website behavior
 
@@ -47,69 +127,9 @@ package, subscription setting, screenshot, or sample CSV was changed in this upd
 - Request details remain in page memory. The mapping builder prepares a `mailto:`
   draft or allows copying the complete request. It does not send email or upload files.
 - Email links over 1,800 characters use the full-copy flow instead of truncating text.
-- Existing product, policy, support URLs and homepage anchors are retained.
 - All pages contain their navigation and contact links in HTML, so they work without JavaScript.
-- Shared navigation/footer markup is generated from `_partials/` (see above); do not edit it in pages directly.
 
-## Warehouse 3D sample
+## History
 
-`assets/warehouse-3d/warehouse_sample.csv` is the original, user-tested Power BI
-sample, preserved byte for byte. It contains 2,208 locations and 12 columns.
-The homepage, mapping, product, and support pages link to this download. The support
-page's `#sample-data` section explains the field assignments.
-
-`assets/warehouse-3d/sample-coordinates.csv` retains the previous download URL with
-identical contents. Keep both copies in sync if replacing the sample in future.
-
-## Warehouse 3D screenshots
-
-The five updated screenshots supplied on September 16, 2026 are preserved as
-unmodified copies from `Pictures/Screenshots`:
-
-| Source | Original asset in `assets/warehouse-3d/` |
-| --- | --- |
-| `01. First.png` | `warehouse-overview.png` |
-| `02. Second.png` | `category-filters.png` |
-| `03. Third.png` | `location-details.png` |
-| `04. Fourth.png` | `plan-view.png` |
-| `05. Fifth.png` | `report-interactions.png` |
-
-The homepage and product page use cropped copies in `assets/warehouse-3d/visual-only/`
-with the same filenames. These crops retain only the custom visual, including its
-menu and legend, and exclude surrounding report slicers, the KPI card, and table.
-The first four crops are 1251 × 781 pixels; the fifth is 1565 × 977 pixels. They were
-cropped without resizing or redrawing the interface.
-
-The product gallery loads images lazily and links to the full-size cropped copies.
-Uncropped originals and previous image assets remain available at their old URLs
-but are no longer used by the website pages.
-
-## LoopDeck screenshots
-
-The LoopDeck product page uses the original high-resolution interface captures
-behind the promotional artwork supplied on September 16, 2026. These files were
-copied unchanged from `Tab Cycler/promotional-v2`:
-
-| Source | Website asset in `assets/loopdeck/` |
-| --- | --- |
-| `raw-popup.png` | `screen-profile.png` |
-| `raw-quick-cycle.png` | `quick-cycle.png` |
-| `raw-workspace.png` | `shared-workspaces.png` |
-| `raw-displays.png` | `display-manager.png` |
-
-Using the original captures keeps controls sharper than cropping the downscaled
-promotional artwork. Popup screenshots sit beside their explanations; management
-screens span the content width. All four link to their full-size PNGs, with lazy
-loading below the hero. Display examples use demo data, and the page states the
-paid-plan or active-trial requirement for Display Manager. The previous promotional
-asset remains at its existing URL.
-
-## Backup and release
-
-The pre-redesign ZIP, SHA-256 manifest, and restoration instructions are saved outside
-this repository under `C:\Users\helio\Documents\Company Website\backups` with timestamp
-`20260916-084848`. Baseline: `main` at `6ba7df5bc9877630fb1b915659992405e3d66990`.
-Every one of the archive's 188 files (including `.git`) was verified before editing.
-Extract into a separate empty directory first; never overwrite newer work blindly.
-
-This redesign does not change the Power BI visual's URL and does not publish the website.
+See `VALIDATION.md` for the October 2026 review. The September 2026 redesign kept a
+verified pre-redesign backup outside this repository (baseline `6ba7df5`).
