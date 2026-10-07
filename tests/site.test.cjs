@@ -6,7 +6,7 @@ const vm = require('node:vm');
 const { draft, emailLink, delivery } = require('../js/mapping.js');
 const root = path.resolve(__dirname, '..');
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
-function walk(dir) { return fs.readdirSync(dir, { withFileTypes: true }).flatMap(e => e.name.startsWith('.') ? [] : e.isDirectory() ? walk(path.join(dir, e.name)) : [path.join(dir, e.name)]); }
+function walk(dir) { return fs.readdirSync(dir, { withFileTypes: true }).flatMap(e => /^[._]/.test(e.name) ? [] : e.isDirectory() ? walk(path.join(dir, e.name)) : [path.join(dir, e.name)]); }
 const pages = walk(root).filter(file => file.endsWith('.html'));
 
 test('all local links, fragments, images, and scripts resolve', () => {
@@ -233,4 +233,10 @@ test('share images exist and declare their real dimensions', () => {
     assert.equal(html.match(/og:image:width" content="(\d+)"/)[1], String(png.readUInt32BE(16)), image[1] + ' width');
     assert.equal(html.match(/og:image:height" content="(\d+)"/)[1], String(png.readUInt32BE(20)), image[1] + ' height');
   }
+});
+
+test('every page uses the shared header and footer from _partials/', () => {
+  const { run } = require('../scripts/build-layout.cjs');
+  assert.deepEqual(run({ check: true }), [], 'run node scripts/build-layout.cjs');
+  assert.ok(pages.length >= 18 && pages.every(file => !file.includes('_partials')));
 });
