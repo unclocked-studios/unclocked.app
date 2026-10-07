@@ -43,7 +43,7 @@ owner's review before publishing.
 
 | Item | Status |
 | --- | --- |
-| Frame64 Chrome Web Store privacy and support URLs set to  and  | Done; listing update awaiting store review |
+| Frame64 Chrome Web Store privacy and support URLs set to `/frame64/privacy/` and `/frame64/` | Done; listing update awaiting store review |
 | Review the rewritten privacy policies (3D Heatmap, twenty5, LoopDeck, Frame64) | Done |
 | Confirm the hosted sample report has no local file paths in its data sources | Done |
 | October 4 marketing images on AppSource | Done; published with visual 1.1.0.5 |
