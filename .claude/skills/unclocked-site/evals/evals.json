@@ -1,0 +1,23 @@
+{
+  "skill_name": "unclocked-site",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "can you double check the loopdeck and frame64 prices on the site are still right? i might have changed something in extensionpay last week",
+      "expected_output": "Reads the plan sources (Tab Cycler plans doc, Frame64 plans.mjs, Chrome Web Store listings), compares them with the product pages, /products/ cards, JSON-LD, and content tests, reports any mismatch with evidence, and updates all places together with a date if something changed. Does not push without being asked.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "I'm launching a new Chrome extension called PCF Calendar next month (project is in the PCF Calendar folder next to this repo). Add it to the website with a product page, support page and privacy policy.",
+      "expected_output": "Follows the README 'Adding a product' checklist: product page in the standard section order, support and privacy pages written from the extension's actual code, products card, homepage tile, header/footer partials via npm run build, support hub, 404, sitemap, tests. Asks for facts it cannot verify (pricing, store URL) and flags the privacy policy for owner review.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "the support page url for twenty5 feels clunky, can we move /twenty5/support/ to /support/twenty5/ to match the other pages",
+      "expected_output": "Recognizes /twenty5/support/ is the App Store support URL registered in the listing and must not move; explains why, and offers an additive alternative (new URL plus keeping the old one) instead of breaking the store link.",
+      "files": []
+    }
+  ]
+}
