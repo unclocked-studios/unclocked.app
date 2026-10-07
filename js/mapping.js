@@ -1,7 +1,20 @@
+/*
+ * Warehouse mapping request builder (warehouse-heatmap/mapping/).
+ * Turns the form into an email draft. Nothing is sent or stored by the website:
+ * the visitor's email app opens with the draft, or they copy it manually.
+ *
+ * The pure functions (draft, emailLink, delivery) are also exported for Node so
+ * tests/mapping.test.cjs can check them without a browser.
+ */
 (function (root) {
   'use strict';
   var recipient = 'support@unclocked.app';
   var subject = 'Warehouse mapping request';
+  // Some email apps and browsers truncate long mailto: links. Above this length
+  // the page asks the visitor to copy the draft instead of risking lost text.
+  var MAX_MAILTO_LENGTH = 1800;
+
+  /** Builds the plain-text email body from the form values. Blank optional fields get a default. */
   function draft(values) {
     var value = function (key) { return String(values[key] || '').trim(); };
     return 'Hello Unclocked Studios,\n\nI would like to discuss mapping my warehouse layout into a coordinate CSV.\n\n' +
@@ -14,16 +27,22 @@
       'Requested output: location names with X, Y, and Z coordinates.\n' +
       'Please let me know the next steps for sharing the drawing and confirming the scope.\n\nThank you!';
   }
+  /** Encodes the body into a mailto: link addressed to the studio. */
   function emailLink(body) {
     return 'mailto:' + recipient + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
   }
+
+  /** Decides how to hand off the draft: open the email link, or require copying when it is too long. */
   function delivery(body) {
     var href = emailLink(body);
-    return { href: href, copyRequired: href.length > 1800 };
+    return { href: href, copyRequired: href.length > MAX_MAILTO_LENGTH };
   }
+
   if (typeof module !== 'undefined' && module.exports) {
     module.exports = { draft: draft, emailLink: emailLink, delivery: delivery };
   }
+
+  // ---- Page wiring (browser only) ----
   if (!root.document) return;
   var document = root.document;
   var form = document.getElementById('mapping-form');
@@ -35,12 +54,17 @@
   var manual = document.getElementById('manual-copy-help');
   var longHelp = document.getElementById('long-request-help');
   var details = document.getElementById('draft-details');
+
+  // The form ships disabled so it is unusable without JavaScript (a <noscript>
+  // email link is shown instead); enable it now that the script is running.
   form.querySelector('fieldset').disabled = false;
+
   function readValues() {
     var values = {};
     new root.FormData(form).forEach(function (value, key) { values[key] = value; });
     return values;
   }
+  /** Validates required fields, refreshes the draft preview, and returns the handoff decision. */
   function update() {
     var values = readValues();
     ['name', 'description'].forEach(function (name) {
@@ -54,6 +78,9 @@
   }
   form.addEventListener('input', function () { update(); status.textContent = ''; });
   form.addEventListener('change', update);
+
+  // Submit: open the email app, or (for long drafts) select the text for copying.
+  // Status messages state plainly that nothing has been sent.
   form.addEventListener('submit', function (event) {
     event.preventDefault();
     var result = update();
@@ -68,6 +95,7 @@
     status.textContent = 'Opening your email app. Review and send the email to submit your request. If no app opens, copy the draft below. Nothing has been sent by this website.';
     root.location.href = result.href;
   });
+  // Copy: use the clipboard when allowed; otherwise select the draft for manual copying.
   copy.addEventListener('click', async function () {
     update();
     try {

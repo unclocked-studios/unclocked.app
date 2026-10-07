@@ -67,3 +67,7 @@
 }
 
 .text-link { font-weight: 600; }
+
+/* Spacing before a page's final link or button (404 page, twenty5 support). */
+.closing-action { margin-top: 2rem; }
+.closing-link { margin-top: 3rem; }
