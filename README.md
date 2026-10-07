@@ -35,12 +35,30 @@ Each file in `tests/` covers one topic, with shared helpers in `tests/helpers.cj
 Also check the homepage, product pages, and support and policy pages visually in both
 themes and at a 320px width.
 
-## Shared header and footer
+## Shared head, header, and footer
 
-The site header and footer live in `_partials/header.html` and `_partials/footer.html`.
-After editing either file, run `npm run build` to stamp them into every page; each page
-keeps its own indentation. New pages need a `<header class="site-header">` and
-`<footer class="site-footer">` block (copy any page), and the build fills them in.
+Markup repeated on every page lives in `_partials/`:
+
+| Partial | Contents | Marker in each page |
+| --- | --- | --- |
+| `head.html` | Charset, viewport, color scheme, icons, `theme.js`, `style.css`, `site.js` | `<!-- Shared head -->` … `<!-- /Shared head -->` at the top of `<head>` |
+| `header.html` | Skip link target area, brand, navigation, Products menu, Appearance | `<header class="site-header">` |
+| `footer.html` | Product, support, and policy links | `<footer class="site-footer">` |
+
+After editing a partial, run `npm run build` to stamp it into every page; each page keeps
+its own indentation. Page-specific `<head>` tags (title, description, canonical, sharing
+tags, extra scripts) go below the shared head block. New pages need the three markers
+(copy any page), and the build fills them in.
+
+## Scripts in `js/`
+
+| File | Loaded by | Purpose |
+| --- | --- | --- |
+| `theme.js` | Every page (shared head, not deferred) | Applies the saved appearance before the page paints. |
+| `site.js` | Every page (deferred) | Appearance menu, Products menu, and the mobile Menu button. |
+| `mapping.js` | Mapping page only | Builds the mapping request email; its pure functions are also tested in Node. |
+
+Pages work without JavaScript: links are plain HTML, and controls that need scripts stay hidden.
 
 ## Styles
 

@@ -1,8 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Shared head: generated from _partials/head.html by npm run build -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" type="image/png" sizes="128x128" href="/assets/unclocked-logo-v2-128.png">
+  <link rel="apple-touch-icon" href="/assets/unclocked-logo-v2-128.png">
+  <script src="/js/theme.js"></script>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/site.js" defer></script>
+  <!-- /Shared head -->
   <meta name="description" content="Request warehouse mapping from your AutoCAD layout to a CSV of location names and X, Y, Z coordinates for Power BI. Prepare an email to discuss your project.">
   <title>Warehouse Mapping | AutoCAD to Coordinate CSV | Unclocked Studios</title>
   <meta property="og:type" content="website">
@@ -16,12 +24,6 @@
   <meta property="og:image:alt" content="Unclocked 3D Heatmap showing a 5,000-location warehouse in 3D over a floor plan, colored by on-hand units">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://unclocked.app/warehouse-heatmap/mapping/">
-  <meta name="color-scheme" content="light dark">
-  <link rel="icon" type="image/png" sizes="128x128" href="/assets/unclocked-logo-v2-128.png">
-  <link rel="apple-touch-icon" href="/assets/unclocked-logo-v2-128.png">
-  <script src="/js/theme.js"></script>
-  <link rel="stylesheet" href="/css/style.css">
-  <script src="/js/site.js" defer></script>
   <script src="/js/mapping.js" defer></script>
 </head>
 <body>
@@ -91,7 +93,7 @@
         <p class="request-status" id="request-status" role="status" aria-live="polite"></p>
         <p class="notice" id="long-request-help" hidden>Your complete draft is too long for a reliable email link. Copy it below, then <a href="mailto:support@unclocked.app?subject=Warehouse%20mapping%20request">open an email</a> and paste it. No details will be truncated.</p>
         <details class="draft-section" id="draft-details" open><summary>Your email draft &amp; copy options</summary><label for="request-preview">Complete request text</label><textarea id="request-preview" rows="8" readonly spellcheck="false"></textarea><div class="button-row"><button class="btn-secondary" type="button" id="copy-request">Copy request</button><a class="small-link" href="mailto:support@unclocked.app?subject=Warehouse%20mapping%20request">Open a blank email</a></div><p class="fine-print" id="manual-copy-help" hidden>Press Ctrl+C (Windows) or ⌘C (Mac), or use your device’s Copy command. Paste the draft into your email.</p></details>
-        <p class="fine-print" style="margin:20px 0 0">Prefer to write directly? <a href="mailto:support@unclocked.app?subject=Warehouse%20mapping%20request">support@unclocked.app</a></p>
+        <p class="fine-print direct-email">Prefer to write directly? <a href="mailto:support@unclocked.app?subject=Warehouse%20mapping%20request">support@unclocked.app</a></p>
       </section>
     </div>
     <section class="mapping-faq"><span class="eyebrow">A few helpful details</span><h2>Before you get started.</h2>
