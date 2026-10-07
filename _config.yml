@@ -8,3 +8,4 @@ exclude:
   - package.json
   - tests
   - scripts
+  - css/src

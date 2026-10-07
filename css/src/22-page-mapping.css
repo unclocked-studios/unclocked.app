@@ -1,0 +1,149 @@
+/* ==========================================================================
+   Warehouse mapping page (warehouse-heatmap/mapping/): breadcrumb, the
+   deliverable preview, process steps, request panel, and FAQ
+   On phones the request panel moves above the details (order).
+   ========================================================================== */
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  font-size: 12px;
+  color: var(--muted);
+  margin: 30px 0;
+}
+.breadcrumb a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.mapping-heading {
+  max-width: 790px;
+  margin-bottom: 40px;
+}
+.mapping-heading h1 {
+  font-size: clamp(2.2rem, 4vw, 3.45rem);
+  margin-bottom: 18px;
+}
+.mapping-heading > p {
+  max-width: 640px;
+  font-size: 17px;
+}
+
+/* Details on the left, request panel on the right. */
+.mapping-grid {
+  display: grid;
+  grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+  align-items: start;
+  gap: 42px;
+  margin-bottom: 50px;
+}
+.mapping-details h2 { font-size: 23px; }
+.mapping-details > p { font-size: 14px; }
+
+/* "What you receive" card with the CSV preview. */
+.deliverable {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: 24px;
+  margin-bottom: 28px;
+}
+.deliverable .output-preview { margin: 18px 0; }
+.deliverable .coordinate-table {
+  font-size: 12px;
+  table-layout: fixed;
+}
+.deliverable .coordinate-table th, .deliverable .coordinate-table td {
+  padding: 6px 8px;
+  overflow-wrap: anywhere;
+}
+.deliverable .output-label {
+  flex-wrap: wrap;
+  gap: 4px 12px;
+}
+.deliverable p { font-size: 13px; }
+
+/* Numbered steps with a "01, 02, 03" counter badge. */
+.process-list {
+  padding: 0;
+  list-style: none;
+  counter-reset: process;
+}
+.process-list li {
+  position: relative;
+  padding: 0 0 24px 49px;
+  counter-increment: process;
+}
+.process-list li::before {
+  content: '0' counter(process);
+  position: absolute;
+  left: 0;
+  top: 0;
+  font: 11px/32px ui-monospace, Consolas, monospace;
+  width: 32px;
+  height: 32px;
+  text-align: center;
+  background: var(--soft);
+  border: 1px solid var(--line);
+  color: var(--accent-text);
+  border-radius: 8px;
+}
+.process-list strong {
+  display: block;
+  font-size: 14px;
+}
+.process-list p {
+  margin: 5px 0 0;
+  font-size: 13px;
+}
+
+/* Request builder panel (form styles in 09-forms.css). */
+.request-panel { padding: 30px; }
+.request-panel h2 {
+  font-size: 24px;
+  margin-bottom: 9px;
+}
+.request-panel > p {
+  font-size: 13px;
+  margin-bottom: 24px;
+}
+
+.mapping-faq {
+  border-top: 1px solid var(--line);
+  margin-bottom: 60px;
+  padding-top: 34px;
+}
+.mapping-faq h2 { font-size: 26px; }
+.mapping-faq details {
+  border-bottom: 1px solid var(--line);
+  padding: 16px 0;
+}
+.mapping-faq summary {
+  font-size: 15px;
+  font-weight: 600;
+}
+.mapping-faq details p {
+  font-size: 14px;
+  max-width: 760px;
+  margin: 12px 0 0;
+}
+
+@media (max-width: 900px) {
+  .mapping-grid { gap: 24px; }
+  .request-panel { padding: 22px; }
+}
+
+@media (max-width: 680px) {
+  .mapping-heading { margin-bottom: 25px; }
+  .mapping-heading h1 { font-size: 2.2rem; }
+  .mapping-heading > p { font-size: 15px; }
+  .mapping-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .mapping-details { order: 2; }
+  .request-panel { order: 1; }
+  .deliverable { padding: 22px; }
+  .mapping-faq { margin-bottom: 40px; }
+}

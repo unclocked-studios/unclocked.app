@@ -1,0 +1,99 @@
+/* ==========================================================================
+   Base: element defaults and typography
+   ========================================================================== */
+
+* { box-sizing: border-box; }
+
+/* The hidden attribute always wins, even over component display rules. */
+[hidden] { display: none !important; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 84px; /* Keeps anchored headings clear of the sticky header. */
+}
+
+/* Body is a column so the footer sits at the bottom of short pages. */
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--page);
+  color: var(--text);
+  font: 16px/1.65 "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+main {
+  flex: 1;
+  min-width: 0;
+}
+
+a {
+  color: var(--accent-text);
+  text-underline-offset: 4px;
+}
+a:hover { text-decoration-thickness: 2px; }
+
+button, input, textarea, select { font: inherit; }
+button, select, summary { cursor: pointer; }
+button, a, input, textarea, select, summary { -webkit-tap-highlight-color: transparent; }
+
+:focus-visible {
+  outline: 3px solid var(--accent-text);
+  outline-offset: 4px;
+}
+
+::selection {
+  color: var(--text);
+  background: var(--selection);
+}
+
+img, svg { max-width: 100%; }
+img {
+  display: block;
+  height: auto;
+}
+
+/* Typography */
+h1, h2, h3, p, figure { margin-top: 0; }
+
+h1, h2, h3 {
+  line-height: 1.15;
+  letter-spacing: -.035em;
+  font-weight: 650;
+  text-wrap: balance;
+}
+h1 { font-size: clamp(2.4rem, 4.6vw, 4.1rem); }
+h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); }
+h3 { font-size: 1.2rem; }
+
+p { color: var(--muted); }
+li + li { margin-top: .3rem; }
+
+/* Small label above headings, with a square bullet in the accent color. */
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 20px;
+  color: var(--accent-text);
+  font-size: 10px;
+  line-height: 1.5;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+.eyebrow::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: currentColor;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.fine-print {
+  font-size: 12px;
+  color: var(--muted);
+}

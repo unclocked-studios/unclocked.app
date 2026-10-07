@@ -1,0 +1,59 @@
+/* ==========================================================================
+   Screenshots and galleries
+   product-visual  a <figure> holding a screenshot link and caption
+   popup-shot      a narrow, centered popup screenshot (Chrome extensions)
+   split-demo      text beside a screenshot; stacks on phones
+   stack-gallery   full-width screenshots stacked vertically
+   ========================================================================== */
+
+.product-visual {
+  margin: 0;
+  min-width: 0;
+}
+.screenshot-link { /* Opens the full-size image; rounded to match the image. */
+  display: block;
+  border-radius: 12px;
+}
+.product-screenshot {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+}
+
+.popup-shot {
+  width: min(360px, 100%);
+  justify-self: center;
+}
+.popup-shot .product-screenshot { box-shadow: var(--shadow); }
+
+.split-demo {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.03fr);
+  gap: 48px;
+  align-items: center;
+}
+.split-demo > div { max-width: 500px; }
+
+.stack-gallery {
+  display: grid;
+  gap: 36px;
+  margin-top: 28px;
+}
+
+figcaption {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 12px;
+}
+figcaption strong { /* Caption title on its own line. */
+  display: block;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+@media (max-width: 680px) {
+  .split-demo {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
