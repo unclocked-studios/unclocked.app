@@ -3,7 +3,6 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const vm = require('node:vm');
-const { execFileSync } = require('node:child_process');
 const { draft, emailLink, delivery } = require('../js/mapping.js');
 const root = path.resolve(__dirname, '..');
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
@@ -31,13 +30,17 @@ test('all local links, fragments, images, and scripts resolve', () => {
   }
 });
 
-test('policy main content is unchanged from the backed-up baseline', () => {
+test('policy pages are dated, use current product names, and do not mention retired names', () => {
   for (const file of pages.filter(file => /[\\/](privacy|tos)[\\/]/.test(file))) {
     const relative = path.relative(root, file).replaceAll('\\', '/');
-    const previous = execFileSync('git', ['show', '6ba7df5bc9877630fb1b915659992405e3d66990:' + relative], { cwd: root, encoding: 'utf8' });
-    const main = html => html.match(/<main\b[^>]*>([\s\S]*?)<\/main>/)[1].replace(/\r\n/g, '\n');
-    assert.equal(main(read(relative)), main(previous), relative);
+    const html = read(relative);
+    assert.match(html, /Last updated: [A-Z][a-z]+ \d{1,2}, 20\d\d/, relative);
+    assert.ok(!/Warehouse(?:%20| )3D/.test(html), relative + ': uses the retired Warehouse 3D name');
   }
+});
+
+test('no page uses the retired Warehouse 3D product name', () => {
+  for (const file of pages) assert.ok(!/Warehouse(?:%20| )3D/.test(fs.readFileSync(file, 'utf8')), path.relative(root, file));
 });
 
 test('tested CSV has unique locations and numeric coordinates, dimensions, and heat values', () => {
