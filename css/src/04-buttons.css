@@ -71,3 +71,15 @@
 /* Spacing before a page's final link or button (404 page, twenty5 support). */
 .closing-action { margin-top: 2rem; }
 .closing-link { margin-top: 3rem; }
+
+/* Official store badges (Chrome Web Store, App Store). Use the artwork unmodified;
+   only resizing is allowed. Shown under the hero buttons, never as the main element. */
+.store-badge { margin: 18px 0 0; }
+.store-badge a {
+  display: inline-block;
+  border-radius: 8px;
+}
+.store-badge img {
+  height: 48px; /* Apple's minimum on-screen height is 40px. */
+  width: auto;
+}
