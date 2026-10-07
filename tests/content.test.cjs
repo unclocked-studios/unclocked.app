@@ -56,3 +56,25 @@ test('the sample CSV has unique locations and numeric coordinates, dimensions, a
   // The previous download URL must keep serving the same tested data.
   assert.equal(read('assets/warehouse-3d/sample-coordinates.csv'), sample);
 });
+
+const productPages = ['/warehouse-heatmap/', '/products/loopdeck/', '/products/frame64/', '/products/twenty5/'];
+
+test('the products overview and homepage row present every product', () => {
+  const overview = read('products/index.html');
+  for (const href of productPages) assert.ok(overview.includes(`href="${href}"`), 'products page: ' + href);
+  for (const store of ['marketplace.microsoft.com/en-us/product/unclockedstudiosllc1780535695675.unclocked-3d-heatmap',
+    'chromewebstore.google.com/detail/loopdeck-dashboard-tab-sw/ibiicjnbphicnpiadbofboldbfpfihld',
+    'chromewebstore.google.com/detail/frame64-image-to-base64/dbjcogonfdplialknopfnngghfnnjjbg',
+    'apps.apple.com/us/app/twenty5/id6748280871']) assert.ok(overview.includes(store), 'products page store link: ' + store);
+  const home = read('index.html');
+  const row = home.slice(home.indexOf('class="product-row"'), home.indexOf('</section>', home.indexOf('class="product-row"')));
+  for (const href of productPages) assert.ok(row.includes(`href="${href}"`), 'homepage product row: ' + href);
+});
+
+test('LoopDeck, Frame64, and twenty5 product pages answer common questions before Resources', () => {
+  for (const file of ['products/loopdeck/index.html', 'products/frame64/index.html', 'products/twenty5/index.html']) {
+    const html = read(file);
+    assert.ok((html.match(/<details><summary>/g) || []).length >= 4, file + ': at least four FAQs');
+    assert.ok(html.indexOf('id="faq"') < html.indexOf('>Resources<'), file + ': FAQ comes before Resources');
+  }
+});

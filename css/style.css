@@ -661,6 +661,127 @@ main.container {
   .faq-section { padding: 22px; }
 }
 
+/* --------------------------------------------------------------------------
+   Product cards (/products/) and compact product tiles (homepage)
+   -------------------------------------------------------------------------- */
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 28px;
+}
+.product-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.product-card-media { /* Same 16:10 frame for every product image. */
+  display: block;
+  aspect-ratio: 16 / 10;
+  background: var(--soft);
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+}
+.product-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+.product-card-media.is-phone img { /* Tall phone mockups are shown whole. */
+  object-fit: contain;
+  padding: 16px;
+}
+.product-card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 24px;
+}
+.product-card-body .eyebrow { margin-bottom: 12px; }
+.product-card-body h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+.product-card-body p { font-size: 14px; }
+.product-card-body .button-row { margin-top: auto; }
+
+.product-row { /* Four compact tiles; two per row on tablets, one on phones. */
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+.product-tile {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.product-tile h3 {
+  font-size: 17px;
+  margin-bottom: 4px;
+}
+.product-tile .product-platform {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+  margin-bottom: 10px;
+}
+.product-tile p {
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+.product-tile .card-link { margin-top: auto; }
+
+/* --------------------------------------------------------------------------
+   FAQ list: questions that expand with a native <details> element
+   -------------------------------------------------------------------------- */
+
+.faq-list {
+  max-width: 860px;
+  margin-top: 24px;
+  border-top: 1px solid var(--line);
+}
+.faq-list details {
+  border-bottom: 1px solid var(--line);
+  padding: 16px 0;
+}
+.faq-list summary {
+  font-size: 15px;
+  font-weight: 600;
+}
+.faq-list details p {
+  font-size: 14px;
+  max-width: 760px;
+  margin: 12px 0 0;
+}
+
+@media (max-width: 900px) {
+  .product-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 680px) {
+  .product-grid, .product-row { grid-template-columns: 1fr; }
+  .product-card-body { padding: 20px; }
+}
+
+/* Product names link to their pages but read as headings. */
+.product-card-body h2 a {
+  color: var(--text);
+  text-decoration: none;
+}
+.product-card-body h2 a:hover { text-decoration: underline; }
+
 /* --- css/src/06-media.css --- */
 /* ==========================================================================
    Screenshots and galleries

@@ -135,6 +135,19 @@ and `<link rel="canonical" href="https://unclocked.app/your/path/">`, then add t
 such as `/twenty5/upcoming/`, use `<meta name="robots" content="noindex">`, no canonical,
 and stay out of the sitemap.
 
+## Adding a product
+
+1. Product page at `/products/<name>/`, following the standard order: hero (store button),
+   features, screenshots, plans and pricing, FAQ (`.faq-list`), Resources.
+2. Support page at `/<name>/` and privacy policy at `/<name>/privacy/` (these are the URLs
+   you enter in the store listing; add them to the store-registered table below and to
+   `tests/publishing.test.cjs`).
+3. A card on `/products/` (`.product-card`) and a tile in the homepage row (`.product-tile`).
+4. Links in `_partials/header.html` (Products menu) and `_partials/footer.html` (Explore,
+   Get in touch, Policies), then `npm run build`.
+5. An entry on the Support Hub (`/support/`), the 404 page, and `sitemap.xml`.
+6. Expected store links and prices in `tests/content.test.cjs`, then `npm test`.
+
 ## Products and where facts come from
 
 Prices and plan details are shown with the date they were checked. Recheck them when a
