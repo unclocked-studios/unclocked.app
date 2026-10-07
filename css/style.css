@@ -345,6 +345,8 @@ input::placeholder, textarea::placeholder { color: var(--muted); opacity: 1; }
 .plan-card .plan-price { color: var(--text); font-size: 38px; font-weight: 650; line-height: 1.25; margin-bottom: 12px; }
 .plan-price span { color: var(--muted); font-size: 14px; font-weight: 400; }
 .plan-card ul { padding-left: 20px; margin: 0 0 26px; color: var(--muted); }
+.plan-grid-wide { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.plan-subheading { margin-top: 44px; }
 .plan-card .btn-primary, .plan-card .btn-secondary { margin-top: auto; align-self: flex-start; max-width: 100%; }
 @media (max-width: 680px) {
   .plan-grid { grid-template-columns: 1fr; }
