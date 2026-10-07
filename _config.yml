@@ -1,0 +1,9 @@
+# GitHub Pages (Jekyll) build settings. Pages are plain HTML without front matter,
+# so Jekyll copies them unchanged. Folders starting with "_" are never published.
+# Keep repository-only files off the public site. Do not exclude BingSiteAuth.xml,
+# CNAME, robots.txt, sitemap.xml, or 404.html.
+exclude:
+  - README.md
+  - VALIDATION.md
+  - tests
+  - scripts
