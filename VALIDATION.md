@@ -39,12 +39,14 @@ owner's review before publishing.
   `http://` and `www.` redirect to `https://unclocked.app`. Missing URLs serve `404.html`,
   and `/_partials/` is not published.
 
-## Owner follow-ups
+## Owner follow-ups (status October 6, 2026)
 
-- Point the Frame64 Chrome Web Store listing's privacy and support URLs to `/frame64/privacy/`
-  and `/frame64/`.
-- Upload the October 4 AppSource images (`marketing/appsource-v2/screenshots/`) to Partner Center.
-- Remove the Warehouse Pro plan at the next Marketplace publish.
-- Confirm in Power BI Desktop (Transform data → Data source settings) that the hosted sample
-  report has no local file paths in its queries.
-- Consider terms of service for LoopDeck and Frame64, which sell subscriptions.
+| Item | Status |
+| --- | --- |
+| Frame64 Chrome Web Store privacy and support URLs set to  and  | Done; listing update awaiting store review |
+| Review the rewritten privacy policies (3D Heatmap, twenty5, LoopDeck, Frame64) | Done |
+| Confirm the hosted sample report has no local file paths in its data sources | Done |
+| October 4 marketing images on AppSource | Done; published with visual 1.1.0.5 |
+| Remove the retired Warehouse Pro plan from Marketplace | Open; at the next Partner Center publish if still listed |
+| Confirm Google Search Console and Bing show the sitemap as Success (16 pages) | Open |
+| Decide on terms of service for LoopDeck and Frame64, which sell subscriptions | Open |
