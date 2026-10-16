@@ -27,6 +27,19 @@ test('indexable pages have unique titles, descriptions, and self-canonicals that
   assert.deepEqual(listed, indexable.sort());
 });
 
+test('indexable pages have link-preview tags pointing at their canonical URL', () => {
+  for (const file of pages) {
+    const html = fs.readFileSync(file, 'utf8');
+    if (noindex(html)) continue;
+    const name = relative(file);
+    for (const property of ['og:title', 'og:description', 'og:image', 'og:image:alt']) {
+      assert.match(html, new RegExp(`<meta property="${property}" content="[^"]+">`), name + ': ' + property);
+    }
+    assert.ok(html.includes(`<meta property="og:url" content="https://unclocked.app${routeOf(file)}">`), name + ': og:url');
+    assert.match(html, /<meta name="twitter:card" content="summary(?:_large_image)?">/, name + ': twitter:card');
+  }
+});
+
 test('robots.txt points to the sitemap and the 404 page is not indexed', () => {
   assert.match(read('robots.txt'), /^Sitemap: https:\/\/unclocked\.app\/sitemap\.xml$/m);
   assert.ok(noindex(read('404.html')));
