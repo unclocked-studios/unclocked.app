@@ -168,12 +168,16 @@ the twenty5 app links to it; it is a noindexed "under construction" page.
 ### 3D Heatmap guide, FAQ, and changelog
 
 `/warehouse-heatmap/guide/` and `/warehouse-heatmap/faq/` describe the version published on
-Marketplace (1.1.0.5 as of October 15, 2026), written from that version's source, Format pane
-settings, and user guide in the visual's repository. Describe only published behavior there.
+Marketplace (1.2.0.0 on the `site-review/heatmap-1.2` branch, prepared October 15, 2026 for the
+day 1.2 is approved), written from that version's source, Format pane settings, and user guide
+in the visual's repository. Describe only published behavior there.
 
 `/warehouse-heatmap/changelog/` lists each version newest first, dated by when it was completed
 in the visual's repository (Marketplace availability follows Microsoft's review). A version in
-review sits at the top under "In review" with a notice that it is not available yet.
+review sits at the top under an "In review" eyebrow with a `.notice` that it is not available yet;
+to mark it with the accent edge again, add a style such as
+`.release-upcoming { border-left: 3px solid var(--accent); }` with the entry (unused classes fail
+the tests, so remove it again once that version is published).
 
 When a new version is published: move its changelog entry from "In review" to "Current
 version", update the guide and FAQ and their version notes, and change
@@ -219,6 +223,13 @@ credits installs from the website. Marketplace links carry similar `ocid` and UT
   not retouched. Pages display the `.webp` copies; the `.png` files are the full-size links.
   `overview-full.png` is the whole visual, including its legend, menu, and Professional
   label. `share-overview.png` is the AppSource overview image, used for link previews.
+- `assets/warehouse-3d/1-2/`: version 1.2 screenshots, cropped to the visual from the user's
+  lossless captures in the visual's `marketing/preview-promo-2026-10-13-lossless/captures/`
+  (overview, cutaway, stock age with Only this level, weekly comparison, hourly congestion, and
+  the layout builder). The report title, preview labels, and page instructions around the visual
+  are cropped out; the interface is not retouched. Pages display `.webp` copies, 1,400 px wide;
+  the `.png` files are the full-size links. The finished marketing images in that folder carry a
+  "1.2.0.0 preview" footer and are not used on the site.
 - `assets/warehouse-3d/unclocked-sample-data.pbix`: the seven-page, 5,000-location sample
   report with visual 1.1.0.5 embedded. Replace it when a new sample is published.
 - `assets/warehouse-3d/warehouse_sample.csv`: the 2,208-location CSV sample, preserved

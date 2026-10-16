@@ -134,3 +134,24 @@ owner's review before publishing.
   `/warehouse-heatmap/guides/`.
 - Verified: build, check, and 36 tests pass; the page fits 320px in dark theme with no
   horizontal overflow; desktop reviewed in light theme; the header stays on one row at 920px.
+
+## Version 1.2 site update (waiting branch) — October 15, 2026
+
+Prepared on `site-review/heatmap-1.2` to merge when Microsoft approves visual 1.2. Not merged.
+
+- Guide and FAQ rewritten for 1.2.0.0 from the visual's `docs/user-guide.md`, the 1.2 release
+  notes, `capabilities.json`, and on-screen labels at `4b80d44`: layout builder, View tools
+  sections, named saved views, area selection, cutaway, playback and compare, congestion floor,
+  2D stack color, the Tooltip measures change, and the Free and Professional split.
+- Changelog: 1.2.0.0 is the current version; the in-review notice and style are removed.
+- Product page: hero copy and image, Free and Professional plan lists, six feature cards
+  (Professional features tagged), a gallery of five 1.2 screenshots, and How it works.
+  Homepage hero, highlights, and products card use the 1.2 overview.
+- Images in `assets/warehouse-3d/1-2/` are crops of the user's lossless 1.2 captures, limited to
+  the visual so the report's "1.2 PREVIEW" labels and setup instructions are excluded.
+- Inline code now wraps on phones (a DAX example widened the FAQ at 320px).
+- Verified: build, check, and 35 tests pass; changed pages fit 320px without overflow or broken
+  images; product page, guide, and changelog reviewed at desktop width.
+- Owner follow-ups when merging: replace `unclocked-sample-data.pbix` with a sample that embeds
+  1.2 (the release notes call for a layout-builder page), confirm the approval date, and
+  consider updating `share-overview.png`, which still shows the 1.1 interface.

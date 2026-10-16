@@ -90,19 +90,19 @@
       <div class="hero-text">
         <span class="eyebrow">Unclocked 3D Heatmap for Power BI</span>
         <h1>See where your warehouse needs attention.</h1>
-        <p>Explore inventory, picking activity, and operational exceptions by their physical location. Turn your warehouse coordinates and Power BI measures into interactive 3D heatmaps and 2D plan views.</p>
+        <p>Explore inventory, picking activity, and operational exceptions by their physical location. Bring X/Y coordinates or draw your racks right in the visual, then turn your Power BI measures into interactive 3D heatmaps, 2D plans, and playback over time.</p>
         <div class="hero-buttons">
           <a href="https://marketplace.microsoft.com/en-us/product/unclockedstudiosllc1780535695675.unclocked-3d-heatmap?ocid=unclocked_website&amp;utm_source=unclocked.app&amp;utm_medium=website&amp;utm_campaign=warehouse_heatmap&amp;utm_content=product_hero" class="btn-primary">Install free on Marketplace <span aria-hidden="true">↗</span></a>
           <a href="/assets/warehouse-3d/unclocked-sample-data.pbix" class="btn-secondary" download>Download sample report</a>
         </div>
         <p class="hero-note">Free for up to 2,500 rendered bins. <a href="#availability">Compare plans</a> for larger layouts.</p>
         <p class="trust-line"><a href="https://marketplace.microsoft.com/en-us/product/unclockedstudiosllc1780535695675.unclocked-3d-heatmap">Certified by Power BI</a><span aria-hidden="true">·</span>Available on Microsoft Marketplace</p>
-        <p class="fine-print">Need coordinates first? <a href="/warehouse-heatmap/mapping/">Explore warehouse mapping</a>.</p>
+        <p class="fine-print">No coordinates? Draw the layout with the built-in <a href="/warehouse-heatmap/guide/#layout-builder">layout builder</a>, or have us map your AutoCAD drawing with our <a href="/warehouse-heatmap/mapping/">warehouse mapping service</a>.</p>
       </div>
       <figure class="hero-media">
-        <a class="screenshot-link" href="/assets/warehouse-3d/2026-10/overview-full.png" target="_blank" rel="noopener" aria-label="Open the full visual, including its legend and menu, at full size (new tab)">
-          <img src="/assets/warehouse-3d/2026-10/overview.webp"
-            alt="Unclocked 3D Heatmap showing 5,000 sample warehouse locations in 3D over an aligned floor plan, colored by on-hand units, with location search" decoding="async" fetchpriority="high" width="1110" height="702">
+        <a class="screenshot-link" href="/assets/warehouse-3d/1-2/overview-hero.png" target="_blank" rel="noopener" aria-label="Open the warehouse overview at full size (new tab)">
+          <img src="/assets/warehouse-3d/1-2/overview-hero.webp"
+            alt="Unclocked 3D Heatmap showing a 4,238-location sample warehouse in 3D over its floor plan, racks colored by on-hand units, with the location search box above" decoding="async" fetchpriority="high" width="1091" height="724">
         </a>
       </figure>
     </section>
@@ -142,13 +142,13 @@
     <section class="section surface-section" id="availability">
       <span class="eyebrow">Plans and pricing</span>
       <h2>Start free. Expand to your full warehouse.</h2>
-      <p class="section-intro">Install Unclocked 3D Heatmap from Microsoft Marketplace, also known as AppSource. Choose Professional when your report needs to render more than 2,500 locations. The per-user price drops as you license more users.</p>
+      <p class="section-intro">Install Unclocked 3D Heatmap from Microsoft Marketplace, also known as AppSource. Choose Professional when your report needs more than 2,500 locations, or playback and the congestion floor. The per-user price drops as you license more users.</p>
       <div class="plan-grid">
         <article class="plan-card" aria-labelledby="free-plan-title">
           <h3 id="free-plan-title">Free</h3>
           <p class="plan-price">$0</p>
-          <p>For sample reports and layouts up to 2,500 rendered bins.</p>
-          <ul><li>Interactive 3D and 2D views</li><li>Heat mapping, search, and category filters</li><li>Power BI report interactions and saved views</li><li>Ongoing free use within the bin limit</li></ul>
+          <p>For sample reports and layouts up to 2,500 colored locations.</p>
+          <ul><li>Interactive 3D and 2D views</li><li>Layout builder: draw racks without coordinates</li><li>Cutaway, area selection, and named saved views</li><li>Heat mapping, search, category filters, and Power BI interactions</li><li>Ongoing free use within the location limit</li></ul>
           <a class="btn-secondary" href="https://marketplace.microsoft.com/en-us/product/unclockedstudiosllc1780535695675.unclocked-3d-heatmap?ocid=unclocked_website&amp;utm_source=unclocked.app&amp;utm_medium=website&amp;utm_campaign=warehouse_heatmap&amp;utm_content=free_plan">Install free</a>
         </article>
         <article class="plan-card plan-card-pro" aria-labelledby="pro-plan-title">
@@ -165,7 +165,7 @@
               <tr><th scope="row">251–1,000 (Enterprise)</th><td>$3</td><td>$30</td></tr>
             </tbody>
           </table>
-          <ul><li>All features available in Free</li><li>Raises the limit to your report's Max displayed bins, up to 100,000</li><li>Licensed per user and assigned in the Microsoft 365 admin center</li><li>More than 1,000 users? <a href="mailto:support@unclocked.app?subject=Unclocked%203D%20Heatmap%20custom%20offer">Ask about a custom offer</a></li></ul>
+          <ul><li>All features available in Free</li><li>Raises the limit to your report's Max displayed bins, up to 100,000</li><li>Playback over time and period comparison</li><li>Congestion floor shading for busy aisles</li><li>Licensed per user and assigned in the Microsoft 365 admin center</li><li>More than 1,000 users? <a href="mailto:support@unclocked.app?subject=Unclocked%203D%20Heatmap%20custom%20offer">Ask about a custom offer</a></li></ul>
           <a class="btn-primary" href="https://marketplace.microsoft.com/en-us/product/unclockedstudiosllc1780535695675.unclocked-3d-heatmap?tab=PlansAndPrice&amp;ocid=unclocked_website&amp;utm_source=unclocked.app&amp;utm_medium=website&amp;utm_campaign=warehouse_heatmap&amp;utm_content=pro_plan">View Professional on Marketplace <span aria-hidden="true">↗</span></a>
         </article>
       </div>
@@ -179,36 +179,32 @@
     </section>
 
     <section class="section" id="features">
-      <span class="eyebrow">Feature Highlights</span>
+      <span class="eyebrow">Feature highlights</span>
       <h2>Explore large warehouse layouts without leaving Power BI.</h2>
       <div class="feature-grid">
         <article class="content-card">
+          <h3>Layout builder</h3>
+          <p>No coordinates needed. Draw racks, bays, and levels over your floor plan, and the visual creates every Location ID and places your data on it.</p>
+        </article>
+        <article class="content-card">
+          <h3>Playback and compare <span class="plan-tag">Professional</span></h3>
+          <p>Add a date or period to replay the heatmap week by week, or color each location by how much it changed.</p>
+        </article>
+        <article class="content-card">
+          <h3>Cutaway</h3>
+          <p>Slice the warehouse at any level to see inside the racks, or show a single level on its own.</p>
+        </article>
+        <article class="content-card">
+          <h3>Congestion floor <span class="plan-tag">Professional</span></h3>
+          <p>Shade the aisles in front of busy pick faces to see where pickers crowd, not just which shelves are busy.</p>
+        </article>
+        <article class="content-card">
           <h3>Flexible heat mapping</h3>
-          <p>Color locations with any numeric Power BI measure, including inventory, picks, utilization, dwell time,
-            shortages, cost, or exceptions.</p>
+          <p>Color locations with any numeric measure, as a gradient or bands, with thresholds that can follow your slicers.</p>
         </article>
         <article class="content-card">
-          <h3>Search and focus</h3>
-          <p>Find a Location ID without manually navigating a large warehouse model and focus the camera on that
-            location.</p>
-        </article>
-        <article class="content-card">
-          <h3>Saved viewpoints</h3>
-          <p>Store reusable camera presets for important areas such as receiving, reserve storage, forward pick, or
-            shipping.</p>
-        </article>
-        <article class="content-card">
-          <h3>Power BI integration</h3>
-          <p>Use report filters, Power BI selection behavior, Location ID filtering, tooltips, and the standard context
-            menu.</p>
-        </article>
-        <article class="content-card">
-          <h3>Floor plan context</h3>
-          <p>Display a configurable floor plane or align a floor-plan image beneath warehouse locations.</p>
-        </article>
-        <article class="content-card">
-          <h3>Performance controls</h3>
-          <p>Adjust rendering presets and display limits to balance warehouse detail with navigation speed on your device.</p>
+          <h3>Search, select, and save views</h3>
+          <p>Find a Location ID, drag to select an area and see its totals, and save up to 100 named camera views.</p>
         </article>
       </div>
     </section>
@@ -216,56 +212,56 @@
     <section class="section surface-section" id="screenshots">
       <span class="eyebrow">Inside the visual</span>
       <h2>Explore the warehouse in 3D and in plan view.</h2>
-      <p class="section-intro">Screenshots from our sample report with 5,000 warehouse locations, shown with the Professional plan. Select an image to open it at full size in a new tab.</p>
+      <p class="section-intro">Screenshots from our sample report of a 525 × 300 ft warehouse, shown with the Professional plan. Select an image to open it at full size in a new tab.</p>
       <div class="media-grid">
         <figure class="product-visual">
-          <a class="screenshot-link" href="/assets/warehouse-3d/2026-10/dim.png" target="_blank" rel="noopener" aria-label="Open the Dim mode screenshot at full size (new tab)">
-            <img class="product-screenshot" src="/assets/warehouse-3d/2026-10/dim.webp"
-              alt="Dim mode with aisles P01 and P02 selected: the selected racks keep their heat colors while the rest of the warehouse is shown as translucent gray racks over the floor plan" decoding="async" width="1012" height="702" loading="lazy">
+          <a class="screenshot-link" href="/assets/warehouse-3d/1-2/cutaway.png" target="_blank" rel="noopener" aria-label="Open the cutaway screenshot at full size (new tab)">
+            <img class="product-screenshot" src="/assets/warehouse-3d/1-2/cutaway.webp"
+              alt="Cutaway at level 2 of 5: upper rack levels drawn as faint outlines, so four weeks of picks show on the lower levels, with the Visible Levels slider on the left" decoding="async" width="1400" height="510" loading="lazy">
           </a>
           <figcaption>
-            <strong>Dim for context</strong>
-            Filter to an aisle, bay, level, or category and keep the rest of the warehouse visible as translucent racks.
+            <strong>See inside the racks</strong>
+            Cut the warehouse away above a chosen level. Colors stay on one scale as the cut moves.
           </figcaption>
         </figure>
         <figure class="product-visual">
-          <a class="screenshot-link" href="/assets/warehouse-3d/2026-10/hide.png" target="_blank" rel="noopener" aria-label="Open the Hide mode screenshot at full size (new tab)">
-            <img class="product-screenshot" src="/assets/warehouse-3d/2026-10/hide.webp"
-              alt="Hide mode with the same aisles and camera: only aisles P01 and P02 remain, while the floor plan stays visible beneath the hidden racks" decoding="async" width="1012" height="702" loading="lazy">
+          <a class="screenshot-link" href="/assets/warehouse-3d/1-2/only-this-level.png" target="_blank" rel="noopener" aria-label="Open the single level screenshot at full size (new tab)">
+            <img class="product-screenshot" src="/assets/warehouse-3d/1-2/only-this-level.webp"
+              alt="2D plan of level 5 only, colored by oldest stock age, with location P04-S-02-E selected and its details: 307 days, 1,688 on-hand units, and 53.28% location fill" decoding="async" width="1400" height="510" loading="lazy">
           </a>
           <figcaption>
-            <strong>Hide for focus</strong>
-            Same filter, same viewpoint. Hide the nonmatching locations to isolate the area you are investigating.
+            <strong>Inspect one level</strong>
+            Show a single level in the 2D plan, select a location, and read its measures beside the warehouse.
           </figcaption>
         </figure>
         <figure class="product-visual">
-          <a class="screenshot-link" href="/assets/warehouse-3d/2026-10/location-details.png" target="_blank" rel="noopener" aria-label="Open the location tooltip screenshot at full size (new tab)">
-            <img class="product-screenshot" src="/assets/warehouse-3d/2026-10/location-details.webp"
-              alt="Tooltip for location P01-S-01-D showing Rack Storage, aisle P01, level D, 1,200 on-hand units, 100.0% location unit fill, $432 inventory value, X/Y/Z 240/600/216, and size 40 × 48 × 60" decoding="async" width="1050" height="555" loading="lazy">
+          <a class="screenshot-link" href="/assets/warehouse-3d/1-2/compare.png" target="_blank" rel="noopener" aria-label="Open the period comparison screenshot at full size (new tab)">
+            <img class="product-screenshot" src="/assets/warehouse-3d/1-2/compare.webp"
+              alt="Weekly playback paused on 25 May 2026 with Compare set to 27 April: bins in aisles P03 and P08 are red for increases and others blue for decreases, with the playback bar below" decoding="async" width="1400" height="511" loading="lazy">
           </a>
           <figcaption>
-            <strong>Inspect any location</strong>
-            Hover over a bin to see its measures from your report, plus its coordinates and dimensions.
+            <strong>See what changed</strong>
+            Replay activity week by week, or compare each location with another period. Professional.
           </figcaption>
         </figure>
         <figure class="product-visual">
-          <a class="screenshot-link" href="/assets/warehouse-3d/2026-10/plan-view.png" target="_blank" rel="noopener" aria-label="Open the 2D plan view screenshot at full size (new tab)">
-            <img class="product-screenshot" src="/assets/warehouse-3d/2026-10/plan-view.webp"
-              alt="2D plan view of level A with heat-colored bins across aisles P01 to P12 over the report's floor-plan image, including receiving, each-pick, and cross-aisle areas" decoding="async" width="1180" height="627" loading="lazy">
+          <a class="screenshot-link" href="/assets/warehouse-3d/1-2/congestion.png" target="_blank" rel="noopener" aria-label="Open the congestion floor screenshot at full size (new tab)">
+            <img class="product-screenshot" src="/assets/warehouse-3d/1-2/congestion.webp"
+              alt="Hourly playback at 09:00 on 30 September 2026: the floor in front of the F05 to F08 quick-pick faces is shaded from teal to red by pick-line visits" decoding="async" width="1400" height="510" loading="lazy">
           </a>
           <figcaption>
-            <strong>See a level in 2D</strong>
-            Switch to plan view and filter to one level to compare aisles without stacked bins in the way. The floor-plan image comes from your report.
+            <strong>Read the floor</strong>
+            The congestion floor shades aisles by the activity at their pick faces, hour by hour. Professional.
           </figcaption>
         </figure>
         <figure class="product-visual media-wide">
-          <a class="screenshot-link" href="/assets/warehouse-3d/2026-10/report-interactions.png" target="_blank" rel="noopener" aria-label="Open the report interactions screenshot at full size (new tab)">
-            <img class="product-screenshot" src="/assets/warehouse-3d/2026-10/report-interactions.webp"
-              alt="Picking workload report page with Front &amp; Each Pick selected in the Warehouse Area slicer; the 3D Heatmap shows 2,120 locations and KPI cards show 12,179 pick lines, 770,439 units picked, and 4,517 picked orders" decoding="async" width="1752" height="972" loading="lazy">
+          <a class="screenshot-link" href="/assets/warehouse-3d/1-2/layout-builder.png" target="_blank" rel="noopener" aria-label="Open the layout builder screenshot at full size (new tab)">
+            <img class="product-screenshot" src="/assets/warehouse-3d/1-2/layout-builder.webp"
+              alt="Layout builder over the warehouse floor plan with rack P04 selected: 150 bins, 30 bays, five 5 ft levels, and the ID pattern that creates IDs from P04-S-01-A to P04-S-30-E" decoding="async" width="1400" height="733" loading="lazy">
           </a>
           <figcaption>
-            <strong>One connected report</strong>
-            Power BI slicers update the warehouse view and your KPI cards together. This page from the sample report shows the Front &amp; Each Pick area for a selected date range.
+            <strong>Build the layout in the visual</strong>
+            Draw racks over your floor plan, set bays, levels, and an ID pattern, and the visual matches your data to every location. The Modern editor shown is experimental.
           </figcaption>
         </figure>
       </div>
@@ -273,11 +269,11 @@
 
     <section class="section">
       <span class="eyebrow">How it works</span>
-      <h2>Bring your warehouse coordinate table to Power BI.</h2>
+      <h2>Bring your warehouse into Power BI.</h2>
       <div class="workflow-grid">
         <article class="workflow-step">
-          <h3>1. Provide one row per location</h3>
-          <p>Provide a unique Location ID and numeric X and Y coordinates for each bin. Add optional Z coordinates to place locations at different heights.</p>
+          <h3>1. Place every location</h3>
+          <p>Provide a unique Location ID with X and Y coordinates for each bin, or draw the racks in the layout builder and let the visual create the locations.</p>
         </article>
         <article class="workflow-step">
           <h3>2. Add the measure to analyze</h3>
@@ -285,7 +281,7 @@
         </article>
         <article class="workflow-step">
           <h3>3. Explore in report context</h3>
-          <p>Use slicers, filters, search, category controls, and saved camera views to investigate patterns.</p>
+          <p>Use slicers, filters, search, the cutaway, playback, and saved views to investigate patterns.</p>
         </article>
       </div>
       <div class="button-row learn-links"><a class="btn-secondary" href="/warehouse-heatmap/guide/">Read the how-to guide</a><a class="btn-secondary" href="/warehouse-heatmap/faq/">Frequently asked questions</a><a class="card-link" href="/warehouse-heatmap/changelog/">Changelog and what's next</a></div>
