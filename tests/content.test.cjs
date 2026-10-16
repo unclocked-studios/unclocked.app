@@ -2,7 +2,7 @@
 // When a listing changes, update the page and the expected values here together.
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { fs, path, root, read, pages, relative } = require('./helpers.cjs');
+const { fs, path, root, read, pages, relative, routeOf } = require('./helpers.cjs');
 
 test('no page uses retired product or plan names, or the old Marketplace sample link', () => {
   for (const file of pages) {
@@ -105,4 +105,12 @@ test('every App Store link carries the App Store Connect campaign token', () => 
       assert.match(href, /[?&](amp;)?ct=unclocked-website/, relative(file) + ': ' + href);
     }
   }
+});
+
+test('the Articles page lists every article and the header links to it', () => {
+  assert.ok(read('_partials/header.html').includes('href="/articles/"'), 'header links to /articles/');
+  const index = read('articles/index.html');
+  const articles = pages.map(routeOf).filter(route => /^\/warehouse-heatmap\/guides\/[^/]+\/$/.test(route));
+  assert.ok(articles.length > 0, 'at least one article');
+  for (const route of articles) assert.ok(index.includes(`href="${route}"`), 'articles/index.html links ' + route);
 });
