@@ -213,8 +213,10 @@ credits installs from the website. Marketplace links carry similar `ocid` and UT
 - `assets/warehouse-3d/warehouse_sample.csv`: the 2,208-location CSV sample, preserved
   byte for byte. `sample-coordinates.csv` is an identical copy at an older URL; keep both
   in sync. The support page's `#sample-data` section explains the field assignments.
-- `assets/warehouse-3d/visual-only/` and the PNGs directly in `assets/warehouse-3d/` are the
-  September 2026 screenshots. They are no longer used by pages but stay at their URLs.
+- The September 2026 screenshots (`assets/warehouse-3d/visual-only/`, the PNGs that were directly
+  in `assets/warehouse-3d/`, and `assets/loopdeck-dashboard-cycling.png`) were removed on
+  October 15, 2026 so search engines stop showing outdated images. They remain in Git history
+  (for example at commit `bc08630`) if needed.
 
 ### LoopDeck
 
