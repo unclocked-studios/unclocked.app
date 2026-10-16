@@ -96,3 +96,12 @@ owner's review before publishing.
   checks every new text pair at 4.5:1 or better.
 - Verified: build, check, and 35 tests pass. Homepage and changelog reviewed in light and dark
   themes; 13 pages fit 320px without overflow or broken images.
+
+## Readability and twenty5 store button — October 15, 2026
+
+- Every text size under 14px in `css/src/` stepped up one level (10→12, 11→12, 12→13,
+  13→14px; 44 declarations). Labels, navigation, buttons, captions, forms, and the footer are
+  larger; headings and body text are unchanged. The header stays on one row at 920px.
+- twenty5 hero: the App Store badge is now the store button, beside Support, replacing the
+  duplicate "View on the App Store" button.
+- Verified: build, check, and 35 tests pass; 20 pages fit 320px without horizontal overflow.

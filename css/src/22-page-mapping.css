@@ -9,7 +9,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 9px;
-  font-size: 12px;
+  font-size: 13px;
   color: var(--muted);
   margin: 30px 0;
 }
@@ -52,7 +52,7 @@
 }
 .deliverable .output-preview { margin: 18px 0; }
 .deliverable .coordinate-table {
-  font-size: 12px;
+  font-size: 13px;
   table-layout: fixed;
 }
 .deliverable .coordinate-table th, .deliverable .coordinate-table td {
@@ -63,7 +63,7 @@
   flex-wrap: wrap;
   gap: 4px 12px;
 }
-.deliverable p { font-size: 13px; }
+.deliverable p { font-size: 14px; }
 
 /* Numbered steps with a "01, 02, 03" counter badge. */
 .process-list {
@@ -81,7 +81,7 @@
   position: absolute;
   left: 0;
   top: 0;
-  font: 11px/32px ui-monospace, Consolas, monospace;
+  font: 12px/32px ui-monospace, Consolas, monospace;
   width: 32px;
   height: 32px;
   text-align: center;
@@ -96,7 +96,7 @@
 }
 .process-list p {
   margin: 5px 0 0;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 /* Request builder panel (form styles in 09-forms.css). */
@@ -106,7 +106,7 @@
   margin-bottom: 9px;
 }
 .request-panel > p {
-  font-size: 13px;
+  font-size: 14px;
   margin-bottom: 24px;
 }
 
