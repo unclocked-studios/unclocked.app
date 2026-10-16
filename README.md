@@ -26,7 +26,7 @@ Each file in `tests/` covers one topic, with shared helpers in `tests/helpers.cj
 | File | Covers |
 | --- | --- |
 | `structure.test.cjs` | Links, fragments, and assets resolve; one `<h1>`, unique IDs, and a skip link per page; shared layout is current and links every product, support page, and policy. |
-| `seo.test.cjs` | Unique titles, descriptions, and canonicals matching `sitemap.xml`; `robots.txt`; share-image dimensions. |
+| `seo.test.cjs` | Unique titles, descriptions, and canonicals matching `sitemap.xml`; link-preview tags on every indexable page; `robots.txt`; share-image dimensions. |
 | `publishing.test.cjs` | Store-registered URLs keep working; the Jekyll exclude list and must-publish files. |
 | `content.test.cjs` | Retired names, policy dates, store links, listed prices, and sample data. Update expected prices here when a listing changes. |
 | `mapping.test.cjs` | The warehouse mapping request builder. |
