@@ -18,7 +18,7 @@
 .studio-hero .hero-note {
   display: block;
   max-width: 440px;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.65;
 }
 
@@ -38,7 +38,7 @@
   margin-bottom: 8px;
 }
 .warehouse-feature-heading p {
-  font-size: 13px;
+  font-size: 14px;
   margin: 0;
 }
 .warehouse-feature-image {
@@ -109,7 +109,7 @@
   .studio-hero h1 { font-size: clamp(2.15rem, 8vw, 2.9rem); }
   .studio-hero .hero-note {
     margin-top: 16px;
-    font-size: 12px;
+    font-size: 13px;
   }
   .warehouse-feature-heading .eyebrow { margin-bottom: 14px; } /* Matches other hero labels on phones. */
   .warehouse-feature h2 { font-size: 23px; }

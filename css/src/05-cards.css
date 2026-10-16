@@ -58,14 +58,14 @@
   width: 40px;
   height: 40px;
   color: var(--accent-text);
-  font: 12px ui-monospace, Consolas, monospace;
+  font: 13px ui-monospace, Consolas, monospace;
   margin-bottom: 20px;
 }
 
 /* Changelog: version dates, and the in-review version marked with the brand accent. */
 .release-date {
   color: var(--muted);
-  font-size: 13px;
+  font-size: 14px;
   margin: -6px 0 16px;
 }
 .release-upcoming { border-left: 3px solid var(--accent); }

@@ -15,7 +15,7 @@
   display: flex;
   justify-content: space-between;
   padding: 8px 12px;
-  font-size: 10px;
+  font-size: 12px;
   color: var(--muted);
   background: var(--soft);
   border-bottom: 1px solid var(--line);
@@ -29,14 +29,14 @@
   width: 100%;
   border-collapse: collapse;
   text-align: left;
-  font: 11px/1.5 ui-monospace, Consolas, monospace;
+  font: 12px/1.5 ui-monospace, Consolas, monospace;
 }
 .coordinate-table th, .coordinate-table td {
   padding: 6px 12px;
   border-bottom: 1px solid var(--line);
 }
 .coordinate-table th {
-  font-size: 10px;
+  font-size: 12px;
   color: var(--muted);
   font-weight: 500;
 }
@@ -54,7 +54,7 @@
 .sample-fields caption {
   text-align: left;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 13px;
   margin-bottom: 10px;
 }
 .sample-fields th, .sample-fields td {
@@ -66,7 +66,7 @@
 .sample-fields th { background: var(--soft); }
 .sample-fields .field-note { /* "(required)" or "(optional)" after a field name. */
   color: var(--muted);
-  font-size: 12px;
+  font-size: 13px;
 }
 
 /* Wide tables keep readable columns and scroll inside their card on small screens. */
@@ -81,7 +81,7 @@
 
 .tier-table {
   margin: 4px 0 20px;
-  font-size: 13px;
+  font-size: 14px;
 }
 .tier-table th, .tier-table td { padding: 8px 6px; }
 .tier-table tbody th { /* Row labels (user counts) without the header shading. */

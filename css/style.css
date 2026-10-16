@@ -141,7 +141,7 @@ li + li { margin-top: .3rem; }
   gap: 9px;
   margin-bottom: 20px;
   color: var(--accent-text);
-  font-size: 10px;
+  font-size: 12px;
   line-height: 1.5;
   font-weight: 700;
   letter-spacing: .16em;
@@ -157,7 +157,7 @@ li + li { margin-top: .3rem; }
 }
 
 .fine-print {
-  font-size: 12px;
+  font-size: 13px;
   color: var(--muted);
 }
 
@@ -244,7 +244,7 @@ li + li { margin-top: .3rem; }
 }
 .site-nav > a,
 .products-dropdown > summary {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   color: var(--muted);
   text-decoration: none;
@@ -288,7 +288,7 @@ li + li { margin-top: .3rem; }
   border-radius: 7px;
   color: var(--text);
   text-decoration: none;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
 }
 .product-menu a:hover,
@@ -296,7 +296,7 @@ li + li { margin-top: .3rem; }
 .product-menu a span { /* One-line product description under each name. */
   display: block;
   color: var(--muted);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 400;
   margin-top: 2px;
 }
@@ -320,7 +320,7 @@ li + li { margin-top: .3rem; }
   border-radius: 6px;
   background: var(--surface);
   color: var(--muted);
-  font-size: 12px;
+  font-size: 13px;
   min-height: 40px;
 }
 
@@ -331,7 +331,7 @@ li + li { margin-top: .3rem; }
   color: var(--text);
   border-radius: 8px;
   padding: 8px 12px;
-  font-size: 13px;
+  font-size: 14px;
   min-height: 44px;
 }
 
@@ -457,7 +457,7 @@ main.container {
   gap: 8px;
   margin: 24px 0 0;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 13px;
 }
 
 /* Framed hero image; the phone variant centers a tall device mockup. */
@@ -538,7 +538,7 @@ main.container {
   padding: 11px 19px;
   border-radius: 9px;
   border: 1px solid transparent;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   line-height: 1.4;
   text-decoration: none;
@@ -578,7 +578,7 @@ main.container {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   text-decoration: none;
   min-height: 40px;
@@ -590,7 +590,7 @@ main.container {
 
 .small-link {
   color: var(--muted);
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .text-link { font-weight: 600; }
@@ -600,13 +600,14 @@ main.container {
 .closing-link { margin-top: 3rem; }
 
 /* Official store badges (Chrome Web Store, App Store). Use the artwork unmodified;
-   only resizing is allowed. Shown under the hero buttons, never as the main element. */
+   only resizing is allowed. .store-badge sits under the hero buttons; .store-badge-link
+   is the badge used as the hero's store button itself (twenty5), beside Support. */
 .store-badge { margin: 18px 0 0; }
-.store-badge a {
+.store-badge a, .store-badge-link {
   display: inline-block;
   border-radius: 8px;
 }
-.store-badge img {
+.store-badge img, .store-badge-link img {
   height: 48px; /* Apple's minimum on-screen height is 40px. */
   width: auto;
 }
@@ -672,14 +673,14 @@ main.container {
   width: 40px;
   height: 40px;
   color: var(--accent-text);
-  font: 12px ui-monospace, Consolas, monospace;
+  font: 13px ui-monospace, Consolas, monospace;
   margin-bottom: 20px;
 }
 
 /* Changelog: version dates, and the in-review version marked with the brand accent. */
 .release-date {
   color: var(--muted);
-  font-size: 13px;
+  font-size: 14px;
   margin: -6px 0 16px;
 }
 .release-upcoming { border-left: 3px solid var(--accent); }
@@ -829,7 +830,7 @@ main.container {
 }
 
 figcaption {
-  font-size: 13px;
+  font-size: 14px;
   color: var(--muted);
   margin-top: 12px;
 }
@@ -864,7 +865,7 @@ figcaption strong { /* Caption title on its own line. */
   display: flex;
   justify-content: space-between;
   padding: 8px 12px;
-  font-size: 10px;
+  font-size: 12px;
   color: var(--muted);
   background: var(--soft);
   border-bottom: 1px solid var(--line);
@@ -878,14 +879,14 @@ figcaption strong { /* Caption title on its own line. */
   width: 100%;
   border-collapse: collapse;
   text-align: left;
-  font: 11px/1.5 ui-monospace, Consolas, monospace;
+  font: 12px/1.5 ui-monospace, Consolas, monospace;
 }
 .coordinate-table th, .coordinate-table td {
   padding: 6px 12px;
   border-bottom: 1px solid var(--line);
 }
 .coordinate-table th {
-  font-size: 10px;
+  font-size: 12px;
   color: var(--muted);
   font-weight: 500;
 }
@@ -903,7 +904,7 @@ figcaption strong { /* Caption title on its own line. */
 .sample-fields caption {
   text-align: left;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 13px;
   margin-bottom: 10px;
 }
 .sample-fields th, .sample-fields td {
@@ -915,7 +916,7 @@ figcaption strong { /* Caption title on its own line. */
 .sample-fields th { background: var(--soft); }
 .sample-fields .field-note { /* "(required)" or "(optional)" after a field name. */
   color: var(--muted);
-  font-size: 12px;
+  font-size: 13px;
 }
 
 /* Wide tables keep readable columns and scroll inside their card on small screens. */
@@ -930,7 +931,7 @@ figcaption strong { /* Caption title on its own line. */
 
 .tier-table {
   margin: 4px 0 20px;
-  font-size: 13px;
+  font-size: 14px;
 }
 .tier-table th, .tier-table td { padding: 8px 6px; }
 .tier-table tbody th { /* Row labels (user counts) without the header shading. */
@@ -1030,7 +1031,7 @@ fieldset {
 .field.full { grid-column: 1 / -1; }
 .field label {
   color: var(--text);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
 }
 .field label span { /* "(required)" / "(optional)" */
@@ -1039,7 +1040,7 @@ fieldset {
 }
 .field small {
   color: var(--muted);
-  font-size: 11px;
+  font-size: 12px;
 }
 
 input, textarea, .field select {
@@ -1063,13 +1064,13 @@ input::placeholder, textarea::placeholder {
 .form-actions { margin-top: 22px; }
 .form-actions > button { width: 100%; }
 .form-actions p {
-  font-size: 11px;
+  font-size: 12px;
   margin: 12px 0 0;
 }
 
 /* Live status message (role="status"); collapses when empty. */
 .request-status {
-  font-size: 13px;
+  font-size: 14px;
   color: var(--accent-text);
   margin: 16px 0;
 }
@@ -1082,23 +1083,23 @@ input::placeholder, textarea::placeholder {
   padding-top: 20px;
 }
 .draft-section summary {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   padding: 8px 0;
 }
 .draft-section label {
   display: block;
-  font-size: 12px;
+  font-size: 13px;
   margin: 12px 0 8px;
 }
-.draft-section textarea { font: 12px/1.65 ui-monospace, Consolas, monospace; }
+.draft-section textarea { font: 13px/1.65 ui-monospace, Consolas, monospace; }
 .draft-section .button-row { margin-top: 12px; }
 
 .notice {
   background: var(--selection);
   color: var(--accent-text);
   border-radius: 8px;
-  font-size: 12px;
+  font-size: 13px;
   padding: 12px 14px;
 }
 
@@ -1125,7 +1126,7 @@ input::placeholder, textarea::placeholder {
   flex-wrap: wrap;
 }
 .footer-top p { /* Tagline under the brand. */
-  font-size: 12px;
+  font-size: 13px;
   margin-top: 10px;
 }
 
@@ -1139,12 +1140,12 @@ input::placeholder, textarea::placeholder {
 .footer-links a {
   display: block;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 13px;
   text-decoration: none;
   padding: 5px 0;
 }
 .footer-links strong {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
   display: block;
   margin-bottom: 5px;
@@ -1159,7 +1160,7 @@ input::placeholder, textarea::placeholder {
   margin-top: 24px;
   padding-top: 18px;
   color: var(--muted);
-  font-size: 11px;
+  font-size: 12px;
 }
 
 @media (max-width: 680px) {
@@ -1187,7 +1188,7 @@ input::placeholder, textarea::placeholder {
 .studio-hero .hero-note {
   display: block;
   max-width: 440px;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.65;
 }
 
@@ -1207,7 +1208,7 @@ input::placeholder, textarea::placeholder {
   margin-bottom: 8px;
 }
 .warehouse-feature-heading p {
-  font-size: 13px;
+  font-size: 14px;
   margin: 0;
 }
 .warehouse-feature-image {
@@ -1278,7 +1279,7 @@ input::placeholder, textarea::placeholder {
   .studio-hero h1 { font-size: clamp(2.15rem, 8vw, 2.9rem); }
   .studio-hero .hero-note {
     margin-top: 16px;
-    font-size: 12px;
+    font-size: 13px;
   }
   .warehouse-feature-heading .eyebrow { margin-bottom: 14px; } /* Matches other hero labels on phones. */
   .warehouse-feature h2 { font-size: 23px; }
@@ -1299,7 +1300,7 @@ input::placeholder, textarea::placeholder {
 
 .warehouse-hero .hero-note {
   display: block;
-  font-size: 13px;
+  font-size: 14px;
   margin: 18px 0 12px;
 }
 .warehouse-hero .trust-line { /* "Certified by Power BI · Available on Microsoft Marketplace" */
@@ -1307,11 +1308,11 @@ input::placeholder, textarea::placeholder {
   flex-wrap: wrap;
   gap: 5px 10px;
   align-items: center;
-  font-size: 12px;
+  font-size: 13px;
   margin-bottom: 12px;
 }
 .warehouse-hero .fine-print {
-  font-size: 12px;
+  font-size: 13px;
   margin-bottom: 0;
 }
 
@@ -1327,7 +1328,7 @@ input::placeholder, textarea::placeholder {
   display: flex;
   flex-wrap: wrap;
   gap: 9px;
-  font-size: 12px;
+  font-size: 13px;
   color: var(--muted);
   margin: 30px 0;
 }
@@ -1370,7 +1371,7 @@ input::placeholder, textarea::placeholder {
 }
 .deliverable .output-preview { margin: 18px 0; }
 .deliverable .coordinate-table {
-  font-size: 12px;
+  font-size: 13px;
   table-layout: fixed;
 }
 .deliverable .coordinate-table th, .deliverable .coordinate-table td {
@@ -1381,7 +1382,7 @@ input::placeholder, textarea::placeholder {
   flex-wrap: wrap;
   gap: 4px 12px;
 }
-.deliverable p { font-size: 13px; }
+.deliverable p { font-size: 14px; }
 
 /* Numbered steps with a "01, 02, 03" counter badge. */
 .process-list {
@@ -1399,7 +1400,7 @@ input::placeholder, textarea::placeholder {
   position: absolute;
   left: 0;
   top: 0;
-  font: 11px/32px ui-monospace, Consolas, monospace;
+  font: 12px/32px ui-monospace, Consolas, monospace;
   width: 32px;
   height: 32px;
   text-align: center;
@@ -1414,7 +1415,7 @@ input::placeholder, textarea::placeholder {
 }
 .process-list p {
   margin: 5px 0 0;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 /* Request builder panel (form styles in 09-forms.css). */
@@ -1424,7 +1425,7 @@ input::placeholder, textarea::placeholder {
   margin-bottom: 9px;
 }
 .request-panel > p {
-  font-size: 13px;
+  font-size: 14px;
   margin-bottom: 24px;
 }
 

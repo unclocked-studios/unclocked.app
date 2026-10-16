@@ -23,7 +23,7 @@ fieldset {
 .field.full { grid-column: 1 / -1; }
 .field label {
   color: var(--text);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
 }
 .field label span { /* "(required)" / "(optional)" */
@@ -32,7 +32,7 @@ fieldset {
 }
 .field small {
   color: var(--muted);
-  font-size: 11px;
+  font-size: 12px;
 }
 
 input, textarea, .field select {
@@ -56,13 +56,13 @@ input::placeholder, textarea::placeholder {
 .form-actions { margin-top: 22px; }
 .form-actions > button { width: 100%; }
 .form-actions p {
-  font-size: 11px;
+  font-size: 12px;
   margin: 12px 0 0;
 }
 
 /* Live status message (role="status"); collapses when empty. */
 .request-status {
-  font-size: 13px;
+  font-size: 14px;
   color: var(--accent-text);
   margin: 16px 0;
 }
@@ -75,23 +75,23 @@ input::placeholder, textarea::placeholder {
   padding-top: 20px;
 }
 .draft-section summary {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   padding: 8px 0;
 }
 .draft-section label {
   display: block;
-  font-size: 12px;
+  font-size: 13px;
   margin: 12px 0 8px;
 }
-.draft-section textarea { font: 12px/1.65 ui-monospace, Consolas, monospace; }
+.draft-section textarea { font: 13px/1.65 ui-monospace, Consolas, monospace; }
 .draft-section .button-row { margin-top: 12px; }
 
 .notice {
   background: var(--selection);
   color: var(--accent-text);
   border-radius: 8px;
-  font-size: 12px;
+  font-size: 13px;
   padding: 12px 14px;
 }
 
