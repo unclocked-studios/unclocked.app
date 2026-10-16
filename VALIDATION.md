@@ -50,3 +50,15 @@ owner's review before publishing.
 | Remove the retired Warehouse Pro plan from Marketplace | Open; at the next Partner Center publish if still listed |
 | Confirm Google Search Console and Bing show the sitemap as Success (16 pages) | Open |
 | Decide on terms of service for LoopDeck and Frame64, which sell subscriptions | Open |
+
+## Accessibility and link-preview cleanup — October 15, 2026
+
+- Mapping form: name and company fields allow browser autofill; the table caption and form
+  legend use `.visually-hidden` instead of `hidden`, so screen readers still announce them.
+- Feature cards on the four product pages use `<h3>` under their section `<h2>`.
+- Link-preview (Open Graph and Twitter) tags added to the 11 indexable pages that had none,
+  using each product's existing share image; a new `seo.test.cjs` test requires them.
+- Verified: `npm run build`, `npm run check`, and 33 tests pass. All changed pages fit 320px
+  without overflow or broken images, in light and dark themes; every local link and asset
+  returned 200 from the preview server.
+- Not changed: the September 2026 screenshots stay at their URLs, as documented in the README.

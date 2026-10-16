@@ -65,7 +65,7 @@
           <p>Each row connects a location name to its position in the warehouse. Units, coordinate origin, and level heights are confirmed when we scope your layout.</p>
           <div class="output-preview">
             <div class="output-label"><strong>warehouse_sample.csv</strong><span>2,208 LOCATIONS</span></div>
-            <table class="coordinate-table"><caption hidden>First three locations and their coordinates from the downloadable sample; additional columns are included in the file.</caption><thead><tr><th scope="col">Location</th><th scope="col">PowerBI_<wbr>X</th><th scope="col">PowerBI_<wbr>Y</th><th scope="col">PowerBI_<wbr>Z</th></tr></thead><tbody><tr><td>1A01A</td><td>1709</td><td>1296</td><td>48</td></tr><tr><td>1A01B</td><td>1709</td><td>1296</td><td>58</td></tr><tr><td>1A02A</td><td>1709</td><td>1283</td><td>48</td></tr></tbody></table>
+            <table class="coordinate-table"><caption class="visually-hidden">First three locations and their coordinates from the downloadable sample; additional columns are included in the file.</caption><thead><tr><th scope="col">Location</th><th scope="col">PowerBI_<wbr>X</th><th scope="col">PowerBI_<wbr>Y</th><th scope="col">PowerBI_<wbr>Z</th></tr></thead><tbody><tr><td>1A01A</td><td>1709</td><td>1296</td><td>48</td></tr><tr><td>1A01B</td><td>1709</td><td>1296</td><td>58</td></tr><tr><td>1A02A</td><td>1709</td><td>1283</td><td>48</td></tr></tbody></table>
           </div>
           <p>This sample has been tested with 3D Heatmap. Download it to try the visual in Power BI before preparing your own data. The file also includes bin dimensions, category fields, and heatmap values.</p>
           <div class="button-row"><a class="card-link" href="/assets/warehouse-3d/warehouse_sample.csv" download>Download sample CSV</a><a class="small-link" href="/warehouse-heatmap/support/#sample-data">Sample setup guide</a></div>
@@ -78,14 +78,14 @@
       <section class="request-panel" aria-labelledby="request-title">
         <span class="eyebrow">Start here</span><h2 id="request-title">Tell us about your layout.</h2><p>Prepare an email in a few simple steps. Only your name and project description are required.</p>
         <noscript><p class="notice">The request builder needs JavaScript. You can email your name and a description of your layout directly to <a href="mailto:support@unclocked.app?subject=Warehouse%20mapping%20request">support@unclocked.app</a>.</p></noscript>
-        <form id="mapping-form" autocomplete="off">
-          <fieldset disabled><legend hidden>Warehouse mapping request details</legend>
+        <form id="mapping-form">
+          <fieldset disabled><legend class="visually-hidden">Warehouse mapping request details</legend>
             <div class="form-grid">
-              <div class="field"><label for="request-name">Your name <span>(required)</span></label><input id="request-name" name="name" required placeholder="Your name" maxlength="160"></div>
-              <div class="field"><label for="request-company">Company <span>(optional)</span></label><input id="request-company" name="company" placeholder="Company or team" maxlength="200"></div>
+              <div class="field"><label for="request-name">Your name <span>(required)</span></label><input id="request-name" name="name" autocomplete="name" required placeholder="Your name" maxlength="160"></div>
+              <div class="field"><label for="request-company">Company <span>(optional)</span></label><input id="request-company" name="company" autocomplete="organization" placeholder="Company or team" maxlength="200"></div>
               <div class="field"><label for="request-format">Drawing format <span>(optional)</span></label><select id="request-format" name="format"><option value="">Not sure yet</option><option>DWG</option><option>DXF</option><option>Other — described below</option></select></div>
-              <div class="field"><label for="request-count">Approximate locations <span>(optional)</span></label><input id="request-count" name="count" placeholder="e.g. 2,500, or not sure" maxlength="100"></div>
-              <div class="field full"><label for="request-levels">Levels / height information <span>(optional)</span></label><input id="request-levels" name="levels" placeholder="e.g. 4 rack levels; heights available" maxlength="300"></div>
+              <div class="field"><label for="request-count">Approximate locations <span>(optional)</span></label><input id="request-count" name="count" autocomplete="off" placeholder="e.g. 2,500, or not sure" maxlength="100"></div>
+              <div class="field full"><label for="request-levels">Levels / height information <span>(optional)</span></label><input id="request-levels" name="levels" autocomplete="off" placeholder="e.g. 4 rack levels; heights available" maxlength="300"></div>
               <div class="field full"><label for="request-description">About your project <span>(required)</span></label><textarea id="request-description" name="description" rows="4" required placeholder="What would you like mapped? Tell us about the layout, location labels, and any questions." aria-describedby="description-help"></textarea><small id="description-help">No drawing needed yet. We’ll discuss how to share it after you get in touch.</small></div>
             </div>
             <div class="form-actions"><button class="btn-primary" id="prepare-request" type="submit">Prepare request email</button><p>Your details stay in this page until you choose to open or copy the draft. Review and send the email yourself to submit the request.</p></div>
