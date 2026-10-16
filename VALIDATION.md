@@ -62,3 +62,22 @@ owner's review before publishing.
   without overflow or broken images, in light and dark themes; every local link and asset
   returned 200 from the preview server.
 - Not changed: the September 2026 screenshots stay at their URLs, as documented in the README.
+
+## 3D Heatmap flagship, guide, and FAQ — October 15, 2026
+
+- Homepage now leads with Unclocked 3D Heatmap: hero, sample report panel, three highlights,
+  and links to the guide, FAQ, and plans. The four-product row was removed; other products are
+  reached through the Products menu and `/products/`.
+- New `/warehouse-heatmap/guide/` (seven setup and usage steps) and `/warehouse-heatmap/faq/`
+  (getting started, data, using the visual, plans, performance and privacy). Both describe
+  version 1.1.0.5, written from commit `c11131e` of the visual's repository (its 1.1.0.5
+  release notes, user guide, `capabilities.json`, and on-screen labels). 1.2 features
+  (layout builder, playback, cutaway, congestion floor) are deliberately not described.
+- The support page's general FAQ moved to the FAQ page; its licensing, sample data, and
+  troubleshooting sections and their anchors are unchanged. Footer, support hub, 404 page,
+  product page, and sitemap link the new pages.
+- Verified: `npm run build`, `npm run check`, and 34 tests pass. Changed pages fit 320px
+  without overflow or broken images in light and dark themes; the guide's wide example table
+  scrolls inside its card on phones.
+- Owner follow-up: LoopDeck's Chrome Web Store Homepage URL is `/`, which no longer shows
+  LoopDeck. Consider changing that store field to `/products/loopdeck/`.

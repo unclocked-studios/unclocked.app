@@ -59,16 +59,28 @@ test('the sample CSV has unique locations and numeric coordinates, dimensions, a
 
 const productPages = ['/warehouse-heatmap/', '/products/loopdeck/', '/products/frame64/', '/products/twenty5/'];
 
-test('the products overview and homepage row present every product', () => {
+test('the products overview presents every product; the homepage features only 3D Heatmap', () => {
   const overview = read('products/index.html');
   for (const href of productPages) assert.ok(overview.includes(`href="${href}"`), 'products page: ' + href);
   for (const store of ['marketplace.microsoft.com/en-us/product/unclockedstudiosllc1780535695675.unclocked-3d-heatmap',
     'chromewebstore.google.com/detail/loopdeck-dashboard-tab-sw/ibiicjnbphicnpiadbofboldbfpfihld',
     'chromewebstore.google.com/detail/frame64-image-to-base64/dbjcogonfdplialknopfnngghfnnjjbg',
     'apps.apple.com/app/apple-store/id6748280871?pt=126117476']) assert.ok(overview.includes(store), 'products page store link: ' + store);
+  // Other products are reached through the Products menu, not a homepage row.
   const home = read('index.html');
-  const row = home.slice(home.indexOf('class="product-row"'), home.indexOf('</section>', home.indexOf('class="product-row"')));
-  for (const href of productPages) assert.ok(row.includes(`href="${href}"`), 'homepage product row: ' + href);
+  const main = home.slice(home.indexOf('<main'), home.indexOf('</main>'));
+  assert.ok(!main.includes('product-row'), 'homepage has no product row');
+  for (const href of productPages.slice(1)) assert.ok(!main.includes(`href="${href}"`), 'homepage main links only 3D Heatmap: ' + href);
+  for (const href of ['/warehouse-heatmap/', '/warehouse-heatmap/guide/', '/warehouse-heatmap/faq/']) assert.ok(main.includes(`href="${href}"`), 'homepage links ' + href);
+});
+
+// Update these pages, then this version, when a new visual release is published on Marketplace.
+const publishedHeatmapVersion = '1.1.0.5';
+
+test('the 3D Heatmap guide and FAQ name the published visual version', () => {
+  for (const file of ['warehouse-heatmap/guide/index.html', 'warehouse-heatmap/faq/index.html']) {
+    assert.ok(read(file).includes(`version ${publishedHeatmapVersion}`), file);
+  }
 });
 
 test('LoopDeck, Frame64, and twenty5 product pages answer common questions before Resources', () => {
