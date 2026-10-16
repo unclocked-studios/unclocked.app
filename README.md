@@ -50,10 +50,11 @@ identical contents. Keep both copies in sync if replacing the sample in future.
 
 ## Warehouse 3D screenshots
 
-The five updated screenshots supplied on September 16, 2026 are preserved as
-unmodified copies from `Pictures/Screenshots`:
+The five screenshots supplied on September 16, 2026 came from `Pictures/Screenshots`.
+The uncropped originals were removed from the site in October 2026; they remain in
+Git history (commit `5fd79da`) if they are needed again:
 
-| Source | Original asset in `assets/warehouse-3d/` |
+| Source | Former original in `assets/warehouse-3d/` |
 | --- | --- |
 | `01. First.png` | `warehouse-overview.png` |
 | `02. Second.png` | `category-filters.png` |
@@ -68,8 +69,6 @@ The first four crops are 1251 × 781 pixels; the fifth is 1565 × 977 pixels. Th
 cropped without resizing or redrawing the interface.
 
 The product gallery loads images lazily and links to the full-size cropped copies.
-Uncropped originals and previous image assets remain available at their old URLs
-but are no longer used by the website pages.
 
 ## LoopDeck screenshots
 
@@ -89,7 +88,7 @@ promotional artwork. Popup screenshots sit beside their explanations; management
 screens span the content width. All four link to their full-size PNGs, with lazy
 loading below the hero. Display examples use demo data, and the page states the
 paid-plan or active-trial requirement for Display Manager. The previous promotional
-asset remains at its existing URL.
+asset, `assets/loopdeck-dashboard-cycling.png`, was removed in October 2026.
 
 ## Backup and release
 

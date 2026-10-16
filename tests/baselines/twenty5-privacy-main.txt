@@ -1,0 +1,55 @@
+<main id="main-content" class="container">
+        <div class="page-header">
+            <span class="eyebrow">Privacy</span>
+            <h1>Unclocked Studios Privacy Policy</h1>
+            <p><em>Last updated: October 15, 2026</em></p>
+        </div>
+
+        <h2>Introduction</h2>
+        <p>This Privacy Policy explains how Unclocked Studios LLC ("we", "our", or "us") handles user data across all of
+            our applications, including <strong>twenty5</strong> and any future products we release.</p>
+
+        <h2>General Information We Collect</h2>
+        <ul>
+            <li>Email address (used for account identification and support)</li>
+            <li>A unique, anonymous user ID tied to your Apple ID (used solely to prevent trial abuse)</li>
+        </ul>
+
+        <h2>How We Use Data</h2>
+        <p>We use collected information strictly for providing app functionality and improving our services. We do not
+            sell, rent, or share personal information with third parties.</p>
+
+        <h2>App-Specific Information</h2>
+        <h3>twenty5</h3>
+        <p>
+            Workout tracking data is stored locally on your device and, if enabled, securely in your personal iCloud
+            account.
+        </p>
+
+        <h3>Apple Health</h3>
+        <p>
+            With your permission, twenty5 can read and write your body weight in Apple Health. twenty5 does not request
+            access to any other Health data.
+        </p>
+        <ul>
+            <li>Body weight from Apple Health is used only within twenty5 to support your workout tracking and progress.</li>
+            <li>Unclocked Studios does not receive, store on its servers, sell, or share your Apple Health data, and it
+                is never used for advertising or marketing.</li>
+            <li>You can review or turn off twenty5’s access at any time in the Health app or in your iPhone’s Settings.
+                Turning off access does not delete data that is already stored in Apple Health.</li>
+        </ul>
+
+        <h3>Future Apps</h3>
+        <p>
+            Future apps will have their specific practices described here. Any additional data collected will always be
+            disclosed and handled transparently.
+        </p>
+
+        <h2>Your Rights</h2>
+        <p>You can delete your data at any time by uninstalling the app or using in-app reset features (if available).
+            For cloud storage (iCloud), you may delete data via your Apple account settings.</p>
+
+        <h2>Contact</h2>
+        <p>If you have questions, please contact us at <a href="mailto:support@unclocked.app">support@unclocked.app</a>.
+        </p>
+    </main>

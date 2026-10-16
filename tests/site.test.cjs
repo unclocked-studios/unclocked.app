@@ -31,10 +31,28 @@ test('all local links, fragments, images, and scripts resolve', () => {
   }
 });
 
+test('indexable pages have search and sharing metadata and are listed in the sitemap', () => {
+  const sitemap = read('sitemap.xml');
+  for (const file of pages.filter(file => !file.endsWith(path.sep + '404.html') && !file.includes(path.sep + 'tests' + path.sep))) {
+    const html = fs.readFileSync(file, 'utf8');
+    const route = '/' + path.relative(root, file).replaceAll('\\', '/').replace(/index\.html$/, '');
+    const url = 'https://unclocked.app' + route;
+    assert.match(html, /<meta name="description"\s+content="[^"]{50,}">/, `${route}: description`);
+    assert.ok(html.includes(`<link rel="canonical" href="${url}">`), `${route}: canonical`);
+    assert.ok(html.includes(`<meta property="og:url" content="${url}">`), `${route}: og:url`);
+    for (const property of ['og:title', 'og:description', 'og:image']) assert.match(html, new RegExp(`<meta property="${property}" content="[^"]+">`), `${route}: ${property}`);
+    assert.ok(sitemap.includes(`<loc>${url}</loc>`), `${route}: sitemap`);
+  }
+  assert.match(read('404.html'), /<meta name="robots" content="noindex">/);
+  assert.match(read('robots.txt'), /Sitemap: https:\/\/unclocked\.app\/sitemap\.xml/);
+});
+
 test('policy main content is unchanged from the backed-up baseline', () => {
+  // twenty5's policy was intentionally revised in October 2026 to disclose Apple Health access.
+  const revised = { 'twenty5/privacy/index.html': 'tests/baselines/twenty5-privacy-main.txt' };
   for (const file of pages.filter(file => /[\\/](privacy|tos)[\\/]/.test(file))) {
     const relative = path.relative(root, file).replaceAll('\\', '/');
-    const previous = execFileSync('git', ['show', '6ba7df5bc9877630fb1b915659992405e3d66990:' + relative], { cwd: root, encoding: 'utf8' });
+    const previous = revised[relative] ? read(revised[relative]) : execFileSync('git', ['show', '6ba7df5bc9877630fb1b915659992405e3d66990:' + relative], { cwd: root, encoding: 'utf8' });
     const main = html => html.match(/<main\b[^>]*>([\s\S]*?)<\/main>/)[1].replace(/\r\n/g, '\n');
     assert.equal(main(read(relative)), main(previous), relative);
   }
