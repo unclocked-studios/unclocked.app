@@ -1499,6 +1499,11 @@ main.article-page h3 {
 }
 .article-page > p, .article-page > ul, .article-page > ol { max-width: 720px; }
 .article-page li { margin-bottom: 6px; }
+.page-header .article-dek { /* The summary paragraph under the title. */
+  max-width: 720px;
+  font-size: 18px;
+  line-height: 1.6;
+}
 .article-meta {
   color: var(--muted);
   font-size: 14px;
