@@ -78,7 +78,7 @@ li + li { margin-top: .3rem; }
   gap: 9px;
   margin-bottom: 20px;
   color: var(--accent-text);
-  font-size: 10px;
+  font-size: 12px;
   line-height: 1.5;
   font-weight: 700;
   letter-spacing: .16em;
@@ -94,7 +94,7 @@ li + li { margin-top: .3rem; }
 }
 
 .fine-print {
-  font-size: 12px;
+  font-size: 13px;
   color: var(--muted);
 }
 
