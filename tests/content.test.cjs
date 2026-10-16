@@ -77,6 +77,13 @@ test('the products overview presents every product; the homepage features only 3
 // Update these pages, then this version, when a new visual release is published on Marketplace.
 const publishedHeatmapVersion = '1.1.0.5';
 
+test('the changelog marks the published version as current', () => {
+  const html = read('warehouse-heatmap/changelog/index.html');
+  const current = html.slice(html.indexOf('Current version'), html.indexOf('</h2>', html.indexOf('Current version')));
+  assert.ok(current.includes(`Version ${publishedHeatmapVersion}`), 'current version entry');
+  assert.ok(html.indexOf('In review') < html.indexOf('Current version'), 'in-review version is listed first');
+});
+
 test('the 3D Heatmap guide and FAQ name the published visual version', () => {
   for (const file of ['warehouse-heatmap/guide/index.html', 'warehouse-heatmap/faq/index.html']) {
     assert.ok(read(file).includes(`version ${publishedHeatmapVersion}`), file);

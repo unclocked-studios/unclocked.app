@@ -81,3 +81,18 @@ owner's review before publishing.
   scrolls inside its card on phones.
 - Owner follow-up: LoopDeck's Chrome Web Store Homepage URL is `/`, which no longer shows
   LoopDeck. Consider changing that store field to `/products/loopdeck/`.
+
+## Changelog and brand colors — October 15, 2026
+
+- New `/warehouse-heatmap/changelog/`: 1.0.0.1 (June 29), 1.1.0.3 (September 16; includes the
+  unpublished 1.1.0.1 and 1.1.0.2 work), 1.1.0.5 (October 4; 1.1.0.4 was withdrawn), and 1.2 at
+  the top as "In review", with a notice that its features are not available yet. Dates are the
+  completion dates in the visual's repository, as the owner requested; Marketplace dates may
+  differ. Linked from the footer, product page, guide, FAQ, and sitemap; a test checks that the
+  published version is marked current.
+- Accent colors now come from the logo instead of the previous pink-red: buttons `#523ec3`
+  (white text 7.4:1; hover `#44329f`), links `#523ec3` in light mode (6.9:1 on the page) and
+  `#a087ff` in dark mode (6.3:1). Label dots use the logo teal (decorative only). The theme test
+  checks every new text pair at 4.5:1 or better.
+- Verified: build, check, and 35 tests pass. Homepage and changelog reviewed in light and dark
+  themes; 13 pages fit 320px without overflow or broken images.

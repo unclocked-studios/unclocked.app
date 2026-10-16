@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Shared head: generated from _partials/head.html by npm run build -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" type="image/png" sizes="128x128" href="/assets/unclocked-logo-v2-128.png">
+  <link rel="apple-touch-icon" href="/assets/unclocked-logo-v2-128.png">
+  <script src="/js/theme.js"></script>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/site.js" defer></script>
+  <!-- /Shared head -->
+  <meta name="description" content="What changed in each version of Unclocked 3D Heatmap for Power BI, from the first release to version 1.1.0.5, plus the 1.2 features in review: layout builder, playback, cutaway, and congestion floor.">
+  <title>Unclocked 3D Heatmap Changelog | Release Notes</title>
+  <link rel="canonical" href="https://unclocked.app/warehouse-heatmap/changelog/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Unclocked Studios">
+  <meta property="og:title" content="Unclocked 3D Heatmap changelog">
+  <meta property="og:description" content="What changed in each version of Unclocked 3D Heatmap for Power BI, from the first release to version 1.1.0.5, plus the 1.2 features in review: layout builder, playback, cutaway, and congestion floor.">
+  <meta property="og:url" content="https://unclocked.app/warehouse-heatmap/changelog/">
+  <meta property="og:image" content="https://unclocked.app/assets/warehouse-3d/2026-10/share-overview.png">
+  <meta property="og:image:width" content="1366">
+  <meta property="og:image:height" content="768">
+  <meta property="og:image:alt" content="Unclocked 3D Heatmap showing a 5,000-location warehouse in 3D over a floor plan, colored by on-hand units">
+  <meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner wrap">
+      <a class="brand" href="/" aria-label="Unclocked Studios home">
+        <img src="/assets/unclocked-logo-v2-128.png" alt="" width="34" height="34" decoding="async">
+        <span class="brand-name">Unclocked Studios</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" hidden>Menu <span aria-hidden="true">☰</span></button>
+      <nav class="site-nav" id="site-navigation" aria-label="Main navigation">
+        <a class="nav-mapping" href="/warehouse-heatmap/mapping/">Warehouse Mapping <span aria-hidden="true">↗</span></a>
+        <details class="products-dropdown">
+          <summary aria-controls="product-menu">Products <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="m3 4.5 3 3 3-3"/></svg></summary>
+          <div class="product-menu" id="product-menu">
+            <a href="/warehouse-heatmap/">Unclocked 3D Heatmap<span>Warehouse analytics in Power BI</span></a>
+            <a href="/products/loopdeck/">LoopDeck<span>Dashboard rotation for shared displays</span></a>
+            <a href="/products/twenty5/">twenty5<span>Workout tracking for iOS</span></a>
+            <a href="/products/frame64/">Frame64<span>Image to Base64 for Chrome</span></a>
+            <a href="/products/">All products<span>Compare plans and store links</span></a>
+          </div>
+        </details>
+        <a href="/#contact">Contact</a>
+        <div class="appearance-control" hidden>
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="10" cy="10" r="6.5"/><path d="M10 3.5a6.5 6.5 0 0 0 0 13z" fill="currentColor"/></svg>
+          <select id="appearance" aria-label="Appearance"><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option></select>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Studio</a><span aria-hidden="true">/</span><a href="/warehouse-heatmap/">3D Heatmap</a><span aria-hidden="true">/</span><span aria-current="page">Changelog</span></nav>
+    <div class="page-header">
+      <span class="eyebrow">Unclocked 3D Heatmap</span>
+      <h1>Changelog</h1>
+      <p>What changed in each version of the visual, newest first. Dates are when each version was completed; a version reaches Microsoft Marketplace after Microsoft reviews it.</p>
+      <p class="fine-print">Versions: <a href="#v1-2">1.2 (in review)</a> · <a href="#v1-1-0-5">1.1.0.5 (current)</a> · <a href="#v1-1-0-3">1.1.0.3</a> · <a href="#v1-0-0-1">1.0.0.1</a></p>
+    </div>
+
+    <section class="faq-section release-upcoming" id="v1-2">
+      <span class="eyebrow">In review · pending Microsoft approval</span>
+      <h2>Version 1.2</h2>
+      <p class="release-date">Completed October 13, 2026</p>
+      <p class="notice">These features aren't available yet. They arrive when Microsoft approves version 1.2 and it is published on Marketplace. Until then, the <a href="/warehouse-heatmap/guide/">guide</a> and <a href="/warehouse-heatmap/faq/">FAQ</a> describe version 1.1.0.5.</p>
+      <h3>New in Free and Professional</h3>
+      <ul>
+        <li><strong>Layout builder:</strong> no coordinates needed. Report authors draw racks, bays, and levels over the floor plan inside the visual, and it creates every Location ID from a naming pattern and places your data on it. It can suggest a pattern from your existing IDs, explain why an ID didn't match, and export the locations as a CSV. A built-in tutorial practices on a sample warehouse.</li>
+        <li><strong>Cutaway:</strong> a level slider shows the warehouse up to a chosen level so you can see inside racks, or isolates a single level.</li>
+        <li><strong>Area selection:</strong> Shift-drag to select every location in a box and see its count, total, and average.</li>
+        <li><strong>Named saved views:</strong> save up to 100 camera views by name, replacing the three P1–P3 presets, which carry over.</li>
+        <li><strong>2D plan options:</strong> color each stack by its top bin, its maximum, or its average, and show aisle labels on builder layouts.</li>
+        <li><strong>Remembers your last view</strong> when you return to a report page, without changing the report's default.</li>
+        <li><strong>Redesigned viewer</strong> with one status card, collapsible tool sections, and shared light, charcoal, and high-contrast palettes.</li>
+      </ul>
+      <h3>New in Professional</h3>
+      <ul>
+        <li><strong>Playback and compare:</strong> add a date or period to the new Time field to play the heatmap over time, or color each location by how much it changed.</li>
+        <li><strong>Congestion floor:</strong> shades the aisles where activity happens in front of busy pick faces, not just the busy shelves.</li>
+      </ul>
+      <h3>Change to check in existing reports</h3>
+      <ul>
+        <li>Hover tooltips will show only the measures in <strong>Tooltip measures</strong>. To keep the Location ID in the hover popup, add a text measure for it to that field well. The selected-location panel is unchanged.</li>
+      </ul>
+    </section>
+
+    <section class="faq-section" id="v1-1-0-5">
+      <span class="eyebrow">Current version</span>
+      <h2>Version 1.1.0.5</h2>
+      <p class="release-date">Completed October 4, 2026</p>
+      <h3>Licensing</h3>
+      <ul>
+        <li>Every active Professional plan assigned to a user now unlocks Professional, including trials and seat tiers added later. Earlier versions recognized only the original plan.</li>
+        <li>If Power BI Desktop is signed out or offline, a Professional license verified on the same device in the last 7 days keeps all bins available, shown as <strong>Professional (offline)</strong>.</li>
+        <li>Pages with a Professional license load once instead of drawing the visual twice while the license is checked.</li>
+      </ul>
+      <h3>New</h3>
+      <ul>
+        <li><strong>2D navigation pad:</strong> pan the plan with arrows, rotate it in 90° steps, and reset with the center button. The arrow keys also pan.</li>
+        <li>The visual takes its current name, <strong>Unclocked 3D Heatmap</strong>. Existing reports keep working.</li>
+      </ul>
+      <h3>Improvements and fixes</h3>
+      <ul>
+        <li>Faster updates: resizing no longer reprocesses data, and hovering and clicking bins do less work.</li>
+        <li>Tooltips and the selected-location panel show the data's Z and height rather than values multiplied by Vertical scale.</li>
+        <li>A duplicated Location ID keeps its first row and is listed in a warning, instead of the location disappearing.</li>
+        <li>Category filter checkboxes toggle with a single click, and Escape clears only the search box.</li>
+        <li><strong>Power BI filter</strong> click behavior filters other visuals without also cross-highlighting them.</li>
+        <li>A camera zoomed onto its own target point, or a default view saved there, no longer gets stuck.</li>
+        <li>The visual shows a message and recovers if the browser's graphics context is interrupted.</li>
+        <li>Manual thresholds entered out of order show a warning instead of being reordered silently.</li>
+      </ul>
+      <p class="fine-print">Version 1.1.0.4, completed October 3, was withdrawn before review and never published; its changes are included here.</p>
+    </section>
+
+    <section class="faq-section" id="v1-1-0-3">
+      <h2>Version 1.1.0.3</h2>
+      <p class="release-date">Completed September 16, 2026</p>
+      <h3>New</h3>
+      <ul>
+        <li><strong>Thresholds from DAX:</strong> set <strong>Threshold source</strong> to Measures to drive the Low, Medium, High, and Critical thresholds from measures that follow your slicers. <strong>Scale details</strong> in the legend shows the values in use.</li>
+        <li><strong>Exception finder:</strong> list locations above or below a cutoff, zero, or blank, or rank them by a DAX exception score, then focus on a result in 3D.</li>
+        <li><strong>Tooltip measures:</strong> add supporting measures, with their Power BI formats, to a location's details.</li>
+        <li><strong>UI themes:</strong> Neutral light (the new default), Neutral dark, and Classic purple, with controls that adapt to small visuals.</li>
+        <li><strong>Fit current layout</strong> frames the locations currently shown.</li>
+        <li>Settings to hide the status and license boxes, which now start collapsed.</li>
+      </ul>
+      <h3>Improvements</h3>
+      <ul>
+        <li>The camera stays where it is when report slicers or category filters change.</li>
+        <li>Cross-highlighting keeps the full layout and dims locations that aren't highlighted.</li>
+        <li>Locations with invalid coordinates are reported instead of being drawn at zero.</li>
+        <li>If the license can't be checked, the visual says so and applies the 2,500-bin limit.</li>
+      </ul>
+    </section>
+
+    <section class="faq-section" id="v1-0-0-1">
+      <h2>Version 1.0.0.1</h2>
+      <p class="release-date">Completed June 29, 2026</p>
+      <p>The first release, under the visual's original name.</p>
+      <ul>
+        <li>A 3D warehouse model built from X, Y, and Z coordinates, with optional bin sizes.</li>
+        <li>Heat coloring by any numeric measure, as a gradient or color bands.</li>
+        <li>3D and 2D views, Location ID search, and three category filters that dim or hide other locations.</li>
+        <li>A saved default view and three camera presets.</li>
+        <li>Power BI selection, filtering, and context menu support.</li>
+        <li>A floor plane with an optional floor-plan image.</li>
+        <li>Performance presets for large layouts, and a free plan of up to 2,500 bins.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div><a class="brand" href="/"><img src="/assets/unclocked-logo-v2-128.png" alt="" width="34" height="34" decoding="async"><span class="brand-name">Unclocked Studios</span></a><p>Thoughtful tools. Practical possibilities.</p></div>
+        <div class="footer-links">
+          <div><strong>Explore</strong><a href="/products/">All products</a><a href="/warehouse-heatmap/">3D Heatmap</a><a href="/warehouse-heatmap/guide/">3D Heatmap guide</a><a href="/warehouse-heatmap/faq/">3D Heatmap FAQ</a><a href="/warehouse-heatmap/changelog/">3D Heatmap changelog</a><a href="/products/loopdeck/">LoopDeck</a><a href="/products/twenty5/">twenty5</a><a href="/products/frame64/">Frame64</a></div>
+          <div><strong>Get in touch</strong><a href="/warehouse-heatmap/mapping/">Request warehouse mapping</a><a href="/support/">Support Hub</a><a href="/warehouse-heatmap/support/">3D Heatmap support</a><a href="/loopdeck/">LoopDeck support</a><a href="/twenty5/support/">twenty5 support</a><a href="/frame64/">Frame64 support</a><a href="mailto:support@unclocked.app">support@unclocked.app</a></div>
+          <div><strong>Policies</strong><a href="/warehouse-heatmap/privacy/">3D Heatmap privacy</a><a href="/loopdeck/privacy/">LoopDeck privacy</a><a href="/twenty5/privacy/">twenty5 privacy</a><a href="/twenty5/tos/">twenty5 terms</a><a href="/frame64/privacy/">Frame64 privacy</a></div>
+        </div>
+      </div>
+      <div class="footer-bottom"><span>© 2026 Unclocked Studios LLC. All rights reserved.</span><a href="/#approach">Our approach</a></div>
+    </div>
+  </footer>
+</body>
+
+</html>
