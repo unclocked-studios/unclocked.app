@@ -79,7 +79,7 @@ directly; the tests fail if it does not match the modules.
 | `08-pricing.css` | Plan grids and plan cards |
 | `09-forms.css` | Mapping request form, draft preview, notices |
 | `10-footer.css` | Footer |
-| `20-` to `23-page-*.css` | Rules for one page: home, 3D Heatmap, mapping, policy text |
+| `20-` to `24-page-*.css` | Rules for one page type: home, 3D Heatmap, mapping, policy text, articles |
 | `99-motion.css` | Reduced-motion preference |
 
 Each module keeps its own `@media` rules at the end. Breakpoints are 1100px, 900px (navigation
@@ -178,6 +178,14 @@ review sits at the top under "In review" with a notice that it is not available 
 When a new version is published: move its changelog entry from "In review" to "Current
 version", update the guide and FAQ and their version notes, and change
 `publishedHeatmapVersion` in `tests/content.test.cjs`.
+
+### 3D Heatmap articles
+
+Articles live under `/warehouse-heatmap/guides/<slug>/` and use `main.container.article-page`
+(`css/src/24-page-article.css`), with `Article` JSON-LD, a visible date, and a sitemap entry.
+Write them to stay true across visual versions; link version-specific details to the guide.
+The first is `warehouse-heat-map-power-bi/`, targeting searches for building a warehouse heat
+map in Power BI.
 
 ### 3D Heatmap plans
 
