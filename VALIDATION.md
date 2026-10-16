@@ -108,3 +108,15 @@ owner's review before publishing.
 - Removed the 14 unused September 2026 screenshots, including `loopdeck-dashboard-cycling.png`.
   No page, stylesheet, script, sitemap, or the visual's repository referenced them; their URLs
   now return 404 so search engines drop them. `sample-coordinates.csv` stays at its old URL.
+
+## Article: How to build a warehouse heat map in Power BI — October 15, 2026
+
+- New `/warehouse-heatmap/guides/warehouse-heat-map-power-bi/` (about 1,800 words): location
+  tables, three ways to get bin coordinates (WMS, AutoCAD `DATAEXTRACTION`, a grid formula), the
+  data model, four DAX measures, visual options, color scales, questions to ask, and common
+  mistakes. Keywords: warehouse heat map, Power BI, bin location coordinates, inventory and pick
+  heat maps, AutoCAD, DAX, slotting.
+- `Article` JSON-LD, Open Graph `article` type, sitemap entry, and links from the product page
+  and the guide. Version-neutral apart from the free 2,500-location limit.
+- Verified: build, check, and 35 tests pass; the page fits 320px with code blocks scrolling
+  inside their frame; reviewed at desktop width in light theme and 320px in dark theme.
