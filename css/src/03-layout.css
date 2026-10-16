@@ -62,6 +62,7 @@ main.container {
   gap: 10px;
 }
 .resource-links { margin-top: 20px; }
+.button-row + .fine-print { margin-top: 18px; } /* A note under a row of buttons gets breathing room. */
 .learn-links { margin-top: 24px; } /* Guide and FAQ links after a section. */
 
 .hero-note { /* Short line under the hero buttons. */
