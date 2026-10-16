@@ -22,11 +22,15 @@
   --text: light-dark(#23232a, #f3f4f7);
   --muted: light-dark(#586070, #b5becf);
 
-  /* Brand accent: --accent fills buttons; --accent-text is the readable text and link color. */
-  --accent: #c83256;
-  --accent-hover: #ae2849;
-  --accent-text: light-dark(#b32649, #ff91ac);
-  --selection: light-dark(#fbe9ee, #502738);
+  /* Brand accent from the logo's purples: --accent fills buttons (deep purple #523ec3);
+     --accent-text is the readable text and link color (deep purple on light, light purple
+     #a087ff on dark). --accent-2 is the logo's teal, for small decorative marks only:
+     white text on it is not readable. */
+  --accent: #523ec3;
+  --accent-hover: #44329f;
+  --accent-text: light-dark(#523ec3, #a087ff);
+  --accent-2: light-dark(#24b7a5, #27d7c2);
+  --selection: light-dark(#ece8fb, #2f2a52);
 
   /* Shape and depth */
   --shadow: 0 12px 40px light-dark(#23232a06, #00000012);
@@ -49,8 +53,9 @@
     --line: #dde1e8;
     --text: #23232a;
     --muted: #586070;
-    --accent-text: #b32649;
-    --selection: #fbe9ee;
+    --accent-text: #523ec3;
+    --accent-2: #24b7a5;
+    --selection: #ece8fb;
     --shadow: 0 12px 40px #23232a06;
   }
 }
@@ -142,11 +147,11 @@ li + li { margin-top: .3rem; }
   letter-spacing: .16em;
   text-transform: uppercase;
 }
-.eyebrow::before {
+.eyebrow::before { /* The logo's teal, as a small brand mark beside purple label text. */
   content: '';
   width: 6px;
   height: 6px;
-  background: currentColor;
+  background: var(--accent-2);
   border-radius: 2px;
   flex-shrink: 0;
 }
@@ -670,6 +675,14 @@ main.container {
   font: 12px ui-monospace, Consolas, monospace;
   margin-bottom: 20px;
 }
+
+/* Changelog: version dates, and the in-review version marked with the brand accent. */
+.release-date {
+  color: var(--muted);
+  font-size: 13px;
+  margin: -6px 0 16px;
+}
+.release-upcoming { border-left: 3px solid var(--accent); }
 
 .app-summary {
   background: var(--surface);

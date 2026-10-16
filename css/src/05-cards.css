@@ -62,6 +62,14 @@
   margin-bottom: 20px;
 }
 
+/* Changelog: version dates, and the in-review version marked with the brand accent. */
+.release-date {
+  color: var(--muted);
+  font-size: 13px;
+  margin: -6px 0 16px;
+}
+.release-upcoming { border-left: 3px solid var(--accent); }
+
 .app-summary {
   background: var(--surface);
   border: 1px solid var(--line);

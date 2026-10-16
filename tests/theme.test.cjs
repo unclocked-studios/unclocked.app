@@ -35,9 +35,11 @@ test('theme palettes and primary action provide readable text contrast (WCAG AA,
   };
   const ratio = (a, b) => { const x = luminance(a), y = luminance(b); return (Math.max(x, y) + .05) / (Math.min(x, y) + .05); };
   const pairs = [
-    ['23232a', 'f7f7f9'], ['586070', 'f0f2f6'], ['b32649', 'fbe9ee'], // light: text, muted, accent
-    ['f3f4f7', '20232b'], ['b5becf', '2b303a'], ['ff91ac', '502738'], // dark: text, muted, accent
-    ['ffffff', 'c83256'], // primary button
+    ['23232a', 'f7f7f9'], ['586070', 'f0f2f6'], // light: text, muted
+    ['523ec3', 'f7f7f9'], ['523ec3', 'f0f2f6'], ['523ec3', 'ece8fb'], // light: accent on page, soft, selection
+    ['f3f4f7', '20232b'], ['b5becf', '2b303a'], // dark: text, muted
+    ['a087ff', '15171d'], ['a087ff', '2b303a'], ['a087ff', '2f2a52'], // dark: accent on page, soft, selection
+    ['ffffff', '523ec3'], ['ffffff', '44329f'], // primary button and its hover
   ];
   for (const [text, background] of pairs) assert.ok(ratio(text, background) >= 4.5, `${text} on ${background}`);
 });
