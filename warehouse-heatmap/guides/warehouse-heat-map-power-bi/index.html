@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Shared head: generated from _partials/head.html by npm run build -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" type="image/png" sizes="128x128" href="/assets/unclocked-logo-v2-128.png">
+  <link rel="apple-touch-icon" href="/assets/unclocked-logo-v2-128.png">
+  <script src="/js/theme.js"></script>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/site.js" defer></script>
+  <!-- /Shared head -->
+  <meta name="description" content="Power BI has no built-in warehouse map. Compare the scatter chart, Shape Map, and Deneb, then build a warehouse heat map from bin location coordinates, your CAD layout, and DAX measures.">
+  <title>How to Build a Warehouse Heat Map in Power BI | Unclocked Studios</title>
+  <link rel="canonical" href="https://unclocked.app/warehouse-heatmap/guides/warehouse-heat-map-power-bi/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Unclocked Studios">
+  <meta property="og:title" content="How to build a warehouse heat map in Power BI">
+  <meta property="og:description" content="Power BI has no built-in warehouse map. Compare the scatter chart, Shape Map, and Deneb, then build a warehouse heat map from bin location coordinates, your CAD layout, and DAX measures.">
+  <meta property="og:url" content="https://unclocked.app/warehouse-heatmap/guides/warehouse-heat-map-power-bi/">
+  <meta property="og:image" content="https://unclocked.app/assets/warehouse-3d/2026-10/share-overview.png">
+  <meta property="og:image:width" content="1366">
+  <meta property="og:image:height" content="768">
+  <meta property="og:image:alt" content="Unclocked 3D Heatmap showing a 5,000-location warehouse in 3D over a floor plan, colored by on-hand units">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Structured data for search engines (schema.org). -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to build a warehouse heat map in Power BI",
+    "description": "Power BI has no built-in warehouse map. Compare the scatter chart, Shape Map, and Deneb, then build a warehouse heat map from bin location coordinates, your CAD layout, and DAX measures.",
+    "image": "https://unclocked.app/assets/warehouse-3d/2026-10/share-overview.png",
+    "datePublished": "2026-10-15",
+    "dateModified": "2026-10-15",
+    "author": { "@type": "Organization", "name": "Unclocked Studios", "url": "https://unclocked.app/" },
+    "publisher": { "@type": "Organization", "name": "Unclocked Studios LLC", "url": "https://unclocked.app/", "logo": { "@type": "ImageObject", "url": "https://unclocked.app/assets/unclocked-logo-v2.png" } },
+    "mainEntityOfPage": "https://unclocked.app/warehouse-heatmap/guides/warehouse-heat-map-power-bi/"
+  }
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner wrap">
+      <a class="brand" href="/" aria-label="Unclocked Studios home">
+        <img src="/assets/unclocked-logo-v2-128.png" alt="" width="34" height="34" decoding="async">
+        <span class="brand-name">Unclocked Studios</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" hidden>Menu <span aria-hidden="true">☰</span></button>
+      <nav class="site-nav" id="site-navigation" aria-label="Main navigation">
+        <a class="nav-mapping" href="/warehouse-heatmap/mapping/">Warehouse Mapping <span aria-hidden="true">↗</span></a>
+        <details class="products-dropdown">
+          <summary aria-controls="product-menu">Products <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="m3 4.5 3 3 3-3"/></svg></summary>
+          <div class="product-menu" id="product-menu">
+            <a href="/warehouse-heatmap/">Unclocked 3D Heatmap<span>Warehouse analytics in Power BI</span></a>
+            <a href="/products/loopdeck/">LoopDeck<span>Dashboard rotation for shared displays</span></a>
+            <a href="/products/twenty5/">twenty5<span>Workout tracking for iOS</span></a>
+            <a href="/products/frame64/">Frame64<span>Image to Base64 for Chrome</span></a>
+            <a href="/products/">All products<span>Compare plans and store links</span></a>
+          </div>
+        </details>
+        <a href="/#contact">Contact</a>
+        <div class="appearance-control" hidden>
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="10" cy="10" r="6.5"/><path d="M10 3.5a6.5 6.5 0 0 0 0 13z" fill="currentColor"/></svg>
+          <select id="appearance" aria-label="Appearance"><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option></select>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="container article-page">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Studio</a><span aria-hidden="true">/</span><a href="/warehouse-heatmap/">3D Heatmap</a><span aria-hidden="true">/</span><span aria-current="page">Article</span></nav>
+    <div class="page-header">
+      <span class="eyebrow">Power BI how-to</span>
+      <h1>How to build a warehouse heat map in Power BI</h1>
+      <p class="article-dek">Your Power BI model already knows what is in every bin and how often it is picked. What it cannot do on its own is show that data on the warehouse floor. This guide explains why, compares the workarounds, and walks through building a heat map of every storage location, from the CAD drawing to the finished report.</p>
+      <p class="article-meta">Unclocked Studios · October 15, 2026 · 11 minute read</p>
+    </div>
+
+    <h2 id="the-question">The question a table can't answer</h2>
+    <p>Picture a slotting review. The inventory report shows the oldest stock in the building, sorted by days on hand, and every row is a location ID: 14-03-C, 14-05-B, 15-02-A. The list is accurate, but it hides the pattern that matters. Most of those pallets sit in two aisles, three levels up, directly across from the fastest-moving pick faces in the warehouse.</p>
+    <p>Nobody can see that from a table, because a location ID describes a place without showing it. A warehouse heat map does the opposite. It draws every storage location where it physically stands and colors it by a measure, so concentrations, gaps, and outliers become visible at a glance. Aging stock, pick density, replenishment pressure, and capacity all read differently once they are laid over the floor.</p>
+    <p>For most operations teams, the data for this already lives in Power BI. Inventory snapshots, pick lines, and replenishment tasks arrive from the WMS every night. The missing piece is the warehouse itself.</p>
+
+    <h2 id="why-no-map">Why Power BI has no warehouse map</h2>
+    <p>Power BI's map visuals are built for geography. Azure Maps, the filled map, and the ArcGIS visual all place data by latitude and longitude, or by a recognized place name such as a city or postal code. A warehouse doesn't work that way. Its locations live in a private coordinate space measured in inches or feet from a corner of the building, with rack levels stacked on top of each other. There is no built-in visual that understands aisles, bays, and levels, and none that draws a building's own floor plan beneath the data.</p>
+    <p>That leaves report authors with three workarounds. Each can produce something map-like, and each runs into a wall at a different point.</p>
+
+    <h2 id="workarounds">The workarounds, and where they fall short</h2>
+    <h3>The scatter chart</h3>
+    <p>The quickest experiment is a scatter chart: put the X coordinate on one axis, the Y coordinate on the other, and color the points with conditional formatting. It works, and for a small single-level pick area it may be enough.</p>
+    <p>The trouble starts with a real building. Every location becomes a dot of the same size, so a floor-stack lane looks identical to a carton-flow slot. Rack levels share the same X and Y, so five levels collapse into one point and four of them disappear. Large layouts are sampled, which means some locations may not be drawn at all. You can place an image behind the plot area, but lining a floor plan up with the data means pinning both axis ranges to the drawing's exact extent and redoing it whenever the layout changes.</p>
+    <h3>Shape Map</h3>
+    <p>Shape Map colors regions from a custom map file, so in principle each storage location can be its own shape. In practice, someone has to draw every location as a polygon, give it an ID that matches the data, and convert the result to TopoJSON. A warehouse with 5,000 locations means 5,000 shapes, and a re-rack means rebuilding the file.</p>
+    <p>Even then, two limits remain. Shape Map has no option for a custom background image, so the CAD layout that gives the shapes their context cannot sit behind them. And it is flat by design, so every level of a rack has to be a separate map or a separate filter.</p>
+    <h3>Deneb</h3>
+    <p>Deneb is the most flexible option. It is a certified custom visual that renders charts from Vega and Vega-Lite specifications, so a skilled author can draw rectangles at real coordinates, size them from the data, and layer an image underneath.</p>
+    <p>The cost is code. Every part of the visual, from the scales and marks to the tooltips and interactions, is written and maintained as a JSON specification. Search, level filtering, saved views, and anything resembling 3D have to be built by hand, and the specification usually ends up understood by one person on the team. For a proof of concept, Deneb can be a good fit. For a report that operations relies on every day, it becomes a small software project.</p>
+
+    <div class="table-scroll" role="region" aria-label="Comparison of warehouse heat map approaches" tabindex="0">
+    <table class="sample-fields">
+      <caption>Warehouse heat map options in Power BI</caption>
+      <thead><tr><th scope="col">Approach</th><th scope="col">CAD layout behind the data</th><th scope="col">Rack levels</th><th scope="col">Location sizes</th><th scope="col">Effort to build and maintain</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Scatter chart</th><td>Possible, aligned by hand</td><td>Levels overlap</td><td>Same-size markers</td><td>Low to start, fiddly to align</td></tr>
+        <tr><th scope="row">Shape Map</th><td>Not supported</td><td>Flat, one map per level</td><td>From hand-drawn shapes</td><td>High: draw and convert every shape</td></tr>
+        <tr><th scope="row">Deneb</th><td>Possible, with code</td><td>With custom code</td><td>With custom code</td><td>High: write and maintain the specification</td></tr>
+        <tr><th scope="row">Unclocked 3D Heatmap</th><td>Yes, aligned to your coordinates</td><td>Stacked in 3D, or one level in 2D</td><td>From your data</td><td>Low once coordinates exist</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>The workarounds share a root problem. None of them start from what a warehouse already has, which is a list of locations with positions and sizes. That is the gap we built for.</p>
+
+    <h2 id="closing-the-gap">Closing the gap: coordinates and a visual built for warehouses</h2>
+    <p>A useful warehouse heat map needs two things that Power BI doesn't provide: coordinates for every location, and a visual that knows what to do with them.</p>
+    <p>The coordinates usually already exist, just not in a form Power BI can read. They are in the facility's AutoCAD drawing, where every rack and bay was placed to scale. Our <a href="/warehouse-heatmap/mapping/">warehouse mapping service</a> turns that drawing into a coordinate table: one row per location with its ID, X, Y, and Z, plus sizes where the drawing has them. We confirm units, location naming, and level heights with you before mapping starts, so the table matches the IDs in your WMS.</p>
+    <p>The visual is <a href="/warehouse-heatmap/">Unclocked 3D Heatmap</a>, a certified Power BI visual that reads that table directly. It draws each location at its real position and size, stacks rack levels at their heights, and can place the same CAD layout underneath as a floor image. Report users can orbit the warehouse in 3D, switch to a flat 2D plan, search for a location, and filter by aisle or level, all inside the report and in step with its slicers.</p>
+    <p>The rest of this guide covers the full build, whether you prepare the coordinates yourself or have us do it.</p>
+
+    <h2 id="location-table">Start with a location table</h2>
+    <p>Every approach above comes down to the same foundation: a table with one row per bin, slot, or pallet position, describing where that location is.</p>
+    <div class="table-scroll" role="region" aria-label="Example location table" tabindex="0">
+    <table class="sample-fields">
+      <caption>A location table for three bins in one aisle, in inches</caption>
+      <thead><tr><th scope="col">Location ID</th><th scope="col">Aisle</th><th scope="col">Level</th><th scope="col">X</th><th scope="col">Y</th><th scope="col">Z</th><th scope="col">Width</th><th scope="col">Length</th><th scope="col">Height</th></tr></thead>
+      <tbody>
+        <tr><td><code>A01-01-A</code></td><td>A01</td><td>A</td><td>0</td><td>0</td><td>0</td><td>40</td><td>48</td><td>48</td></tr>
+        <tr><td><code>A01-01-B</code></td><td>A01</td><td>B</td><td>0</td><td>0</td><td>48</td><td>40</td><td>48</td><td>48</td></tr>
+        <tr><td><code>A01-02-A</code></td><td>A01</td><td>A</td><td>40</td><td>0</td><td>0</td><td>40</td><td>48</td><td>48</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>X and Y place the location's corner on the floor, and Z is the height of its base, which is what separates one rack level from the next. Width, length, and height are optional, but they let a mixed building read correctly, with floor-stack lanes, pallet positions, and carton-flow slots each drawn at their true size. Choose one unit for every column; mixing feet and inches is the most common reason a first layout comes out stretched or overlapping.</p>
+
+    <h2 id="coordinates">Getting coordinates from your CAD drawing</h2>
+    <p>Few WMS exports include coordinates, so they usually come from one of three places.</p>
+    <p><strong>The WMS or a slotting tool.</strong> Some systems store travel-sequence or slotting coordinates for each location. It is worth asking whoever maintains your location master before building anything.</p>
+    <p><strong>The AutoCAD drawing.</strong> When racks are drawn as blocks, AutoCAD's <code>DATAEXTRACTION</code> command can export each block's attributes and insertion point to a CSV. Two details deserve attention before loading the result. A block's insertion point is not always the corner of the location, so check whether it needs offsetting by half the width and length. And drawings typically show one block per bay rather than one per level, so each bay needs to be expanded into its levels, each with its own Z. When the drawing doesn't use clean blocks, or the team doesn't have time to untangle it, this is the work our <a href="/warehouse-heatmap/mapping/">mapping service</a> takes on.</p>
+    <p><strong>A calculated grid.</strong> Regular racked areas can be calculated from the location ID. With aisles 120 inches apart, 48-inch bays, and 60-inch levels, three custom columns in Power Query place every location:</p>
+<pre><code>X = ([Aisle Number] - 1) * 120
+Y = ([Bay Number] - 1) * 48
+Z = ([Level Number] - 1) * 60</code></pre>
+    <p>Real buildings have columns, cross aisles, and the occasional short rack, so compare the result with the floor plan and correct the exceptions by hand.</p>
+
+    <h2 id="data-model">Model the layout once</h2>
+    <p>Load the location table as its own dimension and relate <code>Layout[Location ID]</code> to each fact table, one to many, filtering in a single direction. Take every descriptive field from the layout table: coordinates, sizes, aisle, level, zone, and location type.</p>
+    <p>Keeping the layout separate is what keeps empty locations on the map. If locations came from the inventory table, an empty bin would have no row and would never be drawn, and empty space is often exactly what a planner is looking for. In the visual, turning on <strong>Show items with no data</strong> for the location field makes sure Power BI sends locations whose measures are all blank.</p>
+    <p>Finally, make every location ID unique across the model. If several buildings share one report, include the site in the ID or the key, because <code>A01-01-A</code> almost certainly exists in each of them.</p>
+
+    <h2 id="measures">Measures that tell the story</h2>
+    <p>Color the map with measures rather than columns, so the warehouse responds to date, client, and zone slicers like every other visual on the page. These four answer most of the questions operations teams bring to a heat map:</p>
+<pre><code>On Hand Units = SUM ( Inventory[Quantity] )
+
+Picks Last 28 Days =
+CALCULATE (
+    COUNTROWS ( PickLines ),
+    DATESINPERIOD ( 'Date'[Date], MAX ( 'Date'[Date] ), -28, DAY )
+)
+
+Location Fill % =
+DIVIDE ( [On Hand Units], SUM ( Layout[Capacity Units] ) )
+
+Days Since Last Pick =
+VAR LastPick = CALCULATE ( MAX ( PickLines[Pick Date] ) )
+RETURN
+    IF ( ISBLANK ( LastPick ), BLANK (), DATEDIFF ( LastPick, TODAY (), DAY ) )</code></pre>
+    <p>Rather than building a page for each, give report users a single heat map with a field parameter, or a small disconnected table and a <code>SWITCH</code> measure, so they can move between stock, activity, and fill on the same layout.</p>
+
+    <h2 id="build-it">Put it on the floor plan</h2>
+    <p>With the location table and measures in place, the visual itself takes a few minutes to set up.</p>
+    <ol>
+      <li>In Power BI Desktop, select <strong>Get more visuals</strong>, search for <strong>Unclocked 3D Heatmap</strong>, and add it. It is free for up to 2,500 locations.</li>
+      <li>Add <code>Layout[Location ID]</code> to <strong>Location ID</strong>, your X and Y columns to the coordinate fields, and Z if the building has rack levels.</li>
+      <li>Add one of your measures, such as <code>Days Since Last Pick</code>, to <strong>Heat Value</strong>.</li>
+      <li>Add width, length, and height if location sizes vary, and up to three category fields, such as aisle, level, and zone, for filtering inside the visual.</li>
+      <li>To show the CAD layout beneath the racks, add the floor plan as an image in the visual's Scene settings and align it to the same coordinate bounds as your data.</li>
+    </ol>
+    <p>The <a href="/warehouse-heatmap/guide/">how-to guide</a> covers every setting in detail. To explore before connecting your own data, open the <a href="/assets/warehouse-3d/unclocked-sample-data.pbix" download>sample report</a>, or load our <a href="/assets/warehouse-3d/warehouse_sample.csv" download>2,208-location sample CSV</a>, which already includes coordinates, sizes, and values.</p>
+
+    <h2 id="color-scale">Colors that hold up in a meeting</h2>
+    <p>A heat map earns trust when its colors mean the same thing every time someone looks at it. Three decisions make the difference.</p>
+    <p><strong>Gradient or bands.</strong> A smooth gradient shows small differences and suits exploration. Bands, with hard breaks at set values, suit operating rules: a location at 92% fill is over the line, and one at 88% is not. If the team already works to thresholds, the color scale should match them.</p>
+    <p><strong>A fixed range for comparisons.</strong> An automatic range rescales to whatever is on screen, so red during a quiet week and red during peak season describe very different numbers. When comparing weeks, sites, or zones, set a manual minimum and maximum.</p>
+    <p><strong>A plan for outliers and zeros.</strong> One location with 4,000 picks can push the rest of the building into the same pale shade, and capping outliers restores the contrast. Zeros deserve a deliberate choice too. For fill, an empty location is useful information; for picks, a zero may be the next candidate for re-slotting.</p>
+    <p>When targets vary with the selection, such as a different aging threshold for each client, the thresholds can come from DAX measures rather than fixed numbers, and the colors follow the slicers.</p>
+
+    <h2 id="questions">Five questions to put on the map first</h2>
+    <ul>
+      <li><strong>Where is aging stock concentrated?</strong> Color by days on hand or days since last pick. Old stock clustered near the dock is occupying the most valuable space in the building.</li>
+      <li><strong>Are fast movers slotted well?</strong> Color by picks over the last four weeks. Hot locations on upper levels, or at the far end of a long aisle, are the first candidates to move.</li>
+      <li><strong>Where is replenishment pressure building?</strong> Color by open replenishment units, or by locations below their minimum.</li>
+      <li><strong>How full is the building, really?</strong> Color by fill. A warehouse at 85% overall can still be full in the zones that matter most.</li>
+      <li><strong>Which locations need attention today?</strong> Rank exceptions, such as negative stock or locations holding stock with no pick in 180 days, and work through them on the layout.</li>
+    </ul>
+
+    <h2 id="checklist">Before you share it</h2>
+    <ul>
+      <li>Coordinates and sizes use the same unit.</li>
+      <li>The layout comes from its own location table, so empty bins appear.</li>
+      <li>Every location ID is unique, including across buildings.</li>
+      <li>Rack levels have their own Z, so one level doesn't hide another.</li>
+      <li>The report opens on a zone or level that matches its question, rather than every location at once.</li>
+    </ul>
+
+    <div class="app-summary">
+      <h2>Put your warehouse on the map</h2>
+      <p>Unclocked 3D Heatmap is free on Microsoft Marketplace for up to 2,500 locations. Start with the sample report, then connect your own location table. If your layout only exists in AutoCAD, we can map it for you.</p>
+      <div class="button-row"><a class="btn-primary" href="https://marketplace.microsoft.com/en-us/product/unclockedstudiosllc1780535695675.unclocked-3d-heatmap?ocid=unclocked_website&amp;utm_source=unclocked.app&amp;utm_medium=website&amp;utm_campaign=warehouse_heatmap&amp;utm_content=article_heat_map">Install free on Marketplace <span aria-hidden="true">↗</span></a><a class="btn-secondary" href="/warehouse-heatmap/mapping/">Request warehouse mapping</a></div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div><a class="brand" href="/"><img src="/assets/unclocked-logo-v2-128.png" alt="" width="34" height="34" decoding="async"><span class="brand-name">Unclocked Studios</span></a><p>Thoughtful tools. Practical possibilities.</p></div>
+        <div class="footer-links">
+          <div><strong>Explore</strong><a href="/products/">All products</a><a href="/warehouse-heatmap/">3D Heatmap</a><a href="/warehouse-heatmap/guide/">3D Heatmap guide</a><a href="/warehouse-heatmap/faq/">3D Heatmap FAQ</a><a href="/warehouse-heatmap/changelog/">3D Heatmap changelog</a><a href="/products/loopdeck/">LoopDeck</a><a href="/products/twenty5/">twenty5</a><a href="/products/frame64/">Frame64</a></div>
+          <div><strong>Get in touch</strong><a href="/warehouse-heatmap/mapping/">Request warehouse mapping</a><a href="/support/">Support Hub</a><a href="/warehouse-heatmap/support/">3D Heatmap support</a><a href="/loopdeck/">LoopDeck support</a><a href="/twenty5/support/">twenty5 support</a><a href="/frame64/">Frame64 support</a><a href="mailto:support@unclocked.app">support@unclocked.app</a></div>
+          <div><strong>Policies</strong><a href="/warehouse-heatmap/privacy/">3D Heatmap privacy</a><a href="/loopdeck/privacy/">LoopDeck privacy</a><a href="/twenty5/privacy/">twenty5 privacy</a><a href="/twenty5/tos/">twenty5 terms</a><a href="/frame64/privacy/">Frame64 privacy</a></div>
+        </div>
+      </div>
+      <div class="footer-bottom"><span>© 2026 Unclocked Studios LLC. All rights reserved.</span><a href="/#approach">Our approach</a></div>
+    </div>
+  </footer>
+</body>
+
+</html>

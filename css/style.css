@@ -1483,6 +1483,44 @@ input::placeholder, textarea::placeholder {
   margin-top: 32px;
 }
 
+/* --- css/src/24-page-article.css --- */
+/* ==========================================================================
+   Articles (warehouse-heatmap/guides/): reading column with headings, code
+   blocks for DAX and Power Query, and the byline under the title
+   ========================================================================== */
+
+main.article-page h2 {
+  font-size: 26px;
+  margin-top: 44px;
+}
+main.article-page h3 {
+  font-size: 19px;
+  margin-top: 28px;
+}
+.article-page > p, .article-page > ul, .article-page > ol { max-width: 720px; }
+.article-page li { margin-bottom: 6px; }
+.page-header .article-dek { /* The summary paragraph under the title. */
+  max-width: 720px;
+  font-size: 18px;
+  line-height: 1.6;
+}
+.article-meta {
+  color: var(--muted);
+  font-size: 14px;
+}
+.article-page pre {
+  overflow-x: auto;
+  margin: 16px 0 24px;
+  padding: 16px 18px;
+  background: var(--soft);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font: 14px/1.6 ui-monospace, Consolas, monospace;
+}
+.article-page pre code { overflow-wrap: normal; }
+.article-page .app-summary { margin-top: 48px; }
+.article-page .app-summary h2 { margin-top: 0; }
+
 /* --- css/src/99-motion.css --- */
 /* ==========================================================================
    Reduced motion: honor the visitor's operating-system setting.
