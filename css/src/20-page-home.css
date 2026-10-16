@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Homepage (index.html): studio hero, featured 3D Heatmap panel,
+   Homepage (index.html): 3D Heatmap hero and sample panel, highlights,
    mapping service steps, and the contact panel
    ========================================================================== */
 
@@ -22,7 +22,7 @@
   line-height: 1.65;
 }
 
-/* Featured product panel beside the studio hero. */
+/* Sample report panel beside the hero. */
 .warehouse-feature {
   min-width: 0;
   background: var(--surface);

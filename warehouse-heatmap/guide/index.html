@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Shared head: generated from _partials/head.html by npm run build -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" type="image/png" sizes="128x128" href="/assets/unclocked-logo-v2-128.png">
+  <link rel="apple-touch-icon" href="/assets/unclocked-logo-v2-128.png">
+  <script src="/js/theme.js"></script>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/site.js" defer></script>
+  <!-- /Shared head -->
+  <meta name="description" content="Step-by-step guide to Unclocked 3D Heatmap for Power BI: add the visual, prepare warehouse coordinates, assign fields, explore in 3D and 2D, set the heat scale, and find exceptions.">
+  <title>How to Use Unclocked 3D Heatmap in Power BI</title>
+  <link rel="canonical" href="https://unclocked.app/warehouse-heatmap/guide/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Unclocked Studios">
+  <meta property="og:title" content="How to use Unclocked 3D Heatmap in Power BI">
+  <meta property="og:description" content="Step-by-step guide to Unclocked 3D Heatmap for Power BI: add the visual, prepare warehouse coordinates, assign fields, explore in 3D and 2D, set the heat scale, and find exceptions.">
+  <meta property="og:url" content="https://unclocked.app/warehouse-heatmap/guide/">
+  <meta property="og:image" content="https://unclocked.app/assets/warehouse-3d/2026-10/share-overview.png">
+  <meta property="og:image:width" content="1366">
+  <meta property="og:image:height" content="768">
+  <meta property="og:image:alt" content="Unclocked 3D Heatmap showing a 5,000-location warehouse in 3D over a floor plan, colored by on-hand units">
+  <meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner wrap">
+      <a class="brand" href="/" aria-label="Unclocked Studios home">
+        <img src="/assets/unclocked-logo-v2-128.png" alt="" width="34" height="34" decoding="async">
+        <span class="brand-name">Unclocked Studios</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" hidden>Menu <span aria-hidden="true">☰</span></button>
+      <nav class="site-nav" id="site-navigation" aria-label="Main navigation">
+        <a class="nav-mapping" href="/warehouse-heatmap/mapping/">Warehouse Mapping <span aria-hidden="true">↗</span></a>
+        <details class="products-dropdown">
+          <summary aria-controls="product-menu">Products <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="m3 4.5 3 3 3-3"/></svg></summary>
+          <div class="product-menu" id="product-menu">
+            <a href="/warehouse-heatmap/">Unclocked 3D Heatmap<span>Warehouse analytics in Power BI</span></a>
+            <a href="/products/loopdeck/">LoopDeck<span>Dashboard rotation for shared displays</span></a>
+            <a href="/products/twenty5/">twenty5<span>Workout tracking for iOS</span></a>
+            <a href="/products/frame64/">Frame64<span>Image to Base64 for Chrome</span></a>
+            <a href="/products/">All products<span>Compare plans and store links</span></a>
+          </div>
+        </details>
+        <a href="/#contact">Contact</a>
+        <div class="appearance-control" hidden>
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="10" cy="10" r="6.5"/><path d="M10 3.5a6.5 6.5 0 0 0 0 13z" fill="currentColor"/></svg>
+          <select id="appearance" aria-label="Appearance"><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option></select>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Studio</a><span aria-hidden="true">/</span><a href="/warehouse-heatmap/">3D Heatmap</a><span aria-hidden="true">/</span><span aria-current="page">How to use</span></nav>
+    <div class="page-header">
+      <span class="eyebrow">Unclocked 3D Heatmap guide</span>
+      <h1>How to use Unclocked 3D Heatmap</h1>
+      <p>Set up the visual in Power BI, connect your warehouse data, and explore it in 3D and 2D. This guide describes version 1.1.0.5, the current release on Microsoft Marketplace.</p>
+      <p class="fine-print">On this page: <a href="#install">1. Add the visual</a> · <a href="#prepare-data">2. Prepare your data</a> · <a href="#fields">3. Add your fields</a> · <a href="#explore">4. Explore the warehouse</a> · <a href="#heat-scale">5. Set the heat scale</a> · <a href="#exceptions">6. Find exceptions</a> · <a href="#format">7. Format and performance</a></p>
+    </div>
+
+    <section class="faq-section" id="install">
+      <span class="eyebrow">Step 1</span>
+      <h2>Add the visual to your report</h2>
+      <ol>
+        <li>In Power BI Desktop, open a report and select <strong>Get more visuals</strong> in the Visualizations pane.</li>
+        <li>Search for <strong>Unclocked 3D Heatmap</strong> and select <strong>Add</strong>.</li>
+        <li>Select the new icon in the Visualizations pane to place the visual on the page.</li>
+        <li>Make the visual large enough for the warehouse and its controls. A wide visual gives the menu, legend, and search box room.</li>
+      </ol>
+      <p>Prefer to start from a finished example? Open the <a href="/assets/warehouse-3d/unclocked-sample-data.pbix" download>sample report</a> in Power BI Desktop, or load the <a href="/warehouse-heatmap/support/#sample-data">sample CSV</a> and follow along.</p>
+    </section>
+
+    <section class="faq-section" id="prepare-data">
+      <span class="eyebrow">Step 2</span>
+      <h2>Prepare your warehouse data</h2>
+      <p>Use one row per physical bin or location. Each row identifies the location, gives its position, and provides the value to color it by.</p>
+      <div class="table-scroll" role="region" aria-label="Example rows" tabindex="0">
+      <table class="sample-fields">
+        <caption>Example rows: three locations in one aisle</caption>
+        <thead><tr><th scope="col">Location ID</th><th scope="col">X</th><th scope="col">Y</th><th scope="col">Z</th><th scope="col">Width</th><th scope="col">Length</th><th scope="col">Height</th><th scope="col">Heat Value</th></tr></thead>
+        <tbody>
+          <tr><td><code>A01-01-A</code></td><td>0</td><td>0</td><td>0</td><td>40</td><td>48</td><td>48</td><td>82</td></tr>
+          <tr><td><code>A01-01-B</code></td><td>0</td><td>0</td><td>48</td><td>40</td><td>48</td><td>48</td><td>57</td></tr>
+          <tr><td><code>A01-02-A</code></td><td>40</td><td>0</td><td>0</td><td>40</td><td>48</td><td>48</td><td>21</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <h3>How coordinates work</h3>
+      <ul>
+        <li><strong>X</strong> runs across the warehouse and <strong>Y</strong> along the floor. Together they mark the starting corner of the bin's footprint.</li>
+        <li><strong>Z</strong> is the bin's base height. Leave it out for a single-level layout; missing Z means floor level.</li>
+        <li>Width extends from X, length from Y, and height upward from Z.</li>
+        <li>Use one unit for everything, such as inches, feet, or centimeters. The visual centers the layout itself, so coordinates don't need to start at zero.</li>
+      </ul>
+      <h3>Tips for clean data</h3>
+      <ul>
+        <li>Give every location a stable, unique ID. If an ID appears twice, the visual keeps the first row and lists the duplicates in a warning.</li>
+        <li>Keep coordinates and sizes in numeric columns, and stacked bins on distinct Z values.</li>
+        <li>Use a measure for Heat Value so it responds to report filters.</li>
+        <li>Keep the layout in its own location table, related one-to-many to your inventory or activity data, so locations stay in place when they have no activity.</li>
+        <li>To show empty locations, right-click <strong>Location ID</strong> in the Build pane and turn on <strong>Show items with no data</strong>. Power BI otherwise leaves out rows where every measure is blank.</li>
+      </ul>
+      <p class="fine-print">Have the layout only in an AutoCAD drawing? Our <a href="/warehouse-heatmap/mapping/">warehouse mapping service</a> can prepare the coordinate CSV.</p>
+    </section>
+
+    <section class="faq-section" id="fields">
+      <span class="eyebrow">Step 3</span>
+      <h2>Add your fields</h2>
+      <p>Select the visual and drag fields into these wells in the Build pane. Location ID, X, Y, and Heat Value are enough to draw the warehouse.</p>
+      <table class="sample-fields">
+        <caption>Field wells in Unclocked 3D Heatmap</caption>
+        <thead><tr><th scope="col">Field well</th><th scope="col">What it does</th></tr></thead>
+        <tbody>
+          <tr><td>Location ID <span class="field-note">(required)</span></td><td>Unique name for each location, used for search, selection, details, and filtering.</td></tr>
+          <tr><td>X Coordinate, Y Coordinate <span class="field-note">(required)</span></td><td>Position on the warehouse floor.</td></tr>
+          <tr><td>Heat Value <span class="field-note">(required)</span></td><td>The numeric measure that colors each location.</td></tr>
+          <tr><td>Z Coordinate <span class="field-note">(optional)</span></td><td>Base height for stacked levels. Missing Z means floor level.</td></tr>
+          <tr><td>Bin Width, Bin Length, Bin Height <span class="field-note">(optional)</span></td><td>Size of each location. Without them, the defaults in <strong>Format visual → Bins</strong> apply.</td></tr>
+          <tr><td>Category Filter 1, 2, and 3 <span class="field-note">(optional)</span></td><td>Fields such as aisle, level, zone, or location type that viewers can filter by inside the visual.</td></tr>
+          <tr><td>Tooltip measures <span class="field-note">(optional)</span></td><td>Extra measures shown in a location's details, keeping their Power BI formats.</td></tr>
+          <tr><td>Low, Medium, High, and Critical threshold <span class="field-note">(optional)</span></td><td>DAX measures for color thresholds that follow slicers. See <a href="#heat-scale">step 5</a>.</td></tr>
+          <tr><td>Exception score <span class="field-note">(optional)</span></td><td>A DAX measure for ranking exceptions. See <a href="#exceptions">step 6</a>.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="faq-section" id="explore">
+      <span class="eyebrow">Step 4</span>
+      <h2>Explore the warehouse</h2>
+      <h3>Move around in 3D</h3>
+      <ul>
+        <li>Drag with the left mouse button to orbit, use the mouse wheel to zoom, and drag with the middle button to pan.</li>
+        <li>Hover over a bin to see its location, categories, coordinates, size, and heat value.</li>
+        <li>Select a bin to see its details in the visual. Right-click it for the Power BI context menu.</li>
+      </ul>
+      <h3>Use the menu</h3>
+      <p>Open <strong>Menu</strong> in the upper-right corner of the visual.</p>
+      <ul>
+        <li><strong>Mode:</strong> switch between <strong>3D</strong> and the flat <strong>2D</strong> plan.</li>
+        <li><strong>Camera:</strong> <strong>Default</strong> returns to the default view, <strong>Top</strong> looks straight down, and <strong>Iso</strong> gives an angled view. The save button makes the current camera the report's default, and <strong>Fit current layout</strong> frames the locations currently shown.</li>
+        <li><strong>Saved Views:</strong> click an empty <strong>P1</strong>, <strong>P2</strong>, or <strong>P3</strong> to save the current camera, click a saved one to return to it, and Shift-click to replace it. Save the report to keep these views.</li>
+        <li><strong>Category filters:</strong> each category field gets a dropdown. Click values to add or remove them, and <strong>Clear</strong> to show all. Locations must match every active filter. <strong>Non-matching</strong> chooses whether other locations are dimmed, keeping their place in the layout, or hidden.</li>
+      </ul>
+      <h3>Switch to the 2D plan</h3>
+      <p>In 2D, dragging pans instead of orbiting and the wheel zooms. The pad in the bottom-right corner pans with its arrows and rotates the plan in 90° steps; its center button resets the rotation and fits the floor. <strong>Fit to floor</strong> in the menu also frames the whole warehouse. Where levels share a footprint, the highest one shows on top, so filter to one level to analyze it on its own. Returning to 3D restores your previous 3D camera.</p>
+      <h3>Search for a location</h3>
+      <p>Type part of a Location ID in <strong>Search location</strong>, then choose a suggestion or press Enter. The visual focuses on that location and selects it. IDs that start with your text are listed first. Press Escape to clear the search.</p>
+      <h3>Connect to the rest of the report</h3>
+      <p>Choose what a click does in <strong>Format visual → Interaction → Bin click behavior</strong>:</p>
+      <ul>
+        <li><strong>Visual only</strong> highlights the bin and shows its details without changing other visuals.</li>
+        <li><strong>Power BI selection</strong> uses standard Power BI selection, so other visuals respond through their interactions.</li>
+        <li><strong>Power BI filter</strong> filters the report to the selected location.</li>
+      </ul>
+    </section>
+
+    <section class="faq-section" id="heat-scale">
+      <span class="eyebrow">Step 5</span>
+      <h2>Set the heat scale</h2>
+      <p>The heat scale in <strong>Format visual → Heat scale</strong> turns Heat Value into color. Open <strong>Scale details</strong> in the legend to see the values in use.</p>
+      <ul>
+        <li><strong>Gradient</strong> blends smoothly between the low, medium, high, and critical colors. Use it when small differences matter.</li>
+        <li><strong>Bands</strong> changes color at each threshold. Use it when thresholds are business rules, such as warning and critical levels.</li>
+        <li><strong>Normalized gradient</strong> spaces the four colors evenly across the displayed range and ignores thresholds.</li>
+      </ul>
+      <h3>Range and thresholds</h3>
+      <ul>
+        <li><strong>Auto range from visible data</strong> fits the scale to the locations shown. Turn it off and set <strong>Manual minimum</strong> and <strong>Manual maximum</strong> to compare pages, sites, or periods on the same scale.</li>
+        <li><strong>Cap outliers</strong> keeps a few extreme values from washing out the rest of the warehouse.</li>
+        <li><strong>Treat zero as empty</strong> uses the empty color for blank, zero, and negative values.</li>
+        <li><strong>Threshold source:</strong> <strong>Manual</strong> uses the values set in the Format pane. <strong>Measures</strong> uses the DAX measures in the threshold field wells, so targets can follow slicers. Each measure must return the same number for every location; if one doesn't, the visual shows an error and neutral colors.</li>
+      </ul>
+    </section>
+
+    <section class="faq-section" id="exceptions">
+      <span class="eyebrow">Step 6</span>
+      <h2>Find exceptions</h2>
+      <p>Turn on <strong>Format visual → Exceptions → Show exception finder</strong> to list the locations that need attention.</p>
+      <ul>
+        <li><strong>Heat Value rules</strong> find locations <strong>At or above</strong> or <strong>At or below</strong> a cutoff, or that are <strong>Zero</strong> or <strong>Blank</strong>. The cutoff is separate from the color thresholds.</li>
+        <li><strong>DAX exception score</strong> ranks locations by a measure in the Exception score well. Only positive scores count, and higher scores rank first.</li>
+        <li><strong>Results to show</strong> sets how many locations are listed. Results follow category filters and report highlighting.</li>
+      </ul>
+      <p>Select a result to see its details, then choose <strong>Focus in 3D</strong> to frame it. Finding blank locations requires <strong>Show items with no data</strong> on Location ID, as described in <a href="#prepare-data">step 2</a>.</p>
+    </section>
+
+    <section class="faq-section" id="format">
+      <span class="eyebrow">Step 7</span>
+      <h2>Format and performance</h2>
+      <ul>
+        <li><strong>Scene:</strong> background and floor colors, the floor plane, a fixed floor size, bin outlines and opacity, and the <strong>UI theme</strong> (Neutral light, Neutral dark, or Classic purple). <strong>Show 3D Heatmap status</strong> and <strong>Show license notice</strong> hide the corner boxes.</li>
+        <li><strong>Floor image:</strong> paste a PNG, JPEG, or WebP image as a data URL in <strong>Scene</strong>, then set the floor origin, width, and length to the same units and bounds as your coordinates so it lines up. Links to images on other sites aren't supported.</li>
+        <li><strong>Legend:</strong> show or hide it, change its title, and choose how the selected value is marked.</li>
+        <li><strong>Bins:</strong> default sizes, <strong>Vertical scale</strong> to stretch or compress heights, and <strong>Max displayed bins</strong>.</li>
+        <li><strong>Camera:</strong> automatic framing, default distance, and whether to open on the saved default view.</li>
+      </ul>
+      <h3>Large warehouses</h3>
+      <p>Choose a <strong>Performance preset</strong>: <strong>Balanced</strong> for most reports, <strong>Quality</strong> for smaller layouts, <strong>Performance</strong> when navigation speed matters most, or <strong>Custom</strong> for individual settings. If movement slows, turn off bin outlines and hover tooltips, lower Max displayed bins while designing, or filter the report to one area. Test the finished report in both Power BI Desktop and the Power BI service.</p>
+      <h3>Plan limits</h3>
+      <p>The free plan renders up to 2,500 bins with every feature. Professional removes that limit, up to the Max displayed bins you set (at most 100,000). See <a href="/warehouse-heatmap/#availability">plans and pricing</a> and <a href="/warehouse-heatmap/support/#licensing">license assignment</a>.</p>
+    </section>
+
+    <section class="faq-section">
+      <h2>Need more help?</h2>
+      <p>See the <a href="/warehouse-heatmap/faq/">frequently asked questions</a> and <a href="/warehouse-heatmap/support/">troubleshooting</a>, or email <a href="mailto:support@unclocked.app?subject=Unclocked%203D%20Heatmap%20question">support@unclocked.app</a> with your Power BI version, approximate number of locations, and a screenshot.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div><a class="brand" href="/"><img src="/assets/unclocked-logo-v2-128.png" alt="" width="34" height="34" decoding="async"><span class="brand-name">Unclocked Studios</span></a><p>Thoughtful tools. Practical possibilities.</p></div>
+        <div class="footer-links">
+          <div><strong>Explore</strong><a href="/products/">All products</a><a href="/warehouse-heatmap/">3D Heatmap</a><a href="/warehouse-heatmap/guide/">3D Heatmap guide</a><a href="/warehouse-heatmap/faq/">3D Heatmap FAQ</a><a href="/products/loopdeck/">LoopDeck</a><a href="/products/twenty5/">twenty5</a><a href="/products/frame64/">Frame64</a></div>
+          <div><strong>Get in touch</strong><a href="/warehouse-heatmap/mapping/">Request warehouse mapping</a><a href="/support/">Support Hub</a><a href="/warehouse-heatmap/support/">3D Heatmap support</a><a href="/loopdeck/">LoopDeck support</a><a href="/twenty5/support/">twenty5 support</a><a href="/frame64/">Frame64 support</a><a href="mailto:support@unclocked.app">support@unclocked.app</a></div>
+          <div><strong>Policies</strong><a href="/warehouse-heatmap/privacy/">3D Heatmap privacy</a><a href="/loopdeck/privacy/">LoopDeck privacy</a><a href="/twenty5/privacy/">twenty5 privacy</a><a href="/twenty5/tos/">twenty5 terms</a><a href="/frame64/privacy/">Frame64 privacy</a></div>
+        </div>
+      </div>
+      <div class="footer-bottom"><span>© 2026 Unclocked Studios LLC. All rights reserved.</span><a href="/#approach">Our approach</a></div>
+    </div>
+  </footer>
+</body>
+
+</html>

@@ -62,6 +62,7 @@ main.container {
   gap: 10px;
 }
 .resource-links { margin-top: 20px; }
+.learn-links { margin-top: 24px; } /* Guide and FAQ links after a section. */
 
 .hero-note { /* Short line under the hero buttons. */
   display: flex;

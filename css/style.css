@@ -444,6 +444,7 @@ main.container {
   gap: 10px;
 }
 .resource-links { margin-top: 20px; }
+.learn-links { margin-top: 24px; } /* Guide and FAQ links after a section. */
 
 .hero-note { /* Short line under the hero buttons. */
   display: flex;
@@ -736,38 +737,6 @@ main.container {
 .product-card-body p { font-size: 14px; }
 .product-card-body .button-row { margin-top: auto; }
 
-.product-row { /* Four compact tiles; two per row on tablets, one on phones. */
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px;
-  margin-top: 24px;
-}
-.product-tile {
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-}
-.product-tile h3 {
-  font-size: 17px;
-  margin-bottom: 4px;
-}
-.product-tile .product-platform {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  color: var(--accent-text);
-  margin-bottom: 10px;
-}
-.product-tile p {
-  font-size: 13px;
-  margin-bottom: 12px;
-}
-.product-tile .card-link { margin-top: auto; }
-
 /* --------------------------------------------------------------------------
    FAQ list: questions that expand with a native <details> element
    -------------------------------------------------------------------------- */
@@ -791,12 +760,8 @@ main.container {
   margin: 12px 0 0;
 }
 
-@media (max-width: 900px) {
-  .product-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-
 @media (max-width: 680px) {
-  .product-grid, .product-row { grid-template-columns: 1fr; }
+  .product-grid { grid-template-columns: 1fr; }
   .product-card-body { padding: 20px; }
 }
 
@@ -874,6 +839,7 @@ figcaption strong { /* Caption title on its own line. */
    coordinate-table  monospaced CSV preview inside an output-preview frame
    sample-fields     two-column reference table (CSV fields, pricing tiers)
    tier-table        compact variant of sample-fields inside a plan card
+   table-scroll      wrapper that scrolls a wide table sideways on phones
    ========================================================================== */
 
 .output-preview { /* Framed preview of a file, with a label bar. */
@@ -934,6 +900,20 @@ figcaption strong { /* Caption title on its own line. */
   overflow-wrap: anywhere;
 }
 .sample-fields th { background: var(--soft); }
+.sample-fields .field-note { /* "(required)" or "(optional)" after a field name. */
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* Wide tables keep readable columns and scroll inside their card on small screens. */
+.table-scroll {
+  overflow-x: auto;
+  margin: 24px 0;
+}
+.table-scroll .sample-fields {
+  min-width: 680px;
+  margin: 0;
+}
 
 .tier-table {
   margin: 4px 0 20px;
@@ -1175,7 +1155,7 @@ input::placeholder, textarea::placeholder {
 
 /* --- css/src/20-page-home.css --- */
 /* ==========================================================================
-   Homepage (index.html): studio hero, featured 3D Heatmap panel,
+   Homepage (index.html): 3D Heatmap hero and sample panel, highlights,
    mapping service steps, and the contact panel
    ========================================================================== */
 
@@ -1198,7 +1178,7 @@ input::placeholder, textarea::placeholder {
   line-height: 1.65;
 }
 
-/* Featured product panel beside the studio hero. */
+/* Sample report panel beside the hero. */
 .warehouse-feature {
   min-width: 0;
   background: var(--surface);
@@ -1324,8 +1304,9 @@ input::placeholder, textarea::placeholder {
 
 /* --- css/src/22-page-mapping.css --- */
 /* ==========================================================================
-   Warehouse mapping page (warehouse-heatmap/mapping/): breadcrumb, the
-   deliverable preview, process steps, request panel, and FAQ
+   Warehouse mapping page (warehouse-heatmap/mapping/): breadcrumb (also used
+   by the 3D Heatmap guide and FAQ), deliverable preview, process steps,
+   request panel, and FAQ
    On phones the request panel moves above the details (order).
    ========================================================================== */
 

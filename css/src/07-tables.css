@@ -3,6 +3,7 @@
    coordinate-table  monospaced CSV preview inside an output-preview frame
    sample-fields     two-column reference table (CSV fields, pricing tiers)
    tier-table        compact variant of sample-fields inside a plan card
+   table-scroll      wrapper that scrolls a wide table sideways on phones
    ========================================================================== */
 
 .output-preview { /* Framed preview of a file, with a label bar. */
@@ -63,6 +64,20 @@
   overflow-wrap: anywhere;
 }
 .sample-fields th { background: var(--soft); }
+.sample-fields .field-note { /* "(required)" or "(optional)" after a field name. */
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* Wide tables keep readable columns and scroll inside their card on small screens. */
+.table-scroll {
+  overflow-x: auto;
+  margin: 24px 0;
+}
+.table-scroll .sample-fields {
+  min-width: 680px;
+  margin: 0;
+}
 
 .tier-table {
   margin: 4px 0 20px;
