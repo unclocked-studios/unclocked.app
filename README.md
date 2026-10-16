@@ -68,7 +68,7 @@ directly; the tests fail if it does not match the modules.
 
 | Module | Contents |
 | --- | --- |
-| `00-tokens.css` | Colors, radius, shadow, and width. Each color is written once as `light-dark(light, dark)`. |
+| `00-tokens.css` | Colors, radius, shadow, and width. Each color is written once as `light-dark(light, dark)`. The accent colors come from the logo: deep purple `#523ec3` for buttons and light-mode links, light purple `#a087ff` for dark-mode links, and teal for small decorative marks only. |
 | `01-base.css` | Element defaults, typography, `.eyebrow`, `.fine-print` |
 | `02-header.css` | Skip link, header, navigation, Products menu, Appearance, mobile menu |
 | `03-layout.css` | Content width, sections, hero, grids, text-page column and header |
@@ -142,7 +142,8 @@ and stay out of the sitemap.
 2. Support page at `/<name>/` and privacy policy at `/<name>/privacy/` (these are the URLs
    you enter in the store listing; add them to the store-registered table below and to
    `tests/publishing.test.cjs`).
-3. A card on `/products/` (`.product-card`) and a tile in the homepage row (`.product-tile`).
+3. A card on `/products/` (`.product-card`). The homepage features only 3D Heatmap; other products
+   are reached through the Products menu and `/products/`.
 4. Links in `_partials/header.html` (Products menu) and `_partials/footer.html` (Explore,
    Get in touch, Policies), then `npm run build`.
 5. An entry on the Support Hub (`/support/`), the 404 page, and `sitemap.xml`.
@@ -155,7 +156,7 @@ store listing or plan changes.
 
 | Product | Website pages | Source of truth |
 | --- | --- | --- |
-| Unclocked 3D Heatmap (Power BI) | `/warehouse-heatmap/` and its `support/`, `privacy/`, `mapping/` | Microsoft Marketplace listing (Overview and Plans + Pricing tabs) |
+| Unclocked 3D Heatmap (Power BI) | `/warehouse-heatmap/` and its `guide/`, `faq/`, `changelog/`, `support/`, `privacy/`, `mapping/` | Microsoft Marketplace listing (Overview and Plans + Pricing tabs); the visual's repository for features |
 | LoopDeck (Chrome) | `/products/loopdeck/`, `/loopdeck/`, `/loopdeck/privacy/` | Chrome Web Store listing; `Tab Cycler/docs/plans-and-trial.md` for prices |
 | Frame64 (Chrome) | `/products/frame64/`, `/frame64/`, `/frame64/privacy/` | Chrome Web Store listing; `src/shared/plans.mjs` and `demo-limits.mjs` in the Frame64 project |
 | twenty5 (iOS) | `/products/twenty5/`, `/twenty5/support/`, `/twenty5/privacy/`, `/twenty5/tos/` | App Store listing |
@@ -163,6 +164,20 @@ store listing or plan changes.
 `/support/` is the support hub for all products. `/twenty5/` is twenty5's App Store Marketing
 URL and instantly redirects to `/products/twenty5/`. `/twenty5/upcoming/` stays live because
 the twenty5 app links to it; it is a noindexed "under construction" page.
+
+### 3D Heatmap guide, FAQ, and changelog
+
+`/warehouse-heatmap/guide/` and `/warehouse-heatmap/faq/` describe the version published on
+Marketplace (1.1.0.5 as of October 15, 2026), written from that version's source, Format pane
+settings, and user guide in the visual's repository. Describe only published behavior there.
+
+`/warehouse-heatmap/changelog/` lists each version newest first, dated by when it was completed
+in the visual's repository (Marketplace availability follows Microsoft's review). A version in
+review sits at the top under "In review" with a notice that it is not available yet.
+
+When a new version is published: move its changelog entry from "In review" to "Current
+version", update the guide and FAQ and their version notes, and change
+`publishedHeatmapVersion` in `tests/content.test.cjs`.
 
 ### 3D Heatmap plans
 

@@ -62,3 +62,37 @@ owner's review before publishing.
   without overflow or broken images, in light and dark themes; every local link and asset
   returned 200 from the preview server.
 - Not changed: the September 2026 screenshots stay at their URLs, as documented in the README.
+
+## 3D Heatmap flagship, guide, and FAQ — October 15, 2026
+
+- Homepage now leads with Unclocked 3D Heatmap: hero, sample report panel, three highlights,
+  and links to the guide, FAQ, and plans. The four-product row was removed; other products are
+  reached through the Products menu and `/products/`.
+- New `/warehouse-heatmap/guide/` (seven setup and usage steps) and `/warehouse-heatmap/faq/`
+  (getting started, data, using the visual, plans, performance and privacy). Both describe
+  version 1.1.0.5, written from commit `c11131e` of the visual's repository (its 1.1.0.5
+  release notes, user guide, `capabilities.json`, and on-screen labels). 1.2 features
+  (layout builder, playback, cutaway, congestion floor) are deliberately not described.
+- The support page's general FAQ moved to the FAQ page; its licensing, sample data, and
+  troubleshooting sections and their anchors are unchanged. Footer, support hub, 404 page,
+  product page, and sitemap link the new pages.
+- Verified: `npm run build`, `npm run check`, and 34 tests pass. Changed pages fit 320px
+  without overflow or broken images in light and dark themes; the guide's wide example table
+  scrolls inside its card on phones.
+- Owner follow-up: LoopDeck's Chrome Web Store Homepage URL is `/`, which no longer shows
+  LoopDeck. Consider changing that store field to `/products/loopdeck/`.
+
+## Changelog and brand colors — October 15, 2026
+
+- New `/warehouse-heatmap/changelog/`: 1.0.0.1 (June 29), 1.1.0.3 (September 16; includes the
+  unpublished 1.1.0.1 and 1.1.0.2 work), 1.1.0.5 (October 4; 1.1.0.4 was withdrawn), and 1.2 at
+  the top as "In review", with a notice that its features are not available yet. Dates are the
+  completion dates in the visual's repository, as the owner requested; Marketplace dates may
+  differ. Linked from the footer, product page, guide, FAQ, and sitemap; a test checks that the
+  published version is marked current.
+- Accent colors now come from the logo instead of the previous pink-red: buttons `#523ec3`
+  (white text 7.4:1; hover `#44329f`), links `#523ec3` in light mode (6.9:1 on the page) and
+  `#a087ff` in dark mode (6.3:1). Label dots use the logo teal (decorative only). The theme test
+  checks every new text pair at 4.5:1 or better.
+- Verified: build, check, and 35 tests pass. Homepage and changelog reviewed in light and dark
+  themes; 13 pages fit 320px without overflow or broken images.

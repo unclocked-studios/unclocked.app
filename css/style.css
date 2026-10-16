@@ -22,11 +22,15 @@
   --text: light-dark(#23232a, #f3f4f7);
   --muted: light-dark(#586070, #b5becf);
 
-  /* Brand accent: --accent fills buttons; --accent-text is the readable text and link color. */
-  --accent: #c83256;
-  --accent-hover: #ae2849;
-  --accent-text: light-dark(#b32649, #ff91ac);
-  --selection: light-dark(#fbe9ee, #502738);
+  /* Brand accent from the logo's purples: --accent fills buttons (deep purple #523ec3);
+     --accent-text is the readable text and link color (deep purple on light, light purple
+     #a087ff on dark). --accent-2 is the logo's teal, for small decorative marks only:
+     white text on it is not readable. */
+  --accent: #523ec3;
+  --accent-hover: #44329f;
+  --accent-text: light-dark(#523ec3, #a087ff);
+  --accent-2: light-dark(#24b7a5, #27d7c2);
+  --selection: light-dark(#ece8fb, #2f2a52);
 
   /* Shape and depth */
   --shadow: 0 12px 40px light-dark(#23232a06, #00000012);
@@ -49,8 +53,9 @@
     --line: #dde1e8;
     --text: #23232a;
     --muted: #586070;
-    --accent-text: #b32649;
-    --selection: #fbe9ee;
+    --accent-text: #523ec3;
+    --accent-2: #24b7a5;
+    --selection: #ece8fb;
     --shadow: 0 12px 40px #23232a06;
   }
 }
@@ -142,11 +147,11 @@ li + li { margin-top: .3rem; }
   letter-spacing: .16em;
   text-transform: uppercase;
 }
-.eyebrow::before {
+.eyebrow::before { /* The logo's teal, as a small brand mark beside purple label text. */
   content: '';
   width: 6px;
   height: 6px;
-  background: currentColor;
+  background: var(--accent-2);
   border-radius: 2px;
   flex-shrink: 0;
 }
@@ -444,6 +449,7 @@ main.container {
   gap: 10px;
 }
 .resource-links { margin-top: 20px; }
+.learn-links { margin-top: 24px; } /* Guide and FAQ links after a section. */
 
 .hero-note { /* Short line under the hero buttons. */
   display: flex;
@@ -670,6 +676,14 @@ main.container {
   margin-bottom: 20px;
 }
 
+/* Changelog: version dates, and the in-review version marked with the brand accent. */
+.release-date {
+  color: var(--muted);
+  font-size: 13px;
+  margin: -6px 0 16px;
+}
+.release-upcoming { border-left: 3px solid var(--accent); }
+
 .app-summary {
   background: var(--surface);
   border: 1px solid var(--line);
@@ -736,38 +750,6 @@ main.container {
 .product-card-body p { font-size: 14px; }
 .product-card-body .button-row { margin-top: auto; }
 
-.product-row { /* Four compact tiles; two per row on tablets, one on phones. */
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px;
-  margin-top: 24px;
-}
-.product-tile {
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-}
-.product-tile h3 {
-  font-size: 17px;
-  margin-bottom: 4px;
-}
-.product-tile .product-platform {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  color: var(--accent-text);
-  margin-bottom: 10px;
-}
-.product-tile p {
-  font-size: 13px;
-  margin-bottom: 12px;
-}
-.product-tile .card-link { margin-top: auto; }
-
 /* --------------------------------------------------------------------------
    FAQ list: questions that expand with a native <details> element
    -------------------------------------------------------------------------- */
@@ -791,12 +773,8 @@ main.container {
   margin: 12px 0 0;
 }
 
-@media (max-width: 900px) {
-  .product-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-
 @media (max-width: 680px) {
-  .product-grid, .product-row { grid-template-columns: 1fr; }
+  .product-grid { grid-template-columns: 1fr; }
   .product-card-body { padding: 20px; }
 }
 
@@ -874,6 +852,7 @@ figcaption strong { /* Caption title on its own line. */
    coordinate-table  monospaced CSV preview inside an output-preview frame
    sample-fields     two-column reference table (CSV fields, pricing tiers)
    tier-table        compact variant of sample-fields inside a plan card
+   table-scroll      wrapper that scrolls a wide table sideways on phones
    ========================================================================== */
 
 .output-preview { /* Framed preview of a file, with a label bar. */
@@ -934,6 +913,20 @@ figcaption strong { /* Caption title on its own line. */
   overflow-wrap: anywhere;
 }
 .sample-fields th { background: var(--soft); }
+.sample-fields .field-note { /* "(required)" or "(optional)" after a field name. */
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* Wide tables keep readable columns and scroll inside their card on small screens. */
+.table-scroll {
+  overflow-x: auto;
+  margin: 24px 0;
+}
+.table-scroll .sample-fields {
+  min-width: 680px;
+  margin: 0;
+}
 
 .tier-table {
   margin: 4px 0 20px;
@@ -1175,7 +1168,7 @@ input::placeholder, textarea::placeholder {
 
 /* --- css/src/20-page-home.css --- */
 /* ==========================================================================
-   Homepage (index.html): studio hero, featured 3D Heatmap panel,
+   Homepage (index.html): 3D Heatmap hero and sample panel, highlights,
    mapping service steps, and the contact panel
    ========================================================================== */
 
@@ -1198,7 +1191,7 @@ input::placeholder, textarea::placeholder {
   line-height: 1.65;
 }
 
-/* Featured product panel beside the studio hero. */
+/* Sample report panel beside the hero. */
 .warehouse-feature {
   min-width: 0;
   background: var(--surface);
@@ -1324,8 +1317,9 @@ input::placeholder, textarea::placeholder {
 
 /* --- css/src/22-page-mapping.css --- */
 /* ==========================================================================
-   Warehouse mapping page (warehouse-heatmap/mapping/): breadcrumb, the
-   deliverable preview, process steps, request panel, and FAQ
+   Warehouse mapping page (warehouse-heatmap/mapping/): breadcrumb (also used
+   by the 3D Heatmap guide and FAQ), deliverable preview, process steps,
+   request panel, and FAQ
    On phones the request panel moves above the details (order).
    ========================================================================== */
 

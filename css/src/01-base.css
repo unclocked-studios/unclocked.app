@@ -84,11 +84,11 @@ li + li { margin-top: .3rem; }
   letter-spacing: .16em;
   text-transform: uppercase;
 }
-.eyebrow::before {
+.eyebrow::before { /* The logo's teal, as a small brand mark beside purple label text. */
   content: '';
   width: 6px;
   height: 6px;
-  background: currentColor;
+  background: var(--accent-2);
   border-radius: 2px;
   flex-shrink: 0;
 }
