@@ -1,7 +1,28 @@
 /* ==========================================================================
-   Articles (warehouse-heatmap/guides/): reading column with headings, code
-   blocks for DAX and Power Query, and the byline under the title
+   Articles: the index at /articles/ and each article page
+   (warehouse-heatmap/guides/): reading column with headings, code blocks for
+   DAX and Power Query, and the byline under the title
    ========================================================================== */
+
+/* Index: one wide card per article, image beside the summary. */
+.article-list {
+  display: grid;
+  gap: 24px;
+  margin-top: 28px;
+}
+.article-card .article-meta { margin-bottom: 12px; }
+@media (min-width: 761px) {
+  .article-card {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  }
+  .article-card .product-card-media {
+    aspect-ratio: auto;
+    min-height: 100%;
+    border-bottom: 0;
+    border-right: 1px solid var(--line);
+  }
+}
 
 main.article-page h2 {
   font-size: 26px;

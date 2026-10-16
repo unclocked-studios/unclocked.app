@@ -183,6 +183,9 @@ version", update the guide and FAQ and their version notes, and change
 
 Articles live under `/warehouse-heatmap/guides/<slug>/` and use `main.container.article-page`
 (`css/src/24-page-article.css`), with `Article` JSON-LD, a visible date, and a sitemap entry.
+The Articles page (`/articles/`, linked in the header and footer) lists every article as a
+card, newest first, and its `ItemList` JSON-LD names each one; `tests/content.test.cjs` fails
+if an article is missing from it. Each article's breadcrumb leads back to `/articles/`.
 Write them to stay true across visual versions; link version-specific details to the guide.
 The first is `warehouse-heat-map-power-bi/`, targeting searches for building a warehouse heat
 map in Power BI.

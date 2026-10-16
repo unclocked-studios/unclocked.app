@@ -122,3 +122,15 @@ owner's review before publishing.
   and the guide. Version-neutral apart from the free 2,500-location limit.
 - Verified: build, check, and 35 tests pass; the page fits 320px with code blocks scrolling
   inside their frame; reviewed at desktop width in light theme and 320px in dark theme.
+
+## Articles page — October 15, 2026
+
+- New `/articles/` index with a card per article (image, eyebrow, title, date and reading
+  time, summary, and a Read the article link), `CollectionPage` and `ItemList` JSON-LD, and a
+  sitemap entry. Cards reuse the product card styles and sit image-beside-text above 760px.
+- Articles link added to the header between Products and Contact, and to the footer's Explore
+  column. The heat map article's breadcrumb now reads Studio / Articles.
+- New test: the header links `/articles/` and the page links every article under
+  `/warehouse-heatmap/guides/`.
+- Verified: build, check, and 36 tests pass; the page fits 320px in dark theme with no
+  horizontal overflow; desktop reviewed in light theme; the header stays on one row at 920px.
