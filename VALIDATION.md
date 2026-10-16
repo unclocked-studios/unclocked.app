@@ -105,3 +105,6 @@ owner's review before publishing.
 - twenty5 hero: the App Store badge is now the store button, beside Support, replacing the
   duplicate "View on the App Store" button.
 - Verified: build, check, and 35 tests pass; 20 pages fit 320px without horizontal overflow.
+- Removed the 14 unused September 2026 screenshots, including `loopdeck-dashboard-cycling.png`.
+  No page, stylesheet, script, sitemap, or the visual's repository referenced them; their URLs
+  now return 404 so search engines drop them. `sample-coordinates.csv` stays at its old URL.
