@@ -135,9 +135,10 @@ owner's review before publishing.
 - Verified: build, check, and 36 tests pass; the page fits 320px in dark theme with no
   horizontal overflow; desktop reviewed in light theme; the header stays on one row at 920px.
 
-## Version 1.2 site update (waiting branch) — October 15, 2026
+## Version 1.2 site update — prepared October 15, published October 18, 2026
 
-Prepared on `site-review/heatmap-1.2` to merge when Microsoft approves visual 1.2. Not merged.
+Prepared on `site-review/heatmap-1.2` while Microsoft reviewed visual 1.2, then merged after
+the Marketplace listing showed version 1.2.0.0, updated October 18, 2026 (checked that day).
 
 - Guide and FAQ rewritten for 1.2.0.0 from the visual's `docs/user-guide.md`, the 1.2 release
   notes, `capabilities.json`, and on-screen labels at `4b80d44`: layout builder, View tools
@@ -152,6 +153,13 @@ Prepared on `site-review/heatmap-1.2` to merge when Microsoft approves visual 1.
 - Inline code now wraps on phones (a DAX example widened the FAQ at 320px).
 - Verified: build, check, and 35 tests pass; changed pages fit 320px without overflow or broken
   images; product page, guide, and changelog reviewed at desktop width.
-- Owner follow-ups when merging: replace `unclocked-sample-data.pbix` with a sample that embeds
-  1.2 (the release notes call for a layout-builder page), confirm the approval date, and
-  consider updating `share-overview.png`, which still shows the 1.1 interface.
+- At merge (October 18): rebased on `main` (the articles work); only VALIDATION.md conflicted.
+- Listing checked October 18: Overview matches the site's feature set and calls the layout
+  builder "experimental" and "under active development", so the product page (an Experimental
+  tag), guide, FAQ, changelog, and homepage now say so. Prices unchanged ($6, $5, $4, $3 per
+  user per month by tier); Warehouse Pro is still listed and still not shown on the site.
+- Sample report replaced with the listing's 1.2 Download Sample (visual 1.2.0.0, nine pages
+  including Layout builder, 3.7 MB). Checked before publishing: author metadata is Unclocked
+  Studios only, no local file paths or personal names. The product page lists the new pages.
+- Changelog shows the Marketplace publication date (October 18) beside the completion date.
+- Open: `share-overview.png` (link previews) still shows the 1.1 interface.

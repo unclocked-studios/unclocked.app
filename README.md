@@ -168,12 +168,12 @@ the twenty5 app links to it; it is a noindexed "under construction" page.
 ### 3D Heatmap guide, FAQ, and changelog
 
 `/warehouse-heatmap/guide/` and `/warehouse-heatmap/faq/` describe the version published on
-Marketplace (1.2.0.0 on the `site-review/heatmap-1.2` branch, prepared October 15, 2026 for the
-day 1.2 is approved), written from that version's source, Format pane settings, and user guide
-in the visual's repository. Describe only published behavior there.
+Marketplace (1.2.0.0, published October 18, 2026), written from that version's source, Format
+pane settings, and user guide in the visual's repository. The listing calls the layout builder
+experimental; keep that label on the product page, guide, FAQ, and changelog until it changes. Describe only published behavior there.
 
 `/warehouse-heatmap/changelog/` lists each version newest first, dated by when it was completed
-in the visual's repository (Marketplace availability follows Microsoft's review). A version in
+in the visual's repository, with the Marketplace publication date beside it once known. A version in
 review sits at the top under an "In review" eyebrow with a `.notice` that it is not available yet;
 to mark it with the accent edge again, add a style such as
 `.release-upcoming { border-left: 3px solid var(--accent); }` with the entry (unused classes fail
@@ -230,8 +230,9 @@ credits installs from the website. Marketplace links carry similar `ocid` and UT
   are cropped out; the interface is not retouched. Pages display `.webp` copies, 1,400 px wide;
   the `.png` files are the full-size links. The finished marketing images in that folder carry a
   "1.2.0.0 preview" footer and are not used on the site.
-- `assets/warehouse-3d/unclocked-sample-data.pbix`: the seven-page, 5,000-location sample
-  report with visual 1.1.0.5 embedded. Replace it when a new sample is published.
+- `assets/warehouse-3d/unclocked-sample-data.pbix`: the nine-page sample report with visual
+  1.2.0.0 embedded, the same file as the listing's Download Sample (downloaded October 18, 2026).
+  Replace it when a new sample is published, and update the page list on the product page.
 - `assets/warehouse-3d/warehouse_sample.csv`: the 2,208-location CSV sample, preserved
   byte for byte. `sample-coordinates.csv` is an identical copy at an older URL; keep both
   in sync. The support page's `#sample-data` section explains the field assignments.

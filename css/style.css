@@ -634,7 +634,7 @@ main.container {
 }
 
 .content-card, .support-item, .feature-card { padding: 24px; }
-.plan-tag { /* Marks a feature that needs the Professional plan. */
+.plan-tag { /* Marks a feature's plan (Professional) or status (Experimental). */
   display: inline-block;
   margin-left: 6px;
   padding: 2px 8px;
