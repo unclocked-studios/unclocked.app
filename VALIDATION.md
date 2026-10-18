@@ -162,4 +162,17 @@ the Marketplace listing showed version 1.2.0.0, updated October 18, 2026 (checke
   including Layout builder, 3.7 MB). Checked before publishing: author metadata is Unclocked
   Studios only, no local file paths or personal names. The product page lists the new pages.
 - Changelog shows the Marketplace publication date (October 18) beside the completion date.
-- Open: `share-overview.png` (link previews) still shows the 1.1 interface.
+- Closed October 18: `share-overview.png` (link previews) showed the 1.1 interface; replaced
+  by a 1.2 image (next section).
+
+## Version 1.2 link-preview image — October 18, 2026
+
+- New `assets/warehouse-3d/1-2/share-overview.png` (1366×768): `overview-hero.png` (1091×724)
+  centered, not scaled or retouched, on its own background color (#F4F7FA, the color of every
+  edge pixel), so the padding is seamless.
+- All 12 pages' `og:image` and both JSON-LD `image` values (product page `SoftwareApplication`,
+  article `Article`) point at it. Width and height are unchanged; the alt text now matches the
+  homepage and product hero alt: the 4,238-location sample warehouse in 3D over its floor plan,
+  racks colored by on-hand units, with the location search box above.
+- The 1.1 `assets/warehouse-3d/2026-10/share-overview.png` had no remaining references and was
+  deleted; it remains in Git history.
