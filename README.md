@@ -183,6 +183,12 @@ When a new version is published: move its changelog entry from "In review" to "C
 version", update the guide and FAQ and their version notes, and change
 `publishedHeatmapVersion` in `tests/content.test.cjs`.
 
+Microsoft takes up to two weeks after Marketplace approval to deliver an updated visual in
+Power BI; until then, Get more visuals still adds the previous version. For that window, the
+guide, FAQ, and changelog carry a dated "Rolling out" `.notice` under the page introduction.
+Remove all three once the new version installs from Get more visuals (for 1.2.0.0, expected
+by about November 1, 2026).
+
 ### 3D Heatmap articles
 
 Articles live under `/warehouse-heatmap/guides/<slug>/` and use `main.container.article-page`

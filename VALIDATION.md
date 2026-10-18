@@ -176,3 +176,17 @@ the Marketplace listing showed version 1.2.0.0, updated October 18, 2026 (checke
   racks colored by on-hand units, with the location search box above.
 - The 1.1 `assets/warehouse-3d/2026-10/share-overview.png` had no remaining references and was
   deleted; it remains in Git history.
+
+## 3D Heatmap 1.2 rollout notice — October 18, 2026
+
+- Owner report: after 1.2 was approved, adding the visual from AppSource in Power BI Desktop
+  still installs 1.1.0.5 (no Cutaway or Congestion settings), while the 1.2 `.pbiviz` loaded in
+  developer mode shows them.
+- Microsoft's [certification documentation](https://learn.microsoft.com/en-us/power-bi/developer/visuals/power-bi-custom-visuals-certified#publication-timeline)
+  (Publication timeline, checked October 18) says an update appears on AppSource first and
+  takes up to two weeks to reach production, so the new capabilities reach reports after
+  about two weeks.
+- Added a dated "Rolling out" notice to the guide, FAQ, and changelog: until about
+  November 1, Get more visuals may add 1.1.0.5; if the Format pane has no Cutaway section,
+  check back and restart Power BI Desktop; reports switch to 1.2 on their own.
+- Open: remove the three notices once Get more visuals installs 1.2.0.0.
