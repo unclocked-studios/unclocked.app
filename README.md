@@ -222,7 +222,7 @@ credits installs from the website. Marketplace links carry similar `ocid` and UT
   rectangles at 50% scale (the captures are at 2× scale). Interface, data, and colors are
   not retouched. Pages display the `.webp` copies; the `.png` files are the full-size links.
   `overview-full.png` is the whole visual, including its legend, menu, and Professional
-  label. `share-overview.png` is the AppSource overview image, used for link previews.
+  label. The 1.1 link-preview image that was here was replaced on October 18, 2026 (see below).
 - `assets/warehouse-3d/1-2/`: version 1.2 screenshots, cropped to the visual from the user's
   lossless captures in the visual's `marketing/preview-promo-2026-10-13-lossless/captures/`
   (overview, cutaway, stock age with Only this level, weekly comparison, hourly congestion, and
@@ -230,6 +230,8 @@ credits installs from the website. Marketplace links carry similar `ocid` and UT
   are cropped out; the interface is not retouched. Pages display `.webp` copies, 1,400 px wide;
   the `.png` files are the full-size links. The finished marketing images in that folder carry a
   "1.2.0.0 preview" footer and are not used on the site.
+  `share-overview.png` (1366×768), used for link previews and the JSON-LD `image`, is
+  `overview-hero.png` centered without scaling on the screenshot's own background color (#F4F7FA).
 - `assets/warehouse-3d/unclocked-sample-data.pbix`: the nine-page sample report with visual
   1.2.0.0 embedded, the same file as the listing's Download Sample (downloaded October 18, 2026).
   Replace it when a new sample is published, and update the page list on the product page.
