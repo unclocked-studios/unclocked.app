@@ -161,6 +161,9 @@ li + li { margin-top: .3rem; }
   color: var(--muted);
 }
 
+/* Long inline code, such as a DAX formula, wraps instead of widening the page on phones. */
+code { overflow-wrap: anywhere; }
+
 /* Hidden on screen but still read by screen readers (table captions, form legends). */
 .visually-hidden {
   position: absolute !important;
@@ -631,6 +634,18 @@ main.container {
 }
 
 .content-card, .support-item, .feature-card { padding: 24px; }
+.plan-tag { /* Marks a feature's plan (Professional) or status (Experimental). */
+  display: inline-block;
+  margin-left: 6px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--selection);
+  color: var(--accent-text);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0;
+  vertical-align: middle;
+}
 .content-card h2, .content-card h3, .support-item h2, .feature-card h2 { font-size: 19px; }
 .content-card p, .support-item p {
   font-size: 14px;
@@ -678,13 +693,12 @@ main.container {
   margin-bottom: 20px;
 }
 
-/* Changelog: version dates, and the in-review version marked with the brand accent. */
+/* Changelog: the date under each version heading. */
 .release-date {
   color: var(--muted);
   font-size: 14px;
   margin: -6px 0 16px;
 }
-.release-upcoming { border-left: 3px solid var(--accent); }
 
 .app-summary {
   background: var(--surface);

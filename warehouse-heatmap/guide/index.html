@@ -12,13 +12,13 @@
   <link rel="stylesheet" href="/css/style.css">
   <script src="/js/site.js" defer></script>
   <!-- /Shared head -->
-  <meta name="description" content="Step-by-step guide to Unclocked 3D Heatmap for Power BI: add the visual, prepare warehouse coordinates, assign fields, explore in 3D and 2D, set the heat scale, and find exceptions.">
+  <meta name="description" content="Step-by-step guide to Unclocked 3D Heatmap for Power BI: add the visual, place locations from coordinates or the layout builder, and use the cutaway, playback, congestion floor, heat scale, and exceptions.">
   <title>How to Use Unclocked 3D Heatmap in Power BI</title>
   <link rel="canonical" href="https://unclocked.app/warehouse-heatmap/guide/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Unclocked Studios">
   <meta property="og:title" content="How to use Unclocked 3D Heatmap in Power BI">
-  <meta property="og:description" content="Step-by-step guide to Unclocked 3D Heatmap for Power BI: add the visual, prepare warehouse coordinates, assign fields, explore in 3D and 2D, set the heat scale, and find exceptions.">
+  <meta property="og:description" content="Step-by-step guide to Unclocked 3D Heatmap for Power BI: add the visual, place locations from coordinates or the layout builder, and use the cutaway, playback, congestion floor, heat scale, and exceptions.">
   <meta property="og:url" content="https://unclocked.app/warehouse-heatmap/guide/">
   <meta property="og:image" content="https://unclocked.app/assets/warehouse-3d/2026-10/share-overview.png">
   <meta property="og:image:width" content="1366">
@@ -63,8 +63,8 @@
     <div class="page-header">
       <span class="eyebrow">Unclocked 3D Heatmap guide</span>
       <h1>How to use Unclocked 3D Heatmap</h1>
-      <p>Set up the visual in Power BI, connect your warehouse data, and explore it in 3D and 2D. This guide describes version 1.1.0.5, the current release on Microsoft Marketplace. See the <a href="/warehouse-heatmap/changelog/">changelog</a> for what's coming in 1.2.</p>
-      <p class="fine-print">On this page: <a href="#install">1. Add the visual</a> · <a href="#prepare-data">2. Prepare your data</a> · <a href="#fields">3. Add your fields</a> · <a href="#explore">4. Explore the warehouse</a> · <a href="#heat-scale">5. Set the heat scale</a> · <a href="#exceptions">6. Find exceptions</a> · <a href="#format">7. Format and performance</a></p>
+      <p>Set up the visual in Power BI, place your warehouse locations, and explore them in 3D, in 2D, and over time. This guide describes version 1.2.0.0, the current release on Microsoft Marketplace. See the <a href="/warehouse-heatmap/changelog/">changelog</a> for what changed.</p>
+      <p class="fine-print">On this page: <a href="#install">1. Add the visual</a> · <a href="#locations">2. Place your locations</a> · <a href="#fields">3. Add your fields</a> · <a href="#explore">4. Explore the warehouse</a> · <a href="#cutaway">5. Cutaway</a> · <a href="#playback">6. Playback and compare</a> · <a href="#congestion">7. Congestion floor</a> · <a href="#heat-scale">8. Heat scale</a> · <a href="#exceptions">9. Exceptions</a> · <a href="#format">10. Format and plans</a></p>
     </div>
 
     <section class="faq-section" id="install">
@@ -74,15 +74,17 @@
         <li>In Power BI Desktop, open a report and select <strong>Get more visuals</strong> in the Visualizations pane.</li>
         <li>Search for <strong>Unclocked 3D Heatmap</strong> and select <strong>Add</strong>.</li>
         <li>Select the new icon in the Visualizations pane to place the visual on the page.</li>
-        <li>Make the visual large enough for the warehouse and its controls. A wide visual gives the menu, legend, and search box room.</li>
+        <li>Make the visual large enough for the warehouse and its controls.</li>
       </ol>
       <p>Prefer to start from a finished example? Open the <a href="/assets/warehouse-3d/unclocked-sample-data.pbix" download>sample report</a> in Power BI Desktop, or load the <a href="/warehouse-heatmap/support/#sample-data">sample CSV</a> and follow along.</p>
     </section>
 
-    <section class="faq-section" id="prepare-data">
+    <section class="faq-section" id="locations">
       <span class="eyebrow">Step 2</span>
-      <h2>Prepare your warehouse data</h2>
-      <p>Use one row per physical bin or location. Each row identifies the location, gives its position, and provides the value to color it by.</p>
+      <h2>Place your warehouse locations</h2>
+      <p>The visual needs to know where every location is. Use coordinates from your data, or draw the racks in the visual with the layout builder.</p>
+      <h3>Option A: coordinates in your data</h3>
+      <p>Use one row per physical bin or location, with its position and the value to color it by.</p>
       <div class="table-scroll" role="region" aria-label="Example rows" tabindex="0">
       <table class="sample-fields">
         <caption>Example rows: three locations in one aisle</caption>
@@ -94,119 +96,148 @@
         </tbody>
       </table>
       </div>
-      <h3>How coordinates work</h3>
       <ul>
-        <li><strong>X</strong> runs across the warehouse and <strong>Y</strong> along the floor. Together they mark the starting corner of the bin's footprint.</li>
-        <li><strong>Z</strong> is the bin's base height. Leave it out for a single-level layout; missing Z means floor level.</li>
-        <li>Width extends from X, length from Y, and height upward from Z.</li>
-        <li>Use one unit for everything, such as inches, feet, or centimeters. The visual centers the layout itself, so coordinates don't need to start at zero.</li>
+        <li><strong>X</strong> runs across the warehouse and <strong>Y</strong> along the floor; together they mark the starting corner of the bin's footprint. <strong>Z</strong> is its base height, and missing Z means floor level.</li>
+        <li>Width extends from X, length from Y, and height upward from Z. Use one unit for everything; the visual centers the layout itself.</li>
+        <li>Give every location a unique ID. If an ID appears twice, the visual keeps the first row and lists the duplicates in a warning.</li>
+        <li>Keep the layout in its own location table, related one-to-many to your inventory or activity data, and use a measure for Heat Value so it responds to filters.</li>
+        <li>To show empty locations, right-click <strong>Location ID</strong> in the Build pane and turn on <strong>Show items with no data</strong>.</li>
       </ul>
-      <h3>Tips for clean data</h3>
-      <ul>
-        <li>Give every location a stable, unique ID. If an ID appears twice, the visual keeps the first row and lists the duplicates in a warning.</li>
-        <li>Keep coordinates and sizes in numeric columns, and stacked bins on distinct Z values.</li>
-        <li>Use a measure for Heat Value so it responds to report filters.</li>
-        <li>Keep the layout in its own location table, related one-to-many to your inventory or activity data, so locations stay in place when they have no activity.</li>
-        <li>To show empty locations, right-click <strong>Location ID</strong> in the Build pane and turn on <strong>Show items with no data</strong>. Power BI otherwise leaves out rows where every measure is blank.</li>
-      </ul>
-      <p class="fine-print">Have the layout only in an AutoCAD drawing? Our <a href="/warehouse-heatmap/mapping/">warehouse mapping service</a> can prepare the coordinate CSV.</p>
+      <h3 id="layout-builder">Option B: draw the layout in the visual</h3>
+      <p>With the layout builder, your data only needs <strong>Location ID</strong> and <strong>Heat Value</strong>. You draw the racks; the visual creates every location and its ID from a naming pattern, and places each row of data on the location with the same ID. The layout builder is experimental and under active development, so its controls may change in later versions.</p>
+      <ol>
+        <li>Add Location ID and Heat Value, and leave X and Y empty.</li>
+        <li>In report edit mode, select the visual and click <strong>Edit</strong> in its header. The plan opens with the <strong>Layout builder</strong> panel. New to it? <strong>Start tutorial</strong> practices on a sample warehouse without changing your report.</li>
+        <li>Choose your <strong>Units</strong>. To trace a floor drawing, add it in <strong>Format visual → Scene</strong>, then use <strong>Match image proportions</strong> and <strong>Set scale</strong> by clicking two points a known distance apart.</li>
+        <li>Choose <strong>Rack</strong> and drag along the floor to draw a rack; the length sets the number of bays. Set bays, levels, level heights, and depth in the <strong>Rack</strong> tab.</li>
+        <li>Set the <strong>ID pattern</strong> so it matches your data, such as <code>{aisle}-{bay:2}-{level:A}</code> for <code>A-07-C</code>. While IDs don't match, <strong>Suggested ID pattern</strong> reads one from your data, and each unmatched ID says why.</li>
+        <li>Build rows quickly with <strong>Duplicate</strong>, <strong>Add copies</strong>, and <strong>Pair across aisle</strong> or <strong>Pair back to back</strong>.</li>
+        <li>Check the <strong>Data</strong> tab for how many locations were placed, then click <strong>Back to report</strong>. Changes save to the report as you work, and report viewers never see the builder.</li>
+      </ol>
+      <p class="fine-print">The builder has two views of the same tools: <strong>Classic</strong> (the default) and <strong>Modern</strong>, which is experimental. <strong>Export</strong> saves the layout as JSON, or the locations as a CSV you can check against your WMS. <strong>Format visual → Layout → Layout source</strong> decides whether coordinates or the drawn layout apply; reports built with coordinates keep working.</p>
+      <p class="fine-print">Have the layout only in an AutoCAD drawing and prefer not to draw it? Our <a href="/warehouse-heatmap/mapping/">warehouse mapping service</a> can prepare the coordinate CSV.</p>
     </section>
 
     <section class="faq-section" id="fields">
       <span class="eyebrow">Step 3</span>
       <h2>Add your fields</h2>
-      <p>Select the visual and drag fields into these wells in the Build pane. Location ID, X, Y, and Heat Value are enough to draw the warehouse.</p>
+      <p>Select the visual and drag fields into these wells in the Build pane.</p>
       <table class="sample-fields">
         <caption>Field wells in Unclocked 3D Heatmap</caption>
         <thead><tr><th scope="col">Field well</th><th scope="col">What it does</th></tr></thead>
         <tbody>
-          <tr><td>Location ID <span class="field-note">(required)</span></td><td>Unique name for each location, used for search, selection, details, and filtering.</td></tr>
-          <tr><td>X Coordinate, Y Coordinate <span class="field-note">(required)</span></td><td>Position on the warehouse floor.</td></tr>
+          <tr><td>Location ID <span class="field-note">(required)</span></td><td>Unique name for each location, used for search, selection, details, filtering, and matching the drawn layout.</td></tr>
           <tr><td>Heat Value <span class="field-note">(required)</span></td><td>The numeric measure that colors each location.</td></tr>
+          <tr><td>X Coordinate, Y Coordinate <span class="field-note">(required unless you draw the layout)</span></td><td>Position on the warehouse floor.</td></tr>
           <tr><td>Z Coordinate <span class="field-note">(optional)</span></td><td>Base height for stacked levels. Missing Z means floor level.</td></tr>
           <tr><td>Bin Width, Bin Length, Bin Height <span class="field-note">(optional)</span></td><td>Size of each location. Without them, the defaults in <strong>Format visual → Bins</strong> apply.</td></tr>
           <tr><td>Category Filter 1, 2, and 3 <span class="field-note">(optional)</span></td><td>Fields such as aisle, level, zone, or location type that viewers can filter by inside the visual.</td></tr>
-          <tr><td>Tooltip measures <span class="field-note">(optional)</span></td><td>Extra measures shown in a location's details, keeping their Power BI formats.</td></tr>
-          <tr><td>Low, Medium, High, and Critical threshold <span class="field-note">(optional)</span></td><td>DAX measures for color thresholds that follow slicers. See <a href="#heat-scale">step 5</a>.</td></tr>
-          <tr><td>Exception score <span class="field-note">(optional)</span></td><td>A DAX measure for ranking exceptions. See <a href="#exceptions">step 6</a>.</td></tr>
+          <tr><td>Time <span class="field-note">(optional)</span></td><td>A date or period, such as Week or Shift, for playback. See <a href="#playback">step 6</a>.</td></tr>
+          <tr><td>Pick-face direction <span class="field-note">(optional)</span></td><td>Which side each location is picked from, for the congestion floor with coordinate data. See <a href="#congestion">step 7</a>.</td></tr>
+          <tr><td>Tooltip measures <span class="field-note">(optional)</span></td><td>The measures shown when you hover over a location, in field-well order, and in its details.</td></tr>
+          <tr><td>Low, Medium, High, and Critical threshold <span class="field-note">(optional)</span></td><td>DAX measures for color thresholds that follow slicers. See <a href="#heat-scale">step 8</a>.</td></tr>
+          <tr><td>Exception score <span class="field-note">(optional)</span></td><td>A DAX measure for ranking exceptions. See <a href="#exceptions">step 9</a>.</td></tr>
         </tbody>
       </table>
+      <p class="fine-print">Hover popups show only the fields in Tooltip measures. To include the Location ID, add a text measure such as <code>Tooltip Location = SELECTEDVALUE(locations[Location])</code>.</p>
     </section>
 
     <section class="faq-section" id="explore">
       <span class="eyebrow">Step 4</span>
       <h2>Explore the warehouse</h2>
-      <h3>Move around in 3D</h3>
+      <h3>Move around</h3>
       <ul>
-        <li>Drag with the left mouse button to orbit, use the mouse wheel to zoom, and drag with the middle button to pan.</li>
-        <li>Hover over a bin to see its location, categories, coordinates, size, and heat value.</li>
-        <li>Select a bin to see its details in the visual. Right-click it for the Power BI context menu.</li>
+        <li>In 3D, drag with the left mouse button to orbit, use the wheel to zoom, and drag with the middle button to pan.</li>
+        <li>In 2D, dragging pans. The pad in the bottom-right corner pans with its arrows and rotates the plan in 90° steps; its center button resets the rotation and fits the floor.</li>
+        <li>Hover over a location for its tooltip measures. Select it to see its details beside the warehouse, and right-click for the Power BI context menu.</li>
       </ul>
-      <h3>Use the menu</h3>
-      <p>Open <strong>Menu</strong> in the upper-right corner of the visual.</p>
+      <h3>Use View tools</h3>
+      <p>Open <strong>View tools</strong> in the upper-right corner. Each section folds on its own.</p>
       <ul>
-        <li><strong>Mode:</strong> switch between <strong>3D</strong> and the flat <strong>2D</strong> plan.</li>
-        <li><strong>Camera:</strong> <strong>Default</strong> returns to the default view, <strong>Top</strong> looks straight down, and <strong>Iso</strong> gives an angled view. The save button makes the current camera the report's default, and <strong>Fit current layout</strong> frames the locations currently shown.</li>
-        <li><strong>Saved Views:</strong> click an empty <strong>P1</strong>, <strong>P2</strong>, or <strong>P3</strong> to save the current camera, click a saved one to return to it, and Shift-click to replace it. Save the report to keep these views.</li>
-        <li><strong>Category filters:</strong> each category field gets a dropdown. Click values to add or remove them, and <strong>Clear</strong> to show all. Locations must match every active filter. <strong>Non-matching</strong> chooses whether other locations are dimmed, keeping their place in the layout, or hidden.</li>
+        <li><strong>Display:</strong> switch between <strong>3D</strong> and the <strong>2D</strong> plan. The home icon saves the current view as the report's default when there is none, returns to it on a click, and replaces it on Shift-click.</li>
+        <li><strong>Camera:</strong> <strong>Iso</strong>, <strong>Top</strong>, and <strong>Front</strong> views, and <strong>Fit warehouse</strong> to frame the locations shown.</li>
+        <li><strong>Saved views:</strong> <strong>Save current</strong>, give the view a name, and select it later to return. Rename or delete views, and keep up to 100. Save the report to keep them for other viewers.</li>
+        <li><strong>Plan View:</strong> <strong>Fit to floor</strong> frames the whole floor in 2D.</li>
+        <li><strong>Selection:</strong> <strong>Select an area</strong>, then drag over the warehouse. You can also hold Shift and drag.</li>
+        <li><strong>Visible layers:</strong> show or hide the overview card, navigation help, location data, the legend, the level cutaway, and the congestion floor.</li>
+        <li><strong>Filters:</strong> each category field gets a dropdown. Click values to add or remove them, and <strong>Clear</strong> to show all. <strong>Non-matching</strong> chooses whether other locations are dimmed or hidden.</li>
       </ul>
-      <h3>Switch to the 2D plan</h3>
-      <p>In 2D, dragging pans instead of orbiting and the wheel zooms. The pad in the bottom-right corner pans with its arrows and rotates the plan in 90° steps; its center button resets the rotation and fits the floor. <strong>Fit to floor</strong> in the menu also frames the whole warehouse. Where levels share a footprint, the highest one shows on top, so filter to one level to analyze it on its own. Returning to 3D restores your previous 3D camera.</p>
-      <h3>Search for a location</h3>
-      <p>Type part of a Location ID in <strong>Search location</strong>, then choose a suggestion or press Enter. The visual focuses on that location and selects it. IDs that start with your text are listed first. Press Escape to clear the search.</p>
-      <h3>Connect to the rest of the report</h3>
-      <p>Choose what a click does in <strong>Format visual → Interaction → Bin click behavior</strong>:</p>
+      <h3>Search, select, and connect</h3>
       <ul>
-        <li><strong>Visual only</strong> highlights the bin and shows its details without changing other visuals.</li>
-        <li><strong>Power BI selection</strong> uses standard Power BI selection, so other visuals respond through their interactions.</li>
-        <li><strong>Power BI filter</strong> filters the report to the selected location.</li>
+        <li>Type part of a Location ID in <strong>Find a location</strong>, then choose a suggestion or press Enter to focus on it.</li>
+        <li>An area selection summarizes the locations inside it: how many have a value, their average, range, and total, and the top three. <strong>Zoom to selection</strong> frames them.</li>
+        <li><strong>Format visual → Interaction → Bin click behavior</strong> chooses whether a click stays inside the visual (<strong>Visual only</strong>), uses <strong>Power BI selection</strong> so other visuals respond, or applies a <strong>Power BI filter</strong>. Area selections follow the same setting.</li>
+        <li>The visual remembers your last view on each device when you come back to the page, without changing the report's default. <strong>Format visual → Camera → Opening view</strong> sets whether the report opens in 3D or 2D.</li>
+      </ul>
+      <h3>Stacked levels in 2D</h3>
+      <p>Where levels share a footprint, the top bin shows by default. <strong>Format visual → Scene → 2D stack color</strong> can color each stack by its <strong>Maximum</strong> or <strong>Average</strong> instead, so a busy lower level shows in the plan. Drawn layouts can also show <strong>aisle labels</strong>. To see one level by itself, use the <a href="#cutaway">cutaway</a>.</p>
+    </section>
+
+    <section class="faq-section" id="cutaway">
+      <span class="eyebrow">Step 5</span>
+      <h2>See inside the racks with the cutaway</h2>
+      <p>Turn on <strong>Format visual → Cutaway → Show cutaway</strong>. The visual needs locations at two or more heights. A level control appears on the left edge:</p>
+      <ul>
+        <li>Drag the slider, or use the arrows, to show the warehouse up to a level. <strong>All</strong> shows every level again.</li>
+        <li><strong>Only this level</strong> shows just the level the slider is on. In 2D, that is the level's own plan.</li>
+        <li><strong>Cut-away bins</strong> hides the cut levels or draws them as faint outlines in 3D. Colors stay on one scale as the cut moves.</li>
+        <li><strong>Start level</strong> and <strong>Mode</strong> set what the report shows when it opens and in exports.</li>
       </ul>
     </section>
 
+    <section class="faq-section" id="playback">
+      <span class="eyebrow">Step 6 · Professional</span>
+      <h2>Play the heatmap over time</h2>
+      <p>Add a date or period field, such as Week, Date, or Shift, to <strong>Time</strong>. A playback bar appears once there are two or more periods.</p>
+      <ul>
+        <li><strong>Play</strong>, <strong>Pause</strong>, and step one period at a time, or drag the slider to any period. <strong>Speed</strong> runs from 0.5x to 4x, and <strong>Loop</strong> starts over after the last period.</li>
+        <li>Locations never move during playback; only their colors change, on one scale across the whole timeline.</li>
+        <li><strong>Compare</strong> colors each location by its change instead: <strong>vs previous</strong>, <strong>vs first</strong>, or vs a period you choose. Decreases use the low color, increases the critical color, and no change is gray.</li>
+        <li>Tooltips, details, the legend, and exceptions follow the period on screen. <strong>Format visual → Playback</strong> sets the start period, speed, loop, autoplay, and fading.</li>
+      </ul>
+      <p class="fine-print">Sort a text period, such as "Week 01", by a date or number column in your model so it plays in order. Large warehouses with many periods take longer to load; the <strong>Playback value limit</strong> in Performance settings caps how much is loaded. On the free plan the bar is locked and the visual shows one period.</p>
+    </section>
+
+    <section class="faq-section" id="congestion">
+      <span class="eyebrow">Step 7 · Professional</span>
+      <h2>Read the congestion floor</h2>
+      <p>Turn on <strong>Format visual → Congestion → Show congestion floor</strong> to shade the floor where activity happens, using Heat Value, such as picks or visits per location.</p>
+      <ul>
+        <li>Each location's value goes onto the floor in front of the side people pick it from, then spreads along the aisle through open floor, never through a rack. <strong>Spread</strong> sets how far: Short, Medium, or Long.</li>
+        <li>Drawn layouts know each rack's pick face. With coordinates, add <strong>Pick-face direction</strong> with values such as <code>Right</code>, <code>Left</code>, <code>Up</code>, or <code>Down</code> (relative to the original floor plan); without it, the floor is shaded around each location.</li>
+        <li>The busiest floor on screen is always the strongest color. The floor follows slicers, filters, and playback periods.</li>
+      </ul>
+      <p class="fine-print">The congestion floor is an activity indicator. It doesn't measure people, delays, or walking routes.</p>
+    </section>
+
     <section class="faq-section" id="heat-scale">
-      <span class="eyebrow">Step 5</span>
+      <span class="eyebrow">Step 8</span>
       <h2>Set the heat scale</h2>
       <p>The heat scale in <strong>Format visual → Heat scale</strong> turns Heat Value into color. Open <strong>Scale details</strong> in the legend to see the values in use.</p>
       <ul>
-        <li><strong>Gradient</strong> blends smoothly between the low, medium, high, and critical colors. Use it when small differences matter.</li>
-        <li><strong>Bands</strong> changes color at each threshold. Use it when thresholds are business rules, such as warning and critical levels.</li>
-        <li><strong>Normalized gradient</strong> spaces the four colors evenly across the displayed range and ignores thresholds.</li>
-      </ul>
-      <h3>Range and thresholds</h3>
-      <ul>
-        <li><strong>Auto range from visible data</strong> fits the scale to the locations shown. Turn it off and set <strong>Manual minimum</strong> and <strong>Manual maximum</strong> to compare pages, sites, or periods on the same scale.</li>
-        <li><strong>Cap outliers</strong> keeps a few extreme values from washing out the rest of the warehouse.</li>
-        <li><strong>Treat zero as empty</strong> uses the empty color for blank, zero, and negative values.</li>
-        <li><strong>Threshold source:</strong> <strong>Manual</strong> uses the values set in the Format pane. <strong>Measures</strong> uses the DAX measures in the threshold field wells, so targets can follow slicers. Each measure must return the same number for every location; if one doesn't, the visual shows an error and neutral colors.</li>
+        <li><strong>Gradient</strong> blends smoothly between the low, medium, high, and critical colors; <strong>Bands</strong> changes color at each threshold; <strong>Normalized gradient</strong> spaces the colors evenly across the displayed range.</li>
+        <li><strong>Auto range from visible data</strong> fits the scale to the locations shown, or set <strong>Manual minimum</strong> and <strong>Manual maximum</strong> to compare pages on one scale. <strong>Cap outliers</strong> and <strong>Treat zero as empty</strong> refine it.</li>
+        <li><strong>Threshold source:</strong> <strong>Manual</strong> uses the values set in the Format pane; <strong>Measures</strong> uses DAX measures in the threshold wells, so targets follow slicers. Each must return the same number for every location.</li>
       </ul>
     </section>
 
     <section class="faq-section" id="exceptions">
-      <span class="eyebrow">Step 6</span>
+      <span class="eyebrow">Step 9</span>
       <h2>Find exceptions</h2>
-      <p>Turn on <strong>Format visual → Exceptions → Show exception finder</strong> to list the locations that need attention.</p>
-      <ul>
-        <li><strong>Heat Value rules</strong> find locations <strong>At or above</strong> or <strong>At or below</strong> a cutoff, or that are <strong>Zero</strong> or <strong>Blank</strong>. The cutoff is separate from the color thresholds.</li>
-        <li><strong>DAX exception score</strong> ranks locations by a measure in the Exception score well. Only positive scores count, and higher scores rank first.</li>
-        <li><strong>Results to show</strong> sets how many locations are listed. Results follow category filters and report highlighting.</li>
-      </ul>
-      <p>Select a result to see its details, then choose <strong>Focus in 3D</strong> to frame it. Finding blank locations requires <strong>Show items with no data</strong> on Location ID, as described in <a href="#prepare-data">step 2</a>.</p>
+      <p>Turn on <strong>Format visual → Exceptions → Show exception finder</strong> to list locations <strong>At or above</strong> or <strong>At or below</strong> a cutoff, <strong>Zero</strong>, or <strong>Blank</strong>, or to rank a positive <strong>DAX exception score</strong>. Select a result to see its details, then <strong>Focus in 3D</strong> to frame it. The cutoff is separate from the color thresholds.</p>
     </section>
 
     <section class="faq-section" id="format">
-      <span class="eyebrow">Step 7</span>
-      <h2>Format and performance</h2>
+      <span class="eyebrow">Step 10</span>
+      <h2>Format, performance, and plans</h2>
       <ul>
-        <li><strong>Scene:</strong> background and floor colors, the floor plane, a fixed floor size, bin outlines and opacity, and the <strong>UI theme</strong> (Neutral light, Neutral dark, or Classic purple). <strong>Show 3D Heatmap status</strong> and <strong>Show license notice</strong> hide the corner boxes.</li>
-        <li><strong>Floor image:</strong> paste a PNG, JPEG, or WebP image as a data URL in <strong>Scene</strong>, then set the floor origin, width, and length to the same units and bounds as your coordinates so it lines up. Links to images on other sites aren't supported.</li>
-        <li><strong>Legend:</strong> show or hide it, change its title, and choose how the selected value is marked.</li>
-        <li><strong>Bins:</strong> default sizes, <strong>Vertical scale</strong> to stretch or compress heights, and <strong>Max displayed bins</strong>.</li>
-        <li><strong>Camera:</strong> automatic framing, default distance, and whether to open on the saved default view.</li>
+        <li><strong>Scene:</strong> colors, the floor plane and floor image, bin outlines and opacity, the <strong>UI theme</strong> (Neutral light, Neutral dark, or Classic purple), 2D stack color, and aisle labels.</li>
+        <li><strong>Floor image:</strong> paste a PNG, JPEG, or WebP image as a data URL, then line it up with your coordinates, or set its scale in the layout builder. Links to images on other sites aren't supported.</li>
+        <li><strong>Bins:</strong> default sizes, <strong>Vertical scale</strong>, and <strong>Max displayed bins</strong>.</li>
+        <li><strong>Performance:</strong> start with <strong>Balanced</strong>. If movement slows, choose <strong>Performance</strong>, turn off bin outlines and hover tooltips, or filter the report to one area.</li>
       </ul>
-      <h3>Large warehouses</h3>
-      <p>Choose a <strong>Performance preset</strong>: <strong>Balanced</strong> for most reports, <strong>Quality</strong> for smaller layouts, <strong>Performance</strong> when navigation speed matters most, or <strong>Custom</strong> for individual settings. If movement slows, turn off bin outlines and hover tooltips, lower Max displayed bins while designing, or filter the report to one area. Test the finished report in both Power BI Desktop and the Power BI service.</p>
-      <h3>Plan limits</h3>
-      <p>The free plan renders up to 2,500 bins with every feature. Professional removes that limit, up to the Max displayed bins you set (at most 100,000). See <a href="/warehouse-heatmap/#availability">plans and pricing</a> and <a href="/warehouse-heatmap/support/#licensing">license assignment</a>.</p>
+      <h3>Free and Professional</h3>
+      <p>The free plan colors up to 2,500 locations and includes the layout builder, cutaway, area selection, and saved views. Locations past the limit are drawn pale gray, and layout locations without data never count. Professional removes the limit, up to the Max displayed bins you set (at most 100,000), and adds playback, compare, and the congestion floor. See <a href="/warehouse-heatmap/#availability">plans and pricing</a> and <a href="/warehouse-heatmap/support/#licensing">license assignment</a>.</p>
     </section>
 
     <section class="faq-section">
