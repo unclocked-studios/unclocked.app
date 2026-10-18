@@ -11,13 +11,13 @@
   <link rel="stylesheet" href="/css/style.css">
   <script src="/js/site.js" defer></script>
   <!-- /Shared head -->
-  <meta name="description" content="Articles from Unclocked Studios on warehouse analytics in Power BI: how to build a warehouse heat map, map bin locations, and turn inventory and pick data into a floor-level view.">
+  <meta name="description" content="Articles from Unclocked Studios on warehouse analytics in Power BI: how to build a warehouse heat map, find slow-moving inventory by location, and turn inventory and pick data into a floor-level view.">
   <title>Articles | Unclocked Studios</title>
   <link rel="canonical" href="https://unclocked.app/articles/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Unclocked Studios">
   <meta property="og:title" content="Articles">
-  <meta property="og:description" content="Articles from Unclocked Studios on warehouse analytics in Power BI: how to build a warehouse heat map, map bin locations, and turn inventory and pick data into a floor-level view.">
+  <meta property="og:description" content="Articles from Unclocked Studios on warehouse analytics in Power BI: how to build a warehouse heat map, find slow-moving inventory by location, and turn inventory and pick data into a floor-level view.">
   <meta property="og:url" content="https://unclocked.app/articles/">
   <meta property="og:image" content="https://unclocked.app/assets/warehouse-3d/1-2/share-overview.png">
   <meta property="og:image:width" content="1366">
@@ -30,13 +30,14 @@
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     "name": "Articles",
-    "description": "Articles from Unclocked Studios on warehouse analytics in Power BI: how to build a warehouse heat map, map bin locations, and turn inventory and pick data into a floor-level view.",
+    "description": "Articles from Unclocked Studios on warehouse analytics in Power BI: how to build a warehouse heat map, find slow-moving inventory by location, and turn inventory and pick data into a floor-level view.",
     "url": "https://unclocked.app/articles/",
     "publisher": { "@type": "Organization", "name": "Unclocked Studios LLC", "url": "https://unclocked.app/" },
     "mainEntity": {
       "@type": "ItemList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "url": "https://unclocked.app/warehouse-heatmap/guides/warehouse-heat-map-power-bi/", "name": "How to build a warehouse heat map in Power BI" }
+        { "@type": "ListItem", "position": 1, "url": "https://unclocked.app/warehouse-heatmap/guides/slow-moving-inventory-power-bi/", "name": "How to find slow-moving inventory by location in Power BI" },
+        { "@type": "ListItem", "position": 2, "url": "https://unclocked.app/warehouse-heatmap/guides/warehouse-heat-map-power-bi/", "name": "How to build a warehouse heat map in Power BI" }
       ]
     }
   }
@@ -81,6 +82,20 @@
       <p>How-to guides and explainers for turning warehouse data into something you can see, written for Power BI report builders and the operations teams who use their reports.</p>
     </div>
     <div class="article-list">
+      <article class="product-card article-card">
+        <a class="product-card-media" href="/warehouse-heatmap/guides/slow-moving-inventory-power-bi/" tabindex="-1" aria-hidden="true">
+          <img src="/assets/warehouse-3d/1-2/only-this-level.webp" alt="" width="1400" height="510" decoding="async" loading="lazy">
+        </a>
+        <div class="product-card-body">
+          <span class="eyebrow">Power BI how-to</span>
+          <h2><a href="/warehouse-heatmap/guides/slow-moving-inventory-power-bi/">How to find slow-moving inventory by location in Power BI</a></h2>
+          <p class="article-meta"><time datetime="2026-10-18">October 18, 2026</time> · 7 minute read</p>
+          <p>Inventory aging reports say which items are slow, not where they sit. Build DAX measures for days since last movement and days of supply, set aging bands, and map dead and slow-moving stock onto your warehouse to see which aisles and levels it occupies.</p>
+          <div class="button-row">
+            <a class="card-link" href="/warehouse-heatmap/guides/slow-moving-inventory-power-bi/">Read the article</a>
+          </div>
+        </div>
+      </article>
       <article class="product-card article-card">
         <a class="product-card-media" href="/warehouse-heatmap/guides/warehouse-heat-map-power-bi/" tabindex="-1" aria-hidden="true">
           <img src="/assets/warehouse-3d/2026-10/overview.webp" alt="" width="1110" height="702" decoding="async" loading="lazy">

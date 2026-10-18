@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Shared head: generated from _partials/head.html by npm run build -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" type="image/png" sizes="128x128" href="/assets/unclocked-logo-v2-128.png">
+  <link rel="apple-touch-icon" href="/assets/unclocked-logo-v2-128.png">
+  <script src="/js/theme.js"></script>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/site.js" defer></script>
+  <!-- /Shared head -->
+  <meta name="description" content="Find slow-moving and dead stock by location in Power BI: DAX measures for days since last movement and days of supply, aging bands, and a warehouse heat map of where slow inventory sits.">
+  <title>Slow-Moving Inventory by Location in Power BI | Unclocked Studios</title>
+  <link rel="canonical" href="https://unclocked.app/warehouse-heatmap/guides/slow-moving-inventory-power-bi/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Unclocked Studios">
+  <meta property="og:title" content="How to find slow-moving inventory by location in Power BI">
+  <meta property="og:description" content="Find slow-moving and dead stock by location in Power BI: DAX measures for days since last movement and days of supply, aging bands, and a warehouse heat map of where slow inventory sits.">
+  <meta property="og:url" content="https://unclocked.app/warehouse-heatmap/guides/slow-moving-inventory-power-bi/">
+  <meta property="og:image" content="https://unclocked.app/assets/warehouse-3d/1-2/share-overview.png">
+  <meta property="og:image:width" content="1366">
+  <meta property="og:image:height" content="768">
+  <meta property="og:image:alt" content="Unclocked 3D Heatmap showing a 4,238-location sample warehouse in 3D over its floor plan, racks colored by on-hand units, with the location search box above">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Structured data for search engines (schema.org). -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to find slow-moving inventory by location in Power BI",
+    "description": "Find slow-moving and dead stock by location in Power BI: DAX measures for days since last movement and days of supply, aging bands, and a warehouse heat map of where slow inventory sits.",
+    "image": "https://unclocked.app/assets/warehouse-3d/1-2/share-overview.png",
+    "datePublished": "2026-10-18",
+    "dateModified": "2026-10-18",
+    "author": { "@type": "Organization", "name": "Unclocked Studios", "url": "https://unclocked.app/" },
+    "publisher": { "@type": "Organization", "name": "Unclocked Studios LLC", "url": "https://unclocked.app/", "logo": { "@type": "ImageObject", "url": "https://unclocked.app/assets/unclocked-logo-v2.png" } },
+    "mainEntityOfPage": "https://unclocked.app/warehouse-heatmap/guides/slow-moving-inventory-power-bi/"
+  }
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner wrap">
+      <a class="brand" href="/" aria-label="Unclocked Studios home">
+        <img src="/assets/unclocked-logo-v2-128.png" alt="" width="34" height="34" decoding="async">
+        <span class="brand-name">Unclocked Studios</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" hidden>Menu <span aria-hidden="true">☰</span></button>
+      <nav class="site-nav" id="site-navigation" aria-label="Main navigation">
+        <a class="nav-mapping" href="/warehouse-heatmap/mapping/">Warehouse Mapping <span aria-hidden="true">↗</span></a>
+        <details class="products-dropdown">
+          <summary aria-controls="product-menu">Products <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="m3 4.5 3 3 3-3"/></svg></summary>
+          <div class="product-menu" id="product-menu">
+            <a href="/warehouse-heatmap/">Unclocked 3D Heatmap<span>Warehouse analytics in Power BI</span></a>
+            <a href="/products/loopdeck/">LoopDeck<span>Dashboard rotation for shared displays</span></a>
+            <a href="/products/twenty5/">twenty5<span>Workout tracking for iOS</span></a>
+            <a href="/products/frame64/">Frame64<span>Image to Base64 for Chrome</span></a>
+            <a href="/products/">All products<span>Compare plans and store links</span></a>
+          </div>
+        </details>
+        <a href="/articles/">Articles</a>
+        <a href="/#contact">Contact</a>
+        <div class="appearance-control" hidden>
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="10" cy="10" r="6.5"/><path d="M10 3.5a6.5 6.5 0 0 0 0 13z" fill="currentColor"/></svg>
+          <select id="appearance" aria-label="Appearance"><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option></select>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="container article-page">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Studio</a><span aria-hidden="true">/</span><a href="/articles/">Articles</a><span aria-hidden="true">/</span><span aria-current="page">Slow-moving inventory in Power BI</span></nav>
+    <div class="page-header">
+      <span class="eyebrow">Power BI how-to</span>
+      <h1>How to find slow-moving inventory by location in Power BI</h1>
+      <p class="article-dek">Most inventory aging reports tell you which items are slow. Few tell you where those items sit. This guide explains how to measure slow-moving and dead stock in Power BI, build the DAX behind it, and map the result onto your warehouse so you can see which aisles, racks, and levels it is occupying.</p>
+      <p class="article-meta">Unclocked Studios · <time datetime="2026-10-18">October 18, 2026</time> · 7 minute read</p>
+    </div>
+
+    <h2 id="location-problem">Slow-moving inventory is a space problem</h2>
+    <p>A typical slow-moving inventory report is a list of SKUs sorted by days since their last sale, with the oldest at the top. It is useful to a buyer deciding what to discount or return to a vendor. It is much less useful to the person running the building, because it says nothing about where that stock is.</p>
+    <p>For warehouse teams, location is the point. A pallet of slow stock in a high-bay reserve location costs very little. The same pallet in a waist-height pick face near the dock blocks a location your fastest movers should be using, and every picker who walks past it pays for that. Ten slow SKUs spread across the building are a housekeeping task; ten slow SKUs filling one aisle are a slotting decision.</p>
+    <p>Power BI already holds the data needed to answer both questions. What it needs is the right measures and a way to show them on the floor.</p>
+
+    <h2 id="definitions">Slow-moving, aging, and dead stock</h2>
+    <p>These terms get used interchangeably, but they measure different things, and the choice changes what you see on the map.</p>
+    <div class="table-scroll" role="region" aria-label="Ways to measure slow-moving inventory" tabindex="0">
+    <table class="sample-fields">
+      <thead><tr><th scope="col">Measure</th><th scope="col">What it tells you</th><th scope="col">Best for</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Days since last movement</th><td>How long the stock in a location has sat without a pick or a receipt.</td><td>Finding dead stock and locations that have gone quiet.</td></tr>
+        <tr><th scope="row">Days of supply</th><td>How long the stock on hand will last at the recent pick rate.</td><td>Spotting overstock: stock that moves, but too slowly for the quantity held.</td></tr>
+        <tr><th scope="row">Inventory age</th><td>How long ago the stock in the location was received.</td><td>Shelf life, lot control, and FIFO compliance.</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p><strong>Slow-moving inventory</strong> usually means stock whose days of supply is far beyond what you plan to hold. <strong>Dead stock</strong> is stock with no movement at all for a long period, often six months or a year. <strong>Aging inventory</strong> is about the age of the stock itself. Days since last movement is the most practical starting point for a location view, because it catches both dead stock and the quiet locations around it, and needs only pick and receipt history.</p>
+
+    <h2 id="data">The data you need</h2>
+    <p>Four tables cover it. Most warehouse management systems (WMS) can export each of them, and many teams already load them into Power BI for other reports.</p>
+    <div class="table-scroll" role="region" aria-label="Tables for a slow-moving inventory report" tabindex="0">
+    <table class="sample-fields">
+      <thead><tr><th scope="col">Table</th><th scope="col">Grain</th><th scope="col">Key columns</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Locations</th><td>One row per storage location</td><td>Location ID, zone, aisle, level, and X, Y, Z coordinates</td></tr>
+        <tr><th scope="row">Inventory</th><td>On hand by location and SKU, as of the latest snapshot</td><td>Location ID, SKU, quantity</td></tr>
+        <tr><th scope="row">Picks</th><td>One row per pick or pick line</td><td>Location ID, SKU, pick date, units</td></tr>
+        <tr><th scope="row">Receipts</th><td>One row per putaway into a location</td><td>Location ID, SKU, receipt date, units</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>Relate Inventory, Picks, and Receipts to Locations on Location ID, and Picks and Receipts to a Date table. Keeping Locations as its own table matters: it is what lets empty locations appear on the map instead of disappearing from it. If you don't have coordinates for your locations yet, the <a href="/warehouse-heatmap/guides/warehouse-heat-map-power-bi/#coordinates">warehouse heat map guide</a> explains how to get them from a CAD drawing.</p>
+    <p>One caution: a location can hold more than one SKU. The measures below work per location, so a location counts as slow only when nothing in it has moved. If you need the SKU-level view as well, put SKU in the tooltip or a table beside the map.</p>
+
+    <h2 id="measures">DAX measures for slow-moving stock</h2>
+    <p>Start with the stock on hand and the last time anything moved in or out of the location. Removing the date filter lets the history reach back past whatever period the report is showing.</p>
+<pre><code>On Hand Units = SUM ( Inventory[Quantity] )
+
+Last Movement Date =
+VAR LastPick =
+    CALCULATE ( MAX ( Picks[Pick Date] ), REMOVEFILTERS ( 'Date' ) )
+VAR LastReceipt =
+    CALCULATE ( MAX ( Receipts[Receipt Date] ), REMOVEFILTERS ( 'Date' ) )
+RETURN
+    MAX ( LastPick, LastReceipt )
+
+Days Since Last Movement =
+VAR LastMove = [Last Movement Date]
+RETURN
+    IF (
+        [On Hand Units] &gt; 0 &amp;&amp; NOT ISBLANK ( LastMove ),
+        DATEDIFF ( LastMove, TODAY (), DAY )
+    )</code></pre>
+    <p>Empty locations return blank rather than zero, which keeps them out of the color scale. For days of supply, divide what is on hand by the recent pick rate. Ninety days smooths out a busy week without hiding a seasonal change.</p>
+<pre><code>Avg Daily Units Picked (90 days) =
+DIVIDE (
+    CALCULATE (
+        SUM ( Picks[Units] ),
+        DATESINPERIOD ( 'Date'[Date], TODAY (), -90, DAY )
+    ),
+    90
+)
+
+Days of Supply =
+DIVIDE ( [On Hand Units], [Avg Daily Units Picked (90 days)] )</code></pre>
+    <p>A location with stock but no picks in 90 days returns blank days of supply, because there is no rate to divide by. That is dead stock, and days since last movement already catches it. Finally, a score that turns the aging into bands is useful for ranking:</p>
+<pre><code>Slow-Moving Score =
+VAR Days = [Days Since Last Movement]
+RETURN
+    SWITCH (
+        TRUE (),
+        Days &gt;= 365, 3,
+        Days &gt;= 180, 2,
+        Days &gt;= 90, 1
+    )</code></pre>
+    <p>The 90, 180, and 365 day bands are common starting points, not rules. A spare parts warehouse may consider a year normal; a food distributor may treat 30 days as old. Agree on the bands with the people who will act on the report, and if they differ by zone or product family, calculate the thresholds in DAX instead of hard-coding them.</p>
+
+    <h2 id="map-it">Put slow-moving stock on the warehouse map</h2>
+    <p>Power BI has no built-in visual that draws a warehouse, so this step uses <a href="/warehouse-heatmap/">Unclocked 3D Heatmap</a>, a certified custom visual that places every location at its coordinates and colors it by a measure. The free plan covers up to 2,500 locations.</p>
+    <ol>
+      <li>Add <strong>Location ID</strong> and the X and Y coordinates from the Locations table, and Z if your racks have levels. No coordinates yet? The visual's layout builder lets you draw racks over a floor plan instead.</li>
+      <li>Put <strong>Days Since Last Movement</strong> in <strong>Heat Value</strong>. Locations that have sat longest stand out at the hot end of the scale.</li>
+      <li>Add <strong>On Hand Units</strong>, <strong>Last Movement Date</strong>, and <strong>Days of Supply</strong> to <strong>Tooltip measures</strong>, so hovering a location explains its color.</li>
+      <li>In <strong>Heat scale</strong>, set the thresholds to your bands. To keep them in one place, set <strong>Threshold source</strong> to <strong>Measures</strong> and bind DAX measures to the Low, Medium, High, and Critical thresholds, for example 30, 90, 180, and 365 days.</li>
+      <li>Turn on the <strong>exception finder</strong> and rank by <strong>Slow-Moving Score</strong>. Select a result and use <strong>Focus in 3D</strong> to frame it.</li>
+      <li>Add zone or product family as a category filter, and use the <strong>cutaway</strong> to look at one rack level at a time. Ground-level pick faces are usually where slow stock costs the most.</li>
+    </ol>
+    <p>With a Professional license, add the snapshot date to the <strong>Time</strong> field and play the map back month by month. Watching a zone cool down over a quarter often explains it faster than any table: a promotion ended, a customer left, or a product line was replaced and nobody cleared its locations.</p>
+
+    <h2 id="patterns">Reading the patterns</h2>
+    <ul>
+      <li><strong>Hot spots near the dock or in prime pick faces.</strong> The most expensive kind of slow stock. These are the first candidates for moving to reserve storage, which frees space for fast movers.</li>
+      <li><strong>A whole aisle or bay running hot.</strong> Usually one cause: a discontinued product line, a lost customer, or a seasonal range out of season. Treat it as one decision, not dozens of separate SKUs.</li>
+      <li><strong>Single hot locations scattered everywhere.</strong> Remnants and partial pallets. Consolidating them is often the quickest way to recover locations.</li>
+      <li><strong>Upper levels running hot.</strong> Often by design: reserve stock is supposed to sit. Compare against days of supply before acting on it.</li>
+      <li><strong>Hot locations with very little on hand.</strong> A few units that never move still occupy a whole location. Check the tooltip; these are cheap to clear.</li>
+    </ul>
+
+    <h2 id="act">Turning the map into action</h2>
+    <p>The map is most useful as part of a routine. A weekly or monthly review works well: open the report on the slow-moving view, work through the exception list from the highest score down, and decide for each cluster whether to consolidate, re-slot, return to vendor, discount, or write off. Then review the reorder points that created the overstock, so the same locations don't fill up again.</p>
+    <p>Re-slotting deserves its own pass. Once slow stock leaves the prime locations, switch the heat value to picks over the last four weeks and look for fast movers sitting in poor locations. Those are the candidates to move into the space you just freed.</p>
+
+    <h2 id="checklist">Before you share it</h2>
+    <ul>
+      <li>The inventory snapshot and the pick history cover the same locations and use the same Location IDs.</li>
+      <li>Pick history goes back further than your longest band, or old stock will look newer than it is.</li>
+      <li>Empty locations show as empty, not as zero days.</li>
+      <li>Bands are agreed with the team that will act on them, and noted on the report page.</li>
+      <li>The report opens on one zone or level, rather than every location at once.</li>
+    </ul>
+
+    <div class="app-summary">
+      <h2>See where your slow stock sits</h2>
+      <p>Unclocked 3D Heatmap is free on Microsoft Marketplace for up to 2,500 locations. Download the sample report to try it with stock-age data before connecting your own. If your layout only exists in AutoCAD, we can map it for you.</p>
+      <div class="button-row"><a class="btn-primary" href="https://marketplace.microsoft.com/en-us/product/unclockedstudiosllc1780535695675.unclocked-3d-heatmap?ocid=unclocked_website&amp;utm_source=unclocked.app&amp;utm_medium=website&amp;utm_campaign=warehouse_heatmap&amp;utm_content=article_slow_moving">Install free on Marketplace <span aria-hidden="true">↗</span></a><a class="btn-secondary" href="/assets/warehouse-3d/unclocked-sample-data.pbix" download>Download sample report</a></div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div><a class="brand" href="/"><img src="/assets/unclocked-logo-v2-128.png" alt="" width="34" height="34" decoding="async"><span class="brand-name">Unclocked Studios</span></a><p>Thoughtful tools. Practical possibilities.</p></div>
+        <div class="footer-links">
+          <div><strong>Explore</strong><a href="/products/">All products</a><a href="/articles/">Articles</a><a href="/warehouse-heatmap/">3D Heatmap</a><a href="/warehouse-heatmap/guide/">3D Heatmap guide</a><a href="/warehouse-heatmap/faq/">3D Heatmap FAQ</a><a href="/warehouse-heatmap/changelog/">3D Heatmap changelog</a><a href="/products/loopdeck/">LoopDeck</a><a href="/products/twenty5/">twenty5</a><a href="/products/frame64/">Frame64</a></div>
+          <div><strong>Get in touch</strong><a href="/warehouse-heatmap/mapping/">Request warehouse mapping</a><a href="/support/">Support Hub</a><a href="/warehouse-heatmap/support/">3D Heatmap support</a><a href="/loopdeck/">LoopDeck support</a><a href="/twenty5/support/">twenty5 support</a><a href="/frame64/">Frame64 support</a><a href="mailto:support@unclocked.app">support@unclocked.app</a></div>
+          <div><strong>Policies</strong><a href="/warehouse-heatmap/privacy/">3D Heatmap privacy</a><a href="/loopdeck/privacy/">LoopDeck privacy</a><a href="/twenty5/privacy/">twenty5 privacy</a><a href="/twenty5/tos/">twenty5 terms</a><a href="/frame64/privacy/">Frame64 privacy</a></div>
+        </div>
+      </div>
+      <div class="footer-bottom"><span>© 2026 Unclocked Studios LLC. All rights reserved.</span><a href="/#approach">Our approach</a></div>
+    </div>
+  </footer>
+</body>
+
+</html>

@@ -198,7 +198,9 @@ card, newest first, and its `ItemList` JSON-LD names each one; `tests/content.te
 if an article is missing from it. Each article's breadcrumb leads back to `/articles/`.
 Write them to stay true across visual versions; link version-specific details to the guide.
 The first is `warehouse-heat-map-power-bi/`, targeting searches for building a warehouse heat
-map in Power BI.
+map in Power BI. The second is `slow-moving-inventory-power-bi/` (slow-moving, dead, and aging
+inventory by location, with DAX). Write one article per search intent rather than repeating
+keywords across pages.
 
 ### 3D Heatmap plans
 
