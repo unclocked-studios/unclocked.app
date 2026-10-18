@@ -83,7 +83,7 @@
     </div>
 
     <h2 id="the-question">The question a table can't answer</h2>
-    <p>Picture a slotting review. The inventory report shows the oldest stock in the building, sorted by days on hand, and every row is a location ID: 14-03-C, 14-05-B, 15-02-A. The list is accurate, but it hides the pattern that matters. Most of those pallets sit in two aisles, three levels up, directly across from the fastest-moving pick faces in the warehouse.</p>
+    <p>Picture a slotting review. The inventory report shows the oldest stock in the building, sorted by days on hand, and every row is a location ID: <code>14-03-C</code>, <code>14-05-B</code>, <code>15-02-A</code>. The list is accurate, but it hides the pattern that matters. Most of those pallets sit in two aisles, three levels up, directly across from the fastest-moving pick faces in the warehouse.</p>
     <p>Nobody can see that from a table, because a location ID describes a place without showing it. A warehouse heat map does the opposite. It draws every storage location where it physically stands and colors it by a measure, so concentrations, gaps, and outliers become visible at a glance. Aging stock, pick density, replenishment pressure, and capacity all read differently once they are laid over the floor.</p>
     <p>For most operations teams, the data for this already lives in Power BI. Inventory snapshots, pick lines, and replenishment tasks arrive from the WMS every night. The missing piece is the warehouse itself.</p>
 
@@ -102,18 +102,13 @@
     <p>Deneb is the most flexible option. It is a certified custom visual that renders charts from Vega and Vega-Lite specifications, so a skilled author can draw rectangles at real coordinates, size them from the data, and layer an image underneath.</p>
     <p>The cost is code. Every part of the visual, from the scales and marks to the tooltips and interactions, is written and maintained as a JSON specification. Search, level filtering, saved views, and anything resembling 3D have to be built by hand, and the specification usually ends up understood by one person on the team. For a proof of concept, Deneb can be a good fit. For a report that operations relies on every day, it becomes a small software project.</p>
 
-    <div class="table-scroll" role="region" aria-label="Comparison of warehouse heat map approaches" tabindex="0">
-    <table class="sample-fields">
-      <caption>Warehouse heat map options in Power BI</caption>
-      <thead><tr><th scope="col">Approach</th><th scope="col">CAD layout behind the data</th><th scope="col">Rack levels</th><th scope="col">Location sizes</th><th scope="col">Effort to build and maintain</th></tr></thead>
-      <tbody>
-        <tr><th scope="row">Scatter chart</th><td>Possible, aligned by hand</td><td>Levels overlap</td><td>Same-size markers</td><td>Low to start, fiddly to align</td></tr>
-        <tr><th scope="row">Shape Map</th><td>Not supported</td><td>Flat, one map per level</td><td>From hand-drawn shapes</td><td>High: draw and convert every shape</td></tr>
-        <tr><th scope="row">Deneb</th><td>Possible, with code</td><td>With custom code</td><td>With custom code</td><td>High: write and maintain the specification</td></tr>
-        <tr><th scope="row">Unclocked 3D Heatmap</th><td>Yes, aligned to your coordinates</td><td>Stacked in 3D, or one level in 2D</td><td>From your data</td><td>Low once coordinates exist</td></tr>
-      </tbody>
-    </table>
-    </div>
+    <h3>The options at a glance</h3>
+    <ul>
+      <li><strong>Scatter chart:</strong> the CAD layout can sit behind the data but is aligned by hand, rack levels overlap, and every marker is the same size. Low effort to start, fiddly to align.</li>
+      <li><strong>Shape Map:</strong> no background layout, flat with one map per level, and sizes come from hand-drawn shapes. High effort: draw and convert every shape.</li>
+      <li><strong>Deneb:</strong> layout, levels, and sizes are all possible with custom code. High effort: write and maintain the specification.</li>
+      <li><strong>Unclocked 3D Heatmap:</strong> the CAD layout is aligned to your coordinates, levels stack in 3D or show one at a time in 2D, and sizes come from your data. Low effort once coordinates exist.</li>
+    </ul>
     <p>The workarounds share a root problem. None of them start from what a warehouse already has, which is a list of locations with positions and sizes. That is the gap we built for.</p>
 
     <h2 id="closing-the-gap">Closing the gap: coordinates and a visual built for warehouses</h2>
@@ -124,17 +119,8 @@
 
     <h2 id="location-table">Start with a location table</h2>
     <p>Every approach above comes down to the same foundation: a table with one row per bin, slot, or pallet position, describing where that location is.</p>
-    <div class="table-scroll" role="region" aria-label="Example location table" tabindex="0">
-    <table class="sample-fields">
-      <caption>A location table for three bins in one aisle, in inches</caption>
-      <thead><tr><th scope="col">Location ID</th><th scope="col">Aisle</th><th scope="col">Level</th><th scope="col">X</th><th scope="col">Y</th><th scope="col">Z</th><th scope="col">Width</th><th scope="col">Length</th><th scope="col">Height</th></tr></thead>
-      <tbody>
-        <tr><td><code>A01-01-A</code></td><td>A01</td><td>A</td><td>0</td><td>0</td><td>0</td><td>40</td><td>48</td><td>48</td></tr>
-        <tr><td><code>A01-01-B</code></td><td>A01</td><td>B</td><td>0</td><td>0</td><td>48</td><td>40</td><td>48</td><td>48</td></tr>
-        <tr><td><code>A01-02-A</code></td><td>A01</td><td>A</td><td>40</td><td>0</td><td>0</td><td>40</td><td>48</td><td>48</td></tr>
-      </tbody>
-    </table>
-    </div>
+    <p>Here is a location table for three bins in one aisle, in inches:</p>
+<pre><code>Location ID,Aisle,Level,X,Y,Z,Width,Length,Height<br>A01-01-A,A01,A,0,0,0,40,48,48<br>A01-01-B,A01,B,0,0,48,40,48,48<br>A01-02-A,A01,A,40,0,0,40,48,48</code></pre>
     <p>X and Y place the location's corner on the floor, and Z is the height of its base, which is what separates one rack level from the next. Width, length, and height are optional, but they let a mixed building read correctly, with floor-stack lanes, pallet positions, and carton-flow slots each drawn at their true size. Choose one unit for every column; mixing feet and inches is the most common reason a first layout comes out stretched or overlapping.</p>
 
     <h2 id="coordinates">Getting coordinates from your CAD drawing</h2>
@@ -142,9 +128,7 @@
     <p><strong>The WMS or a slotting tool.</strong> Some systems store travel-sequence or slotting coordinates for each location. It is worth asking whoever maintains your location master before building anything.</p>
     <p><strong>The AutoCAD drawing.</strong> When racks are drawn as blocks, AutoCAD's <code>DATAEXTRACTION</code> command can export each block's attributes and insertion point to a CSV. Two details deserve attention before loading the result. A block's insertion point is not always the corner of the location, so check whether it needs offsetting by half the width and length. And drawings typically show one block per bay rather than one per level, so each bay needs to be expanded into its levels, each with its own Z. When the drawing doesn't use clean blocks, or the team doesn't have time to untangle it, this is the work our <a href="/warehouse-heatmap/mapping/">mapping service</a> takes on.</p>
     <p><strong>A calculated grid.</strong> Regular racked areas can be calculated from the location ID. With aisles 120 inches apart, 48-inch bays, and 60-inch levels, three custom columns in Power Query place every location:</p>
-<pre><code>X = ([Aisle Number] - 1) * 120
-Y = ([Bay Number] - 1) * 48
-Z = ([Level Number] - 1) * 60</code></pre>
+<pre><code>X = ([Aisle Number] - 1) * 120<br>Y = ([Bay Number] - 1) * 48<br>Z = ([Level Number] - 1) * 60</code></pre>
     <p>Real buildings have columns, cross aisles, and the occasional short rack, so compare the result with the floor plan and correct the exceptions by hand.</p>
 
     <h2 id="data-model">Model the layout once</h2>
@@ -154,21 +138,10 @@ Z = ([Level Number] - 1) * 60</code></pre>
 
     <h2 id="measures">Measures that tell the story</h2>
     <p>Color the map with measures rather than columns, so the warehouse responds to date, client, and zone slicers like every other visual on the page. These four answer most of the questions operations teams bring to a heat map:</p>
-<pre><code>On Hand Units = SUM ( Inventory[Quantity] )
-
-Picks Last 28 Days =
-CALCULATE (
-    COUNTROWS ( PickLines ),
-    DATESINPERIOD ( 'Date'[Date], MAX ( 'Date'[Date] ), -28, DAY )
-)
-
-Location Fill % =
-DIVIDE ( [On Hand Units], SUM ( Layout[Capacity Units] ) )
-
-Days Since Last Pick =
-VAR LastPick = CALCULATE ( MAX ( PickLines[Pick Date] ) )
-RETURN
-    IF ( ISBLANK ( LastPick ), BLANK (), DATEDIFF ( LastPick, TODAY (), DAY ) )</code></pre>
+<pre><code>On Hand Units = SUM ( Inventory[Quantity] )</code></pre>
+<pre><code>Picks Last 28 Days =<br>CALCULATE (<br>&nbsp;&nbsp;&nbsp;&nbsp;COUNTROWS ( PickLines ),<br>&nbsp;&nbsp;&nbsp;&nbsp;DATESINPERIOD ( 'Date'[Date], MAX ( 'Date'[Date] ), -28, DAY )<br>)</code></pre>
+<pre><code>Location Fill % =<br>DIVIDE ( [On Hand Units], SUM ( Layout[Capacity Units] ) )</code></pre>
+<pre><code>Days Since Last Pick =<br>VAR LastPick = CALCULATE ( MAX ( PickLines[Pick Date] ) )<br>RETURN<br>&nbsp;&nbsp;&nbsp;&nbsp;IF ( ISBLANK ( LastPick ), BLANK (), DATEDIFF ( LastPick, TODAY (), DAY ) )</code></pre>
     <p>Rather than building a page for each, give report users a single heat map with a field parameter, or a small disconnected table and a <code>SWITCH</code> measure, so they can move between stock, activity, and fill on the same layout.</p>
 
     <h2 id="build-it">Put it on the floor plan</h2>
