@@ -190,3 +190,28 @@ the Marketplace listing showed version 1.2.0.0, updated October 18, 2026 (checke
   November 1, Get more visuals may add 1.1.0.5; if the Format pane has no Cutaway section,
   check back and restart Power BI Desktop; reports switch to 1.2 on their own.
 - Open: remove the three notices once Get more visuals installs 1.2.0.0.
+
+## 3D Heatmap keywords and slow-moving inventory article — October 18, 2026
+
+- Keyword review of the 3D Heatmap pages. Changes:
+  - Product page: title now leads with "Warehouse Heat Map for Power BI"; description and
+    Open Graph text name inventory, pick activity, slotting, space utilization, and bin location.
+    Use-case section retitled "Inventory, picking, and space, mapped to the floor." with cards
+    for slow-moving inventory, slotting fast movers, and space utilization. Gallery heading now
+    "A 3D warehouse map and 2D floor plan in Power BI."
+  - Guide title: "How to Build a 3D Warehouse Heat Map in Power BI".
+  - FAQ: new questions on inventory tracking (where stock sits, not live counts) and WMS data;
+    the floor plan question now says "heat map over my warehouse floor plan".
+  - Support: new title and description (it was the shortest on the site). Mapping: title and
+    description name AutoCAD (DWG), Power BI, and bin location coordinates.
+  - Left as is: changelog and privacy policy (low search value, legal text), H1s that carry the
+    product name, and FAQPage structured data (Google shows FAQ rich results only for
+    authoritative government and health sites since 2023).
+- New article `/warehouse-heatmap/guides/slow-moving-inventory-power-bi/` (about 1,650 words):
+  why slow stock is a space problem, slow-moving vs dead vs aging stock, the four tables,
+  DAX for last movement, days of supply, and a score, mapping it with the visual, reading the
+  patterns, a review routine, and a checklist. Visual features described match version 1.2
+  (Tooltip measures, threshold measures, exception finder with a DAX score, cutaway, and
+  Professional playback). Listed first on `/articles/`, linked from the product page, the FAQ,
+  and the first article. Keywords: slow-moving inventory, dead stock, aging inventory, days of
+  supply, inventory aging analysis, Power BI, DAX, warehouse heat map, slotting.
